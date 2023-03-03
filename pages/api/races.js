@@ -3,14 +3,14 @@
 import { ObjectId } from "mongodb";
 import clientPromise from "../../lib/mongodb";
 
-const database = "db";
-const collection = "collection";
+const database = "races";
+const collection = "races";
 
 export default async function handler(req, res) {
   const client = await clientPromise;
   const db = client.db(database);
 
-  const bodyObject = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+  const bodyObject = req.body ? typeof req.body === "string" ? JSON.parse(req.body) : req.body : {};
 
   switch (req.method) {
     case "POST":
