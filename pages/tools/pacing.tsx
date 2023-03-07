@@ -67,12 +67,12 @@ export default function Home() {
         return item.value != distance && (!isSplitOption || isInRange);
       });
       const secondList = filteredList.filter((item, index) => {
-        return index >= 11;
+        return index >= 13;
       });
 
       setOutput(
         filteredList
-          .filter((item, index) => index < 11)
+          .filter((item, index) => index < 13)
           .map((dist, index) => {
             return `${Math.floor(dist.value)}: ${outTime(
               (time / distance) * dist.value
@@ -89,12 +89,12 @@ export default function Home() {
     } else {
       let counter = 0;
       const filteredList = outputDistances.filter((item, index) => {
-        const add =
+        const add : boolean =
           item.min <= distance &&
           item.max >= distance &&
           item.value != distance;
         if (add) counter++;
-        return add && counter <= 11;
+        return add && counter <= 13;
       });
       counter = 0;
       const secondList = outputDistances.filter((item, index) => {
@@ -103,7 +103,7 @@ export default function Home() {
           item.max >= distance &&
           item.value != distance;
         if (add) counter++;
-        return add && counter > 11;
+        return add && counter > 13;
       });
       setOutput(
         filteredList.map((dist) => {
@@ -128,11 +128,15 @@ export default function Home() {
     }
   }, [custom]);
 
+  useEffect(() => {
+    console.log(distance)
+  }, [distance])
+
   return (
-    <div className="flex flex-col min-h-screen text-center gap-4 p-4">
+    <div className="flex flex-col min-h-screen gap-4 p-4 text-center">
       <h1 className="text-4xl">Calculate Paces</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="h-3/4 flex flex-col items-center justify-evenly">
+        <div className="flex flex-col items-center h-3/4 justify-evenly">
           <div className="w-full text-2xl ">
             <Dropdown
               value={distance}
@@ -171,9 +175,9 @@ export default function Home() {
             <span className="switch-item"></span>
           </div>
         </div>
-        <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-8 text-xl text-black whitespace-pre-wrap bg-white h-3/4 rounded-3xl">
-          <div className="w-full text-2xl">{output.join("\n")}</div>
-          <div className="w-full text-2xl">{secondOutput.join("\n")}</div>
+        <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
+          <p>{output.join("\n")}</p>
+          <p>{secondOutput.join("\n")}</p>
         </div>
       </div>
     </div>

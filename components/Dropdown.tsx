@@ -1,5 +1,4 @@
-import { type } from "os";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type itemObject = {
   name?: string;
@@ -23,7 +22,9 @@ export default function Dropdown({
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
-  const displayedValue = () => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const displayedValue = (value: string | number | undefined) => {
     if (value) {
       const item = items.find((item) => {
         if (typeof item !== "object") {
@@ -42,20 +43,34 @@ export default function Dropdown({
     }
     return placeholder;
   };
+
+//   register clicks outside of the dropdown
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [dropdownRef]);
+    
   return (
     <div
       className={`relative flex flex-col items-center w-full${
-        open ? "pb-4 " : ""
+        open ? "pb-4" : ""
       }`}
+        ref={dropdownRef}
     >
       <button
-        className={`relative w-full bg-gray-50 text-black rounded-full h-16 ${open && "rounded-b-none"} p-2`}
+        className={`relative w-full bg-gray-50 text-black h-16 ${open ? "rounded-b-none rounded-t-8" : "rounded-full"} p-2`}
         onClick={() => setOpen(!open)}
-        onBlur={() => setOpen(false)}
       >
         <>
-          {displayedValue()}
-          <span className="absolute right-0 h-full transform -translate-y-1/2 top-1/2 aspect-square">
+          {displayedValue(value)}
+          <span className="absolute right-0 h-full p-2 transform -translate-y-1/2 top-1/2 aspect-square">
             <svg
               className={`w-full h-full transition-transform transform ${
                 open ? "rotate-180" : ""
@@ -76,20 +91,22 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 flex-col items-center ${
+        className={`absolute z-50 flex-col items-center text-lg ${
           open ? "flex" : "hidden"
-        } w-full px-4 bg-gray-500 top-full`}
+        } w-full px-4 bg-gray-500 top-full rounded-b-xl pb-2`}
       >
         {items.map((item, index) => (
           <button
-            className="w-full px-4 py-1 hover:bg-gray-600 rounded-md"
+            className="w-full px-4 py-1 rounded-md hover:bg-gray-600"
             key={index}
             onClick={() => {
+                console.log(item);
               if (typeof item !== "object") {
                 setValue(item);
               } else {
                 setValue(item.value);
               }
+                setOpen(false);
             }}
           >
             {typeof item !== "object"

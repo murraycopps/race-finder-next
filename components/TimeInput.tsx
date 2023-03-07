@@ -29,7 +29,7 @@ export default function TimeInput({
           placeholder="Hour"
           name="hour"
           id="hour"
-          className="w-full px-2 py-4 rounded-l-full"
+          className="w-full px-4 py-4 rounded-l-full"
           value={hour ? hour : ""}
           onChange={(event) => {
             if (event.target.value != "")
@@ -37,7 +37,7 @@ export default function TimeInput({
             else setHour(0);
           }}
         />
-        <span className="absolute right-0 z-10 text-4xl bottom-4">:</span>
+        <span className="absolute right-0 z-10 text-4xl translate-x-1/2 bottom-4">:</span>
       </div>
       <div className="relative w-full h-full">
         <input
@@ -45,7 +45,7 @@ export default function TimeInput({
           placeholder="Min"
           name="min"
           id="min"
-          className="w-full px-2 py-4"
+          className="w-full px-4 py-4"
           value={min ? min : ""}
           onChange={(event) => {
             if (event.target.value != "")
@@ -53,14 +53,14 @@ export default function TimeInput({
             else setMin(0);
           }}
         />
-        <span className="absolute right-0 z-10 text-4xl bottom-4">:</span>
+        <span className="absolute right-0 z-10 text-4xl translate-x-1/2 bottom-4">:</span>
       </div>
       <input
         type="number"
         placeholder="Sec"
         name="sec"
         id="sec"
-        className="w-full px-2 py-4 rounded-r-full"
+        className="w-full px-4 py-4 rounded-r-full"
         value={sec ? sec : ""}
         onChange={(event) => {
           if (event.target.value != "") setSec(parseFloat(event.target.value));
