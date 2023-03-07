@@ -15,17 +15,17 @@ export default function IndexPage() {
   return (
     <div className="fixed inset-0 text-center bg-dark">
       <img
-        src="/outer-blob.svg"
+        src="/landing-images/outer-blob.svg"
         alt="outer-blob"
         className="absolute top-0 left-0 w-5/6 sm:w-3/4 md:w-2/3 lg:w-7/12 outer-blob"
       />
       <img
-        src="/inner-blob.svg"
+        src="/landing-images/inner-blob.svg"
         alt="inner-blob"
         className="absolute right-0 w-3/4 sm:w-2/3 md:w-7/12 lg:w-1/2 bottom-16 inner-blob"
       />
       <img
-        src="/yellow-runner.png"
+        src="/landing-images/yellow-runner.png"
         alt="runner"
         className="absolute w-1/3 sm:w-7/24 lg:w-1/4 right-20 bottom-28"
       />
