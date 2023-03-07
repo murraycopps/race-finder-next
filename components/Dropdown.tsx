@@ -16,6 +16,26 @@ type DropdownProps = {
 
 export default function Dropdown({ items, value, setValue, placeholder }: DropdownProps) {
   const [open, setOpen] = useState(false);
+
+  const displayedValue = () => {
+    if (value) {
+        const item = items.find((item) => {
+            if (typeof item === "string" || typeof item === "number") {
+                return item === value
+            } else {
+                return item.value === value
+            }
+        })
+        if(item){
+            if (typeof item === "string" || typeof item === "number") {
+                return item
+            } else {
+                return item.name || item.value
+            }
+        }
+    }
+    return placeholder
+    }
   return (
     <div
       className={`relative flex flex-col items-center w-full ${
@@ -28,11 +48,7 @@ export default function Dropdown({ items, value, setValue, placeholder }: Dropdo
         onBlur={() => setOpen(false)}
       >
         <>
-        {(value && items.find((item) => typeof item === "string" || typeof item === "number" ? (
-            item === value
-        ) : (
-            item.value === value
-        ))) || { placeholder }}
+        {displayedValue()}
         <span className="absolute right-0 h-full transform -translate-y-1/2 top-1/2 aspect-square">
           <svg
             className={`w-full h-full transition-transform transform ${
