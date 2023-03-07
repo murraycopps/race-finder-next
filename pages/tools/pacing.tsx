@@ -173,7 +173,7 @@ export default function Home() {
             <span className="switch-item"></span>
           </div>
         </div>
-        <div className="relative flex flex-row flex-wrap items-start justify-between w-full h-full p-8 text-xl text-black whitespace-pre-wrap bg-white rounded-3xl">
+        <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-8 text-xl text-black whitespace-pre-wrap bg-white h-3/4 rounded-3xl">
           <div className="w-full text-2xl">{output.join("\n")}</div>
           <div className="w-full text-2xl">{secondOutput.join("\n")}</div>
         </div>
