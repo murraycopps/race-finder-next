@@ -90,7 +90,7 @@ export default function Home() {
     } else {
       let counter = 0;
       const filteredList = outputDistances.filter((item, index) => {
-        const add : boolean =
+        const add: boolean =
           item.min <= distance &&
           item.max >= distance &&
           item.value != distance;
@@ -130,44 +130,48 @@ export default function Home() {
   }, [custom]);
 
   useEffect(() => {
-    console.log(distance)
-  }, [distance])
+    console.log(distance);
+  }, [distance]);
 
   return (
     <div className="flex flex-col min-h-screen gap-4 p-4 text-center">
       <h1 className="text-4xl">Calculate Paces</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
         <div className="flex flex-col items-center h-3/4 justify-evenly">
-          <div className="w-full text-2xl ">
+          {isCustomOpen ? (
+            <div className="flex flex-row items-center justify-center w-full gap-2 bg-white rounded-full overlay">
+              <input
+                type="number"
+                placeholder="Custom Distance"
+                className="p-4 text-3xl text-black bg-white rounded-full grow"
+                onChange={(e) => setCustom(parseFloat(e.target.value))}
+              />
+              <img
+                src="/ban-icon.svg"
+                onClick={() => {
+                  setIsCustomOpen(false);
+                  setCustom(0);
+                  setDistance(0);
+                }}
+                className="w-16 h-16 pr-2 cursor-pointer"
+              />
+            </div>
+          ) : (
             <Dropdown
-              value={distance}
-              items={inputDistances}
-              placeholder="Distance"
-              setValue={(value) => {
-                setDistance(parseFloat(value.toString()));
-              }}
-            />
-            {isCustomOpen && (
-              <div className="w-full overlay">
-                <input
-                  type="number"
-                  placeholder="Custom Distance"
-                  className="input custom"
-                  onChange={(e) => setCustom(parseFloat(e.target.value))}
-                />
-                <img
-                  src="/ban-icon"
-                  onClick={() => {
-                    setIsCustomOpen(false);
-                    setCustom(0);
-                    setDistance(0);
-                  }}
-                />
-              </div>
-            )}
-          </div>
+            value={distance}
+            items={inputDistances}
+            placeholder="Distance"
+            setValue={(value) => {
+              setDistance(parseFloat(value.toString()));
+            }}
+          />
+          )}
           <TimeInput time={time} setTime={setTime} />
-          <Switch state={isLong} setState={setIsLong} options={["Show Less", "Show More"]} />
+          <Switch
+            state={isLong}
+            setState={setIsLong}
+            options={["Show Less", "Show More"]}
+          />
         </div>
         <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
           <p>{output.join("\n")}</p>
