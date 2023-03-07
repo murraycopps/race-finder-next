@@ -1,41 +1,47 @@
+import { type } from "os";
 import { useState } from "react";
 
-type items =
-  | {
-      name?: string;
-      value: number | string;
-    }
-  | string
-  | number;
+type itemObject = {
+  name?: string;
+  value: number | string;
+};
+
+type item = itemObject | string | number;
+
 type DropdownProps = {
-  items: items[];
+  items: item[];
   value?: string | number;
   placeholder?: string;
   setValue: (value: string | number) => void;
 };
 
-export default function Dropdown({ items, value, setValue, placeholder }: DropdownProps) {
+export default function Dropdown({
+  items,
+  value,
+  setValue,
+  placeholder,
+}: DropdownProps) {
   const [open, setOpen] = useState(false);
 
   const displayedValue = () => {
     if (value) {
-        const item = items.find((item) => {
-            if (typeof item === "string" || typeof item === "number") {
-                return item === value
-            } else {
-                return item.value === value
-            }
-        })
-        if(item){
-            if (typeof item === "string" || typeof item === "number") {
-                return item
-            } else {
-                return item.name || item.value
-            }
+      const item = items.find((item) => {
+        if (typeof item !== "object") {
+          return item === value;
+        } else {
+          return item.value === value;
         }
+      });
+      if (item) {
+        if (typeof item !== "object") {
+          return item;
+        } else {
+          return item.name || item.value;
+        }
+      }
     }
-    return placeholder
-    }
+    return placeholder;
+  };
   return (
     <div
       className={`relative flex flex-col items-center w-full ${
@@ -48,25 +54,25 @@ export default function Dropdown({ items, value, setValue, placeholder }: Dropdo
         onBlur={() => setOpen(false)}
       >
         <>
-        {displayedValue()}
-        <span className="absolute right-0 h-full transform -translate-y-1/2 top-1/2 aspect-square">
-          <svg
-            className={`w-full h-full transition-transform transform ${
-              open ? "rotate-180" : ""
-            }`}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7 10L12 15L17 10"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+          {displayedValue()}
+          <span className="absolute right-0 h-full transform -translate-y-1/2 top-1/2 aspect-square">
+            <svg
+              className={`w-full h-full transition-transform transform ${
+                open ? "rotate-180" : ""
+              }`}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 10L12 15L17 10"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
         </>
       </button>
       <div
@@ -79,14 +85,14 @@ export default function Dropdown({ items, value, setValue, placeholder }: Dropdo
             className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
             key={index}
             onClick={() => {
-              if (typeof item === "string" || typeof item === "number") {
+              if (typeof item !== "object") {
                 setValue(item);
               } else {
                 setValue(item.value);
               }
             }}
           >
-            {typeof item === "string" || typeof item === "number"
+            {typeof item !== "object"
               ? item
               : item.name || item.value}
           </button>
