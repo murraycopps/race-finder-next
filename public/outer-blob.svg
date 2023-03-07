@@ -1,0 +1,8 @@
+<svg width="373" height="183" viewBox="0 0 373 183" fill="none" xmlns="http://www.w3.org/2000/svg">
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(37)">
+      <stop offset="0%" style="stop-color:rgb(73,46,73);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(42,24,42);stop-opacity:1" />
+    </linearGradient>
+<path d="M89.9648 152.835C89.9648 152.835 27.4949 147.607 0 183V0H373C359.578 7.06806 350.568 8.75976 338.631 18.0989C323.852 29.6625 322.469 42.9979 308.306 55.3022C293.111 68.5038 282.306 73.3853 263.829 81.4451C242.426 90.7815 227.322 87.5599 206.211 97.533C178.533 110.609 173.339 135.36 144.55 145.797C124.354 153.118 89.9648 152.835 89.9648 152.835Z" fill="url(#grad1)"/>
+</svg>
+<!-- 382a38 -->

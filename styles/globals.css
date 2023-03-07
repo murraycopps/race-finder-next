@@ -2,14 +2,27 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-* {
-  box-sizing: border-box;
+:root{
+  --dark-base: rgb(9, 5, 23);
 }
 
 body,
 html {
   background-color: rgb(31 41 55);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   color: #f7fafc;
 }
+
+.card-width{
+  width: clamp(500px, 75vw, 800px);
+}
+
+.bg-dark{
+  background-color: var(--dark-base);
+}
+
+.text-shadow-dark{
+  text-shadow: 0 0 15px var(--dark-base);
+}
+
+
