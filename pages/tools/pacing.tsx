@@ -129,11 +129,11 @@ export default function Home() {
   }, [custom]);
 
   return (
-    <>
-      <div className="title-box">
+    <div className="flex flex-col min-h-screen text-center">
+      <div className="w-full title-box">
         <h1 className="title">Calculate Paces</h1>
       </div>
-      <div className="content-box">
+      <div className="grid grid-cols-2 grow place-items-center">
         <div className="input-box">
           <div className="input-box-content no-border">
             <Dropdown
@@ -173,11 +173,11 @@ export default function Home() {
             <span className="switch-item"></span>
           </div>
         </div>
-        <div className="output">
-          <div className="output-text">{output.join("\n")}</div>
-          <div className="output-text">{secondOutput.join("\n")}</div>
+        <div className="relative flex flex-row flex-wrap items-start justify-between w-full h-full p-8 text-xl text-black whitespace-pre-wrap bg-white rounded-3xl">
+          <div className="w-full text-2xl">{output.join("\n")}</div>
+          <div className="w-full text-2xl">{secondOutput.join("\n")}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
