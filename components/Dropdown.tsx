@@ -2,17 +2,19 @@ import { useState } from "react";
 
 type items =
   | {
-      name: string;
+      name?: string;
       value: number | string;
     }
-  | string | number;
+  | string
+  | number;
 type DropdownProps = {
   items: items[];
-  value: string | number;
+  value?: string | number;
+  placeholder?: string;
   setValue: (value: string | number) => void;
 };
 
-export default function Dropdown({ items, value, setValue }: DropdownProps) {
+export default function Dropdown({ items, value, setValue, placeholder }: DropdownProps) {
   const [open, setOpen] = useState(false);
   return (
     <div
@@ -25,7 +27,12 @@ export default function Dropdown({ items, value, setValue }: DropdownProps) {
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
       >
-        Shoes
+        <>
+        {(value && items.find((item) => typeof item === "string" || typeof item === "number" ? (
+            item === value
+        ) : (
+            item.value === value
+        ))) || { placeholder }}
         <span className="absolute right-0 h-full transform -translate-y-1/2 top-1/2 aspect-square">
           <svg
             className={`w-full h-full transition-transform transform ${
@@ -44,6 +51,7 @@ export default function Dropdown({ items, value, setValue }: DropdownProps) {
             />
           </svg>
         </span>
+        </>
       </button>
       <div
         className={`absolute z-50 flex-col items-center ${
@@ -58,11 +66,13 @@ export default function Dropdown({ items, value, setValue }: DropdownProps) {
               if (typeof item === "string" || typeof item === "number") {
                 setValue(item);
               } else {
-                setValue(item.name);
+                setValue(item.value);
               }
             }}
           >
-            {typeof item === "string" || typeof item === "number" ? item : item.name}
+            {typeof item === "string" || typeof item === "number"
+              ? item
+              : item.name || item.value}
           </button>
         ))}
       </div>
