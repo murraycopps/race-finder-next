@@ -44,12 +44,12 @@ export default function Dropdown({
   };
   return (
     <div
-      className={`relative flex flex-col items-center w-full ${
+      className={`relative flex flex-col items-center w-full${
         open ? "pb-4 " : ""
       }`}
     >
       <button
-        className="relative w-3/4"
+        className={`relative w-full bg-gray-50 text-black rounded-full h-16 ${open && "rounded-b-none"} p-2`}
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
       >
@@ -66,7 +66,7 @@ export default function Dropdown({
             >
               <path
                 d="M7 10L12 15L17 10"
-                stroke="white"
+                stroke="black"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -78,11 +78,11 @@ export default function Dropdown({
       <div
         className={`absolute z-50 flex-col items-center ${
           open ? "flex" : "hidden"
-        } w-full gap-2 px-4 bg-gray-500 top-full`}
+        } w-full px-4 bg-gray-500 top-full`}
       >
         {items.map((item, index) => (
           <button
-            className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+            className="w-full px-4 py-1 hover:bg-gray-600 rounded-md"
             key={index}
             onClick={() => {
               if (typeof item !== "object") {
