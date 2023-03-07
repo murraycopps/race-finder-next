@@ -1,4 +1,17 @@
 export default function IndexPage() {
+  const moveGradient = (e: any) => {
+    // get the button element
+    const button = e.target;
+    // get the button's bounding rectangle
+    const rect = button.getBoundingClientRect();
+    // get the x and y coordinates of the mouse relative to the button
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    // set the css variables to the x and y coordinates
+    button.style.setProperty("--bg-x-pos", `${x}px`);
+    button.style.setProperty("--bg-y-pos", `${y}px`);
+  };
+
   return (
     <div className="fixed inset-0 text-center bg-dark">
       <img
@@ -18,13 +31,14 @@ export default function IndexPage() {
       />
       <div className="relative z-10 flex flex-col items-center justify-center w-2/3 h-full col-span-2 gap-16 p-4">
         <h1 className="text-8xl text-shadow-dark">Runner's Hub</h1>
-        <p className="text-3xl text-shadow-dark">
+        <p className="w-3/4 text-3xl text-shadow-dark">
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
         </p>
         <a
           href="/races"
-          className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600"
+          className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
+          onMouseMove={moveGradient}
         >
           Join Now!
         </a>

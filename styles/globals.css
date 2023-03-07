@@ -11,6 +11,8 @@ html {
   background-color: rgb(31 41 55);
   min-height: 100vh;
   color: #f7fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .card-width{
@@ -26,3 +28,13 @@ html {
 }
 
 
+/* .home-button:hover{
+  --bg-y-pos: 50%;
+  --bg-x-pos: 50%;
+  background: radial-gradient(
+      circle at var(--bg-x-pos) var(--bg-y-pos),
+      rgb(207, 27, 66) 0%,
+      rgb(228, 41, 82) 20%,
+      rgb(244, 63, 94) 100%
+  );
+} */
