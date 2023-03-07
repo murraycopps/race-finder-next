@@ -22,7 +22,7 @@ export default function TimeInput({
     setSec(time % 60);
   }, [time]);
   return (
-    <div className="grid grid-cols-3 text-2xl text-black">
+    <div className="grid grid-cols-3 text-3xl text-black">
       <div className="relative w-full h-full">
         <input
           type="number"

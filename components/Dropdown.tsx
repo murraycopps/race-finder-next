@@ -65,7 +65,7 @@ export default function Dropdown({
         ref={dropdownRef}
     >
       <button
-        className={`relative w-full bg-gray-50 text-black h-16 ${open ? "rounded-b-none rounded-t-8" : "rounded-full"} p-2`}
+        className={`relative w-full text-3xl text-left pl-8 p-4 bg-gray-50 text-black ${open ? "rounded-b-none dropdown-rounded" : "rounded-full"}`}
         onClick={() => setOpen(!open)}
       >
         <>

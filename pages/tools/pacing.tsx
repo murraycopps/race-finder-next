@@ -1,4 +1,5 @@
 import Dropdown from "@/components/Dropdown";
+import Switch from "@/components/Switch";
 import TimeInput from "@/components/TimeInput";
 import { outTime } from "@/scripts";
 import { useEffect, useState } from "react";
@@ -166,14 +167,7 @@ export default function Home() {
             )}
           </div>
           <TimeInput time={time} setTime={setTime} />
-
-          <div
-            className={`switch ${isLong ? "left" : "right"}`}
-            onClick={() => setIsLong(!isLong)}
-          >
-            {isLong ? "Show Less" : "Show More"}
-            <span className="switch-item"></span>
-          </div>
+          <Switch state={isLong} setState={setIsLong} options={["Show Less", "Show More"]} />
         </div>
         <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
           <p>{output.join("\n")}</p>

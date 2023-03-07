@@ -39,9 +39,9 @@ html {
   );
 } */
 
-.rounded-t-8{
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+.dropdown-rounded{
+  border-top-left-radius: 2.25rem;
+  border-top-right-radius: 2.25rem;
 }
 
 .output{
