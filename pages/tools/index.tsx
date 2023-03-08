@@ -1,8 +1,9 @@
+import PageWrapper from "@/components/PageWrapper";
 import Link from "next/link";
 
 export default function Tools() {
   return (
-    <div className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800">
+    <PageWrapper page="Tools" className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800">
       <div className="px-16 py-4 m-4 text-center bg-gray-700 rounded-lg">
         <h1 className="text-3xl">Tools</h1>
       </div>
@@ -18,6 +19,6 @@ export default function Tools() {
       >
         vdot
       </Link>
-    </div>
+    </PageWrapper>
   );
 }
