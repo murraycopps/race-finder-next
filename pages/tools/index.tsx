@@ -25,6 +25,12 @@ export default function Tools() {
       >
         unusual
       </Link>
+      <Link
+        href="/tools/convert"
+        className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+      >
+        convert
+      </Link>
     </PageWrapper>
   );
 }
