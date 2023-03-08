@@ -88,7 +88,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
+        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 rounded-3xl">
           <p>{output.join("\n")}</p>
         </div>
       </div>
