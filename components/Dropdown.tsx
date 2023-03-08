@@ -22,7 +22,7 @@ export default function Dropdown({
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  // const dropdownRef = useRef<HTMLDivElement>(null);
 
   const displayedValue = (value: string | number | undefined) => {
     if (value) {
@@ -45,35 +45,36 @@ export default function Dropdown({
   };
 
   //   register clicks outside of the dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target as Node)
+  //     ) {
+  //       setOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [dropdownRef]);
 
   return (
     <div
       className="relative flex flex-col items-center w-full"
-      ref={dropdownRef}
+      // ref={dropdownRef}
     >
       <button
         className={`relative w-full text-3xl text-left pl-8 p-4 bg-gray-50 text-black ${
           open ? "rounded-b-none dropdown-rounded" : "rounded-full transition-delayed"
         }`}
         onClick={() => setOpen(!open)}
+        onBlur={() => setOpen(false)}
       >
         <>
           {displayedValue(value)}
-          <span className="absolute right-0 h-full p-2 -translate-y-1/2 top-1/2 aspect-square">
+          <span className="absolute right-0 h-full p-2 overflow-hidden -translate-y-1/2 rounded-full top-1/2 aspect-square">
             <svg
               className={`w-full h-full transition-all-300 ${
                 open ? "rotate-180" : "transition-delayed"
@@ -94,9 +95,9 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 flex flex-col items-center text-lg transition-all-300 ${
+        className={`absolute z-50 flex text-2xl flex-col max-h-64 overflow-y-scroll items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
-        } w-full px-4 bg-gray-500 top-full rounded-b-xl pb-2`}
+        } w-full px-4 bg-gray-500 top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-gray-500 border-2 scrollbar-m-b-2`}
       >
         {items.map((item, index) => (
           <button
@@ -109,7 +110,6 @@ export default function Dropdown({
               } else {
                 setValue(item.value);
               }
-              setOpen(false);
             }}
           >
             {typeof item !== "object" ? item : item.name || item.value}
