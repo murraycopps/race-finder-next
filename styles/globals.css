@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --dark-base: rgb(9, 5, 23);
 }
 
@@ -11,22 +11,20 @@ html {
   background-color: rgb(31 41 55);
   min-height: 100vh;
   color: #f7fafc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.card-width{
+.card-width {
   width: clamp(500px, 75vw, 800px);
 }
 
-.bg-dark{
+.bg-dark {
   background-color: var(--dark-base);
 }
 
-.text-shadow-dark{
+.text-shadow-dark {
   text-shadow: 0 0 15px var(--dark-base);
 }
-
 
 /* .home-button:hover{
   --bg-y-pos: 50%;
@@ -39,12 +37,12 @@ html {
   );
 } */
 
-.dropdown-rounded{
+.dropdown-rounded {
   border-top-left-radius: 2.25rem;
   border-top-right-radius: 2.25rem;
 }
 
-.output{
+.output {
   min-height: 30rem;
 }
 
@@ -60,7 +58,6 @@ html {
   border-right: 0.75rem solid transparent;
   border-bottom: 0.75rem solid #ef4444;
 }
-
 
 .transition-all-300 {
   transition: all 0.3s ease-in-out;
@@ -83,9 +80,9 @@ html {
 }
 
 .circle-clip-hidden {
-  clip-path: circle(0% at 100% 0);
+  clip-path: circle(0% at 0 0);
 }
 
 .circle-clip-visible {
-  clip-path: circle(150% at 100% 0);
+  clip-path: circle(150% at 0 0);
 }

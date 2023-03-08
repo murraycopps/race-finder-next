@@ -122,7 +122,7 @@ export default function VDOT() {
           />
           <TimeInput time={time} setTime={setTime} />
           {outOfRange && (
-            <div className="absolute p-2 text-lg text-white bg-red-500 rounded-lg error z-100">Time is out of range</div>
+            <div className="absolute z-50 p-2 text-lg text-white bg-red-500 rounded-lg error">Time is out of range</div>
           )}
           <Switch
             options={["Race Times", "Training Times"]}

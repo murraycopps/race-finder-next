@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       <button
-        className={`fixed z-50 flex flex-col justify-between w-12 h-10 px-1 py-2 rounded-lg right-4 top-4 nav-button ${
+        className={`fixed z-110 flex flex-col justify-between w-12 h-10 px-1 py-2 rounded-lg left-4 top-4 nav-button ${
           open ? "open" : ""
         }`}
         onClick={() => setOpen(!open)}
