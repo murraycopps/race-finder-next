@@ -1,9 +1,11 @@
+import PageWrapper from "@/components/PageWrapper";
+
 export default function Reviews() {
   return (
-    <div className="flex flex-col h-screen w-screen items-center justify-center gap-4">
-      <img src="/images/reviewlanding.jpg" alt="Reviews" className="fixed top-0 cover bottom-16 opacity-20"/>
-        <h1 className="text-8xl text-orange-500" >Reviews</h1>
-        <div className=" flex flex-row gap-4">
+    <PageWrapper page="Reviews" className="flex flex-col items-center justify-center w-screen h-screen gap-4">
+      <img src="/images/review-landing.jpg" alt="Reviews" className="fixed top-0 cover bottom-16 opacity-20"/>
+        <h1 className="text-orange-500 text-8xl" >Reviews</h1>
+        <div className="flex flex-row gap-4 ">
 
         <a>
     <p>Reviews page</p>
@@ -15,6 +17,6 @@ export default function Reviews() {
         </a>
         </div>
 
-    </div>
+    </PageWrapper>
   );
 }
