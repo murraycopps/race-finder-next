@@ -58,7 +58,6 @@ export default function Scoring() {
             <>
               {custom ? (
                 <>
-                  {" "}
                   <input
                     type="number"
                     placeholder="Custom Distance"
@@ -123,7 +122,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="1st Place"
                 name="1st"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 0)}
               />
 
@@ -132,7 +131,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="2nd Place"
                 name="2nd"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 1)}
               />
 
@@ -141,7 +140,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="3rd Place"
                 name="3rd"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 2)}
               />
 
@@ -150,7 +149,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="4th Place"
                 name="4th"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 3)}
               />
 
@@ -159,7 +158,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="5th Place"
                 name="5th"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 4)}
               />
 
@@ -168,7 +167,7 @@ export default function Scoring() {
                 type="number"
                 placeholder="6th Place"
                 name="6th"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 5)}
               />
 
@@ -178,7 +177,7 @@ export default function Scoring() {
                 placeholder="7th Place"
                 name="7th"
                 id="7th"
-                className="w-full p-4 text-2xl text-black bg-white rounded-full"
+                className="w-full p-3 text-2xl text-black bg-white rounded-full"
                 onChange={(event) => insertAtIndex(event.target.value, 6)}
               />
             </>
