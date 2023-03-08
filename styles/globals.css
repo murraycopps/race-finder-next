@@ -60,3 +60,32 @@ html {
   border-right: 0.75rem solid transparent;
   border-bottom: 0.75rem solid #ef4444;
 }
+
+
+.transition-all-300 {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-button.open > span {
+  box-shadow: none;
+  background-color: white;
+}
+.nav-button.open > span:nth-child(1) {
+  transform: translateY(0.6rem) rotate(45deg);
+}
+
+.nav-button.open > span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-button.open > span:nth-child(3) {
+  transform: translateY(-0.6rem) rotate(-45deg);
+}
+
+.circle-clip-hidden {
+  clip-path: circle(0% at 100% 0);
+}
+
+.circle-clip-visible {
+  clip-path: circle(150% at 100% 0);
+}
