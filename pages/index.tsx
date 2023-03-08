@@ -42,7 +42,7 @@ export default function IndexPage() {
         {/*>*/}
         {/*  Join Now!*/}
         {/*</a>*/}
-          <div>
+          <div className="flex w-3/4 gap-4 justify-evenly">
               <a
                   href="/tools"
                   className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"

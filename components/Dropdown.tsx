@@ -67,7 +67,7 @@ export default function Dropdown({
     >
       <button
         className={`relative w-full text-3xl text-left pl-8 p-4 bg-gray-50 text-black ${
-          open ? "rounded-b-none dropdown-rounded" : "rounded-full"
+          open ? "rounded-b-none dropdown-rounded" : "rounded-full transition-delayed"
         }`}
         onClick={() => setOpen(!open)}
       >
@@ -75,8 +75,8 @@ export default function Dropdown({
           {displayedValue(value)}
           <span className="absolute right-0 h-full p-2 -translate-y-1/2 top-1/2 aspect-square">
             <svg
-              className={`w-full h-full transition-transform ${
-                open ? "rotate-180" : ""
+              className={`w-full h-full transition-all-300 ${
+                open ? "rotate-180" : "transition-delayed"
               }`}
               viewBox="0 0 24 24"
               fill="none"
@@ -94,8 +94,8 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 flex-col items-center text-lg ${
-          open ? "flex" : "hidden"
+        className={`absolute z-50 flex flex-col items-center text-lg transition-all-300 ${
+          open ? "rect-clip-visible" : "rect-clip-hidden-top"
         } w-full px-4 bg-gray-500 top-full rounded-b-xl pb-2`}
       >
         {items.map((item, index) => (

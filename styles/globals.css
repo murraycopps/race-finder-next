@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --dark-base: rgb(9, 5, 23);
+  --dark-base: rgb(12, 5, 33);
 }
 
 body,
@@ -38,8 +38,8 @@ html {
 } */
 
 .dropdown-rounded {
-  border-top-left-radius: 2.25rem;
-  border-top-right-radius: 2.25rem;
+  border-top-left-radius: 2.125rem;
+  border-top-right-radius: 2.125rem;
 }
 
 .output {
@@ -61,6 +61,10 @@ html {
 
 .transition-all-300 {
   transition: all 0.3s ease-in-out;
+}
+
+.transition-delayed {
+  transition-delay: 0.3s;
 }
 
 .nav-button.open > span {
@@ -86,3 +90,12 @@ html {
 .circle-clip-visible {
   clip-path: circle(150% at 0 0);
 }
+
+.rect-clip-visible{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.rect-clip-hidden-top{
+  clip-path: polygon(0 0%, 100% 0, 100% 0, 0% 0);
+}
+
