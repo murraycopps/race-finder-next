@@ -135,7 +135,10 @@ export default function Home() {
   }, [distance]);
 
   return (
-    <PageWrapper page="Pacing" className="flex flex-col min-h-screen gap-4 p-4 text-center">
+    <PageWrapper
+      page="Pacing"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+    >
       <h1 className="text-4xl">Calculate Paces</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
         <div className="flex flex-col items-center h-3/4 justify-evenly">
@@ -159,22 +162,22 @@ export default function Home() {
             </div>
           ) : (
             <Dropdown
-            value={distance}
-            items={inputDistances}
-            placeholder="Distance"
-            setValue={(value) => {
-              setDistance(parseFloat(value.toString()));
-            }}
-          />
+              value={distance}
+              items={inputDistances}
+              placeholder="Distance"
+              setValue={(value) => {
+                setDistance(parseFloat(value.toString()));
+              }}
+            />
           )}
           <TimeInput time={time} setTime={setTime} />
-          <Switch
-            state={isLong}
-            setState={setIsLong}
-            options={["Show Less", "Show More"]}
-          />
+            <Switch
+              state={isLong}
+              setState={setIsLong}
+              options={["Show Less", "Show More"]}
+            />
         </div>
-        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
+        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 rounded-3xl">
           <p>{output.join("\n")}</p>
           <p>{secondOutput.join("\n")}</p>
         </div>
