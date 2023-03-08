@@ -57,30 +57,30 @@ export default function Scoring() {
           {isTrack ? (
             <>
               {custom ? (
-                <>
-                  <input
-                    type="number"
-                    placeholder="Custom Distance"
-                    className="w-full p-4 text-2xl text-black bg-white rounded-full"
-                    defaultValue={numEvents}
-                    onChange={(e) =>
-                      setNumEvents(
-                        parseFloat(e.target.value ? e.target.value : "0")
-                      )
-                    }
-                  />
-                  <img
-                    src="/ban-icon.svg"
-                    onClick={() => {
-                      setCustom(false);
-                    }}
-                    className="w-16 h-16 pr-2 cursor-pointer"
-                  />
-                </>
+                  <div className="flex flex-row items-center justify-center w-full gap-2 bg-white rounded-full overlay">
+                    <input
+                      type="number"
+                      placeholder="Custom Distance"
+                      className="p-4 text-3xl text-black bg-white rounded-full grow"
+                      onChange={(e) =>
+                        setNumEvents(
+                          parseFloat(e.target.value ? e.target.value : "0")
+                        )
+                      }
+                    />
+                    <img
+                      src="/ban-icon.svg"
+                      onClick={() => {
+                        setCustom(false);
+                      }}
+                      className="w-16 h-16 pr-2 cursor-pointer"
+                    />
+                  </div>
               ) : (
                 <Dropdown
                   placeholder="Enter Number of Events"
                   items={eventOptions}
+                  value={numEvents}
                   setValue={(value) => {
                     setNumEvents(parseFloat(value.toString()));
                     setCustom(value === 0);
@@ -182,11 +182,11 @@ export default function Scoring() {
               />
             </>
           )}
-            <Switch
-              state={isTrack}
-              setState={setIsTrack}
-              options={["Track", "XC"]}
-            />
+          <Switch
+            state={isTrack}
+            setState={setIsTrack}
+            options={["Track", "XC"]}
+          />
         </div>
 
         <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-3/4 rounded-3xl">
