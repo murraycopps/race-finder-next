@@ -19,7 +19,7 @@ export default function TimeInput({
   useEffect(() => {
     setHour(Math.floor(time / 3600));
     setMin(Math.floor((time / 60) % 60));
-    setSec(time % 60);
+    setSec(Math.round(time % 60 * 10000) / 10000);
   }, [time]);
   return (
     <div className="grid grid-cols-3 text-3xl text-black">

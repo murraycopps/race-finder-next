@@ -1,4 +1,5 @@
 import Dropdown from "@/components/Dropdown";
+import PageWrapper from "@/components/PageWrapper";
 import Switch from "@/components/Switch";
 import TimeInput from "@/components/TimeInput";
 import { outTime } from "@/scripts";
@@ -99,7 +100,7 @@ export default function Home() {
       });
       counter = 0;
       const secondList = outputDistances.filter((item, index) => {
-        const add =
+        const add: boolean =
           item.min <= distance &&
           item.max >= distance &&
           item.value != distance;
@@ -134,7 +135,7 @@ export default function Home() {
   }, [distance]);
 
   return (
-    <div className="flex flex-col min-h-screen gap-4 p-4 text-center">
+    <PageWrapper page="Pacing" className="flex flex-col min-h-screen gap-4 p-4 text-center">
       <h1 className="text-4xl">Calculate Paces</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
         <div className="flex flex-col items-center h-3/4 justify-evenly">
@@ -173,11 +174,11 @@ export default function Home() {
             options={["Show Less", "Show More"]}
           />
         </div>
-        <div className="relative flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
+        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 output rounded-3xl">
           <p>{output.join("\n")}</p>
           <p>{secondOutput.join("\n")}</p>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
