@@ -1,3 +1,4 @@
+import PageWrapper from "@/components/PageWrapper";
 import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
 import { faRuler, faClock, faRunning, faHeart, faGaugeHigh, faSpinner, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -28,7 +29,7 @@ export default function ActivityPage({ pid }: { pid: string }) {
   }, [activity]);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-4">
+    <PageWrapper page="Activity" className="flex flex-col items-center justify-center min-h-screen p-4">
       {activity ? (
         <section className="flex flex-col gap-16 p-2 py-8 text-white bg-gray-700 rounded-lg single-run-field-sizing">
           <div className="grid gap-4 sm:grid-cols-3">
@@ -169,14 +170,14 @@ export default function ActivityPage({ pid }: { pid: string }) {
         </section>
       )}
       <button
-        className="fixed p-4 bg-white rounded-full bottom-4 right-4"
+        className="fixed p-4 text-black bg-white rounded-full bottom-4 right-4"
         onClick={() => {
           router.back();
         }}
       >
         <FontAwesomeIcon icon={faArrowLeft} className="w-6 h-6" />
       </button>
-    </main>
+    </PageWrapper>
   );
 }
 

@@ -117,7 +117,7 @@ export default function ProfileCard({
           </ul>
         )}
       </div> */}
-      <div className="grid grid-cols-2 gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
+      {/* <div className="grid grid-cols-2 gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
         <Link
           className="w-full p-2 text-center bg-gray-600 rounded-md hover:bg-gray-500"
           href="/strava/profile"
@@ -130,7 +130,7 @@ export default function ProfileCard({
         >
           Manage Goals
         </Link>
-      </div>
+      </div> */}
       <div className="flex flex-row flex-wrap gap-4 p-4 bg-gray-700 rounded-md lg:ml-4">
         <button
           className="w-full p-2 bg-gray-600 rounded-md hover:bg-gray-500"

@@ -4,6 +4,7 @@ import { useState } from "react";
 import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
 import { User } from "@/scripts/types";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function LoginPage({
   clientId,
@@ -69,7 +70,7 @@ export default function LoginPage({
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white bg-gray-800">
+    <PageWrapper page="Login" className="flex flex-col items-center justify-center h-screen text-white bg-gray-800">
       <form className="px-4 py-6 bg-gray-700 rounded-lg shadow-lg run-field-sizing">
         <label className="block mb-4 text-lg font-bold" htmlFor="username">
           Username:
@@ -109,7 +110,7 @@ export default function LoginPage({
       >
         Create Account
       </Link>
-    </div>
+    </PageWrapper>
   );
 }
 
