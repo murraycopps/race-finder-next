@@ -1,15 +1,15 @@
 
-import vaporfly from "$lib/images/vaporfly.png"
+import { Shoe } from "./types"
 
 
-const shoes = [
+const shoes:Shoe[] = [
     {
         name: 'Nike ZoomX Vaporfly Next% 2',
         price: 250,
         bestUse: "Distance racing",
         surface: "Road",
         rating: "★★★★★",
-        img: vaporfly,
+        img: "/images/vaporfly.png",
         weight: 196,
         drop: 7.7,
         heelStackHeight: 38.6,
@@ -53,7 +53,6 @@ const shoes = [
         heelStackHeight: 34.9,
         forefootStackHeight: 28.1,
         arch: "Neutral",
-        foam: "Helion (hydorgen infused EVA?)",
         brand: "On",
         brandLogo: "https://www.therunnershub.net/wp-content/uploads/2017/01/11249876_1635506986735635_175419393_a-300x300.jpg",
         link: "https://www.runningwarehouse.com/search-mens.html?searchtext=cloudmonster&opt_perpage=20&opt_sort=relevance&opt_page=1",
