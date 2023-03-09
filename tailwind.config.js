@@ -41,6 +41,9 @@ module.exports = {
                 '100': '100',
                 '110': '110',
             },
+            colors: {
+                'blueBlack': '#060c21'
+            }
         }
     },
     plugins: [],
