@@ -37,4 +37,19 @@ type Goal = {
     updatedAt: number;
 };
 
-export type { Shoe, User, Goal }
+type Clothes = {
+    name: string;
+    price: number;
+    rating: string;
+    img: string;
+    inseam: number;
+    brand: string;
+    brandLogo: string;
+    link: string;
+    brandLink: string;
+    review: string;
+    id: string;
+
+};
+
+export type { Shoe, User, Goal, Clothes }
