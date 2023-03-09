@@ -43,6 +43,9 @@ html {
 .text-shadow-dark {
   text-shadow: 0 0 15px var(--dark-base);
 }
+.border-dark {
+  border-color: var(--dark-base);
+}
 
 /* .home-button:hover{
   --bg-y-pos: 50%;

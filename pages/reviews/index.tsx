@@ -1,5 +1,6 @@
 import PageWrapper from "@/components/PageWrapper";
-
+import ShoeCard from "@/components/ShoeCard";
+import {shoes} from "@/scripts/shoes";
 export default function Reviews() {
   return (
     <PageWrapper page="Reviews" className="flex flex-col items-center justify-start w-screen h-screen gap-4">
@@ -7,14 +8,7 @@ export default function Reviews() {
         <h1 className="text-6xl text-red-300"  >Reviews</h1>
         <div className="flex flex-row justify-center gap-4 ">
 
-        <a>
-    <p>Reviews page</p>
-
-        </a>
-        <a>
-            <p>Reviews page</p>
-
-        </a>
+        <ShoeCard shoe={shoes[0]}/>
         </div>
 
     </PageWrapper>
