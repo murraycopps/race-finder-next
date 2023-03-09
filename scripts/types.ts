@@ -16,6 +16,7 @@ type Shoe = {
     brandLink: string;
     review: string;
     id: string;
+    type: "shoe";
 }
 
 type User = {
@@ -42,14 +43,32 @@ type Clothes = {
     price: number;
     rating: string;
     img: string;
-    inseam: number;
+    color: string;
+    use: string;
     brand: string;
     brandLogo: string;
     link: string;
     brandLink: string;
     review: string;
     id: string;
+    type: "clothes";
 
 };
 
-export type { Shoe, User, Goal, Clothes }
+
+type Item = {
+    name: string;
+    price: number;
+    rating: string;
+    img: string;
+    brand: string;
+    brandLogo: string;
+    link: string;
+    brandLink: string;
+    review: string;
+    id: string;
+    type: string;
+
+}
+
+export type { Shoe, User, Goal, Clothes, Item }

@@ -21,6 +21,7 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
         review: "stuff",
         id: 'nike-zoomx-vaporfly-next-2',
+        type: "shoe"
     },
     {
         name: 'Nike ZoomX Drangonfly',
@@ -40,6 +41,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/zoomx-dragoy-track-field-distance-spikes-0P9jtc",
         review: "stuff",
         id: 'nike-zoomx-dragonfly',
+        type: "shoe"
+
     },
     {
         name: 'On Cloudmonster',
@@ -59,6 +62,7 @@ const shoes:Shoe[] = [
         brandLink: "https://www.on-running.com/en-us/products/cloudmonster-61",
         review: "stuff",
         id: 'on-cloudmonster',
+        type: "shoe"
     },
     {
         name: 'Nike ZoomX Streakfly',
@@ -78,6 +82,7 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/streakfly-premium-road-racing-shoes-8rTxtR",
         review: "stuff",
         id: 'nike-zoomx-streakfly',
+        type: "shoe"
     },
     {
         name: 'Nike Air Zoom Victory',
@@ -97,6 +102,7 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/air-zoom-victory-track-field-distance-spikes-MsLPjj",
         review: "stuff",
         id: 'nike-air-zoom-victory',
+        type: "shoe"
     },
     {
         name: 'Hoka Tecton X',
@@ -116,6 +122,7 @@ const shoes:Shoe[] = [
         brandLink: "https://www.hoka.com/en/us/sale/tecton-x/1123161.html",
         review: "stuff",
         id: 'hoka-tecton-x',
+        type: "shoe"
     }
 
 

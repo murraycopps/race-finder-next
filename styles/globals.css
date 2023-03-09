@@ -46,6 +46,9 @@ html {
 .border-dark {
   border-color: var(--dark-base);
 }
+.w-card {
+  max-width: 700px;
+}
 
 /* .home-button:hover{
   --bg-y-pos: 50%;
@@ -185,4 +188,15 @@ html {
 .right-row-sizing{
   width: clamp(200px, 25vw, 300px);
   max-width: 100%;
+}
+
+.shoe{
+/*  aspect ratio */
+  aspect-ratio: 3/2;
+
+}
+.clothes{
+/*  aspect ratio */
+  aspect-ratio: 3/2;
+
 }
