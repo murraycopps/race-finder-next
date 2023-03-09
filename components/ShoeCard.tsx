@@ -1,11 +1,12 @@
 import { Shoe } from "@/scripts/types";
+import Link from "next/link";
 
 export default function Reviews({shoe} : {shoe: Shoe}) {
 
     return (
         <section className="bg-slate-400 w-128 rounded-lg text-white">
             <div className="m-5 flex items-center">
-                <a className="w-full no-underline " href="/shoes/{shoe.id}">
+                <Link className="w-full no-underline " href="/shoes/{shoe.id}">
                     <div className="shoe">
                         <div className="flex-col  items-center my-0 mx-auto">
                             <h2 className="shoeblockTitle">{shoe.name}</h2>
@@ -35,7 +36,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
                             </div>
                         </div>
                     </div>
-                </a>
+                </Link>
             </div>
         </section>
     )
