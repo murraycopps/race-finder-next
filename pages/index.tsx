@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function IndexPage() {
   const moveGradient = (e: any) => {
     // get the button element
@@ -35,13 +37,13 @@ export default function IndexPage() {
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
         </p>
-        <a
+        <Link
          href="/tools"
          className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
          onMouseMove={moveGradient}
         >
          Join Now!
-        </a>
+        </Link>
       </div>
     </div>
   );
