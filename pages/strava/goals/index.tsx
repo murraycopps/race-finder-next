@@ -46,7 +46,7 @@ export default function Goals({ url }: { url: string }) {
         ? LoginData.getGoals()
             .filter((goal: Goal) => displayCompleted || !goal.completed)
             .map((goal: Goal) => (
-              <Link href={`/goals/${goal.id}`} key={goal.id}>
+              <Link href={`/strava/goals/${goal.id}`} key={goal.id}>
                 <GoalCard goal={goal} />
               </Link>
             ))

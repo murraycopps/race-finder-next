@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function IndexPage() {
   const moveGradient = (e: any) => {
@@ -16,23 +17,29 @@ export default function IndexPage() {
 
   return (
     <div className="fixed inset-0 text-center bg-dark">
-      <img
+      <Image
         src="/landing-images/outer-blob.svg"
         alt="outer-blob"
         className="absolute top-0 left-0 w-5/6 sm:w-3/4 md:w-2/3 lg:w-7/12 outer-blob"
+        width={1000}
+        height={1000}
       />
-      <img
+      <Image
         src="/landing-images/inner-blob.svg"
         alt="inner-blob"
         className="absolute right-0 w-3/4 sm:w-2/3 md:w-7/12 lg:w-1/2 bottom-16 inner-blob"
+        width={1000}
+        height={1000}
       />
-      <img
+      <Image
         src="/landing-images/yellow-runner.png"
         alt="runner"
         className="absolute w-1/3 sm:w-7/24 lg:w-1/4 right-20 bottom-28"
+        width={1000}
+        height={1000}
       />
       <div className="relative z-10 flex flex-col items-center justify-center w-2/3 h-full col-span-2 gap-16 p-4">
-        <h1 className="text-8xl text-shadow-dark">Runner's Hub</h1>
+        <h1 className="text-8xl text-shadow-dark">Runner&#39;s Hub</h1>
         <p className="w-3/4 text-3xl text-shadow-dark">
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
