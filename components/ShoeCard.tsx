@@ -3,7 +3,7 @@ import { Shoe } from "@/scripts/types";
 export default function Reviews({shoe} : {shoe: Shoe}) {
 
     return (
-        <section className="bg-slate-400 w-128 rounded-lg text-white">
+        <section className="bg-slate-400 w-96 rounded-lg text-white">
             <div className="m-5 flex items-center">
                 <a className="w-full no-underline " href="/shoes/{shoe.id}">
                     <div className="shoe">
