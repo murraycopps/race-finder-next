@@ -35,36 +35,13 @@ export default function IndexPage() {
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
         </p>
-        {/*<a*/}
-        {/*  href="/races"*/}
-        {/*  className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"*/}
-        {/*  onMouseMove={moveGradient}*/}
-        {/*>*/}
-        {/*  Join Now!*/}
-        {/*</a>*/}
-          <div className="flex w-3/4 gap-4 justify-evenly">
-              <a
-                  href="/tools"
-                  className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
-                  onMouseMove={moveGradient}
-              >
-                  tools
-              </a>
-              <a
-                  href="/strava"
-                  className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
-                  onMouseMove={moveGradient}
-              >
-                  strava
-              </a>
-              <a
-                  href="/reviews"
-                  className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
-                  onMouseMove={moveGradient}
-              >
-                  reviews
-              </a>
-          </div>
+        <a
+         href="/tools"
+         className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
+         onMouseMove={moveGradient}
+        >
+         Join Now!
+        </a>
       </div>
     </div>
   );
