@@ -14,7 +14,7 @@ export default function Goals({ url }: { url: string }) {
     if (!LoginData.isLoggedIn()) {
       LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
-        router.push("/");
+        router.push("/strava/");
         return;
       }
     }
@@ -34,7 +34,7 @@ export default function Goals({ url }: { url: string }) {
           {displayCompleted ? "Hide" : "Show"} completed goals
         </button>
         <Link
-          href="/goals/create"
+          href="/strava/goals/create"
           className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
         >
           Create a new goal

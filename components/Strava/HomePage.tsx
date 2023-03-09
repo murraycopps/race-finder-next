@@ -16,7 +16,7 @@ export default function HomePage() {
 
     useEffect(() => {
         if (!LoginData.isLoggedIn()) {
-            router.push("/");
+            router.push("/strava/");
             return;
         }
         const cachedData = localStorage.getItem("data");

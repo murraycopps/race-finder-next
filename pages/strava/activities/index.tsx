@@ -23,7 +23,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (!LoginData.isLoggedIn()) {
-      router.push("/");
+      router.push("/strava/");
       return;
     }
     const cachedData = localStorage.getItem("data");
@@ -251,7 +251,7 @@ export default function HomePage() {
           {activities.map((activity: any) => (
             <li className="p-4 mb-4 bg-gray-700 rounded-md " key={activity.id}>
               <Link
-                href={`/activities/${activity.id}`}
+                href={`/strava/activities/${activity.id}`}
                 className="grid w-full h-full grid-cols-2"
               >
                 <div className="grid items-center grid-rows-2 ">
@@ -321,7 +321,7 @@ export default function HomePage() {
           ) : (
             <p className="text-center">No Goals</p>
           )}
-          <Link href="/goals"
+          <Link href="/strava/goals"
             className="p-2 text-center bg-gray-600 rounded-md"
           >
             Manage Goals

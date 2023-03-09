@@ -56,13 +56,13 @@ export default function LoginPage({
 
         LoginData.Login(access_token, username, user.goals || [], user._id )
 
-        router.push("/");
+        router.push("/strava/");
         return
       }
       if(!user.accessToken) return
       LoginData.Login(user.accessToken, username, user.goals || [], user._id)
 
-      router.push("/");
+      router.push("/strava/");
     } else {
       setErrorMessage("Incorrect username or password");
     }
@@ -105,7 +105,7 @@ export default function LoginPage({
       <Link
         className="px-4 py-2 mt-4 font-bold text-center text-white bg-gray-700 rounded-md run-field-sizing hover:bg-gray-600 focus:outline-none focus:shadow-outline"
         type="button"
-        href="/create-account"
+        href="/strava/create-account"
       >
         Create Account
       </Link>

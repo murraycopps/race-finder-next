@@ -20,7 +20,7 @@ export default function RunList({ activities }: any) {
 
 const Run: FC<{ activity: any }> = ({ activity }) => (
   <Link
-    href={`/activities/${activity.id}`}
+    href={`/strava/activities/${activity.id}`}
     className="grid w-full h-full grid-cols-2"
   >
     <div className="grid items-center grid-rows-2 ">

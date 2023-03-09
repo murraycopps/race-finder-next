@@ -12,7 +12,7 @@ export default function Page({ url }: { url: string }) {
     if (!LoginData.isLoggedIn()) {
       LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
-        router.push("/");
+        router.push("/strava/");
         return;
       }
     }
@@ -23,7 +23,7 @@ export default function Page({ url }: { url: string }) {
     if (goal) {
       setGoal(goal);
     } else {
-      router.push("/goals");
+      router.push("/strava/goals");
     }
   }, [router, url]);
 

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 
 const images = [
-  "/mtnrun.jpg",
-  "/runimg.jpg",
-  "/runner-background.jpg",
-  "/track.jpg",
+  "/strava-images/mtnrun.jpg",
+  "/strava-images/runimg.jpg",
+  "/strava-images/runner-background.jpg",
+  "/strava-images/track.jpg",
 ];
 const style = [
   "opacity-10 scale-150",
@@ -38,13 +38,13 @@ export default function LandingPage() {
         ))}
       </Head>
 
-      <div className="flex flex-col items-center justify-center h-screen gap-4 text-white bg-gray-800">
+      <div className="flex flex-col items-center justify-center w-screen h-screen gap-4 overflow-hidden text-white bg-gray-800">
         {images.map((img, i) => (
           <Image
             key={i}
             src={img}
             alt="background image"
-            className={`absolute top-0 left-0 w-full h-full object-cover ${
+            className={`fixed inset-0 object-cover ${
               style[i]
             } ${i === index ? "block" : "hidden"}`}
             width={1920}
@@ -63,13 +63,13 @@ export default function LandingPage() {
           </p>
           <div className="grid grid-cols-2 gap-8">
             <Link
-              href="/create-account"
+              href="/strava/create-account"
               className="px-16 py-2 mt-4 text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600"
             >
               Register
             </Link>
             <Link
-              href="/login"
+              href="/strava/login"
               className="px-4 py-2 mt-4 text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600"
             >
               Login

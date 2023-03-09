@@ -13,7 +13,7 @@ export default function CreateGoal({ url }: { url: string }) {
    if(!LoginData.isLoggedIn()){
       LoginData.getStorage()
       if(!LoginData.isLoggedIn()){
-        router.push("/")
+        router.push("/strava/")
         return
       }
    }
@@ -49,7 +49,7 @@ export default function CreateGoal({ url }: { url: string }) {
     console.log(res);
 
     if (res.status === 200) {
-      router.push("/goals");
+      router.push("/strava/strava/goals");
     }
   };
   return (

@@ -12,7 +12,7 @@ export default function Page({ url }: { url: string }) {
     if (!LoginData.isLoggedIn()) {
       LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
-        router.push("/");
+        router.push("/strava/");
         return;
       }
     }
@@ -23,7 +23,7 @@ export default function Page({ url }: { url: string }) {
     if (goal) {
       setGoal(goal);
     } else {
-      router.push("/goals");
+      router.push("/strava/goals");
     }
   }, [router, url]);
 
@@ -36,12 +36,12 @@ export default function Page({ url }: { url: string }) {
           className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
           onClick={() => {
             LoginData.completeGoal(goal.id, url);
-            router.push("/goals");
+            router.push("/strava/goals");
           }}
         >
           Complete
         </button>
-        <Link href={`/goals/${goal.id}/update`}>
+        <Link href={`/strava/goals/${goal.id}/update`}>
           <button className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">
             Update
           </button>

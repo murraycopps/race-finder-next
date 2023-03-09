@@ -93,7 +93,7 @@ export default function LoginPage({
       <Link
         className="px-4 py-2 mt-4 font-bold text-center text-white bg-gray-700 rounded-md run-field-sizing hover:bg-gray-600 focus:outline-none focus:shadow-outline"
         type="button"
-        href="/login"
+        href="/strava/login"
       >
         Login
       </Link>
