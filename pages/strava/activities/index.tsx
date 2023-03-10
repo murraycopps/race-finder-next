@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import PageWrapper from "@/components/PageWrapper";
 
 
 export default function HomePage() {
@@ -153,7 +154,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800 lg:flex-row lg:items-start">
+    <PageWrapper page="Activities" className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800 lg:flex-row lg:items-start">
       <div className="flex flex-col h-auto pt-8 overflow-x-hidden profile-sizing lg:h-screen">
         <div className="flex flex-row flex-wrap gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
           <div className="flex flex-col justify-between flex-grow sm:h-36 h-28 sm:pb-4">
@@ -303,7 +304,7 @@ export default function HomePage() {
           ))}
         </ul>
       </main>
-      <div className="p-8 mt-8 mr-4 bg-gray-700 right-row-sizing">
+      {/* <div className="p-8 mt-8 mr-4 bg-gray-700 right-row-sizing">
         <h2 className="text-2xl text-center">Goals</h2>
         <div className="flex flex-col gap-4">
           {LoginData.getGoals().length ? (
@@ -328,8 +329,8 @@ export default function HomePage() {
           </Link>
           
         </div>
-      </div>
-    </div>
+      </div> */}
+    </PageWrapper>
   );
 }
 
