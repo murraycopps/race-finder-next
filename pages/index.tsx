@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function IndexPage() {
   const moveGradient = (e: any) => {
@@ -17,6 +18,9 @@ export default function IndexPage() {
 
   return (
     <div className="fixed inset-0 text-center bg-dark">
+        <Head>
+            <title>Runner&#39;s Hub</title>
+        </Head>
       <Image
         src="/landing-images/outer-blob.svg"
         alt="outer-blob"
