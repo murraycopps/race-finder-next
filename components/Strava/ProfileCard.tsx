@@ -100,7 +100,7 @@ export default function ProfileCard({
         </button>
         {showShoes && (
           <ul className="flex flex-col w-full justify-evenly">
-            {data.shoes.map((shoe: any) => (
+            {data.shoe.map((shoe: any) => (
               <li
                 key={shoe.id}
                 className="flex flex-row justify-between mt-4 text-lg"
