@@ -1,5 +1,6 @@
 import { Item } from "@/scripts/types";
 import Link from "next/link";
+import Stars from "./Stars";
 
 export default function Reviews({item} : {item: Item}) {
 
@@ -22,7 +23,9 @@ export default function Reviews({item} : {item: Item}) {
 
                             <div>
                                 <p><span className="text-xs font-bold">Rating:</span></p>
-                                <p className="m-0 text-xl "><span className="text-yellow-500">{item.rating}</span></p>
+                                <p className="m-0 text-xl ">
+                                    <Stars number={item.rating} total={5}/>
+                                </p>
                             </div>
                         </div>
                     </div>
