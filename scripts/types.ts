@@ -3,7 +3,7 @@ type Shoe = {
     price: number;
     bestUse: string;
     surface: string;
-    rating: string;
+    rating: number;
     img: string;
     weight: number;
     drop: number | string;
@@ -41,7 +41,7 @@ type Goal = {
 type Clothes = {
     name: string;
     price: number;
-    rating: string;
+    rating: number;
     img: string;
     color: string;
     use: string;
@@ -59,7 +59,7 @@ type Clothes = {
 type Item = {
     name: string;
     price: number;
-    rating: string;
+    rating: number;
     img: string;
     brand: string;
     brandLogo: string;

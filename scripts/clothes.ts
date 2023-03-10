@@ -4,7 +4,7 @@ const clothes: Clothes[] = [
     {
         name: 'Boa 1" Elite split shorts',
         price: 42,
-        rating: "★★★★★",
+        rating: 5,
         img: "/images/vaporfly.png",
         color: "black",
         use: "training/racing",
