@@ -4,6 +4,7 @@ import Switch from "@/components/Switch";
 import TimeInput from "@/components/TimeInput";
 import { outTime } from "@/scripts";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [distance, setDistance] = useState(0);
@@ -150,7 +151,7 @@ export default function Home() {
                 className="p-4 text-3xl text-black bg-white rounded-full grow"
                 onChange={(e) => setCustom(parseFloat(e.target.value))}
               />
-              <img
+              <Image
                 src="/ban-icon.svg"
                 onClick={() => {
                   setIsCustomOpen(false);
@@ -158,6 +159,7 @@ export default function Home() {
                   setDistance(0);
                 }}
                 className="w-16 h-16 pr-2 cursor-pointer"
+                alt=""
               />
             </div>
           ) : (

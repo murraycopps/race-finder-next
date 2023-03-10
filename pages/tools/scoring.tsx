@@ -3,6 +3,7 @@ import PageWrapper from "@/components/PageWrapper";
 import Switch from "@/components/Switch";
 import { getTrackScores, getXCScores } from "@/scripts/scoring";
 import { createRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Scoring() {
   const [inputs, setInputs] = useState([0, 0, 0, 0, 0, 0, 0]);
@@ -35,7 +36,7 @@ export default function Scoring() {
     inputRefs.forEach((ref: any) => {
       if (ref.current) ref.current.value = "";
     });
-  }, [isTrack]);
+  }, [isTrack, inputRefs]);
 
   useEffect(() => {
     if (isTrack) {
@@ -68,12 +69,13 @@ export default function Scoring() {
                         )
                       }
                     />
-                    <img
+                    <Image
                       src="/ban-icon.svg"
                       onClick={() => {
                         setCustom(false);
                       }}
                       className="w-16 h-16 pr-2 cursor-pointer"
+                      alt=""
                     />
                   </div>
               ) : (
