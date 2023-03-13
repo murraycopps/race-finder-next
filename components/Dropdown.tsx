@@ -95,7 +95,7 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 flex text-2xl flex-col max-h-64 overflow-y-scroll items-center transition-all-300 ${
+        className={`absolute z-50 flex text-3xl flex-col max-h-96 overflow-y-scroll items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
         } w-full px-4 bg-gray-500 top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-gray-500 border-2 scrollbar-m-b-2`}
       >
