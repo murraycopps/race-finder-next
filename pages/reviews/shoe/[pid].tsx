@@ -25,7 +25,7 @@ export default function ShoesPage() {
 
         <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center item-center min-h-screen mx-32 my-4">
             {shoe ? (
-                <div className="shoe-info-card">
+                <div className="grid grid-cols-3 h-full w-4/5 p-4 m-4 bg-slate-400 rounded-lg min-w-fit">
                     <div className="shoe-display">
                         <h1 className="name">{shoe.name}</h1>
                         <img
@@ -61,7 +61,7 @@ export default function ShoesPage() {
                         </div>
                     </div>
 
-                    <div className="shoe-info">
+                    <div className=" cols-span-2">
                         <div className="shoe-specs">
                             <div className="flex flex-col justify-evenly items-center gap-2">
                                 <p><span className="font-medium text-lg">Brand:</span></p>
