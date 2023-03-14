@@ -25,7 +25,7 @@ export default function ShoesPage() {
 
         <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center min-h-screen mx-32 my-4 item-center">
             {shoe ? (
-                <div className="grid w-4/5 h-full p-4 m-4 rounded-lg temp-cols-3 bg-slate-400 min-w-fit">
+                <div className="grid w-4/5 h-full grid-cols-3 p-4 m-4 rounded-lg bg-slate-400 min-w-fit">
                     <div className="flex flex-col justify-center p-4 m-1 font-medium leading-6 text-white item-center align-center">
                         <h1 className="bg-slate-400 rounded-lg p-0.5 w-full">{shoe.name}</h1>
                         <img
@@ -61,8 +61,8 @@ export default function ShoesPage() {
                         </div>
                     </div>
 
-                    <div className="grid p-4 temp-rows-5 cols-span-2">
-                        <div className="flex-wrap justify-center gap-5 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg specs bg-slate-400 border-dark">
+                    <div className="flex flex-col h-full col-span-2 p-4">
+                        <div className="grid flex-wrap justify-center grid-cols-5 gap-4 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-dark">
                             <div className="flex flex-col items-center gap-2 justify-evenly">
                                 <p><span className="text-lg font-medium">Brand:</span></p>
                                 <p className="text-lg font-bold">{shoe.brand}</p>
@@ -106,7 +106,7 @@ export default function ShoesPage() {
                                 <p className="text-lg font-bold">{shoe.arch}</p>
                             </div>
                         </div>
-                        <div className="grid justify-center p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg temp-rows bg-slate-400 border-dark">
+                        <div className="grid justify-center p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-3 temp-rows bg-slate-400 border-dark">
                             <h2 className="p-0 m-0 text-3xl text-center">Review</h2>
                             <p className="font-medium text-center size-lg">{shoe.review}</p>
                         </div>

@@ -200,11 +200,6 @@ html {
   aspect-ratio: 3/2;
 
 }
-.specs{
-  display: grid;
-   grid-template-columns: repeat(5, 1fr);
-   grid-gap: 1rem;
-}
 
 .temp-rows{
   grid-template-rows: 1fr 3fr;
