@@ -247,3 +247,12 @@ html {
   );
 }
 
+
+.reviews-routing-card > img {
+  filter: blur(0.25rem) brightness(0.5);
+}
+
+.reviews-routing-card:hover > img,
+.reviews-routing-card:focus > img {
+  filter: blur(0.15rem) brightness(0.55) saturate(1.5);
+}
