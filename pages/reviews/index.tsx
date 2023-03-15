@@ -27,7 +27,7 @@ export default function Reviews() {
             height={1080}
         />
 
-      <h1 className="mt-8 text-6xl text-red-300">Reviews 🐸</h1>
+      <h1 className="mt-8 text-6xl text-red-300">Reviews</h1>
       <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
         <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
         <ReviewsRoutingCard type="gear" image="/review-cards/gear.webp" />
