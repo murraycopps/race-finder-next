@@ -55,7 +55,7 @@ export default function Dropdown({
               ref={ulRef}
               className="flex flex-col items-center w-full animation-open-rect"
             >
-              <span className="block w-3/4 h-0 my-1 border-t-2 border-white"></span>
+              <span className="block w-3/4 h-0 my-1 border-t border-gray-400"></span>
               <Link
                 href={route.route}
                 className="block w-full p-4 text-2xl text-center text-white hover:bg-gray-700"
@@ -79,7 +79,7 @@ export default function Dropdown({
                 </>
               ))}
               {/* white line */}
-              <span className="block w-3/4 h-0 my-1 border-t-2 border-white"></span>
+              <span className="block w-3/4 h-0 my-1 border-t border-gray-400"></span>
             </ul>
           )}
         </>
