@@ -11,7 +11,7 @@ export default function ShopLink({
   image: string;
 }) {
   return (
-    <Link href={`/shop/${type}`} className="relative w-full aspect-square reviews-routing-card">
+    <Link href={`/reviews/${type}`} className="relative w-full aspect-square reviews-routing-card">
       <Image
         src={image}
         alt={type}
