@@ -26,9 +26,9 @@ export default function Reviews() {
       />
       <h1 className="mt-8 text-6xl text-red-300">Reviews 🐸</h1>
       <div className="grid w-full grid-cols-1 gap-8 px-8 sm:grid-cols-2 md:grid-cols-3">
-        <ReviewsRoutingCard type="shoes" image="/review-card/shoe.jpg" />
-        <ReviewsRoutingCard type="gear" image="/review-card/gear.jpg" />
-        <ReviewsRoutingCard type="clothes" image="/review-card/clothes.jpg" />
+        <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
+        <ReviewsRoutingCard type="gear" image="/review-cards/gear.webp" />
+        <ReviewsRoutingCard type="clothes" image="/review-cards/clothes.png" />
       </div>
       <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {randomItems.slice(0, 4).map((item, i) => {
