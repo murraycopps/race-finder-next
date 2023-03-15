@@ -15,13 +15,13 @@ export default function ShopLink({
       <Image
         src={image}
         alt={type}
-        className="object-cover bg-green-200 rounded-3xl aspect-square w-full filter blur-[0.4rem] brightness-[0.65]"
+        className="object-cover bg-slate-400 rounded-3xl aspect-square w-full filter blur-[0.4rem] brightness-[0.75]"
         width={500}
         height={500}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-4 text-white">
         <h2 className="text-5xl">{capitalize(type)}</h2>
-        <p className="text-2xl">Shop our selection of {type}</p>
+        {/*<p className="text-2xl">Shop our selection of {type}</p>*/}
       </div>
     </Link>
   );

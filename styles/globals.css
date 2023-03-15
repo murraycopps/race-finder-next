@@ -39,7 +39,9 @@ html {
 .bg-dark {
   background-color: var(--dark-base);
 }
-
+.text-dark {
+  color: var(--dark-base);
+}
 .text-shadow-dark {
   text-shadow: 0 0 15px var(--dark-base);
 }

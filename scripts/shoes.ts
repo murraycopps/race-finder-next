@@ -16,7 +16,7 @@ const shoes:Shoe[] = [
         forefootStackHeight: 30.9,
         arch: "Neutral",
         brand: "Nike",
-        brandLogo: "https://static.nike.com/a/images/f_jpg,q_auto:eco/61b4738b-e1e1-4786-8f6c-26aa0008e80b/swoosh-logo-black.png",
+        brandLogo: "/images/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
         review: "stuff",

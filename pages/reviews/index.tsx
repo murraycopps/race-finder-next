@@ -20,18 +20,24 @@ export default function Reviews() {
       className="flex flex-col items-center justify-start w-screen h-screen gap-4"
     >
         <Image
-          src="/images/review-landing.jpg"
-          alt="Reviews"
-          className="object-cover w-full h-75vh opacity-20"
+            src="/images/review-landing.jpg"
+            alt="Reviews"
+            className="object-cover w-screen h-100vh opacity-20 pb-16"
             width={1920}
             height={1080}
         />
 
-      <h1 className="mt-8 text-6xl text-red-300">Reviews 🐸</h1>
+        <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-dark text-8xl">Reviews</h1>
+
+
       <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
         <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
-        <ReviewsRoutingCard type="gear" image="/review-cards/gear.webp" />
-        <ReviewsRoutingCard type="clothes" image="/review-cards/clothes.png" />
+        <ReviewsRoutingCard type="clothes" image="/review-cards/clothesnew.webp" />
+        <ReviewsRoutingCard type="Other" image="/review-cards/gearnew.png" />
+      </div>
+
+      <div className=" bg-white h-8 w-full">
+
       </div>
       <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {randomItems.slice(0, 4).map((item, i) => {
