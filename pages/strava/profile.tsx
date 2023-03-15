@@ -11,6 +11,7 @@ import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
 import Image from "next/image";
 import axios from "axios";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function Profile() {
     const [showYear, setShowYear] = useState(false);
@@ -111,7 +112,7 @@ export default function Profile() {
     }
 
     return (
-        <div className="grid grid-cols-2 h-auto pt-8 overflow-x-hidden min-h-screen">
+        <PageWrapper page="Profile" className="grid grid-cols-2 h-auto pt-8 overflow-x-hidden min-h-screen">
             <div className="flex flex-row flex-wrap gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
                 <div className="flex flex-col justify-between flex-grow sm:h-36 h-28 sm:pb-4">
                     <h1 className="w-full text-2xl font-bold text-center sm:text-4xl sm:mb-4">
@@ -227,6 +228,6 @@ export default function Profile() {
             <p className="hidden p-4 mt-4 ml-4 text-lg text-center bg-gray-700 rounded-t-lg lg:block">
                 Icons by FontAwesome
             </p>
-        </div>
+        </PageWrapper>
     );
 }

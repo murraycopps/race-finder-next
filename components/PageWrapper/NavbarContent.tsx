@@ -1,6 +1,29 @@
 import { forwardRef } from "react";
 import Link from "next/link";
 
+const  routes  = [
+    {
+        route: "/reviews",
+        name: "Reviews",
+        children: [
+            {
+                route: "/shoes",
+                name: "Shoes",
+
+            },
+            {
+                route: "/clothes",
+                name: "Clothes",
+            },
+            {
+                route: "/other",
+                name: "Other",
+            }
+        ],
+
+    }
+    ]
+
 const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
   function NavbarContent (props, ref){
     return (
@@ -10,12 +33,7 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
             }`}
             ref={ref}
         >
-          <Link
-              href="/reviews"
-              className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700"
-          >
-            Reviews
-          </Link>
+
           <Link
               href="/tools"
               className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700"
