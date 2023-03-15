@@ -100,17 +100,17 @@ export default function ProfileCard({
         </button>
         {showShoes && (
           <ul className="flex flex-col w-full justify-evenly">
-            {data.shoe.map((shoe: any) => (
+            {data.shoes.map((shoes: any) => (
               <li
-                key={shoe.id}
+                key={shoes.id}
                 className="flex flex-row justify-between mt-4 text-lg"
               >
-                <h2>{shoe.name}</h2>
+                <h2>{shoes.name}</h2>
 
                 <p>
                   {" "}
                   <FontAwesomeIcon icon={faRunning} className="ml-2" />{" "}
-                  {shoe.converted_distance} Mi
+                  {shoes.converted_distance} Mi
                 </p>
               </li>
             ))}

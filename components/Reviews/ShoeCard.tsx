@@ -8,7 +8,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
     return (
         <section className="text-white rounded-lg bg-slate-400 w-card">
             <div className="flex items-center m-5">
-                <Link className="w-full no-underline " href="/shoes/{shoe.id}">
+                <Link className="w-full no-underline" href={`/reviews/shoes/${shoe.id}`}>
                     <div className="shoe">
                         <div className="flex-col items-center mx-auto my-0">
                             <h2 className="shoeblockTitle">{shoe.name}</h2>

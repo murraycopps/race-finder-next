@@ -9,7 +9,7 @@ const routes: Route[] = [
     name: "Reviews",
     children: [
       {
-        route: "/shoe",
+        route: "/shoes",
         name: "Shoes",
       },
       {
@@ -46,7 +46,7 @@ const routes: Route[] = [
   },
 ];
 
-const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
+export default forwardRef<HTMLDivElement, { open: boolean }>(
   function NavbarContent(props, ref) {
     return (
       <nav
@@ -69,5 +69,3 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
     );
   }
 );
-
-export default NavbarContent;
