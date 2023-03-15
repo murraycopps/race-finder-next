@@ -106,7 +106,7 @@ export default function ShoesPage() {
                                 <p className="text-lg font-bold">{shoe.arch}</p>
                             </div>
                         </div>
-                        <div className="grid justify-center p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-3 temp-rows bg-slate-400 border-dark">
+                        <div className="grid justify-center p-4 m-4 grow text-xl font-medium text-center text-white border-4 border-solid rounded-lg flex-3 temp-rows bg-slate-400 border-dark">
                             <h2 className="p-0 m-0 text-3xl text-center">Review</h2>
                             <p className="font-medium text-center size-lg">{shoe.review}</p>
                         </div>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { HTMLAttributes } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./NavBar/Navbar";
 
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
