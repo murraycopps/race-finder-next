@@ -16,7 +16,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
                         </div>
                         <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-dark"/>
 
-                        <div className="flex w-full justify-evenly">
+                        <div className="flex flex-wrap w-full gap-4 justify-evenly">
                             <div>
                                 <p><span className="text-xs font-bold">Price:</span></p>
                                 <p className="m-0 text-xl ">${shoe.price}</p>
