@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import Link from "next/link";
+import NavbarDropdown from "./NavbarDropdown";
 
 const  routes  = [
     {
@@ -33,6 +34,11 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
             }`}
             ref={ref}
         >
+            {
+                routes.map((route, index) => (
+                    <NavbarDropdown key={index} route={route} close={()=>{}}/>
+                ))
+            }
 
           <Link
               href="/tools"
