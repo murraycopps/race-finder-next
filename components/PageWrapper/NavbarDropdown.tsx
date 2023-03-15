@@ -51,7 +51,10 @@ export default function Dropdown({
             ></span>
           </button>
           {open && (
-            <ul ref={ulRef} className="flex flex-col items-center w-full">
+            <ul
+              ref={ulRef}
+              className="flex flex-col items-center w-full animation-open-rect"
+            >
               <span className="block w-3/4 h-0 my-1 border-t-2 border-white"></span>
               <Link
                 href={route.route}
@@ -61,13 +64,19 @@ export default function Dropdown({
                 All {route.name}
               </Link>
               {route.children.map((child, i) => (
-                <Link
-                  href={route.route + child.route}
-                  key={i}
-                  className="block w-full p-4 text-2xl text-center text-white hover:bg-gray-700"
-                >
-                  <li onClick={close}>{child.name}</li>
-                </Link>
+                <>
+                  {child.children ? (
+                    <Dropdown key={i} route={child} close={() => {}} />
+                  ) : (
+                    <Link
+                      href={route.route + child.route}
+                      key={i}
+                      className="block w-full p-4 text-2xl text-center text-white hover:bg-gray-700"
+                    >
+                      <li onClick={close}>{child.name}</li>
+                    </Link>
+                  )}
+                </>
               ))}
               {/* white line */}
               <span className="block w-3/4 h-0 my-1 border-t-2 border-white"></span>
@@ -75,7 +84,12 @@ export default function Dropdown({
           )}
         </>
       ) : (
-        <Link href={route.route}>{route.name}</Link>
+        <Link
+          href={route.route}
+          className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700"
+        >
+          {route.name}
+        </Link>
       )}
     </>
   );

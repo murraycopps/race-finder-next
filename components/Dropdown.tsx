@@ -67,7 +67,9 @@ export default function Dropdown({
     >
       <button
         className={`relative w-full text-3xl text-left pl-8 p-4 bg-gray-50 text-black ${
-          open ? "rounded-b-none dropdown-rounded" : "rounded-full transition-delayed"
+          open
+            ? "rounded-b-none dropdown-rounded"
+            : "rounded-full transition-delayed"
         }`}
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
