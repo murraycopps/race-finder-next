@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import LoginData from "@/scripts/LoginData";
 import ProfileCard from "./ProfileCard";
 import RunList from "./RunList";
+import Link from "next/link";
 
 export default function HomePage() {
     const router = useRouter();
@@ -143,6 +144,9 @@ export default function HomePage() {
     return (
         <div className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800 lg:flex-row lg:items-start">
             <ProfileCard data={data} stats={stats}/>
+            <Link href="/strava/profile" className="">
+                Profile
+            </Link>
             <RunList activities={activities}/>
         </div>
     );
