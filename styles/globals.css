@@ -256,3 +256,7 @@ html {
 .reviews-routing-card:focus > img {
   filter: blur(0.15rem) brightness(0.55) saturate(1.5);
 }
+
+.h-75vh{
+  height: 75vh;
+}
