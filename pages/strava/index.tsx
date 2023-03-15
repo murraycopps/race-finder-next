@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import HomePage from "@/components/Strava/HomePage";
 import PageWrapper from "@/components/PageWrapper";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 
 export default function Page() {
@@ -18,6 +19,12 @@ export default function Page() {
   }, []);
   
   return <PageWrapper page="Strava">
-    {loggedIn ? <HomePage /> : <div>Not logged in</div>}
+    {loggedIn ? <HomePage /> : <div className="grid place-items-center h-screen">
+        <div className="text-center flex flex-col gap-8">
+          <h1 className="text-4xl font-bold">Redirecting...</h1>
+          <p className="text-2xl">Click <Link href="/strava/login" className="text-blue-500">here</Link> if you are not redirected</p>
+        </div>
+
+    </div>}
   </PageWrapper>;
 }

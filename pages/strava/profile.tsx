@@ -18,10 +18,7 @@ export default function Profile() {
     const [usedStats, setUsedStats] = useState([] as any);
     const [data, setData] = useState(null as any);
     const [stats, setStats] = useState(null as any);
-    const [showShoes, setShowShoes] = useState(false);
     const router = useRouter();
-
-    const [loading, setLoading] = useState(true);
 
     const accessToken = LoginData.getAccessToken();
 
@@ -166,6 +163,33 @@ export default function Profile() {
                         </p>
                     </div>
                 </div>
+                <div className="grid w-full grid-cols-2 gap-8 sm:grid-cols-4">
+                    <div className="flex flex-col items-center justify-start gap-2">
+                        <FontAwesomeIcon icon={faRuler} className="w-12 h-12" />{" "}
+                        <p className="text-lg">
+                            {Math.round(usedStats.distance / 1609.34)} Mi
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center justify-start gap-2">
+                        <FontAwesomeIcon icon={faClock} className="w-12 h-12" />{" "}
+                        <p className="text-lg">
+                            {Math.round((usedStats.moving_time / 3600) * 10) / 10} Hrs
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center justify-start gap-2">
+                        <FontAwesomeIcon icon={faTachometerAlt} className="w-12 h-12" />{" "}
+                        <p className="text-lg">{usedStats.count} Runs</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-start gap-2">
+                        <FontAwesomeIcon icon={faRunning} className="w-12 h-12" />{" "}
+                        <p className="text-lg text-center">
+                            {outTime(
+                                usedStats.moving_time / (usedStats.distance / 1609.34),
+                                0
+                            )}
+                        </p>
+                    </div>
+                </div>
                 <button
                     className="w-full p-2 mt-4 bg-gray-600 rounded-md hover:bg-gray-500"
                     onClick={() => setShowYear(!showYear)}
@@ -174,13 +198,7 @@ export default function Profile() {
                 </button>
             </div>
              <div className="flex flex-row flex-wrap gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
-        <button
-          className="w-full p-2 bg-gray-600 rounded-md hover:bg-gray-500"
-          onClick={() => setShowShoes(!showShoes)}
-        >
-          {showShoes ? "Hide" : "Show"} Shoes
-        </button>
-        {showShoes && (
+
           <ul className="flex flex-col w-full justify-evenly">
             {data.shoes.map((shoe: any) => (
               <li
@@ -197,7 +215,6 @@ export default function Profile() {
               </li>
             ))}
           </ul>
-        )}
       </div>
             {/* <div className="grid grid-cols-2 gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
         <Link
@@ -213,21 +230,7 @@ export default function Profile() {
           Manage Goals
         </Link>
       </div> */}
-            <div className="flex flex-row flex-wrap gap-4 p-4 bg-gray-700 rounded-md lg:ml-4">
-                <button
-                    className="w-full p-2 bg-gray-600 rounded-md hover:bg-gray-500"
-                    onClick={() => {
-                        LoginData.Logout();
-                        router.reload();
-                    }}
-                >
-                    Logout
-                </button>
-            </div>
-            <div className="lg:grow"></div>
-            <p className="hidden p-4 mt-4 ml-4 text-lg text-center bg-gray-700 rounded-t-lg lg:block">
-                Icons by FontAwesome
-            </p>
+
         </PageWrapper>
     );
 }
