@@ -8,13 +8,15 @@ const clothes: Clothes[] = [
         img: "/images/vaporfly.png",
         color: "black",
         use: "training/racing",
+        inseam: 1,
         brand: "BOA",
         brandLogo: "/images/boa-logo.png",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
         review: "stuff",
         id: 'boa-elite-split-shorts',
-        type: "clothes"
+        type: "clothes",
+        clotheType: "shorts"
     }
 ]
 export {clothes};

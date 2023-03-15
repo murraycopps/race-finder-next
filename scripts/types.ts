@@ -45,6 +45,7 @@ type Clothes = {
     img: string;
     color: string;
     use: string;
+    inseam: number;
     brand: string;
     brandLogo: string;
     link: string;
@@ -52,6 +53,7 @@ type Clothes = {
     review: string;
     id: string;
     type: "clothes";
+    clotheType: "shorts" | "top" | "pants" | "socks" | "hat" | "gloves" | "jacket";
 
 };
 
