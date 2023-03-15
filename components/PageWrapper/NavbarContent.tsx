@@ -46,7 +46,7 @@ const routes: Route[] = [
   },
 ];
 
-export default forwardRef<HTMLDivElement, { open: boolean }>(
+const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
   function NavbarContent(props, ref) {
     return (
       <nav
@@ -69,3 +69,5 @@ export default forwardRef<HTMLDivElement, { open: boolean }>(
     );
   }
 );
+
+export default NavbarContent;
