@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { HTMLAttributes } from "react";
-import Navbar from "./NavBar/Navbar";
+import Navbar from "./Navbar";
 
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
@@ -13,7 +13,7 @@ export default function PageWrapper(props: PageWrapperProps) {
         <title>{props.page}</title>
       </Head>
       <header>
-        <Navbar />  
+        <Navbar />
       </header>
       <main {...props} />
     </>
