@@ -20,7 +20,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #4b5563;
+  background-color: #4b5563;
   opacity: 0.75;
   border-radius: 0.5rem;
 }
@@ -115,16 +115,15 @@ html {
   clip-path: circle(150% at 0 0);
 }
 
-.rect-clip-visible{
+.rect-clip-visible {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.rect-clip-hidden-top{
+.rect-clip-hidden-top {
   clip-path: polygon(0 0%, 100% 0, 100% 0, 0% 0);
 }
 
-
-.tool-link-width{
+.tool-link-width {
   width: clamp(300px, calc(25% - 3rem), 450px);
 }
 
@@ -185,30 +184,62 @@ html {
   -webkit-box-orient: vertical;
 }
 
-.right-row-sizing{
+.right-row-sizing {
   width: clamp(200px, 25vw, 300px);
   max-width: 100%;
 }
 
-.shoe{
-/*  aspect ratio */
+.shoe {
+  /*  aspect ratio */
   aspect-ratio: 3/2;
-
 }
-.clothes{
-/*  aspect ratio */
+.clothes {
+  /*  aspect ratio */
   aspect-ratio: 3/2;
-
 }
 
-.temp-rows{
+.temp-rows {
   grid-template-rows: 1fr 3fr;
 }
 
-.temp-cols-3{
+.temp-cols-3 {
   grid-template-columns: 1fr 2fr;
 }
 
-.temp-rows-5{
+.temp-rows-5 {
   grid-template-rows: 2fr 3fr;
+}
+
+.plus-icon.open {
+  clip-path: polygon(
+    0 35%,
+    35% 35%,
+    35% 0%,
+    65% 0%,
+    65% 35%,
+    100% 35%,
+    100% 65%,
+    65% 65%,
+    65% 100%,
+    35% 100%,
+    35% 65%,
+    0 65%
+  );
+}
+
+.plus-icon.closed {
+  clip-path: polygon(
+    0 35%,
+    35% 35%,
+    35% 35%,
+    65% 35%,
+    65% 35%,
+    100% 35%,
+    100% 65%,
+    65% 65%,
+    65% 65%,
+    35% 65%,
+    35% 65%,
+    0 65%
+  );
 }
