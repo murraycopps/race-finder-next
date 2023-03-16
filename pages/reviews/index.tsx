@@ -20,12 +20,14 @@ export default function Reviews() {
       className="flex flex-col items-center justify-start w-screen h-screen gap-4"
     >
         <Image
-            src="/images/review-landing.jpg"
+            src="/review-cards/review-landing.jpg"
             alt="Reviews"
             className="object-cover w-screen h-100vh opacity-20 pb-16"
             width={1920}
             height={1080}
+
         />
+
 
         <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-dark text-8xl">Reviews</h1>
 
