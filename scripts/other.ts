@@ -1,6 +1,6 @@
-import {Clothes} from "@/scripts/types";
+import {Other} from "@/scripts/types";
 
-const other[] = [
+const other: Other[] = [
     {
         name: 'Garmin forerunner 955',
         price: 499.99,
@@ -10,7 +10,7 @@ const other[] = [
         use: "Training",
         battery: 15,
         brand: "Garmin",
-        brandLogo: "/images/boa-logo.png",
+        brandLogo: "/images/Garmin-logo.png",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.garmin.com/en-US/p/777655",
         review: "stuff",

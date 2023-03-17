@@ -73,4 +73,24 @@ type Item = {
 
 }
 
-export type { Shoe, User, Goal, Clothes, Item }
+type Other = {
+    name: string;
+
+    price: number;
+    rating: number;
+    img: string;
+    color: string;
+    use: string;
+    battery: number;
+    brand: string;
+    brandLogo: string;
+    link: string;
+    brandLink: string;
+    review: string;
+    id: string;
+    type: "other";
+    otherType: "watch" | "hydration" | "nutrition" | "accessories" | "other";
+
+}
+
+export type { Shoe, User, Goal, Clothes, Item, Other }

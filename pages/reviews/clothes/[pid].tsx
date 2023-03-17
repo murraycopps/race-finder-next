@@ -38,23 +38,21 @@ export default function ShoesPage() {
                         <div className="grid justify-center p-4 m-4 text-lg font-medium leading-6 text-center text-white rounded-lg bg-slate-400">
                             <h2 className="p-0 m-0 text-3xl text-center">Purchase</h2>
                             <div className="flex justify-center gap-2">
-                                <a className="hover:opacity-50" href={article.link}>
+                                <a className="hover:opacity-50 w-24 h-24 bg-white grid place-items-center rounded-lg p-2" href={article.link}>
                                     <img
                                         className="block overflow-hidden bg-transparent rounded-md opacity-100 transition-background"
                                         src="https://media.licdn.com/dms/image/C4E0BAQHBmWI9w3tzog/company-logo_200_200/0/1544572615288?e=2147483647&v=beta&t=HhwAog-YBLZyc1ULuVv48MZefPUw3EHejmW25OtMwUQ"
                                         alt="running warehouse"
-                                        width="100"
-                                        height="100"
+
                                     />
                                 </a>
 
-                                <a className="hover:opacity-50" href={article.brandLink}>
+                                <a className="hover:opacity-50 w-24 h-24 bg-white grid place-items-center rounded-lg p-2" href={article.brandLink}>
                                     <img
                                         className="block overflow-hidden bg-transparent rounded-md opacity-100 transition-background"
                                         src={article.brandLogo}
                                         alt={article.brand}
-                                        width="100"
-                                        height="100"
+
                                     />
                                 </a>
                             </div>
