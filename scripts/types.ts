@@ -45,7 +45,6 @@ type Clothes = {
     img: string;
     color: string;
     use: string;
-    inseam: number;
     brand: string;
     brandLogo: string;
     link: string;
@@ -54,6 +53,10 @@ type Clothes = {
     id: string;
     type: "clothes";
     clotheType: "shorts" | "top" | "pants" | "socks" | "hat" | "gloves" | "jacket";
+    features?: {
+        name: string;
+        value: string;
+    }[];
 
 };
 
@@ -81,7 +84,6 @@ type Other = {
     img: string;
     color: string;
     use: string;
-    battery: number;
     brand: string;
     brandLogo: string;
     link: string;
@@ -90,6 +92,10 @@ type Other = {
     id: string;
     type: "other";
     otherType: "watch" | "hydration" | "nutrition" | "accessories" | "other";
+    features?: {
+        name: string;
+        value: string;
+    }[];
 
 }
 

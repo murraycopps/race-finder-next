@@ -3,6 +3,7 @@ import {useRouter} from "next/router";
 import {clothes} from "@/scripts/clothes";
 import {Clothes} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
+import Stars from "@/components/Reviews/Stars";
 
 
 export default function ShoesPage() {
@@ -61,6 +62,7 @@ export default function ShoesPage() {
 
                     <div className="flex flex-col h-full col-span-2 p-4">
                         <div className="grid flex-wrap justify-center grid-cols-5 gap-4 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-dark">
+
                             <div className="flex flex-col items-center gap-2 justify-evenly">
                                 <p><span className="text-lg font-medium">Brand:</span></p>
                                 <p className="text-lg font-bold">{article.brand}</p>
@@ -76,8 +78,8 @@ export default function ShoesPage() {
                            
                             <div className="flex flex-col items-center gap-2 justify-evenly">
                                 <p><span className="text-lg font-medium">Rating:</span></p>
-                                <p className="text-lg font-bold">
-                                    <span className="stars">{article.rating}</span>
+                                <p className="m-0 text-xl ">
+                                    <Stars number={article.rating} total={5}/>
                                 </p>
                             </div>
                             <div className="flex flex-col items-center gap-2 justify-evenly">
@@ -85,12 +87,26 @@ export default function ShoesPage() {
                                 <p className="text-lg font-bold">{article.color}mm</p>
                             </div>
                             <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Shoe Type:</span></p>
-                                <p className="text-lg font-bold">{article.inseam}</p>
+                                <p><span className="text-lg font-medium"> Brand:</span></p>
+                                <p className="text-lg font-bold">{article.brand}</p>
                             </div>
                         </div>
+                        {/* div with dispkayt fkex to display optional features */}
+                        {article?.features && article.features.length > 0 && (
+                            <div className="flex flex-col flex-wrap justify-center gap-4 p-4  m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-dark">
+                                <h3 className="text-2xl text-center">Features</h3>
+                                <div className="flex flex-wrap justify-evenly gap-4 text-xl font-medium leading-6 text-center text-white flex-2">
+                                    {article.features.map((feature, i) => (
+                                        <div className="flex flex-col items-center gap-2 justify-evenly" key={i}>
+                                            <p className="text-lg font-medium">{feature.name}:</p>
+                                            <p className="text-lg font-bold">{feature.value}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                         <div className="grid justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grow flex-3 temp-rows bg-slate-400 border-dark">
-                            <h2 className="p-0 m-0 text-3xl text-center">Review</h2>
+                            <h3 className="p-0 m-0 text-2xl text-center">Review</h3>
                             <p className="font-medium text-center size-lg">{article.review}</p>
                         </div>
                     </div>

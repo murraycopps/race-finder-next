@@ -3,6 +3,7 @@ import {useRouter} from "next/router";
 import {shoes} from "@/scripts/shoes";
 import {Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
+import Stars from "@/components/Reviews/Stars";
 
 
 export default function ShoesPage() {
@@ -81,8 +82,8 @@ export default function ShoesPage() {
                             </div>
                             <div className="flex flex-col items-center gap-2 justify-evenly">
                                 <p><span className="text-lg font-medium">Rating:</span></p>
-                                <p className="text-lg font-bold">
-                                    <span className="stars">{shoe.rating}</span>
+                                <p className="m-0 text-xl ">
+                                    <Stars number={shoe.rating} total={5}/>
                                 </p>
                             </div>
                             <div className="flex flex-col items-center gap-2 justify-evenly">

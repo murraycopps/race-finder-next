@@ -8,7 +8,6 @@ const clothes: Clothes[] = [
         img: "/images/vaporfly.png",
         color: "Black",
         use: "Training/Racing",
-        inseam: 1,
         brand: "BOA",
         brandLogo: "/images/boa-logo.png",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
@@ -16,7 +15,17 @@ const clothes: Clothes[] = [
         review: "stuff",
         id: 'boa-elite-split-shorts',
         type: "clothes",
-        clotheType: "shorts"
+        clotheType: "shorts",
+        features: [
+            {
+                name: "Inseam",
+                value: "1\""
+            },
+            {
+                name: "Patterns",
+                value: "Yes"
+            },
+        ]
     },
     {
         name: "Nike Dri-FIT ADV AeroSwift",
@@ -25,7 +34,6 @@ const clothes: Clothes[] = [
         img: "/images/aeroswiftSinglet2.png",
         color: "Pink",
         use: "Training/Racing",
-        inseam: 0,
         brand: "Nike",
         brandLogo: "/images/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
@@ -33,7 +41,17 @@ const clothes: Clothes[] = [
         review: "stuff",
         id: 'nikr-dri-fit-adv-aeroswift',
         type: "clothes",
-        clotheType: "shorts"
+        clotheType: "shorts",
+        features: [
+            {
+                name: "Inseam",
+                value: "1\""
+            },
+            {
+                name: "GPS",
+                value: "Yes"
+            },
+        ]
 
     }
 ]
