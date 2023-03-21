@@ -43,7 +43,6 @@ type Clothes = {
     price: number;
     rating: number;
     img: string;
-    color: string;
     use: string;
     brand: string;
     brandLogo: string;
