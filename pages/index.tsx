@@ -49,7 +49,7 @@ export default function IndexPage() {
           and get gear recommendations.
         </p>
         <Link
-         href="/tools"
+         href="/home"
          className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
          onMouseMove={moveGradient}
         >
