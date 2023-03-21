@@ -11,7 +11,7 @@ export default function Reviews({item} : {item: Item}) {
                     {/* <div className="item"> */}
                         <div className="flex-col items-center w-full mx-auto my-0">
                             <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{item.name}</h2>
-                            <img className={` w-full object-cover ${item.type}`} src={item.img} alt={item.name} height="300" width="300"/>
+                            <img className={` w-full object-cover p-4 ${item.type}`} src={item.img} alt={item.name} height="300" width="300"/>
                         </div>
 
                         <div className="flex flex-wrap w-full justify-evenly">

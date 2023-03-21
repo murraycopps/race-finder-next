@@ -21,10 +21,7 @@ const other: Other[] = [
                 name: "Battery Life",
                 value: "up to 15 days"
             },
-            {
-                name: "GPS",
-                value: "Yes"
-            },
+
             {
                 name: "Heart Rate Monitor",
                 value: "Yes"
