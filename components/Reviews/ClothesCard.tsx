@@ -20,10 +20,10 @@ export default function Reviews({clothes} : {clothes: Clothes}) {
                                 <p className="m-0 text-xl ">${clothes.price}</p>
                             </div>
 
-                            <div>
-                                <p><span className="font-bold text-xs">Color:</span></p>
-                                <p className="m-0 text-xl ">{clothes.color}</p>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <p><span className="font-bold text-xs">Color:</span></p>*/}
+                            {/*    <p className="m-0 text-xl ">{clothes.color}</p>*/}
+                            {/*</div>*/}
 
                             <div>
                                 <p><span className="font-bold text-xs">Best Use:</span></p>
