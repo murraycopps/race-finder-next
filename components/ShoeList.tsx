@@ -52,4 +52,4 @@ const shoes = [
 ];
 
 
-export default function ShoeList() {
+export default function ShoeList() {}
