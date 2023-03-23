@@ -82,10 +82,10 @@ export default function ShoesPage() {
                                     <Stars number={item.rating} total={5}/>
                                 </p>
                             </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Color:</span></p>
-                                <p className="text-lg font-bold">{item.color}</p>
-                            </div>
+                            {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}
+                            {/*    <p><span className="text-lg font-medium"> Color:</span></p>*/}
+                            {/*    <p className="text-lg font-bold">{item.color}</p>*/}
+                            {/*</div>*/}
                             {/* div with dispkayt fkex to display optional features */}
                             {item?.features && item.features.length > 0 && item.features.map((feature, i) => (
                                         <div className="flex flex-col items-center gap-2 justify-evenly" key={i}>

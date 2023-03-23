@@ -11,7 +11,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
                 <Link className="w-full no-underline" href={`/reviews/shoes/${shoe.id}`}>
                     <div className="shoe">
                         <div className="flex-col items-center mx-auto my-0">
-                            <h2 className="shoeblockTitle">{shoe.name}</h2>
+                            <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{shoe.name}</h2>
                             <img className={` w-full object-cover ${shoe.type}`} src={shoe.img} alt={shoe.name} height="300" width="300"/>
                         </div>
                         <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-dark"/>

@@ -4,6 +4,8 @@ import {clothes} from "@/scripts/clothes";
 import {Clothes} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Stars from "@/components/Reviews/Stars";
+import FeaturesCard from "@/components/Reviews/FeatuersCard";
+import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
 
 
 export default function ShoesPage() {
@@ -92,19 +94,11 @@ export default function ShoesPage() {
                             </div>
 
                         {/* div with dispkayt fkex to display optional features */}
-                        {article?.features && article.features.length > 0 && article.features.map((feature, i) =>(
-                            <div className="flex flex-col items-center gap-2 justify-evenly" key={i}>
-                                            <p className="text-lg font-medium">{feature.name}:</p>
-                                            <p className="text-lg font-bold">{feature.value}</p>
-                                        </div>
-                                    )
-
+                        {article?.features && article.features.length > 0 && (
+                            <FeaturesCard features={article.features} />
                         )}
                         </div>
-                        <div className="grid justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grow flex-3 temp-rows bg-slate-400 border-dark">
-                            <h3 className="p-0 m-0 text-2xl text-center">Review</h3>
-                            <p className="font-medium text-center size-lg">{article.review}</p>
-                        </div>
+                        <ReviewTextCard article={article} />
                     </div>
                 </div>
             ) : (
