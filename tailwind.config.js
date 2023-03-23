@@ -48,7 +48,11 @@ module.exports = {
                 '100': '100',
                 '110': '110',
             },
+            colors: {
+                'strava': '#f65900',
+            }
         }
+
     },
     plugins: [],
 }
