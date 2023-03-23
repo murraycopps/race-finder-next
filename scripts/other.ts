@@ -7,7 +7,7 @@ const other: Other[] = [
         rating: 5,
         img: "/images/forerunner-955.png",
         color: "Black",
-        use: "Training",
+        use: "Tracking Runs, Heart Rate, etc.",
         brand: "Garmin",
         brandLogo: "/images/Garmin_logo.png",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",

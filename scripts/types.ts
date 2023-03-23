@@ -1,7 +1,7 @@
 type Shoe = {
     name: string;
     price: number;
-    bestUse: string;
+    use: string;
     surface: string;
     rating: number;
     img: string;

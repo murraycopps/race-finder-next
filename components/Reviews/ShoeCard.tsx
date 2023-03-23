@@ -24,7 +24,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
 
                             <div>
                                 <p><span className="text-xs font-bold">Best Use:</span></p>
-                                <p className="m-0 text-xl ">{shoe.bestUse}</p>
+                                <p className="m-0 text-xl ">{shoe.use}</p>
                             </div>
 
                             <div>

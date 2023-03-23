@@ -6,7 +6,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike ZoomX Vaporfly Next% 2',
         price: 250,
-        bestUse: "Distance racing",
+        use: "Distance racing",
         surface: "Road",
         rating: 5,
         img: "/images/vaporfly.png",
@@ -26,7 +26,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike ZoomX Drangonfly',
         price: 150,
-        bestUse: "Distance racing",
+        use: "Distance racing",
         surface: "Track",
         rating: 5,
         img: "https://cdn.shopify.com/s/files/1/1804/7057/products/DJ5255-100-PHSRH000-2000_2000x2000.png?v=1671051158",
@@ -47,7 +47,7 @@ const shoes:Shoe[] = [
     {
         name: 'On Cloudmonster',
         price: 169.99,
-        bestUse: "Training",
+        use: "Training",
         surface: "Road",
         rating: 4,
         img: "https://images.ctfassets.net/hnk2vsx53n6l/2Az75p1g0Oh5Am8B1n1mJQ/96d8dc8578cc3ed817e865505c47e070/9e1bbeb325c15e3cc3a21ed721cb84e80965efb9.png?w=800&h=800&fm=png&f=center&fit=fill&q=80",
@@ -67,7 +67,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike ZoomX Streakfly',
         price: 160,
-        bestUse: "Distance racing",
+        use: "Distance racing",
         surface: "Road",
         rating: 4,
         img: "https://static.nike.com/a/images/t_default/24d5a5ec-db76-4512-99a8-36231b9a9b41/streakfly-road-racing-shoes-V17qZm.png",
@@ -87,7 +87,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike Air Zoom Victory',
         price: 180,
-        bestUse: "Distance Racing",
+        use: "Distance Racing",
         surface: "Track",
         rating: 5,
         img: "https://cdn.shopify.com/s/files/1/0596/8776/4165/products/CD4385-700-PHSRH000-2000_1024x1024.png?v=1666155142",
@@ -107,7 +107,7 @@ const shoes:Shoe[] = [
     {
         name: 'Hoka Tecton X',
         price: 200,
-        bestUse: "Trail Racing",
+        use: "Trail Racing",
         surface: "Trail",
         rating: 4,
         img: "/images/tecton-x.png",
@@ -127,7 +127,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike ZoomX Invincible Run Flyknit 3',
         price: 180,
-        bestUse: "Easy training runs",
+        use: "Easy training runs",
         surface: "Road",
         rating: 4,
         img: "/images/invincible-3.png",
@@ -147,7 +147,7 @@ const shoes:Shoe[] = [
     {
         name: 'Hoka Zinal',
         price: 160,
-        bestUse: "Trail runs",
+        use: "Trail runs",
         surface: "Light Trail",
         rating: 4,
         img: "/images/zinal3.png",
@@ -167,7 +167,7 @@ const shoes:Shoe[] = [
     {
         name: 'Nike Pegasus Turbo Next Nature',
         price: 150,
-        bestUse: "tempo training",
+        use: "tempo training",
         surface: "Road",
         rating: 4,
         img: "/images/pegasus-turbo.png",
