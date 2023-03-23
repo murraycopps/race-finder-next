@@ -1,0 +1,94 @@
+.fade-change {
+    /* make an animation to fade it out then make a second to fade it back in. it should take a total of 1 second. use fade-in-out */
+    animation: fade 0.5s ease-in-out 0s, fade-reverse 0.5s ease-in-out 0.5s
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-reverse {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.width {
+    width: 24rem;
+    min-height: 24rem;
+    background-color: #051a4f;
+}
+.display {
+    grid-template-columns: repeat(3, 24rem);
+}
+
+.left {
+    animation: left 1s;
+}
+.right {
+    animation: right 1s;
+}
+
+@keyframes left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(24rem);
+    }
+}
+
+@keyframes right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-24rem);
+    }
+}
+.shoe {
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: fit-content;
+}
+.shoe::before {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    margin-right: 1.5rem;
+    filter: invert();
+}
+.nike::before {
+    background-image: url(/brand-logos/nike.png);
+    background-size: 2rem;
+}
+.adidas::before {
+    background-image: url(/brand-logos/adidas.png);
+    background-size: 1.75rem;
+}
+
+.asics::before {
+    background-image: url(/brand-logos/asics.png);
+    background-size: 1.25rem;
+}
+
+.new::before {
+    background-image: url(/brand-logos/new.png);
+    background-size: 1.75rem;
+}
+
+.hoka::before {
+    background-image: url(/brand-logos/hoka.png);
+    background-size: 2.125rem;
+    background-position: left 75%;
+}
