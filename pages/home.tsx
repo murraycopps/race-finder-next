@@ -42,12 +42,10 @@ type CardProps = {
 }
 
 const Card = ({title, description, link, img}: CardProps) => (
-    <Link href={link} className="relative rounded-3xl bg-strava aspect-square overflow-hidden">
+    <Link href={link} className="flex flex-col relative justify-evenly rounded-3xl bg-strava p-8 gap-8 aspect-square overflow-hidden">
         <Image src={img} alt="" width="1000" height="1000" className="absolute inset-0 w-full h-ful object-cover" />
-        <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-90 flex flex-col  justify-evenly p-8 gap-8" >
-            <h2 className="text-4xl font-bold">{title}</h2>
-            <p className="text-2xl">{description}</p>
-        </div>
-
+        <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-90" />
+        <h2 className="text-4xl font-bold z-50">{title}</h2>
+        <p className="text-2xl z-50">{description}</p>
     </Link>
 )
