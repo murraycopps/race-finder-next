@@ -28,7 +28,7 @@ export default function ShoesPage() {
             {item ? (
                 <div className="grid w-4/5 h-full grid-cols-3 p-4 m-4 rounded-lg bg-slate-400 min-w-fit">
                     <div className="flex flex-col justify-center p-4 m-1 font-medium leading-6 text-white item-center align-center">
-                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full text-3xl">{item.name}</h1>
+                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full text-2xl">{item.name}</h1>
                         <img
                             src={item.img}
                             alt={item.name}

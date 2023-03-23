@@ -163,7 +163,28 @@ const shoes:Shoe[] = [
         review: "stuff",
         id: 'hoka-zinal',
         type: "shoe"
+    },
+    {
+        name: 'Nike Pegasus Turbo Next Nature',
+        price: 150,
+        bestUse: "tempo training",
+        surface: "Road",
+        rating: 4,
+        img: "/images/pegasus-turbo.png",
+        weight: 264,
+        drop: 10,
+        heelStackHeight: 32,
+        forefootStackHeight: 22,
+        arch: "Neutral",
+        brand: "Nike",
+        brandLogo: "/images/nikeLogo.jfif",
+        link: "https://www.runningwarehouse.com/Nike_Pegasus_Turbo_Next_Nature/descpage-NMPTNN0.html",
+        brandLink: "https://www.nike.com/t/pegasus-turbo-next-nature-mens-road-running-shoes-pnz45r",
+        review: "stuff",
+        id: 'nike-pegasus-turbo-next-nature',
+        type: "shoe"
     }
+
 
 
 

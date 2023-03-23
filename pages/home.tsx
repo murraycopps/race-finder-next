@@ -1,8 +1,9 @@
 import Link from "next/link";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function HomePage() {
     return (
-        <div className="flex flex-col gap-16 p-16 min-h-screen items-center text-center">
+        <PageWrapper className="flex flex-col gap-16 p-16 min-h-screen items-center text-center">
                 <h1 className="text-4xl font-bold">Welcome to my website!</h1>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 w-full">
                     <Card
@@ -22,7 +23,7 @@ export default function HomePage() {
                     />
                 </div>
 
-        </div>
+        </PageWrapper>
 
     )
 }

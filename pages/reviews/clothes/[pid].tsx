@@ -28,7 +28,7 @@ export default function ShoesPage() {
             {article ? (
                 <div className="grid w-4/5 h-full grid-cols-3 p-4 m-4 rounded-lg bg-slate-400 min-w-fit">
                     <div className="flex flex-col justify-center p-4 m-1 font-medium leading-6 text-white item-center align-center">
-                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full">{article.name}</h1>
+                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full text-2xl">{article.name}</h1>
                         <img
                             src={article.img}
                             alt={article.name}
@@ -82,29 +82,25 @@ export default function ShoesPage() {
                                     <Stars number={article.rating} total={5}/>
                                 </p>
                             </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Heel Stack Height:</span></p>
-                                <p className="text-lg font-bold">{article.color}mm</p>
-                            </div>
+                            {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}
+                            {/*    <p><span className="text-lg font-medium"> Heel Stack Height:</span></p>*/}
+                            {/*    <p className="text-lg font-bold">{article.color}mm</p>*/}
+                            {/*</div>*/}
                             <div className="flex flex-col items-center gap-2 justify-evenly">
                                 <p><span className="text-lg font-medium"> Brand:</span></p>
                                 <p className="text-lg font-bold">{article.brand}</p>
                             </div>
-                        </div>
+
                         {/* div with dispkayt fkex to display optional features */}
-                        {article?.features && article.features.length > 0 && (
-                            <div className="flex flex-col flex-wrap justify-center gap-4 p-4  m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-dark">
-                                <h3 className="text-2xl text-center">Features</h3>
-                                <div className="flex flex-wrap justify-evenly gap-4 text-xl font-medium leading-6 text-center text-white flex-2">
-                                    {article.features.map((feature, i) => (
-                                        <div className="flex flex-col items-center gap-2 justify-evenly" key={i}>
+                        {article?.features && article.features.length > 0 && article.features.map((feature, i) =>(
+                            <div className="flex flex-col items-center gap-2 justify-evenly" key={i}>
                                             <p className="text-lg font-medium">{feature.name}:</p>
                                             <p className="text-lg font-bold">{feature.value}</p>
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
+                                    )
+
                         )}
+                        </div>
                         <div className="grid justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grow flex-3 temp-rows bg-slate-400 border-dark">
                             <h3 className="p-0 m-0 text-2xl text-center">Review</h3>
                             <p className="font-medium text-center size-lg">{article.review}</p>
