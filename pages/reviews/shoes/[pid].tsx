@@ -7,6 +7,7 @@ import Stars from "@/components/Reviews/Stars";
 import PageCard from "@/components/Reviews/PageCard";
 import SpecsCard from "@/components/Reviews/SpecsCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
+import IndSpecsCard from "@/components/Reviews/IndSpecCard";
 
 
 export default function ShoesPage() {
@@ -40,27 +41,12 @@ export default function ShoesPage() {
                                 <p><span className="text-lg font-medium">Surface:</span></p>
                                 <p className="text-lg font-bold">{shoe.surface}</p>
                             </div>
-                            
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium">Drop:</span></p>
-                                <p className="text-lg font-bold">{shoe.drop}mm</p>
-                            </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium">Weight:</span></p>
-                                <p className="text-lg font-bold">{shoe.weight}g</p>
-                            </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Heel Stack Height:</span></p>
-                                <p className="text-lg font-bold">{shoe.heelStackHeight}mm</p>
-                            </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Forefoot Stack Height:</span></p>
-                                <p className="text-lg font-bold">{shoe.forefootStackHeight}mm</p>
-                            </div>
-                            <div className="flex flex-col items-center gap-2 justify-evenly">
-                                <p><span className="text-lg font-medium"> Shoe Type:</span></p>
-                                <p className="text-lg font-bold">{shoe.arch}</p>
-                            </div>
+
+                            <IndSpecsCard info={shoe.drop + " mm"} title={"Drop"}/>
+                            <IndSpecsCard info={shoe.weight + " g"} title={"Weight"}/>
+                            <IndSpecsCard info={shoe.heelStackHeight + " mm"} title={"Heel Stack Height"}/>
+                            <IndSpecsCard info={shoe.forefootStackHeight +" mm"} title={"Fore Foot Stack Height"}/>
+                            <IndSpecsCard info={shoe.arch} title={"Support"}/>
                         </div>
                         <ReviewTextCard article={shoe}/>
                     </div>
