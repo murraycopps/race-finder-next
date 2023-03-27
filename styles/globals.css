@@ -198,6 +198,11 @@ html {
   /*  aspect ratio */
   aspect-ratio: 3/2;
 }
+.home.shoe{
+  /*  aspect ratio */
+  /* aspect-ratio: 7/4; */
+  aspect-ratio: 2;
+}
 .clothes {
   /*  aspect ratio */
   aspect-ratio: 3/2;
@@ -261,4 +266,9 @@ html {
 
 .h-75vh{
   height: 75vh;
+}
+
+.slanted{
+  --slant-amount: 3rem;
+  clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
 }

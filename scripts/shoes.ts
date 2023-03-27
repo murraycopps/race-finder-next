@@ -130,7 +130,7 @@ const shoes:Shoe[] = [
         use: "Easy training runs",
         surface: "Road",
         rating: 4,
-        img: "/images/invincible-3.png",
+        img: "/images/invincible-3-2.png",
         weight: 275,
         drop: 9,
         heelStackHeight: 37,
