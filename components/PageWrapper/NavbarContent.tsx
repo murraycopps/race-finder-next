@@ -55,6 +55,9 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
         }`}
         ref={ref}
       >
+        <Link href='/home' className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700">
+            Home
+        </Link>
         {routes.map((route, index) => (
           <NavbarDropdown key={index} route={route} close={() => {}} />
         ))}
