@@ -43,6 +43,9 @@ export default function HomePage() {
         <ItemCard item={shoes[1]} des="Best Track" />
         <ItemCard item={shoes[5]} des="Best Trail" />
         <ItemCard item={shoes[6]} des="Best Road" />
+        <ItemCard item={clothes[4]} des="Best Bottom" />
+        <ItemCard item={clothes[1]} des="Best Top" />
+
       </div>
     </PageWrapper>
   );
@@ -89,7 +92,7 @@ const ItemCard = ({ item, des }: { item: Item; des: string }) => (
         {item.name}
       </h2>
       <img
-        className={`w-full object-cover home ${item.type}`}
+        className={`w-full object-cover home ${item.type}  ${item.name.toLowerCase().includes('zinal') && "-rotate-3"}`}
         src={item.img}
         alt={item.name}
         height="300"

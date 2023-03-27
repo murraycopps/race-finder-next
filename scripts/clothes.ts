@@ -79,7 +79,7 @@ const clothes: Clothes[] = [
         name: "Nike Men's Core Dri-FIT ADV Aeroswift Half Tight",
         price: 90,
         rating: 5,
-        img: "/images/nikeAeroswiftHalfTight.png",
+        img: "/images/aeroswift-half-tight.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/nikeLogo.jfif",
