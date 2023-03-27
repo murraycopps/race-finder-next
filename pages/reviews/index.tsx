@@ -22,14 +22,14 @@ export default function Reviews() {
         <Image
             src="/review-cards/review-landing.jpg"
             alt="Reviews"
-            className="object-cover w-screen h-100vh opacity-20 pb-16"
+            className="object-cover w-screen pb-16 h-100vh opacity-20"
             width={1920}
             height={1080}
 
         />
 
 
-        <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-dark text-8xl">Reviews</h1>
+        <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>
 
 
       <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
@@ -38,7 +38,7 @@ export default function Reviews() {
         <ReviewsRoutingCard type="Other" image="/review-cards/gearnew.png" />
       </div>
 
-      <div className=" bg-white h-8 w-full">
+      <div className="w-full h-8 bg-white ">
 
       </div>
       <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">

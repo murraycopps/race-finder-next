@@ -50,7 +50,7 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
   function NavbarContent(props, ref) {
     return (
       <nav
-        className={`lg:w-1/4 md:w-1/3 sm:w-1/2 w-screen z-100 fixed top-0 left-0 bottom-0 nav-bar-content bg-dark transition-all-300 pt-14 ${
+        className={`lg:w-1/4 md:w-1/3 sm:w-1/2 w-screen z-100 fixed top-0 left-0 bottom-0 nav-bar-content bg-slate-800 transition-all-300 pt-14 ${
           props.open ? "circle-clip-visible" : "circle-clip-hidden"
         }`}
         ref={ref}

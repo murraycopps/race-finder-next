@@ -47,7 +47,7 @@ const clothes: Clothes[] = [
         name: "BOA Men's Constrictor Plus Half Tight",
         price: 44,
         rating: 4,
-        img: "/images/clothes/boaConstrictorPlusHalfTight.png",
+        img: "/images/clothes/boa-half.png",
         use: "Training/Racing",
         brand: "BOA",
         brandLogo: "/images/logos/boa-logo.png",

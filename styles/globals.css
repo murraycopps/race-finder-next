@@ -8,7 +8,8 @@
 
 body,
 html {
-  background-color: rgb(31 41 55);
+  /* background-color: rgb(31 41 55); */
+  background-color: var(--dark-base);
   min-height: 100vh;
   color: #f7fafc;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -36,7 +37,7 @@ html {
   width: clamp(500px, 75vw, 800px);
 }
 
-.bg-dark {
+/* .bg-dark {
   background-color: var(--dark-base);
 }
 .text-dark {
@@ -47,7 +48,7 @@ html {
 }
 .border-dark {
   border-color: var(--dark-base);
-}
+} */
 .w-card {
   max-width: 700px;
 }

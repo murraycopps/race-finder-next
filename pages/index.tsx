@@ -17,7 +17,7 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="fixed inset-0 text-center bg-dark">
+    <div className="fixed inset-0 text-center bg-base">
         <Head>
             <title>Runner&#39;s Hub</title>
         </Head>
@@ -43,8 +43,8 @@ export default function IndexPage() {
         height={1000}
       />
       <div className="relative z-10 flex flex-col items-center justify-center w-2/3 h-full col-span-2 gap-16 p-4">
-        <h1 className="text-8xl text-shadow-dark">Runner&#39;s Hub</h1>
-        <p className="w-3/4 text-3xl text-shadow-dark">
+        <h1 className="text-8xl text-shadow-base">Runner&#39;s Hub</h1>
+        <p className="w-3/4 text-3xl text-shadow-base">
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
         </p>

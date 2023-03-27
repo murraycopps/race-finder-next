@@ -9,7 +9,7 @@ const shoes:Shoe[] = [
         use: "Distance racing",
         surface: "Road",
         rating: 5,
-        img: "/images/vaporfly.png",
+        img: "/images/shoes/vaporfly.png",
         weight: 196,
         drop: 7.7,
         heelStackHeight: 38.6,

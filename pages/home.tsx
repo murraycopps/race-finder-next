@@ -109,14 +109,14 @@ const Card = ({ title, description, link, img }: CardProps) => (
 );
 
 const SlantedTitle = ({ title }: { title: string }) => (
-  <div className="relative flex flex-col items-center justify-center w-full h-full py-4 slanted bg-strava">
+  <div className="relative flex flex-col items-center justify-center w-full h-full py-4 text-gray-800 slanted bg-ronchi-500">
     <h2 className="relative z-10 text-4xl font-bold">{title}</h2>
   </div>
 );
 
 const ItemCard = ({ item, des }: { item: Item; des: string }) => (
   <Link href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}>
-    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-slate-400 rounded-3xl">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-lavender rounded-3xl">
       <h3 className="mb-2 text-2xl font-bold">{des}</h3>
       <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
         {item.name}

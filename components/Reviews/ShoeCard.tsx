@@ -14,7 +14,7 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
                             <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{shoe.name}</h2>
                             <img className={` w-full object-cover ${shoe.type}  ${shoe.name.toLowerCase().includes('zinal') && "-rotate-3"}`} src={shoe.img} alt={shoe.name} height="300" width="300"/>
                         </div>
-                        <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-dark"/>
+                        <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>
 
                         <div className="flex flex-wrap w-full gap-4 justify-evenly">
                             <div>
