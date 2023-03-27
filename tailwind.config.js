@@ -50,7 +50,7 @@ module.exports = {
             },
             colors: {
                 'strava': '#f65900',
-            }
+            },
         }
 
     },

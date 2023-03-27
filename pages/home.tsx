@@ -8,8 +8,35 @@ import { other } from "@/scripts/other";
 import { Item } from "@/scripts/types";
 import ShoeCard from "@/components/Reviews/ShoeCard";
 import Stars from "@/components/Reviews/Stars";
+import { useEffect, useState } from "react";
+import PacingCard from "@/components/PacingCard";
+import VdotCard from "@/components/VdotCard";
+{/* <ItemCard item={shoes[0]} des="Best Racer" />
+        <ItemCard item={shoes[1]} des="Best Track" />
+        <ItemCard item={shoes[5]} des="Best Trail" />
+        <ItemCard item={shoes[6]} des="Best Road" />
+        <ItemCard item={clothes[4]} des="Best Bottom" />
+        <ItemCard item={clothes[1]} des="Best Top" />
+        <ItemCard item={other[0]} des="Best Watch" /> */}
+const items =[
+    {item: shoes[0], des: "Best Racer"},
+    {item: shoes[1], des: "Best Track"},
+    {item: shoes[5], des: "Best Trail"},
+    {item: shoes[6], des: "Best Road"},
+    {item: clothes[4], des: "Best Bottom"},
+    {item: clothes[1], des: "Best Top"},
+    // {item: other[0], des: "Best Watch"},
+]
 
 export default function HomePage() {
+    const [randomItems, setRandomItems] = useState([] as {item: Item; des: string}[]);
+
+    useEffect(() => {
+        setRandomItems(
+            items.sort(() => Math.random() - 0.5).slice(0, 4)
+        );
+    }, []);
+
   return (
     <PageWrapper
       page="Home"
@@ -36,17 +63,20 @@ export default function HomePage() {
           img="/review-cards/shoe.webp"
         />
       </div>
-      {/*<ShoeList />*/}
       <SlantedTitle title="Our Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <ItemCard item={shoes[0]} des="Best Racer" />
-        <ItemCard item={shoes[1]} des="Best Track" />
-        <ItemCard item={shoes[5]} des="Best Trail" />
-        <ItemCard item={shoes[6]} des="Best Road" />
-        <ItemCard item={clothes[4]} des="Best Bottom" />
-        <ItemCard item={clothes[1]} des="Best Top" />
+       
+        {randomItems.map(({ item, des }, i) => (
+            <ItemCard item={item} des={des} key={i} />
+        ))}
 
       </div>
+      <SlantedTitle title="Our Tools" />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <PacingCard /> 
+        <VdotCard />
+      </div>
+      
     </PageWrapper>
   );
 }
@@ -92,7 +122,7 @@ const ItemCard = ({ item, des }: { item: Item; des: string }) => (
         {item.name}
       </h2>
       <img
-        className={`w-full object-cover home ${item.type}  ${item.name.toLowerCase().includes('zinal') && "-rotate-3"}`}
+        className={`w-full object-cover grow home ${item.type}  ${item.name.toLowerCase().includes('zinal') && "-rotate-3"}`}
         src={item.img}
         alt={item.name}
         height="300"
