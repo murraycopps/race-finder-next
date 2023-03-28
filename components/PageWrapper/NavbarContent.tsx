@@ -55,7 +55,7 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
         }`}
         ref={ref}
       >
-        <Link href='/home' className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700">
+        <Link href='/home' className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-dark-500 transition-all-150">
             Home
         </Link>
         {routes.map((route, index) => (
@@ -64,7 +64,7 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
 
         <Link
           href="/strava"
-          className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700"
+          className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-dark-500 transition-all-150"
         >
           Strava
         </Link>

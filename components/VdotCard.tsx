@@ -40,7 +40,7 @@ export default function PacingCard() {
   }, [dis, time]);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-slate-600">
+    <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-faded-purple-600">
       <h3 className="text-2xl font-bold">Calculate Vdot Pace</h3>
       <Dropdown
         items={DISTANCES}

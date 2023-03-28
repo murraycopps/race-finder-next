@@ -5,7 +5,6 @@ import Dropdown from "./Dropdown";
 import TimeInput from "./TimeInput";
 
 const inputDistances = [
-  { name: "Mile", value: 1609.34 },
   { name: "2 Mile", value: 3218.69 },
   { name: "5k", value: 5000 },
   { name: "10k", value: 10000 },
@@ -25,7 +24,7 @@ export default function PacingCard() {
   }, [dis, time]);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-slate-600">
+    <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-faded-purple-600">
         <h3 className="text-2xl font-bold">Calculate Mile Pace</h3>
       <Dropdown
         items={inputDistances}

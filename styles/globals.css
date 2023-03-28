@@ -37,32 +37,9 @@ html {
   width: clamp(500px, 75vw, 800px);
 }
 
-/* .bg-dark {
-  background-color: var(--dark-base);
-}
-.text-dark {
-  color: var(--dark-base);
-}
-.text-shadow-dark {
-  text-shadow: 0 0 15px var(--dark-base);
-}
-.border-dark {
-  border-color: var(--dark-base);
-} */
 .w-card {
   max-width: 700px;
 }
-
-/* .home-button:hover{
-  --bg-y-pos: 50%;
-  --bg-x-pos: 50%;
-  background: radial-gradient(
-      circle at var(--bg-x-pos) var(--bg-y-pos),
-      rgb(207, 27, 66) 0%,
-      rgb(228, 41, 82) 20%,
-      rgb(244, 63, 94) 100%
-  );
-} */
 
 .dropdown-rounded {
   border-top-left-radius: 2.125rem;
@@ -195,19 +172,15 @@ html {
   max-width: 100%;
 }
 
-.shoe {
-  /*  aspect ratio */
+.shoe,
+.clothes
+{
   aspect-ratio: 3/2;
 }
 .home.shoe{
-  /*  aspect ratio */
-  /* aspect-ratio: 7/4; */
   aspect-ratio: 2;
 }
-.clothes {
-  /*  aspect ratio */
-  aspect-ratio: 3/2;
-}
+
 
 .temp-rows {
   grid-template-rows: 1fr 3fr;
