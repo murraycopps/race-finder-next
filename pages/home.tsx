@@ -11,31 +11,41 @@ import Stars from "@/components/Reviews/Stars";
 import { useEffect, useState } from "react";
 import PacingCard from "@/components/PacingCard";
 import VdotCard from "@/components/VdotCard";
-{/* <ItemCard item={shoes[0]} des="Best Racer" />
+{
+  /* <ItemCard item={shoes[0]} des="Best Racer" />
         <ItemCard item={shoes[1]} des="Best Track" />
         <ItemCard item={shoes[5]} des="Best Trail" />
         <ItemCard item={shoes[6]} des="Best Road" />
         <ItemCard item={clothes[4]} des="Best Bottom" />
         <ItemCard item={clothes[1]} des="Best Top" />
-        <ItemCard item={other[0]} des="Best Watch" /> */}
-const items =[
-    {item: shoes[0], des: "Best Racer"},
-    {item: shoes[1], des: "Best Track"},
-    {item: shoes[5], des: "Best Trail"},
-    {item: shoes[6], des: "Best Road"},
-    {item: clothes[4], des: "Best Bottom"},
-    {item: clothes[1], des: "Best Top"},
-    // {item: other[0], des: "Best Watch"},
-]
+        <ItemCard item={other[0]} des="Best Watch" /> */
+}
+const items = [
+  { item: shoes[0], des: "Best Racer" },
+  { item: shoes[1], des: "Best Track" },
+  { item: shoes[5], des: "Best Trail" },
+  { item: shoes[6], des: "Best Road" },
+  { item: clothes[4], des: "Best Bottom" },
+  { item: clothes[1], des: "Best Top" },
+  // {item: other[0], des: "Best Watch"},
+];
 
 export default function HomePage() {
-    const [randomItems, setRandomItems] = useState([] as {item: Item; des: string}[]);
+  const [randomItems, setRandomItems] = useState(
+    [] as { item: Item; des: string }[]
+  );
 
-    useEffect(() => {
-        setRandomItems(
-            items.sort(() => Math.random() - 0.5).slice(0, 4)
-        );
-    }, []);
+  useEffect(() => {
+    setRandomItems(items.sort(() => Math.random() - 0.5));
+    // make an interval that shifts the list
+    // const interval = setInterval(() => {
+    //     setRandomItems((prev) => {
+    //         const newItems = [...prev];
+    //         newItems.push(newItems.shift() as { item: Item; des: string });
+    //         return newItems;
+    //     });
+    // }, 5000);
+  }, []);
 
   return (
     <PageWrapper
@@ -65,18 +75,15 @@ export default function HomePage() {
       </div>
       <SlantedTitle title="Our Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-       
-        {randomItems.map(({ item, des }, i) => (
-            <ItemCard item={item} des={des} key={i} />
+        {randomItems.slice(0, 4).map(({ item, des }, i) => (
+          <ItemCard item={item} des={des} key={i} />
         ))}
-
       </div>
       <SlantedTitle title="Our Tools" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <PacingCard /> 
+        <PacingCard />
         <VdotCard />
       </div>
-      
     </PageWrapper>
   );
 }
@@ -115,14 +122,18 @@ const SlantedTitle = ({ title }: { title: string }) => (
 );
 
 const ItemCard = ({ item, des }: { item: Item; des: string }) => (
-  <Link href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}>
+  <Link
+    href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}
+  >
     <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-lavender hover:bg-lavender-600 rounded-3xl">
       <h3 className="mb-2 text-2xl font-bold">{des}</h3>
       <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
         {item.name}
       </h2>
       <img
-        className={`w-full object-cover grow home ${item.type}  ${item.name.toLowerCase().includes('zinal') && "-rotate-3"}`}
+        className={`w-full object-cover grow home ${item.type}  ${
+          item.name.toLowerCase().includes("zinal") && "-rotate-3"
+        }`}
         src={item.img}
         alt={item.name}
         height="300"
