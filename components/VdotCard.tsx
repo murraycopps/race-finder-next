@@ -52,7 +52,7 @@ export default function PacingCard() {
       <p className="text-5xl font-bold">{Math.round(vdot * 100) / 100}</p>
       <Link
         href="/tools/pacing"
-        className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-base-300 hover:bg-base-400 rounded-3xl"
+        className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-lavender-500 hover:bg-lavender-400 rounded-3xl"
       >
         See More
       </Link>
