@@ -20,7 +20,10 @@ export default function Home() {
   };
 
   return (
-    <PageWrapper page="Relay" className="flex flex-col min-h-screen gap-4 p-4 text-center">
+    <PageWrapper
+      page="Relay"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+    >
       <h1 className="text-4xl">Add Times for Relay</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
         <div className="flex flex-col items-center gap-2 h-3/4 justify-evenly">
@@ -57,7 +60,7 @@ export default function Home() {
               Remove Time
             </button>
             <button
-              className="p-4 text-2xl text-white bg-green-500 rounded-full hover:bg-green-600s"
+              className="p-4 text-2xl text-white bg-green-500 rounded-full hover:bg-green-600 hover:bg-green-600s"
               onClick={() => {
                 setTimes([0, 0, 0, 0]);
                 setNumTimes(4);

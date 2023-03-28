@@ -104,7 +104,7 @@ module.exports = {
                     800: '#2C263E',
                     900: '#181421'
                 },
-                'faded-dark': {
+                'faded-base': {
                     DEFAULT: '#1E1D37',
                     50: '#7D7BB9',
                     100: '#706EB2',

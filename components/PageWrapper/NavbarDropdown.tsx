@@ -40,7 +40,7 @@ export default function Dropdown({
             onClick={() => {
               setOpen(!open);
             }}
-            className="relative block w-full p-4 text-3xl text-center text-white hover:bg-faded-dark-500 transition-all-150"
+            className="relative block w-full p-4 text-3xl text-center text-white hover:bg-faded-base-500 transition-all-150"
             ref={buttonRef}
           >
             {route.name}
@@ -58,7 +58,7 @@ export default function Dropdown({
               <span className="block w-3/4 h-0 my-1 border-t border-gray-400"></span>
               <Link
                 href={route.route}
-                className="block w-full p-4 text-2xl text-center text-white hover:bg-faded-dark-500 transition-all-150"
+                className="block w-full p-4 text-2xl text-center text-white hover:bg-faded-base-500 transition-all-150"
               >
                 {" "}
                 All {route.name}
@@ -71,7 +71,7 @@ export default function Dropdown({
                     <Link
                       href={route.route + child.route}
                       key={i}
-                      className="block w-full p-4 text-2xl text-center text-white hover:bg-faded-dark-500 transition-all-150"
+                      className="block w-full p-4 text-2xl text-center text-white hover:bg-faded-base-500 transition-all-150"
                     >
                       <li onClick={close}>{child.name}</li>
                     </Link>
