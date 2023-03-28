@@ -34,7 +34,7 @@ export default function PacingCard() {
       />
       <TimeInput time={time} setTime={setTime} />
       <p className="text-5xl font-bold">{outTime(pace)}</p>
-      <Link href="/tools/pacing" className="w-2/3 px-8 py-4 text-2xl transition-all bg-blue-500 hover:bg-blue-600 rounded-3xl">See More</Link>
+      <Link href="/tools/pacing" className="w-2/3 px-8 py-4 text-2xl transition-all-300 hover:text-base-90b0 bg-lavender-500 hover:bg-lavender-400 rounded-3xl">See More</Link>
     </div>
   );
 }
