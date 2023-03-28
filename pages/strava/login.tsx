@@ -53,15 +53,15 @@ export default function LoginPage({
           accessToken: access_token,
           refreshToken: refresh_token,
           expiresAt: expires_at,
-        })
+        });
 
-        LoginData.Login(access_token, username, user.goals || [], user._id )
+        LoginData.Login(access_token, username, user.goals || [], user._id);
 
         router.push("/strava/");
-        return
+        return;
       }
-      if(!user.accessToken) return
-      LoginData.Login(user.accessToken, username, user.goals || [], user._id)
+      if (!user.accessToken) return;
+      LoginData.Login(user.accessToken, username, user.goals || [], user._id);
 
       router.push("/strava/");
     } else {
@@ -70,32 +70,35 @@ export default function LoginPage({
   }
 
   return (
-    <PageWrapper page="Login" className="flex flex-col items-center justify-center h-screen text-white bg-gray-800">
-      <form className="px-4 py-6 bg-gray-700 rounded-lg shadow-lg run-field-sizing">
-        <label className="block mb-4 text-lg font-bold" htmlFor="username">
+    <PageWrapper
+      page="Login"
+      className="flex flex-col items-center justify-center h-screen"
+    >
+      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-purple-600 run-field-sizing">
+        <label className="block text-lg font-bold" htmlFor="username">
           Username:
         </label>
         <input
-          className="w-full px-3 py-2 mb-4 text-white bg-gray-800 rounded-md focus:outline-none focus:shadow-outline-blue"
+          className="w-full px-3 py-2 rounded-md focus:outline-none focus:shadow-outline-blue"
           type="text"
           name="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label className="block mb-4 text-lg font-bold" htmlFor="password">
+        <label className="block text-lg font-bold" htmlFor="password">
           Password:
         </label>
         <input
-          className="w-full px-3 py-2 mb-4 text-white bg-gray-800 rounded-md focus:outline-none focus:shadow-outline-blue"
+          className="w-full px-3 py-2 rounded-md focus:outline-none focus:shadow-outline-blue"
           type="password"
           name="password"
           value={password}
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p className="mb-4 text-red-500">{errorMessage}</p>
+        <p className="text-red-500 ">{errorMessage}</p>
         <button
-          className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+          className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 focus:outline-none focus:shadow-outline"
           type="button"
           onClick={handleClick}
         >
@@ -104,7 +107,7 @@ export default function LoginPage({
       </form>
 
       <Link
-        className="px-4 py-2 mt-4 font-bold text-center text-white bg-gray-700 rounded-md run-field-sizing hover:bg-gray-600 focus:outline-none focus:shadow-outline"
+        className="px-4 py-2 mt-4 font-bold text-center rounded-md bg-faded-purple-600 run-field-sizing hover:bg-faded-purple-700 focus:outline-none focus:shadow-outline"
         type="button"
         href="/strava/create-account"
       >

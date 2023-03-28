@@ -34,7 +34,7 @@ export default function ShoesPage() {
                     <PageCard item={article}/>
 
                     <div className="flex flex-col h-full col-span-2 p-4">
-                        <div className="grid flex-wrap justify-center grid-cols-5 gap-4 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-dark">
+                        <div className="grid flex-wrap justify-center grid-cols-5 gap-4 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-base">
                             <SpecsCard item={article}/>
                             
                             {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}

@@ -50,18 +50,21 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
   function NavbarContent(props, ref) {
     return (
       <nav
-        className={`lg:w-1/4 md:w-1/3 sm:w-1/2 w-screen z-100 fixed top-0 left-0 bottom-0 nav-bar-content bg-dark transition-all-300 pt-14 ${
+        className={`lg:w-1/4 md:w-1/3 sm:w-1/2 w-screen z-100 fixed top-0 left-0 bottom-0 nav-bar-content bg-base-700 transition-all-300 pt-14 ${
           props.open ? "circle-clip-visible" : "circle-clip-hidden"
         }`}
         ref={ref}
       >
+        <Link href='/home' className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-base-500 transition-all-150">
+            Home
+        </Link>
         {routes.map((route, index) => (
           <NavbarDropdown key={index} route={route} close={() => {}} />
         ))}
 
         <Link
           href="/strava"
-          className="block w-full p-4 text-3xl text-center text-white hover:bg-gray-700"
+          className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-base-500 transition-all-150"
         >
           Strava
         </Link>

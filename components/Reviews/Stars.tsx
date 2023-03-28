@@ -16,8 +16,10 @@ export default function Stars({
       <span className="text-yellow-500">
         {Array.from({ length: number }, (_, i) => "★")}
       </span>
-      <span className="">
-        {Array.from({ length: total - number }, (_, i) => "☆")}
+      <span className="text-gray-200">
+        {/* {Array.from({ length: total - number }, (_, i) => "☆")} */}
+        {Array.from({ length: total - number }, (_, i) => "★")}
+
       </span>
     </>
   );

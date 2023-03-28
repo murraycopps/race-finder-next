@@ -37,6 +37,11 @@ export default function Navbar() {
         <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
       </button>
       <NavbarContent open={open} ref={contentRef} />
+      {/* <div
+        className={`fixed top-0 left-0 z-50 w-full h-full bg-base-700 transition-all-300 ${
+          open ? "opacity-70" : "opacity-0"
+        }`}
+      /> */}
     </>
   );
 }

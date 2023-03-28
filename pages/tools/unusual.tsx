@@ -55,7 +55,7 @@ export default function Home() {
 
           <div className="grid w-full grid-cols-3 gap-4">
             <button
-            className="p-4 text-xl text-white bg-blue-500 rounded-full hover:bg-blue-600"
+              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
               onClick={() => {
                 setOutputDistances((oldValue) => [...oldValue, 0]);
                 if (outputDistanceRef.current)
@@ -65,8 +65,8 @@ export default function Home() {
               Add Distance
             </button>
             <button
-            className="p-4 text-xl text-white bg-blue-500 rounded-full hover:bg-blue-600"
-            onClick={() => {
+              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+              onClick={() => {
                 if (outputDistances.length !== 1) {
                   setOutputDistances((oldValue) => [...oldValue.slice(0, -1)]);
                   if (outputDistanceRef.current)
@@ -78,8 +78,8 @@ export default function Home() {
               Remove Distance
             </button>
             <button
-            className="p-4 text-xl text-white bg-blue-500 rounded-full hover:bg-blue-600"
-            onClick={() => {
+              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+              onClick={() => {
                 setOutputDistances([0]);
                 outputDistanceRef.current!.value = "";
               }}
