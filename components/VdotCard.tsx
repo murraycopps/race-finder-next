@@ -41,7 +41,7 @@ export default function PacingCard() {
 
   return (
     <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-faded-purple-600">
-      <h3 className="text-2xl font-bold">Calculate Vdot Pace</h3>
+      <h3 className="text-2xl font-bold">Calculate Vdot Score</h3>
       <Dropdown
         items={DISTANCES}
         placeholder="Distance"
@@ -51,7 +51,7 @@ export default function PacingCard() {
       <TimeInput time={time} setTime={setTime} />
       <p className="text-5xl font-bold">{Math.round(vdot * 100) / 100}</p>
       <Link
-        href="/tools/pacing"
+        href="/tools/vdot"
         className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-lavender-500 hover:bg-lavender-400 rounded-3xl"
       >
         See More

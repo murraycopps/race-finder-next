@@ -245,6 +245,7 @@ html {
 .slanted{
   --slant-amount: 3rem;
   clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
+  /* width: calc(100% + var(--slant-amount)); */
 }
 
 .zinal{
