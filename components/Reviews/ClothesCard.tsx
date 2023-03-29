@@ -12,11 +12,11 @@ export default function Reviews({clothes} : {clothes: Clothes}) {
                             <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{clothes.name}</h2>
                             <img className={` w-full object-cover ${clothes.type}`}src={clothes.img} alt={clothes.name} height="300" width="300"/>
                         </div>
-                        <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>
+                        {/*<span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>*/}
 
                         <div className="flex w-full justify-evenly">
                             <div>
-                                <p><span className="text-xs font-bold">Price:</span></p>
+                                <p className="text-xs font-bold">Price:</p>
                                 <p className="m-0 text-xl ">${clothes.price}</p>
                             </div>
 
@@ -26,12 +26,12 @@ export default function Reviews({clothes} : {clothes: Clothes}) {
                             {/*</div>*/}
 
                             <div>
-                                <p><span className="text-xs font-bold">Best Use:</span></p>
+                                <p className="text-xs font-bold">Best Use:</p>
                                 <p className="m-0 text-xl ">{clothes.use}</p>
                             </div>
 
                             <div>
-                                <p><span className="text-xs font-bold">Rating:</span></p>
+                                <p className="text-xs font-bold">Rating:</p>
                                 <p className="m-0 text-xl ">
                                     <Stars number={clothes.rating} total={5}/>
                                 </p>
