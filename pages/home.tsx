@@ -65,7 +65,7 @@ export default function HomePage() {
           title="Tools"
           description="Tools to help you with your running"
           link="/tools"
-          img="/review-cards/clock-icon.png"
+          img="/review-cards/clock-icon.svg"
         />
         <Card
           title="Reviews"
@@ -111,8 +111,8 @@ const Card = ({ title, description, link, img }: CardProps) => (
       className="absolute inset-0 object-cover w-full h-full"
     />
     <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-80 hover:opacity-70" />
-    <h2 className="z-50 text-4xl font-bold">{title}</h2>
-    <p className="z-50 text-2xl">{description}</p>
+    <h2 className="z-50 text-4xl font-bold pointer-events-none">{title}</h2>
+    <p className="z-50 text-2xl pointer-events-none">{description}</p>
   </Link>
 );
 
