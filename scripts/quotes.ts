@@ -1,6 +1,6 @@
-import { Quotes } from "./types"
+import { Quote } from "./types"
 
-const quotes:Quotes[] = [
+const quotes:Quote[] = [
     {
         name: "Eliud Kipchoge",
         quote: "No Human is Limited",
@@ -10,3 +10,5 @@ const quotes:Quotes[] = [
         quote: "To give anything less than your best, is to sacrifice the gift.",
     }
     ];
+
+    export {quotes};

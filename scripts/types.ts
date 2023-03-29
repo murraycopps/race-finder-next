@@ -98,9 +98,9 @@ type Other = {
 
 }
 
-type Quotes = {
+type Quote = {
     name: string;
     quote: string;
 }
 
-export type { Shoe, User, Goal, Clothes, Item, Other, Quotes }
+export type { Shoe, User, Goal, Clothes, Item, Other, Quote }
