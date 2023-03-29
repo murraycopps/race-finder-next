@@ -263,3 +263,27 @@ html {
   position: relative;
   font-family: 'Times New Roman', Times, serif;
 }
+
+.navbarIcon.current::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  right: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-bottom-right-radius: 20px;
+  box-shadow: 10px 0px 0 0 black;
+}
+
+.navbarIcon.current::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  right: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 10px 0px 0 0 black;
+}
