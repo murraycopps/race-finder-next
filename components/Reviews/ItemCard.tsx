@@ -2,35 +2,31 @@ import { Item } from "@/scripts/types";
 import Link from "next/link";
 import Stars from "./Stars";
 
-export default function Reviews({item} : {item: Item}) {
+const ItemCard = ({ item }: { item: Item;}) => (
+    <Link
+      href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}
+    >
+      <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-wisteria-600 hover:bg-faded-lavender-600 rounded-3xl">
+        <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
+          {item.name}
+        </h2>
+        <img
+          className={`w-full object-cover grow home ${item.type}  ${
+            item.name.toLowerCase().includes("zinal") && "-rotate-3"
+          }`}
+          src={item.img}
+          alt={item.name}
+          height="300"
+          width="300"
+        />
+        <div className="grid w-full grid-cols-2 text-xl place-items-center">
+          <p className="text-2xl">${item.price}</p>
+          <p>
+            <Stars number={item.rating} total={5} />
+          </p>
+        </div>
+      </div>
+    </Link>
+  );
 
-    return (
-        // <section className="w-full text-white rounded-lg bg-slate-400 w-card">
-        //     <div className="flex items-center m-5">
-                <Link className="w-full p-4 no-underline rounded-lg bg-slate-400 w-card" href={`/reviews/${item.type === "shoe" ? "shoes": item.type}/${item.id}`}>
-                    {/* <div className="item"> */}
-                        <div className="flex-col items-center w-full mx-auto my-0">
-                            <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{item.name}</h2>
-                            <img className={` w-full object-cover p-4 ${item.type} ${item.name.toLowerCase().includes('zinal') && "-rotate-3"}`} src={item.img} alt={item.name} height="300" width="300"/>
-                        </div>
-
-                        <div className="flex flex-wrap w-full justify-evenly">
-                        <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>
-                            <div>
-                                <p><span className="text-xs font-bold">Price:</span></p>
-                                <p className="m-0 text-xl ">${item.price}</p>
-                            </div>
-
-                            <div>
-                                <p><span className="text-xs font-bold">Rating:</span></p>
-                                <p className="m-0 text-xl ">
-                                    <Stars number={item.rating} total={5}/>
-                                </p>
-                            </div>
-                        </div>
-                    {/* </div> */}
-                </Link>
-        //     </div>
-        // </section>
-    )
-}
+  export default ItemCard;
