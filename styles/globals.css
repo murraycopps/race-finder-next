@@ -264,26 +264,27 @@ html {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.navbarIcon.current::before {
+.quote-image::before {
   content: "";
   position: absolute;
-  top: -22px;
-  right: 50%;
-  width: 20px;
-  height: 20px;
+  top: calc(50% - 2rem);
+  right: calc(100% - 4.6px);
+  width: 2rem;
+  height: 2rem;
   background-color: transparent;
-  border-bottom-right-radius: 20px;
-  box-shadow: 10px 0px 0 0 black;
+  border-bottom-right-radius: 2rem;
+  box-shadow: .4rem .6rem 0 .2rem rgb(84 72 119);
+
 }
 
-.navbarIcon.current::after {
+.quote-image::after {
   content: "";
   position: absolute;
-  bottom: -22px;
-  right: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border-top-right-radius: 20px;
-  box-shadow: 10px 0px 0 0 black;
+  top: calc(50% - 2rem);
+  left: calc(100% - 4.6px);
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;+
+  border-bottom-left-radius: 2rem;
+  box-shadow: -.4rem .6rem 0 .2rem rgb(84 72 119);
 }
