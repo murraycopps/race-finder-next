@@ -9,7 +9,7 @@ const quotes:Quote[] = [
     {
         name: "Steve Prefontaine",
         quote: "To give anything less than your best, is to sacrifice the gift.",
-        img: "/images/quotes/Pre.jpeg"
+        img: "/images/quotes/Pre.png"
     }
     ];
 
