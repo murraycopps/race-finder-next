@@ -134,7 +134,7 @@ const ItemCard = ({ item, des }: { item: Item; des: string }) => (
         {item.name}
       </h2>
       <img
-        className={`w-full object-cover grow home ${item.type}  ${
+        className={`w-full object-contain grow home ${item.type}  ${
           item.name.toLowerCase().includes("zinal") && "-rotate-3"
         }`}
         src={item.img}
