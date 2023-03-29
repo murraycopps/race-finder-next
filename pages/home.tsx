@@ -128,7 +128,7 @@ const ItemCard = ({ item, des }: { item: Item; des: string }) => (
   <Link
     href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}
   >
-    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-wisteria-600 hover:bg-lavender-600 rounded-3xl">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-wisteria-600 hover:bg-faded-lavender-600 rounded-3xl">
       <h3 className="mb-2 text-2xl font-bold">{des}</h3>
       <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
         {item.name}
