@@ -12,7 +12,7 @@ const ItemCard = ({ item }: { item: Item;}) => (
           {item.name}
         </h2>
         <Image
-          className={`w-full ${item.type === "shoes" ? "object-contain" : "object-cover"} grow home ${item.type}  ${
+          className={`w-full ${item.type === "shoe" ? "object-contain" : "object-cover"} grow home ${item.type}  ${
             item.name.toLowerCase().includes("zinal") && "-rotate-3"
           }`}
           src={item.img}
