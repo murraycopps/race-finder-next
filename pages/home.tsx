@@ -52,6 +52,7 @@ export default function HomePage() {
       page="Home"
       className="flex flex-col items-center min-h-screen gap-16 p-16 text-center"
     >
+     
       <h1 className="text-4xl font-bold">Welcome to my website!</h1>
       <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
         <Card
@@ -107,7 +108,7 @@ const Card = ({ title, description, link, img }: CardProps) => (
       alt=""
       width="1000"
       height="1000"
-      className="absolute inset-0 object-cover w-full h-ful"
+      className="absolute inset-0 object-cover w-full h-full"
     />
     <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-80 hover:opacity-70" />
     <h2 className="z-50 text-4xl font-bold">{title}</h2>
@@ -125,7 +126,7 @@ const ItemCard = ({ item, des }: { item: Item; des: string }) => (
   <Link
     href={`/reviews/${item.type === "shoe" ? "shoes" : item.type}/${item.id}`}
   >
-    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-lavender hover:bg-lavender-600 rounded-3xl">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-wisteria-600 hover:bg-lavender-600 rounded-3xl">
       <h3 className="mb-2 text-2xl font-bold">{des}</h3>
       <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
         {item.name}
