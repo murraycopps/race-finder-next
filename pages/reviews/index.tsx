@@ -17,19 +17,21 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen gap-4"
+      className="flex flex-col items-center justify-start w-screen h-screen gap-4 overflow-y-auto"
     >
+      <div className="relative">
         <Image
             src="/review-cards/review-landing.jpg"
             alt="Reviews"
-            className="object-cover w-screen pb-16 h-100vh opacity-20"
+            className="object-cover w-screen opacity-20"
             width={1920}
             height={1080}
 
         />
-
-
         <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>
+      </div>
+
+
 
 
       <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
