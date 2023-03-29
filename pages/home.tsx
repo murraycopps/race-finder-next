@@ -11,6 +11,7 @@ import Stars from "@/components/Reviews/Stars";
 import { useEffect, useState } from "react";
 import PacingCard from "@/components/PacingCard";
 import VdotCard from "@/components/VdotCard";
+import QuoteCard from "@/components/HomePage/QuoteCard";
 {
   /* <ItemCard item={shoes[0]} des="Best Racer" />
         <ItemCard item={shoes[1]} des="Best Track" />
@@ -85,6 +86,7 @@ export default function HomePage() {
         <PacingCard />
         <VdotCard />
       </div>
+      <QuoteCard />
     </PageWrapper>
   );
 }
