@@ -284,7 +284,7 @@ html {
   left: calc(100% - 4.6px);
   width: 2rem;
   height: 2rem;
-  background-color: transparent;+
+  background-color: transparent;
   border-bottom-left-radius: 2rem;
   box-shadow: -.4rem .6rem 0 .2rem rgb(84 72 119);
 }
