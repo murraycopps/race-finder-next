@@ -37,7 +37,7 @@ export default function Reviews() {
       <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
         <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
         <ReviewsRoutingCard type="clothes" image="/review-cards/clothesnew.webp" />
-        <ReviewsRoutingCard type="Other" image="/review-cards/gearnew.png" />
+        <ReviewsRoutingCard type="other" image="/review-cards/gearnew.png" />
       </div>
 
       <div className="w-full h-8 bg-white ">
