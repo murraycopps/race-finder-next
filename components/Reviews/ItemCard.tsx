@@ -17,12 +17,12 @@ export default function Reviews({item} : {item: Item}) {
                         <div className="flex flex-wrap w-full justify-evenly">
                         <span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>
                             <div>
-                                <p><span className="text-xs font-bold">Price:</span></p>
+                                {/* <p><span className="text-xs font-bold">Price:</span></p> */}
                                 <p className="m-0 text-xl ">${item.price}</p>
                             </div>
 
                             <div>
-                                <p><span className="text-xs font-bold">Rating:</span></p>
+                                {/* <p><span className="text-xs font-bold">Rating:</span></p> */}
                                 <p className="m-0 text-xl ">
                                     <Stars number={item.rating} total={5}/>
                                 </p>

@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 import { quotes } from "@/scripts/quotes";
 
 export default function QuotesCard() {
-  const [quote, setQuote] = useState<Quote>({ name: "", quote: "" });
+  const [quote, setQuote] = useState<Quote>({ name: "", quote: "" , img: ""});
   useEffect(() => {
     setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
   }, []);
 
   return (
     <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-faded-purple-600">
-      <h3 className="text-2xl font-bold">{quote.name}</h3>
-      <blockquote className="text-xl font-bold">{quote.quote}</blockquote>
+      <img className="object-cover w-32 h-32 rounded-full" src={quote.img} alt=""/>
+      <p className="text-xl font-bold quote ">{quote.quote}</p>
+      <p className="text-lg font-bold">-{quote.name}</p>
     </div>
   );
 }

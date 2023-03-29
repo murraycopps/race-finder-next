@@ -101,6 +101,7 @@ type Other = {
 type Quote = {
     name: string;
     quote: string;
+    img: string;
 }
 
 export type { Shoe, User, Goal, Clothes, Item, Other, Quote }
