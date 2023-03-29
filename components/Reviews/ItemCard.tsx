@@ -1,6 +1,7 @@
 import { Item } from "@/scripts/types";
 import Link from "next/link";
 import Stars from "./Stars";
+import Image from "next/image";
 
 const ItemCard = ({ item }: { item: Item;}) => (
     <Link
@@ -10,7 +11,7 @@ const ItemCard = ({ item }: { item: Item;}) => (
         <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
           {item.name}
         </h2>
-        <img
+        <Image
           className={`w-full object-cover grow home ${item.type}  ${
             item.name.toLowerCase().includes("zinal") && "-rotate-3"
           }`}
