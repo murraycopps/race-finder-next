@@ -130,14 +130,14 @@ export default function VDOT() {
             setState={setIsRace}
           />
           <Switch
-            options={["Time", "Pace"]}
-            state={isRace ? isPace : false}
+            options={["Pace", "Time"]}
+            state={isRace ? true : isPace}
             setState={(state) => {
               if (isRace) setIsPace(state);
             }}
           />
         </div>
-        <div className="relative flex flex-col flex-wrap items-start justify-between w-full p-4 text-4xl text-left text-black whitespace-pre-wrap bg-white h-3/4 min-h-fit rounded-3xl">
+        <div className="relative flex flex-col flex-wrap items-start justify-start w-full p-4 text-4xl text-left text-black whitespace-pre-wrap bg-white h-3/4 min-h-fit rounded-3xl">
           {vdot.precise !== 0 && vdot.precise < 100 && vdot.precise > 10 && (
             <p className="text-5xl">
               Vdot: {vdot.precise.toFixed(2)}
