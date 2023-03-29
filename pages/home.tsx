@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import PageWrapper from "@/components/PageWrapper";
-import ShoeList from "@/components/ShoeList";
+import ShoeList from "@/components/HomePage/ShoeList";
 import { shoes } from "@/scripts/shoes";
 import { clothes } from "@/scripts/clothes";
 import { other } from "@/scripts/other";
@@ -9,8 +9,8 @@ import { Item } from "@/scripts/types";
 import ShoeCard from "@/components/Reviews/ShoeCard";
 import Stars from "@/components/Reviews/Stars";
 import { useEffect, useState } from "react";
-import PacingCard from "@/components/PacingCard";
-import VdotCard from "@/components/VdotCard";
+import PacingCard from "@/components/HomePage/PacingCard";
+import VdotCard from "@/components/HomePage/VdotCard";
 import QuoteCard from "@/components/HomePage/QuoteCard";
 {
   /* <ItemCard item={shoes[0]} des="Best Racer" />

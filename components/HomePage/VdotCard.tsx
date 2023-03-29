@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Dropdown from "./Dropdown";
-import TimeInput from "./TimeInput";
+import Dropdown from "../Dropdown";
+import TimeInput from "../TimeInput";
 import { vdotTable } from "@/scripts/vdot-table";
 
 export const DISTANCES = [

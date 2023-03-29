@@ -1,8 +1,8 @@
 import { outTime } from "@/scripts";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Dropdown from "./Dropdown";
-import TimeInput from "./TimeInput";
+import Dropdown from "../Dropdown";
+import TimeInput from "../TimeInput";
 
 const inputDistances = [
   { name: "2 Mile", value: 3218.69 },
