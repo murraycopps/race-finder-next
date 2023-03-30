@@ -143,7 +143,7 @@ export default function ProfileCard({
         </button>
       </div>
       <div className="lg:grow"></div>
-      <p className="hidden p-4 mt-4 ml-4 text-lg text-center bg-gray-700 rounded-t-lg lg:block">
+      <p className="hidden p-1 mt-4 ml-4 text-sm text-center rounded-t-lg lg:block">
         Icons by FontAwesome
       </p>
     </div>

@@ -63,7 +63,7 @@ export default function LoginPage({
       page="Create Account"
       className="flex flex-col items-center justify-center h-screen"
     >
-      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-purple-600 run-field-sizing">
+      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-base-300 run-field-sizing">
         <label className="block text-lg font-bold" htmlFor="username">
           Username:
         </label>
@@ -95,7 +95,7 @@ export default function LoginPage({
         </button>
       </form>
       <Link
-        className="px-4 py-2 mt-4 font-bold text-center text-white rounded-md bg-faded-purple-600 run-field-sizing hover:bg-faded-purple-700 focus:outline-none focus:shadow-outline"
+        className="px-4 py-2 mt-4 font-bold text-center text-white rounded-md bg-faded-base-300 run-field-sizing hover:bg-faded-base-200 focus:outline-none focus:shadow-outline"
         type="button"
         href="/strava/login"
       >

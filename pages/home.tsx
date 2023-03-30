@@ -15,6 +15,7 @@ import QuoteCard from "@/components/HomePage/QuoteCard";
 import LinkCard from "@/components/HomePage/LinkCard";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
 import ItemCard from "@/components/Reviews/ItemCard";
+import IntensityCard from "@/components/IntensityCard";
 
 const items = [
   { item: shoes[0], des: "Best Racer" },
@@ -81,6 +82,7 @@ export default function HomePage() {
         <VdotCard />
       </div>
       <QuoteCard />
+      <IntensityCard />
     </PageWrapper>
   );
 }
