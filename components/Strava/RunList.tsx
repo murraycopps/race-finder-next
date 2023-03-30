@@ -34,6 +34,7 @@ const Run: FC<{ activity: any }> = ({ activity }) => (
             hour: "numeric",
             minute: "2-digit",
           })}
+
       </p>
     </div>
     <div className="grid gap-4">
