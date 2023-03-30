@@ -131,7 +131,7 @@ export default function VDOT() {
           />
           <Switch
             options={["Pace", "Time"]}
-            state={isRace ? true : isPace}
+            state={isRace ? isPace : true}
             setState={(state) => {
               if (isRace) setIsPace(state);
             }}
