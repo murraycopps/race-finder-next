@@ -11,6 +11,7 @@ import {outTime} from "@/scripts";
 import LoginData from "@/scripts/LoginData";
 import Image from "next/image";
 import IntensityChart from "@/components/Strava/IntensityChart";
+import IntensityCard from "../IntensityCard";
 
 export default function ProfileCard({
                                         data,
@@ -146,7 +147,7 @@ export default function ProfileCard({
             </div>
             <div className="lg:grow"></div>
             <IntensityChart activities={activities}/>
-            <p className="hidden p-1 mt-4 ml-4 text-sm text-center rounded-t-lg lg:block">
+                        <p className="hidden p-1 mt-4 ml-4 text-sm text-center rounded-t-lg lg:block">
                 Icons by FontAwesome
             </p>
         </div>

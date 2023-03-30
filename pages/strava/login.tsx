@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
 import { User } from "@/scripts/types";
@@ -21,7 +21,6 @@ export default function LoginPage({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   async function handleClick() {
     // check if username and password are valid
     const user = users.find(
@@ -68,6 +67,12 @@ export default function LoginPage({
       setErrorMessage("Incorrect username or password");
     }
   }
+  
+  useEffect(() => {
+    if (LoginData.isLoggedIn()) {
+      router.push("/strava/");
+    }
+  }, []);
 
   return (
     <PageWrapper
