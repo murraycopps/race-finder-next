@@ -2,7 +2,6 @@
 
 import { vdotTable } from "@/scripts/vdot-table";
 import { useEffect, useState } from "react";
-import { DISTANCES } from "./HomePage/VdotCard";
 import TimeInput from "./TimeInput";
 
 // and then it will calculate the vdot for that distance and time
