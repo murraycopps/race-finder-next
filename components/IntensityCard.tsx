@@ -13,7 +13,7 @@ export default function Intensity() {
   const [useMeters, setUseMeters] = useState(false);
 
   useEffect(() => {
-    if (distance !== 0 && time > 0) {
+    if (distance > 0 && time > 0) {
     //   const milePace = (time * 1609) / distance; 
         const milePace = useMeters ? (time * 1609) / distance : time / distance;
         console.log(milePace);
