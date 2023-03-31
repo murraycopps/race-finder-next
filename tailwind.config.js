@@ -18,6 +18,10 @@ module.exports = {
                 '105': '26.25rem',
                 '100': '25rem',
             },
+            maxWidth: {
+                '2xs': '10rem',
+                '3xs': '5rem',
+            },
             height: {
                 '125': '31.25rem',
                 '128': '32rem',
