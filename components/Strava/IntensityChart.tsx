@@ -90,10 +90,8 @@ const calculateHeartIntensities = (activities: any) => {
 
     const dayIntensity = dayActivities.reduce((prev: number, curr: any) => {
       return prev + curr.average_heartrate + curr.max_heartrate;
-    }
-    , 0);
+    }, 0);
     return dayIntensity / (dayActivities.length * 2);
-
   });
   dayIntensities.reverse();
   return dayIntensities;
@@ -103,6 +101,7 @@ export default function IntensityChart({ activities }: { activities: any }) {
   const [weeklyActivities, setWeeklyActivities] = useState([] as any);
   const [daysVdot, setDaysVdot] = useState<number[]>([]);
   const [daysHeartRate, setDaysHeartRate] = useState<number[]>([]);
+  const [showHR, setShowHR] = useState(false);
 
   useEffect(() => {
     const lastWeek = new Date();
@@ -121,10 +120,11 @@ export default function IntensityChart({ activities }: { activities: any }) {
   }, [weeklyActivities]);
 
   return (
-    <div className="relative w-full h-16">
-      <div className="absolute flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
-        {
-          daysVdot.map((day: number, index: number) => {
+    <div className="flex flex-col w-full gap-4 grow flex-center">
+      <h1 className="text-2xl font-bold">Intensity using {showHR ? "HR" : "VDOT"}</h1>
+      {showHR ? (
+        <div className="flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
+          {daysVdot.map((day: number, index: number) => {
             return (
               <div
                 key={index}
@@ -137,15 +137,18 @@ export default function IntensityChart({ activities }: { activities: any }) {
                     100
                   }% + 0.5rem)`,
                 }}
-                className="w-20 bg-red-500"
-              ></div>
+                className="relative w-20 bg-red-500"
+              >
+                <p className="absolute w-full text-xs text-center top-full">{
+                  new Date(new Date().setDate(new Date().getDate() - (13 - index))).getDate()
+                }</p>
+              </div>
             );
-          })
-        }
-      </div>
-      <div className="absolute flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
-        {
-          daysHeartRate.map((day: number, index: number) => {
+          })}
+        </div>
+      ) : (
+        <div className="flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
+          {daysHeartRate.map((day: number, index: number) => {
             return (
               <div
                 key={index}
@@ -158,12 +161,17 @@ export default function IntensityChart({ activities }: { activities: any }) {
                     100
                   }% + 0.5rem)`,
                 }}
-                className="w-20 bg-blue-500"
-              ></div>
+                className="relative w-20 bg-blue-500"
+              >
+                 <p className="absolute w-full text-xs text-center top-full">{
+                  new Date(new Date().setDate(new Date().getDate() - (13 - index))).getDate()
+                }</p>
+              </div>
             );
-          })
-        }
-      </div>
+          })}
+        </div>
+      )}
+    <button onClick={() => setShowHR(!showHR)}>Toggle</button>
     </div>
   );
 }

@@ -145,7 +145,7 @@ export default function ProfileCard({
                     Logout
                 </button>
             </div>
-            <div className="lg:grow"></div>
+            {/* <div className="lg:grow"></div> */}
             <IntensityChart activities={activities}/>
                         <p className="hidden p-1 mt-4 ml-4 text-sm text-center rounded-t-lg lg:block">
                 Icons by FontAwesome

@@ -4,6 +4,7 @@ import HomePage from "@/components/Strava/HomePage";
 import PageWrapper from "@/components/PageWrapper";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import StravaPage from "@/components/StravaPage";
 
 export default function Page() {
   const [loggedIn, setLoggedIn] = useState(LoginData.isLoggedIn());
@@ -20,7 +21,8 @@ export default function Page() {
   return (
     <PageWrapper page="Strava">
       {loggedIn ? (
-        <HomePage />
+        // <HomePage />
+        <StravaPage   />
       ) : (
         <div className="grid h-screen place-items-center">
           <div className="flex flex-col gap-8 text-center">
