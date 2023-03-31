@@ -98,7 +98,7 @@ export default function HomePage() {
       </div>
 
       <IntensityCard />
-        <MapWithNoSSR />
+        <MapWithNoSSR map={myMap} />
     </PageWrapper>
   );
 }
