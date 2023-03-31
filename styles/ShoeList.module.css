@@ -92,3 +92,15 @@
     background-size: 2.125rem;
     background-position: left 75%;
 }
+.brooks::before {
+    background-image: url(/brand-logos/brooks.png);
+    background-size: 1.75rem;
+}
+.saucony::before {
+    background-image: url(/brand-logos/saucony.png);
+    background-size: 2rem;
+}
+.on::before {
+    background-image: url(/brand-logos/on.png);
+    background-size: 1.25rem;
+}

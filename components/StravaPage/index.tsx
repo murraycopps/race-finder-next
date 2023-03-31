@@ -223,5 +223,16 @@ const DataCard = ({ name, value }: { name: string; value: string }) => (
 );
 
 const RightSide = ({ data }: { data: any }) => (
-  <div className="flex flex-col items-center justify-center w-64 gap-8 py-8 rounded-bl-3xl h-192 bg-faded-base-300"></div>
+  <div className="flex flex-col items-center justify-center w-64 gap-2 py-8 rounded-bl-3xl h-192 bg-faded-base-300">
+    {data.shoes.map((shoe: any) => (
+      <div className="flex flex-col gap-1">
+        <h2 className="text-lg font-bold text-center text-white">
+          {shoe.name.replace(shoe.nickname, "")}
+        </h2>
+        <p className="text-lg font-bold text-center text-white">
+          {shoe.converted_distance} Mi
+        </p>
+      </div>
+    ))}
+  </div>
 );

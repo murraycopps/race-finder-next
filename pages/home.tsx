@@ -18,6 +18,13 @@ import ItemCard from "@/components/Reviews/ItemCard";
 import IntensityCard from "@/components/IntensityCard";
 import {shoeslistrace} from "@/scripts/shoelist";
 import {shoeslisttrain} from "@/scripts/shoelist";
+// import Map from "@/components/Map";
+
+import dynamic from 'next/dynamic';
+
+const MapWithNoSSR = dynamic(() => import('../components/Map'), {
+  ssr: false,
+});
 
 const items = [
   { item: shoes[0], des: "Best Racer" },
@@ -74,9 +81,9 @@ export default function HomePage() {
       </div>
         <SlantedTitle title="Our Quotes" />
         <div className="grid w-full grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
-          <ShoeList shoes={shoeslistrace} />
+          {/* <ShoeList shoes={shoeslistrace} /> */}
           <QuoteCard />
-           <ShoeList shoes={shoeslisttrain} />
+           {/* <ShoeList shoes={shoeslisttrain} /> */}
         </div>
       <SlantedTitle title="Our Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -91,6 +98,12 @@ export default function HomePage() {
       </div>
 
       <IntensityCard />
+        <MapWithNoSSR />
     </PageWrapper>
   );
 }
+const myMap = {
+    "id": "a8793724789",
+    "summary_polyline": "slj}Fn}~nLJOB@@GES?a@[eABUDA`@DNSRi@VQ~Ao@TOXa@Z_Ah@iAhCLn@Gh@Up@_@zBiAVKl@Qf@?XHJDb@^^Vf@h@l@x@p@l@Zf@\\`@rBvBb@TJAPMRc@Pi@|@{C^yBx@gDLkALk@NeAFaBW{E[cCQ{Bi@wDG_A[gCE}@@y@Nk@JSd@a@xAwBHEZc@j@{@|@mA\\[`@Sx@g@x@}@VI~AgAx@e@LQ~@eBn@k@f@U~@WnAWp@E\\BRDr@Sx@EpCc@x@ChC]xAe@h@@b@GL?t@Id@Cj@K`CWVKZAt@Oj@S^S\\_@Dm@@q@Iq@Ae@@eDEW@aAG{@CuCCwD@]DMRQ`@EfDFnDA^DqAQyCFcCFi@DYFIJE`@JvBCtBHdA?rAH|A@lBGxABRFbBKh@CBa@V_A\\mBRa@PI@m@De@JgAHSDiFh@aC`@e@De@@[DOF@Bc@A_@D}@Tw@LgBBOJSBQ?iATo@Ti@Xc@^[\\KPa@j@c@`@qBvAc@d@_@Zy@h@mAbA_@b@e@x@gArAk@~@}A`BUp@CXBXLv@\\pAd@rDNt@TjCHZBXA?@SECF^@vAPhBDbBDp@AhAOjBa@zAKr@S|@g@pCIt@{BnFUROSQq@_@[kBqBYe@k@i@k@w@qBwA]Qa@Ck@JuC~AqB`Aa@Dm@C",
+    "resource_state": 2
+  };
