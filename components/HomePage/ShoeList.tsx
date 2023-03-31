@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "@/styles/ShoeList.module.css";
-
+import { shoes } from "@/scripts/shoelist";
 // const shoes = [
 //     {
 //         distance: 'Track Distance',
