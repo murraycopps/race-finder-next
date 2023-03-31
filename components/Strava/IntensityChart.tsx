@@ -63,12 +63,46 @@ const calculateDays = (activities: any) => {
     }, 0);
     return (dayIntensity + averageIntensity / 4) / (dayActivities.length / 2);
   });
+  dayIntensities.reverse();
+  return dayIntensities;
+};
+
+const calculateHeartIntensities = (activities: any) => {
+  const days = [] as Date[];
+  // fill with the days of the past 2 weeks
+  for (let i = 0; i < 14; i++) {
+    days.push(new Date(new Date().setDate(new Date().getDate() - i)));
+  }
+  console.log("days", days);
+  // uses the days of the week to calculate the average intensity for each day by averaging the max and average heart rate
+  const dayIntensities = days.map((day: Date) => {
+    console.log("day", day);
+    const dayActivities = activities.filter((activity: any) => {
+      const activityDate = new Date(activity.start_date);
+      return (
+        activityDate.getDate() === day.getDate() &&
+        activityDate.getMonth() === day.getMonth() &&
+        activityDate.getFullYear() === day.getFullYear()
+      );
+    });
+    console.log("dayActivities", dayActivities);
+    if (!dayActivities.length) return 0;
+
+    const dayIntensity = dayActivities.reduce((prev: number, curr: any) => {
+      return prev + curr.average_heartrate + curr.max_heartrate;
+    }
+    , 0);
+    return dayIntensity / (dayActivities.length * 2);
+
+  });
+  dayIntensities.reverse();
   return dayIntensities;
 };
 
 export default function IntensityChart({ activities }: { activities: any }) {
   const [weeklyActivities, setWeeklyActivities] = useState([] as any);
-  const [days, setDays] = useState<number[]>([]);
+  const [daysVdot, setDaysVdot] = useState<number[]>([]);
+  const [daysHeartRate, setDaysHeartRate] = useState<number[]>([]);
 
   useEffect(() => {
     const lastWeek = new Date();
@@ -82,36 +116,54 @@ export default function IntensityChart({ activities }: { activities: any }) {
   }, [activities]);
 
   useEffect(() => {
-    setDays(calculateDays(weeklyActivities));
+    setDaysVdot(calculateDays(weeklyActivities));
+    setDaysHeartRate(calculateHeartIntensities(weeklyActivities));
   }, [weeklyActivities]);
 
   return (
-    <div className="flex flex-row items-end justify-end gap-1 pt-2 grow">
-      {
-        // days.map((day: number, index: number) => {
-        //   return (
-        //     <p key={index}>{day}</p>
-        //   );
-        // })
-        // normalize between 0 and 100 first
-        days.map((day: number, index: number) => {
-          return (
-            <div
-              key={index}
-              style={{
-                height: `calc(${
-                  (day /
-                    days.reduce((prev: number, curr: number) =>
-                      curr > prev ? curr : prev
-                    )) *
-                  100
-                }% + 0.5rem)`,
-              }}
-              className="w-20 bg-red-500"
-            ></div>
-          );
-        })
-      }
+    <div className="relative w-full h-16">
+      <div className="absolute flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
+        {
+          daysVdot.map((day: number, index: number) => {
+            return (
+              <div
+                key={index}
+                style={{
+                  height: `calc(${
+                    (day /
+                      daysVdot.reduce((prev: number, curr: number) =>
+                        curr > prev ? curr : prev
+                      )) *
+                    100
+                  }% + 0.5rem)`,
+                }}
+                className="w-20 bg-red-500"
+              ></div>
+            );
+          })
+        }
+      </div>
+      <div className="absolute flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
+        {
+          daysHeartRate.map((day: number, index: number) => {
+            return (
+              <div
+                key={index}
+                style={{
+                  height: `calc(${
+                    (day /
+                      daysHeartRate.reduce((prev: number, curr: number) =>
+                        curr > prev ? curr : prev
+                      )) *
+                    100
+                  }% + 0.5rem)`,
+                }}
+                className="w-20 bg-blue-500"
+              ></div>
+            );
+          })
+        }
+      </div>
     </div>
   );
 }
