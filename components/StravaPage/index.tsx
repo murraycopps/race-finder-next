@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import LeftSide from "./LeftSide";
 import ProfileCard from "./ProfileCard";
 import RightSide from "./RightSide";
+import RunList from "./RunList";
 
 export default function StravaPage() {
   const router = useRouter();
@@ -151,9 +152,7 @@ export default function StravaPage() {
       <ProfileCard data={data} stats={stats} activities={activities} />
       <div className="flex flex-row w-full">
         <LeftSide stats={stats} />
-        <div className="grid grow place-items-center">
-            <p>asdasd</p>
-        </div>
+        <RunList activities={activities} /> 
         <RightSide data={data} />
       </div>
     </div>
