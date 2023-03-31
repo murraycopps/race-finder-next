@@ -16,6 +16,8 @@ import LinkCard from "@/components/HomePage/LinkCard";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
 import ItemCard from "@/components/Reviews/ItemCard";
 import IntensityCard from "@/components/IntensityCard";
+import {shoeslistrace} from "@/scripts/shoelist";
+import {shoeslisttrain} from "@/scripts/shoelist";
 
 const items = [
   { item: shoes[0], des: "Best Racer" },
@@ -70,6 +72,12 @@ export default function HomePage() {
           img="/review-cards/shoe.webp"
         />
       </div>
+        <SlantedTitle title="Our Quotes" />
+        <div className="grid w-full grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
+          <ShoeList shoes={shoeslistrace} />
+          <QuoteCard />
+           <ShoeList shoes={shoeslisttrain} />
+        </div>
       <SlantedTitle title="Our Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {randomItems.slice(0, 4).map(({ item, des }, i) => (
@@ -81,7 +89,7 @@ export default function HomePage() {
         <PacingCard />
         <VdotCard />
       </div>
-      <QuoteCard />
+
       <IntensityCard />
     </PageWrapper>
   );

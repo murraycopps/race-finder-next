@@ -44,33 +44,33 @@ const shoeslistrace = [
 
 const shoeslisttrain = [
     {
-        distance: 'Easy Runs',
+        distance: 'Daily',
         shoes: [
-            { shoe: 'ZoomX Invincible Run Flyknit 3', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 2', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 4', brand: 'nike' }
+            { shoe: 'Pegasus 39', brand: 'nike' },
+            { shoe: 'Mach 5', brand: 'hoka' },
+            { shoe: 'Kinvara 13', brand: 'saucony' },
+            { shoe: 'Ghost 15', brand: 'brooks' },
+            { shoe: 'Pegasus Turbo Next Nature', brand: 'nike' }
         ]
     },
     {
         distance: 'Long Runs',
         shoes: [
-            { shoe: 'ZoomX Invincible Run Flyknit 3', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 2', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 4', brand: 'nike' }
+            { shoe: 'ZoomX Invincible Run 3', brand: 'nike' },
+            { shoe: 'ZoomX Invincible Run 2', brand: 'nike' },
+            { shoe: 'Cloudmonsters', brand: 'on' },
+            { shoe: 'Mach 5', brand: 'hoka' },
+            { shoe: 'Clifton 9', brand: 'hoka' }
         ]
     },
     {
         distance: 'Tempo Runs',
         shoes: [
-            { shoe: 'ZoomX Invincible Run Flyknit 3', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 2', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run', brand: 'nike' },
-            { shoe: 'ZoomX Invincible Run Flyknit 4', brand: 'nike' }
+            { shoe: 'ZoomX Vaporfly Next% 3', brand: 'nike' },
+            { shoe: 'ZoomX Vaporfly Next% 2', brand: 'nike' },
+            { shoe: 'Adizero Takumi Sen 9', brand: 'adidas' },
+            { shoe: 'MetaSpeed Sky+', brand: 'asics' },
+            { shoe: 'ZoomX Streakfly', brand: 'nike' }
         ]
     },
     {

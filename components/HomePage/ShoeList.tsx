@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "@/styles/ShoeList.module.css";
-import { shoes } from "@/scripts/shoelist";
+type Shoe = { shoe: string; brand: string };
+type Shoes = { distance: string; shoes: Shoe[] }[];
 // const shoes = [
 //     {
 //         distance: 'Track Distance',
@@ -55,7 +56,7 @@ import { shoes } from "@/scripts/shoelist";
 // ];
 
 
-export default function ShoeList() {
+export default function ShoeList({ shoes }: { shoes: Shoes}) {
     const [index, setIndex] = useState(0);
     const [left, setLeft] = useState(false);
     const [right, setRight] = useState(false);
