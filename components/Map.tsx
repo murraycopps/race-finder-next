@@ -23,7 +23,7 @@ function parseMapPoints(map: MapType) {
   return mapPoints;
 }
 
-export default function Map({ map }: { map: MapType }) {
+export default function Map({ map, fixed = false }: { map: MapType; fixed?: boolean }) {
   const positions = parseMapPoints(map);
 
   const center = {
@@ -44,6 +44,11 @@ export default function Map({ map }: { map: MapType }) {
       center={center}
       className="w-full aspect-video"
       bounds={L.latLngBounds(positions)}
+      zoomControl={!fixed}
+      scrollWheelZoom={!fixed}
+      dragging={!fixed}
+      doubleClickZoom={!fixed}
+      touchZoom={!fixed}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
