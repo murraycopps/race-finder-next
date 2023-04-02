@@ -15,15 +15,14 @@ const RightSide = ({ data }: { data: Athlete }) => {
     }, [wide]);
   
     return (
-      <div className="relative w-64 h-196">
         <div
-          className={`absolute right-0 flex flex-col items-center justify-center ${
+          className={`absolute h-196 right-0 flex flex-col items-center justify-center ${
             wide ? "w-128 px-16" : "w-64 pl-12 pr-4"
           } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-300 transition-all-300 `}
         >
           <h2 className="text-3xl font-bold text-center text-white"> Shoes: </h2>
-          {data.shoes.map((shoe: Shoe) => (
-            <div className="flex flex-row items-center justify-between w-full gap-1">
+          {data.shoes.map((shoe: Shoe, i) => (
+            <div className="flex flex-row items-center justify-between w-full gap-1" key={i}>
               <p className="max-w-full text-lg font-bold text-center text-white truncate text-ellipsis">
                 {shoe.name.replace(shoe.nickname || "", "")}
               </p>
@@ -54,7 +53,6 @@ const RightSide = ({ data }: { data: Athlete }) => {
             </svg>
           </button>
         </div>
-      </div>
     );
   };
 
