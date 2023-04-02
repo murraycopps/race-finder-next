@@ -1,3 +1,4 @@
+import { Run } from "@/scripts/stravaTypes";
 import { vdotTable } from "@/scripts/vdot-table";
 import { useEffect, useState } from "react";
 
@@ -29,7 +30,7 @@ const calculateVDOT = (time: number, distance: number): number => {
   return 0;
 };
 
-const calculateDays = (activities: any) => {
+const calculateDays = (activities: Run[]) => {
   const days = [] as Date[];
   // fill with the days of the past 2 weeks
   for (let i = 0; i < 14; i++) {
@@ -39,7 +40,7 @@ const calculateDays = (activities: any) => {
   // uses the days of the week to calculate the average intensity for each day
   const dayIntensities = days.map((day: Date) => {
     console.log("day", day);
-    const dayActivities = activities.filter((activity: any) => {
+    const dayActivities = activities.filter((activity: Run) => {
       const activityDate = new Date(activity.start_date);
       return (
         activityDate.getDate() === day.getDate() &&
@@ -49,16 +50,11 @@ const calculateDays = (activities: any) => {
     });
     console.log("dayActivities", dayActivities);
     if (!dayActivities.length) return 0;
-    // const dayIntensity = dayActivities.reduce((prev: number, curr: any) => {
-    //   return prev + calculateVDOT(curr.moving_time, curr.distance);
-    // }, 0);
-    // console.log("dayIntensity", dayIntensity);
-    // find the max intensity of the day and return that plus the average
-    const dayIntensity = dayActivities.reduce((prev: number, curr: any) => {
+    const dayIntensity = dayActivities.reduce((prev: number, curr: Run) => {
       const vdot = calculateVDOT(curr.moving_time, curr.distance);
       return vdot > prev ? vdot : prev;
     }, 0);
-    const averageIntensity = dayActivities.reduce((prev: number, curr: any) => {
+    const averageIntensity = dayActivities.reduce((prev: number, curr: Run) => {
       return prev + calculateVDOT(curr.moving_time, curr.distance);
     }, 0);
     return (dayIntensity + averageIntensity / 4) / (dayActivities.length / 2);
@@ -67,7 +63,7 @@ const calculateDays = (activities: any) => {
   return dayIntensities;
 };
 
-const calculateHeartIntensities = (activities: any) => {
+const calculateHeartIntensities = (activities: Run[]) => {
   const days = [] as Date[];
   // fill with the days of the past 2 weeks
   for (let i = 0; i < 14; i++) {
@@ -77,7 +73,7 @@ const calculateHeartIntensities = (activities: any) => {
   // uses the days of the week to calculate the average intensity for each day by averaging the max and average heart rate
   const dayIntensities = days.map((day: Date) => {
     console.log("day", day);
-    const dayActivities = activities.filter((activity: any) => {
+    const dayActivities = activities.filter((activity: Run) => {
       const activityDate = new Date(activity.start_date);
       return (
         activityDate.getDate() === day.getDate() &&
@@ -88,7 +84,7 @@ const calculateHeartIntensities = (activities: any) => {
     console.log("dayActivities", dayActivities);
     if (!dayActivities.length) return 0;
 
-    const dayIntensity = dayActivities.reduce((prev: number, curr: any) => {
+    const dayIntensity = dayActivities.reduce((prev: number, curr: Run) => {
       return prev + curr.average_heartrate + curr.max_heartrate;
     }, 0);
     return dayIntensity / (dayActivities.length * 2);
@@ -97,8 +93,8 @@ const calculateHeartIntensities = (activities: any) => {
   return dayIntensities;
 };
 
-export default function IntensityChart({ activities }: { activities: any }) {
-  const [weeklyActivities, setWeeklyActivities] = useState([] as any);
+export default function IntensityChart({ activities }: { activities: Run[] }) {
+  const [weeklyActivities, setWeeklyActivities] = useState<Run[]>([]);
   const [daysVdot, setDaysVdot] = useState<number[]>([]);
   const [daysHeartRate, setDaysHeartRate] = useState<number[]>([]);
   const [showHR, setShowHR] = useState(false);
@@ -107,7 +103,7 @@ export default function IntensityChart({ activities }: { activities: any }) {
     const lastWeek = new Date();
     lastWeek.setDate(lastWeek.getDate() - 14);
     const recentActivities = activities.filter(
-      (activity: any) => new Date(activity.start_date) > lastWeek
+      (activity: Run) => new Date(activity.start_date) > lastWeek
     );
     setWeeklyActivities(recentActivities);
 

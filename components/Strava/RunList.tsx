@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { FC } from "react";
 import { outTime } from "@/scripts";
+import { Run } from "@/scripts/stravaTypes";
 
-export default function RunList({ activities }: any) {
+export default function RunList({ activities }: {activities: Run[]}) {
   return (
     <main className="relative flex justify-center flex-grow w-full py-8 overflow-x-hidden lg:w-auto lg:h-screen">
       <ul className="list-none run-field-sizing sm:h-full">
-        {activities.map((activity: any) => (
+        {activities.map((activity: Run) => (
           <li className="p-4 mb-4 bg-gray-700 rounded-md " key={activity.id}>
             <Run activity={activity} />
           </li>
@@ -18,7 +19,7 @@ export default function RunList({ activities }: any) {
   );
 }
 
-const Run: FC<{ activity: any }> = ({ activity }) => (
+const Run: FC<{ activity: Run }> = ({ activity }) => (
   <Link
     href={`/strava/activities/${activity.id}`}
     className="grid w-full h-full grid-cols-2"

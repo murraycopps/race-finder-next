@@ -12,18 +12,19 @@ import LoginData from "@/scripts/LoginData";
 import Image from "next/image";
 import IntensityChart from "@/components/Strava/IntensityChart";
 import IntensityCard from "../IntensityCard";
+import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
 
 export default function ProfileCard({
                                         data,
                                         stats,
     activities,
                                     }: {
-    data: any;
-    stats: any;
-    activities: any;
+    data: Athlete;
+    stats: Stats;
+    activities: Run[];
 }) {
     const [showYear, setShowYear] = useState(false);
-    const [usedStats, setUsedStats] = useState([] as any);
+    const [usedStats, setUsedStats] = useState<Stats["all_run_totals"] | Stats["ytd_run_totals"]>();
 
     const router = useRouter();
     useEffect(() => {
@@ -31,6 +32,8 @@ export default function ProfileCard({
         if (!stats) return;
         setUsedStats(showYear ? stats.ytd_run_totals : stats.all_run_totals);
     }, [stats, showYear]);
+
+    if(!data || !stats || !activities || !usedStats) return (<div>Loading...</div>)
 
     return (
         <div className="flex flex-col h-auto pt-8 overflow-x-hidden profile-sizing lg:h-screen">

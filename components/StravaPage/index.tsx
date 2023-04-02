@@ -1,4 +1,5 @@
 import LoginData from "@/scripts/LoginData";
+import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -10,9 +11,9 @@ import RunList from "./RunList";
 export default function StravaPage() {
   const router = useRouter();
 
-  const [data, setData] = useState(null as any);
-  const [activities, setActivities] = useState([] as any);
-  const [stats, setStats] = useState(null as any);
+  const [data, setData] = useState<Athlete>();
+  const [activities, setActivities] = useState<Run[]>([]);
+  const [stats, setStats] = useState<Stats>();
 
   const accessToken = LoginData.getAccessToken();
 
@@ -81,11 +82,11 @@ export default function StravaPage() {
         );
         const { data } = response;
 
-        setActivities(data.filter((activity: any) => activity.type === "Run"));
+        setActivities(data.filter((activity: Run) => activity.type === "Run"));
         localStorage.setItem(
           "activities",
           JSON.stringify(
-            data.filter((activity: any) => activity.type === "Run")
+            data.filter((activity: Run) => activity.type === "Run")
           )
         );
         console.log(data);

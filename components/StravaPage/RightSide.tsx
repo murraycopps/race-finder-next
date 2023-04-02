@@ -1,6 +1,7 @@
+import { Athlete, Shoe } from "@/scripts/stravaTypes";
 import { useState, useEffect } from "react";
 
-const RightSide = ({ data }: { data: any }) => {
+const RightSide = ({ data }: { data: Athlete }) => {
     const [wide, setWide] = useState(false);
     const [delayedWide, setDelayedWide] = useState(false);
     useEffect(() => {
@@ -21,10 +22,10 @@ const RightSide = ({ data }: { data: any }) => {
           } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-300 transition-all-300 `}
         >
           <h2 className="text-3xl font-bold text-center text-white"> Shoes: </h2>
-          {data.shoes.map((shoe: any) => (
+          {data.shoes.map((shoe: Shoe) => (
             <div className="flex flex-row items-center justify-between w-full gap-1">
               <p className="max-w-full text-lg font-bold text-center text-white truncate text-ellipsis">
-                {shoe.name.replace(shoe.nickname, "")}
+                {shoe.name.replace(shoe.nickname || "", "")}
               </p>
               {delayedWide && (
                 <p className="w-full text-lg font-bold text-right text-white max-w-3xs">

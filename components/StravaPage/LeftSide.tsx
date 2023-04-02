@@ -1,4 +1,5 @@
-const LeftSide = ({ stats }: { stats: any }) => (
+import {Stats } from "@/scripts/stravaTypes";
+const LeftSide = ({ stats }: { stats: Stats }) => (
     <div className="flex flex-col items-center justify-center w-64 gap-8 py-8 rounded-br-3xl h-192 bg-faded-base-300">
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-bold text-center text-white">

@@ -5,13 +5,14 @@ import LoginData from "@/scripts/LoginData";
 import ProfileCard from "./ProfileCard";
 import RunList from "./RunList";
 import Link from "next/link";
+import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
 
 export default function HomePage() {
     const router = useRouter();
 
-    const [data, setData] = useState(null as any);
-    const [activities, setActivities] = useState([] as any);
-    const [stats, setStats] = useState(null as any);
+    const [data, setData] = useState<Athlete>();
+    const [activities, setActivities] = useState<Run[]>([]);
+    const [stats, setStats] = useState<Stats>();
 
     const accessToken = LoginData.getAccessToken();
 
@@ -80,8 +81,8 @@ export default function HomePage() {
                 );
                 const {data} = response;
 
-                setActivities(data.filter((activity: any) => activity.type === "Run"));
-                localStorage.setItem("activities", JSON.stringify(data.filter((activity: any) => activity.type === "Run")))
+                setActivities(data.filter((activity: Run) => activity.type === "Run"));
+                localStorage.setItem("activities", JSON.stringify(data.filter((activity: Run) => activity.type === "Run")))
                 console.log(data);
             } catch (error: any) {
                 console.log(error);
