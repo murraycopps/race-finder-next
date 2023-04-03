@@ -28,7 +28,6 @@ export default function ProfileCard({
 
     const router = useRouter();
     useEffect(() => {
-        console.log(data.profile)
         if (!stats) return;
         setUsedStats(showYear ? stats.ytd_run_totals : stats.all_run_totals);
     }, [stats, showYear]);

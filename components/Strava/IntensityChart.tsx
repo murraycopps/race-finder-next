@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const calculateVDOT = (time: number, distance: number): number => {
   if (distance > 0 && time > 0) {
     const milePace = (time * 1609) / distance;
-    console.log(milePace);
     if (distance) {
       const distanceTable = vdotTable.TIMES["DISTANCE_MILE"];
       const distanceArray = Object.entries(distanceTable);
@@ -36,10 +35,8 @@ const calculateDays = (activities: Run[]) => {
   for (let i = 0; i < 14; i++) {
     days.push(new Date(new Date().setDate(new Date().getDate() - i)));
   }
-  console.log("days", days);
   // uses the days of the week to calculate the average intensity for each day
   const dayIntensities = days.map((day: Date) => {
-    console.log("day", day);
     const dayActivities = activities.filter((activity: Run) => {
       const activityDate = new Date(activity.start_date);
       return (
@@ -48,7 +45,6 @@ const calculateDays = (activities: Run[]) => {
         activityDate.getFullYear() === day.getFullYear()
       );
     });
-    console.log("dayActivities", dayActivities);
     if (!dayActivities.length) return 0;
     const dayIntensity = dayActivities.reduce((prev: number, curr: Run) => {
       const vdot = calculateVDOT(curr.moving_time, curr.distance);
@@ -69,10 +65,8 @@ const calculateHeartIntensities = (activities: Run[]) => {
   for (let i = 0; i < 14; i++) {
     days.push(new Date(new Date().setDate(new Date().getDate() - i)));
   }
-  console.log("days", days);
   // uses the days of the week to calculate the average intensity for each day by averaging the max and average heart rate
   const dayIntensities = days.map((day: Date) => {
-    console.log("day", day);
     const dayActivities = activities.filter((activity: Run) => {
       const activityDate = new Date(activity.start_date);
       return (
@@ -81,7 +75,6 @@ const calculateHeartIntensities = (activities: Run[]) => {
         activityDate.getFullYear() === day.getFullYear()
       );
     });
-    console.log("dayActivities", dayActivities);
     if (!dayActivities.length) return 0;
 
     const dayIntensity = dayActivities.reduce((prev: number, curr: Run) => {
@@ -107,7 +100,6 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
     );
     setWeeklyActivities(recentActivities);
 
-    console.log(recentActivities);
   }, [activities]);
 
   useEffect(() => {

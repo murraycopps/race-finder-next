@@ -15,7 +15,6 @@ export default function Intensity() {
     if (distance > 0 && time > 0) {
     //   const milePace = (time * 1609) / distance; 
         const milePace = useMeters ? (time * 1609) / distance : time / distance;
-        console.log(milePace);
       if (distance) {
         const distanceTable = vdotTable.TIMES["DISTANCE_MILE"];
         const distanceArray = Object.entries(distanceTable);

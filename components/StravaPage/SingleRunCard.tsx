@@ -24,11 +24,9 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
       </div>
       {activity.map.summary_polyline !== null &&
         activity.map.summary_polyline !== "" && (
-          <div className="w-full px-48">
-            <div className="w-full overflow-hidden rounded-2xl">
-              <MapWithNoSSR map={activity.map} fixed />
+            <div className="relative w-2/3 overflow-hidden rounded-2xl">
+              <MapWithNoSSR map={activity.map} />
             </div>
-          </div>
         )}
       <div className="grid w-full grid-cols-3 gap-4 px-8 place-items-center">
         <div className="flex flex-col items-center justify-start gap-2">
@@ -47,6 +45,7 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
             {outTime(activity.moving_time / (activity.distance / 1609.34), 0)}
           </p>
         </div>
+        <div className="grid w-full grid-cols-4"></div>
       </div>
     </div>
   );

@@ -37,16 +37,13 @@ export default function CreateGoal({ url }: { url: string }) {
       updatedAt: Date.now(),
     };
 
-    console.log(goal);
     LoginData.addGoal(goal);
 
-    console.log(LoginData.getGoals(), LoginData.getUserID(), "here");
 
     const res = await axios.put(`${url}/api/users`, {
       _id: LoginData.getUserID(),
       goals: LoginData.getGoals(),
     });
-    console.log(res);
 
     if (res.status === 200) {
       router.push("/strava/goals");

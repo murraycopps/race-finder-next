@@ -24,10 +24,6 @@ export default function ActivityPage({ pid }: { pid: string }) {
     );
   }, [pid, router]);
 
-  useEffect(() => {
-    console.log(activity);
-  }, [activity]);
-
   return (
     <PageWrapper page="Activity" className="flex flex-col items-center justify-center min-h-screen p-4">
       {activity ? (

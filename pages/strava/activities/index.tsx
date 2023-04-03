@@ -60,7 +60,6 @@ export default function HomePage() {
         setData(response.data);
         localStorage.setItem("data", JSON.stringify(response.data));
         getStats(response.data.id);
-        console.log(response.data);
       } catch (error: any) {
         console.log(error);
       }
@@ -89,7 +88,6 @@ export default function HomePage() {
 
         setActivities(data);
         localStorage.setItem("activities", JSON.stringify(data));
-        console.log(data);
       } catch (error: any) {
         console.log(error);
       }
@@ -117,7 +115,6 @@ export default function HomePage() {
     const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
     localStorage.setItem("expirationTime", newExpirationTime.toString());
     localStorage.setItem("username", LoginData.getUsername());
-    console.log(LoginData.getUsername());
   }, [accessToken, router]);
 
   useEffect(() => {

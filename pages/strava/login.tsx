@@ -31,7 +31,6 @@ export default function LoginPage({
     if (user) {
       if (!user.expiresAt) return;
       // check if user.expiresAt is in the past
-      console.log(new Date(user.expiresAt * 1000).toLocaleString());
       if (new Date(user.expiresAt * 1000) < new Date()) {
         // refresh token
         const response = await axios.post(
@@ -44,8 +43,6 @@ export default function LoginPage({
           }
         );
         const { access_token, refresh_token, expires_at } = response.data;
-        console.log(response.data);
-        console.log(new Date(response.data.expires_at * 1000).toLocaleString());
 
         axios.put(`${url}/api/users`, {
           _id: user._id,

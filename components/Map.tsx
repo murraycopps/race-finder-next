@@ -19,7 +19,6 @@ function parseMapPoints(map: MapType) {
     lat: coord[0],
     lng: coord[1],
   }));
-  console.log(mapPoints);
   return mapPoints;
 }
 

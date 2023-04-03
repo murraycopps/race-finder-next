@@ -35,7 +35,6 @@ export default function VDOT() {
       const closestVdot = parseInt(closestTime[0]);
       const percentDiff = closestTime[1] / time;
       const preciseVdot = closestVdot * percentDiff;
-      console.log(closestVdot, percentDiff, preciseVdot);
       setVDOT({
         vdot: closestVdot.toString(),
         precise: preciseVdot,
@@ -62,7 +61,6 @@ export default function VDOT() {
       setOutput([""]);
       return;
     }
-    console.log(vdot);
     if (isRace) {
       const timesList = vdotTable.TIMES;
       const vdotArray = Object.entries(timesList);
@@ -70,7 +68,6 @@ export default function VDOT() {
         const distance = DISTANCES.find((dist) => dist.value === d[0]);
         const distanceLabel = distance?.name || distance?.value;
         const currentDistance = distance?.distance || 1;
-        console.log(currentDistance);
         const time =
           d[1][vdot.vdot as keyof typeof d[1]] /
           (isPace ? currentDistance / 1609.34 : 1);
@@ -88,10 +85,8 @@ export default function VDOT() {
         "Interval",
         "Repitition",
       ];
-      console.log(vdotArray);
       const outputs = vdotArray.map((d, i) => {
         const time = d[1][i < 3 ? "mile" : "400m"];
-        console.log(time, d);
         if (i > 2)
           return `${labelList[i]}: ${outTime(
             time / vdot.percentOff

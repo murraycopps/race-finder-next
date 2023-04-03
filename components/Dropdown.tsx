@@ -72,7 +72,6 @@ export default function Dropdown({
             : "rounded-full transition-delayed"
         }`}
         onClick={() => {
-          console.log("click");
           setOpen(!open)
         }}
         // onBlur={() => setOpen(false)}
@@ -109,7 +108,6 @@ export default function Dropdown({
             className="w-full px-4 py-1 rounded-md hover:bg-gray-600"
             key={index}
             onClick={() => {
-              console.log(item);
               if (typeof item !== "object") {
                 setValue(item);
               } else {

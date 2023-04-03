@@ -55,7 +55,6 @@ export default function StravaPage() {
         setData(response.data);
         localStorage.setItem("data", JSON.stringify(response.data));
         getStats(response.data.id);
-        console.log(response.data);
       } catch (error: any) {
         console.log(error);
       }
@@ -89,7 +88,6 @@ export default function StravaPage() {
             data.filter((activity: Run) => activity.type === "Run")
           )
         );
-        console.log(data);
       } catch (error: any) {
         console.log(error);
       }
@@ -105,6 +103,7 @@ export default function StravaPage() {
             },
           }
         );
+
         setStats(response.data);
         localStorage.setItem("stats", JSON.stringify(response.data));
       } catch (error: any) {
@@ -117,7 +116,6 @@ export default function StravaPage() {
     const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
     localStorage.setItem("expirationTime", newExpirationTime.toString());
     localStorage.setItem("username", LoginData.getUsername());
-    console.log(LoginData.getUsername());
   }, [accessToken, router]);
 
   if (!LoginData.isLoggedIn()) {
@@ -153,10 +151,34 @@ export default function StravaPage() {
       <ProfileCard data={data} stats={stats} activities={activities} />
       <div className="relative flex flex-row w-full px-64">
         <LeftSide stats={stats} />
-        <RunList activities={activities} /> 
+        <RunList activities={activities} />
         <RightSide data={data} />
+        <div className="fixed inset-0 grid bg-black place-items-center">
+          <button
+            onClick={() => {
+              const headers = {
+                Authorization: `Bearer ${accessToken}`,
+                Accept: "application/json",
+              };
+
+              console.log("here", headers);
+
+              const response2 = axios.get(
+                `https://www.strava.com/api/v3/athlete/activities/8815290888`,
+                {
+                  headers,
+                  params: {
+                    include_all_efforts: true,
+                  },
+                }
+              ).then((res) => console.log(res))
+              .catch((err) => console.log(err));
+            }}
+          >
+            click
+          </button>
+        </div>
       </div>
     </div>
   );
 }
-

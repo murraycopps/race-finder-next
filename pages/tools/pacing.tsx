@@ -130,11 +130,6 @@ export default function Home() {
       setDistance(custom);
     }
   }, [custom]);
-
-  useEffect(() => {
-    console.log(distance);
-  }, [distance]);
-
   return (
     <PageWrapper
       page="Pacing"

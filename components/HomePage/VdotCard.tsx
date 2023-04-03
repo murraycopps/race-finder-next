@@ -33,7 +33,6 @@ export default function PacingCard() {
         const closestVdot = parseInt(closestTime[0]);
         const percentDiff = closestTime[1] / time;
         const preciseVdot = closestVdot * percentDiff;
-        console.log(closestVdot, percentDiff, preciseVdot);
         setVdot(preciseVdot);
       }
     }
