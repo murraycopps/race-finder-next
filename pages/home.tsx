@@ -81,9 +81,9 @@ export default function HomePage() {
       </div>
         <SlantedTitle title="Our Quotes" />
         <div className="grid w-full grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
-          {/* <ShoeList shoes={shoeslistrace} /> */}
+           <ShoeList shoes={shoeslistrace} />
           <QuoteCard />
-           {/* <ShoeList shoes={shoeslisttrain} /> */}
+            <ShoeList shoes={shoeslisttrain} />
         </div>
       <SlantedTitle title="Our Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -97,8 +97,7 @@ export default function HomePage() {
         <VdotCard />
       </div>
 
-      <IntensityCard />
-        <MapWithNoSSR map={myMap} />
+
     </PageWrapper>
   );
 }

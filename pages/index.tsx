@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import PageWrapper from "@/components/PageWrapper";
 
 export default function IndexPage() {
   const moveGradient = (e: any) => {
@@ -17,7 +18,7 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="fixed inset-0 text-center bg-base">
+    <PageWrapper page="Runner&#39;s Hub" className="fixed inset-0 text-center bg-base">
         <Head>
             <title>Runner&#39;s Hub</title>
         </Head>
@@ -53,9 +54,9 @@ export default function IndexPage() {
          className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"
          onMouseMove={moveGradient}
         >
-         Join Now!
+         Try now!
         </Link>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
