@@ -247,11 +247,16 @@ html {
   clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
   /* width: calc(100% + var(--slant-amount)); */
 }
-.slanted-sm{
+.card-slant{
   --slant-amount: 3rem;
   clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
   width: calc(100% + var(--slant-amount));
   margin-left: calc(-1 * var(--slant-amount) / 2);
+}
+
+.beveled{
+  --beveled-amount: 3rem;
+  clip-path: polygon(var(--beveled-amount) 0%, calc(100% - var(--beveled-amount)) 0%, 100% var(--beveled-amount), 100% calc(100% - var(--beveled-amount)), calc(100% - var(--beveled-amount)) 100%, var(--beveled-amount) 100%, 0% calc(100% - var(--beveled-amount)), 0% var(--beveled-amount));
 }
 
 .zinal{
