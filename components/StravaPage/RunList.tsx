@@ -45,8 +45,10 @@ const RunCard = ({
     {activity.map.summary_polyline !== null &&
       activity.map.summary_polyline !== "" &&
       displayMap && (
-        <div className="w-full overflow-hidden rounded-2xl">
-          <MapWithNoSSR map={activity.map} fixed />
+        <div className="w-full px-16">
+          <div className="w-full overflow-hidden rounded-2xl">
+            <MapWithNoSSR map={activity.map} fixed />
+          </div>
         </div>
       )}
     <div className="grid w-full grid-cols-3 gap-4 px-8 place-items-center">
