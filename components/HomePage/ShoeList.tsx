@@ -63,7 +63,7 @@ export default function ShoeList({ shoes }: { shoes: Shoes}) {
     const [pastHalf, setPastHalf] = useState(false);
     return(
         <div
-	className={`flex flex-col items-center float-left gap-4 p-4 ml-2 mr-12 overflow-x-hidden text-white ${styles.width} rounded-2xl`}
+	className={`flex flex-col items-center float-left gap-4 p-4 overflow-x-hidden text-white ${styles.width} rounded-2xl`}
 >
 	<h2 className="text-4xl font-bold text-center">Fastest Shoes</h2>
 	<div className="flex flex-row items-center justify-center gap-2">
