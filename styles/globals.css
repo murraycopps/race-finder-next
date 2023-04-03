@@ -247,6 +247,12 @@ html {
   clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
   /* width: calc(100% + var(--slant-amount)); */
 }
+.slanted-sm{
+  --slant-amount: 2.5rem;
+  clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
+  width: calc(100% + var(--slant-amount));
+  margin-left: calc(-1 * var(--slant-amount) / 2);
+}
 
 .zinal{
   transform: rotate(-5deg);
