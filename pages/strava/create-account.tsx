@@ -68,7 +68,7 @@ export default function LoginPage({
           Username:
         </label>
         <input
-          className="w-full px-3 py-2 rounded-md focus:outline-none focus:shadow-outline-blue"
+          className="w-full px-3 py-2 text-black rounded-md focus:outline-none focus:shadow-outline-blue"
           type="text"
           name="username"
           value={username}
@@ -78,7 +78,7 @@ export default function LoginPage({
           Password:
         </label>
         <input
-          className="w-full px-3 py-2 rounded-md focus:outline-none focus:shadow-outline-blue"
+          className="w-full px-3 py-2 text-black rounded-md focus:outline-none focus:shadow-outline-blue"
           type="password"
           name="password"
           value={password}
