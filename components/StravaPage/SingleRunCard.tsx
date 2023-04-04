@@ -23,17 +23,17 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
     <div className="flex flex-row w-full gap-8 grow">
       <div className="flex flex-col justify-evenly gap-4 h-full p-8">
         <div className="flex flex-col items-center w-full justify-evenly gap-2">
-          <p className="text-lg">Distance</p>
+          <p className="text-lg">Distance (Mi)</p>
           <p className="text-3xl">
             {Math.round((activity.distance / 1609.34) * 100) / 100 || "--"}
           </p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Time</p>
+          <p className="text-lg">Time (Mins)</p>
           <p className="text-3xl">{outTime(activity.moving_time) || "--"}</p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Pace</p>
+          <p className="text-lg">Pace (Mins/Mi)</p>
           <p className="text-3xl">
             {outTime(activity.moving_time / (activity.distance / 1609.34), 0) ||
               "--"}
@@ -48,21 +48,21 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
         )}
       <div className="flex flex-col justify-evenly gap-4 h-full p-4">
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Average HeartRate</p>
+          <p className="text-lg">Average HeartRate (bpm)</p>
           <p className="text-3xl">{activity.average_heartrate || "--"}</p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Max HeartRate</p>
+          <p className="text-lg">Max HeartRate (bpm)</p>
           <p className="text-3xl">{activity.max_heartrate || "--"}</p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Average Speed</p>
+          <p className="text-lg">Average Speed (mph)</p>
           <p className="text-3xl">
             {Math.round(activity.average_speed * 2.23694 * 100) / 100 || "--"}
           </p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Max Speed</p>
+          <p className="text-lg">Max Speed (mph)</p>
           <p className="text-3xl">
             {Math.round(activity.max_speed * 2.23694 * 100) / 100 || "--"}
           </p>
@@ -72,7 +72,7 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
     <div className="grid w-full grid-cols-3 place-items-center">
       <div className="grid w-full grid-cols-3 col-span-2">
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Cadence</p>
+          <p className="text-lg">Cadence (spm)</p>
           <p className="text-3xl">{activity.average_cadence || "--"}</p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
@@ -86,7 +86,7 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
           </p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
-          <p className="text-lg">Stride Length</p>
+          <p className="text-lg">Stride Length (m)</p>
           <p className="text-3xl">
             {activity.average_cadence
               ? Math.round(
