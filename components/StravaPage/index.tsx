@@ -1,6 +1,5 @@
 import LoginData from "@/scripts/LoginData";
 import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import LeftSide from "./LeftSide";
@@ -11,7 +10,6 @@ import {
   getStats,
   getActivities,
   getAthlete,
-  refreshToken,
 } from "@/lib/strava";
 
 export default function StravaPage() {

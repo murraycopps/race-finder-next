@@ -298,3 +298,19 @@ html {
   border-bottom-left-radius: 1.25rem;
   box-shadow: -.2rem .44rem 0 .2rem  rgb(84 72 119);
 }
+
+.fade-out-in{
+  animation: fade-out-in 1000ms ease-in-out;
+}
+
+@keyframes fade-out-in {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

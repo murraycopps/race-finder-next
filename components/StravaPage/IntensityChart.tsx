@@ -97,6 +97,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
   const [daysVdot, setDaysVdot] = useState<number[]>([]);
   const [daysHeartRate, setDaysHeartRate] = useState<number[]>([]);
   const [showHR, setShowHR] = useState(false);
+  const [animationState, setAnimationState] = useState(false);
 
   useEffect(() => {
     const lastWeek = new Date();
@@ -112,22 +113,36 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
     setDaysHeartRate(calculateHeartIntensities(weeklyActivities));
   }, [weeklyActivities]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowHR(!showHR);
+    }, 10000);
+  }, []);
+
   return (
-    <div className="flex flex-col w-full gap-4 grow flex-center">
-      {/* <h1 className="text-2xl font-bold text-center">
+    <div className="flex flex-col w-full grow flex-center">
+      <h1 className="text-xl text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
-      </h1> */}
-      <div className="grid grid-cols-2 px-8 place-items-center">
+      </h1>
+      {/* <div
+        className={`grid grid-cols-2 px-8 place-items-center ${
+          animationState && "fade-out-in"
+        }`}
+      >
         <h1 className="text-2xl font-bold text-center">
           Intensity using {showHR ? "HR" : "VDOT"}
         </h1>
         <button
-          className="px-12 py-2 text-xl rounded-xl bg-wisteria-600 hover:bg-faded-lavender-600 "
-          onClick={() => setShowHR(!showHR)}
+          className="px-4 py-1 text-xl rounded-full bg-wisteria-500"
+          onClick={() => {
+            setAnimationState(true);
+            setTimeout(() => setAnimationState(false), 1000);
+            setTimeout(() => setShowHR(!showHR), 500);
+          }}
         >
-          Toggle
+          Switch to {showHR ? "VDOT" : "HR"}
         </button>
-      </div>
+      </div> */}
       <div className="grid w-full max-h-32 place-items-center">
         <LineGraph
           data={showHR ? daysHeartRate : daysVdot}
