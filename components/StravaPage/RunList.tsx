@@ -5,7 +5,7 @@ import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 
 export default function RunList({ activities }: { activities: Run[] }) {
-  const [runId, setRunId] = useState<number>(0);
+  const [runId, setRunId] = useState(0);
   const [activity, setActivity] = useState<Run | null>(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function RunList({ activities }: { activities: Run[] }) {
       {runId !== 0 && activity && (
         <>
           <div
-            className="fixed inset-0 z-50 bg-black opacity-50"
+            className="fixed inset-0 z-50 bg-black opacity-70"
             onClick={() => setRunId(0)}
           ></div>
           <SingleRunCard activity={activity} />
