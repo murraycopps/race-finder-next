@@ -51,10 +51,15 @@ const calculateDays = (activities: Run[]) => {
       const vdot = calculateVDOT(curr.moving_time, curr.distance);
       return vdot > prev ? vdot : prev;
     }, 0);
-    const averageIntensity = dayActivities.reduce((prev: number, curr: Run) => {
-      return prev + calculateVDOT(curr.moving_time, curr.distance);
-    }, 0);
-    return (dayIntensity + averageIntensity / 4) / (dayActivities.length / 2);
+    if (dayActivities.length === 1) return dayIntensity;
+    const totalIntensity =
+      dayActivities.reduce((prev: number, curr: Run) => {
+        return prev + calculateVDOT(curr.moving_time, curr.distance);
+      }, 0) - dayIntensity;
+    return (
+      (dayIntensity + totalIntensity / (dayActivities.length * 2)) /
+      (dayActivities.length / 2)
+    );
   });
   dayIntensities.reverse();
   return dayIntensities;
@@ -125,14 +130,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
       </div>
       <div className="grid w-full max-h-32 place-items-center">
         <LineGraph
-          data={(showHR ? daysHeartRate : daysVdot).map(
-            (day) =>
-              (day /
-                (showHR ? daysHeartRate : daysVdot).reduce(
-                  (prev: number, curr: number) => (curr > prev ? curr : prev)
-                )) *
-              100
-          )}
+          data={showHR ? daysHeartRate : daysVdot}
           labels={daysVdot.map((day, index) =>
             new Date(new Date().setDate(new Date().getDate() - (13 - index)))
               .getDate()
