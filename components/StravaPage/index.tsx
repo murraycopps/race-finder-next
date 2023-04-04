@@ -65,8 +65,8 @@ export default function StravaPage() {
       localStorage.setItem("username", LoginData.getUsername());
     };
     fetchData();
-  }, [accessToken, router]);
-
+  },
+  [accessToken, router]);
   if (!LoginData.isLoggedIn()) {
     return (
       <div className="flex items-center justify-center h-screen">

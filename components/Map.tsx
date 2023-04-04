@@ -3,8 +3,6 @@ import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
   TileLayer,
-  Marker,
-  useMap,
   Polyline,
 } from "react-leaflet";
 import { Map as MapType } from "@/scripts/stravaTypes";
@@ -41,7 +39,7 @@ export default function Map({ map, fixed = false }: { map: MapType; fixed?: bool
   return (
     <MapContainer
       center={center}
-      className="w-full aspect-video"
+      className="w-full h-full"
       bounds={L.latLngBounds(positions)}
       zoomControl={!fixed}
       scrollWheelZoom={!fixed}

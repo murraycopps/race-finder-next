@@ -109,62 +109,10 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
 
   return (
     <div className="flex flex-col w-full gap-4 grow flex-center">
-      <h1 className="text-2xl font-bold">
+      <h1 className="text-2xl font-bold text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
       </h1>
-      {/* {showHR ? (
-        <div className="flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
-          {daysVdot.map((day: number, index: number) => {
-            return (
-              <div
-                key={index}
-                style={{
-                  height: `calc(${
-                    (day /
-                      daysVdot.reduce((prev: number, curr: number) =>
-                        curr > prev ? curr : prev
-                      )) *
-                    100
-                  }% + 0.5rem)`,
-                }}
-                className="relative w-20 bg-red-500"
-              >
-                <p className="absolute w-full text-xs text-center top-full">
-                  {new Date(
-                    new Date().setDate(new Date().getDate() - (13 - index))
-                  ).getDate()}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
-          {daysHeartRate.map((day: number, index: number) => {
-            return (
-              <div
-                key={index}
-                style={{
-                  height: `calc(${
-                    (day /
-                      daysHeartRate.reduce((prev: number, curr: number) =>
-                        curr > prev ? curr : prev
-                      )) *
-                    100
-                  }% + 0.5rem)`,
-                }}
-                className="relative w-20 bg-blue-500"
-              >
-                 <p className="absolute w-full text-xs text-center top-full">{
-                  new Date(new Date().setDate(new Date().getDate() - (13 - index))).getDate()
-                }</p>
-              </div>
-            );
-          })}
-        </div>
-        
-      )} */}
-      <div className="w-full max-h-32">
+     <div className="w-full max-h-32 grid place-items-center">
           <LineGraph
             data={
               (showHR ? daysHeartRate : daysVdot)
