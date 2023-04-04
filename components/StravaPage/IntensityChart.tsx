@@ -1,6 +1,7 @@
 import { Run } from "@/scripts/stravaTypes";
 import { vdotTable } from "@/scripts/vdot-table";
 import { useEffect, useState } from "react";
+import LineGraph from "./LineGraph";
 
 const calculateVDOT = (time: number, distance: number): number => {
   if (distance > 0 && time > 0) {
@@ -99,7 +100,6 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
       (activity: Run) => new Date(activity.start_date) > lastWeek
     );
     setWeeklyActivities(recentActivities);
-
   }, [activities]);
 
   useEffect(() => {
@@ -109,8 +109,10 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
 
   return (
     <div className="flex flex-col w-full gap-4 grow flex-center">
-      <h1 className="text-2xl font-bold">Intensity using {showHR ? "HR" : "VDOT"}</h1>
-      {showHR ? (
+      <h1 className="text-2xl font-bold">
+        Intensity using {showHR ? "HR" : "VDOT"}
+      </h1>
+      {/* {showHR ? (
         <div className="flex flex-row items-end justify-end w-full h-16 gap-1 pt-2">
           {daysVdot.map((day: number, index: number) => {
             return (
@@ -127,9 +129,11 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
                 }}
                 className="relative w-20 bg-red-500"
               >
-                <p className="absolute w-full text-xs text-center top-full">{
-                  new Date(new Date().setDate(new Date().getDate() - (13 - index))).getDate()
-                }</p>
+                <p className="absolute w-full text-xs text-center top-full">
+                  {new Date(
+                    new Date().setDate(new Date().getDate() - (13 - index))
+                  ).getDate()}
+                </p>
               </div>
             );
           })}
@@ -158,8 +162,28 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
             );
           })}
         </div>
-      )}
-    <button onClick={() => setShowHR(!showHR)}>Toggle</button>
+        
+      )} */}
+      <div className="w-full max-h-32">
+          <LineGraph
+            data={
+              (showHR ? daysHeartRate : daysVdot)
+              .map(
+              (day) =>
+                (day /
+                  daysHeartRate.reduce((prev: number, curr: number) =>
+                    curr > prev ? curr : prev
+                  )) *
+                100
+            )}
+            labels={daysVdot.map((day, index) =>
+              new Date(new Date().setDate(new Date().getDate() - (13 - index)))
+                .getDate()
+                .toString()
+            )}
+          />
+        </div>
+      <button onClick={() => setShowHR(!showHR)}>Toggle</button>
     </div>
   );
 }

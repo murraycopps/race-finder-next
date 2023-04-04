@@ -64,7 +64,7 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
           expiresAt: expires_at,
         });
 
-        LoginData.Login(access_token, updated.data.data[0].username, updated.data.data[0].goals || [], updated.data.data[0]._id ) 
+        LoginData.Login(access_token, updated.data.data[0].username, updated.data.data[0].goals || [], updated.data.data[0]._id, expires_at, refresh_token ) 
 
         router.push("/strava/activities");
       } catch (error) {

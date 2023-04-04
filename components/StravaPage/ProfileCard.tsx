@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
 import Image from "next/image";
-import IntensityChart from "@/components/Strava/IntensityChart";
+import IntensityChart from "@/components/StravaPage/IntensityChart";
 import IntensityCard from "../IntensityCard";
 import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
 

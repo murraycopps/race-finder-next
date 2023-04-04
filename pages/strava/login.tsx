@@ -51,13 +51,13 @@ export default function LoginPage({
           expiresAt: expires_at,
         });
 
-        LoginData.Login(access_token, username, user.goals || [], user._id);
+        LoginData.Login(access_token, username, user.goals || [], user._id, expires_at, refresh_token);
 
         router.push("/strava/");
         return;
       }
       if (!user.accessToken) return;
-      LoginData.Login(user.accessToken, username, user.goals || [], user._id);
+      LoginData.Login(user.accessToken, username, user.goals || [], user._id, user.expiresAt, user.refreshToken || "");
 
       router.push("/strava/");
     } else {

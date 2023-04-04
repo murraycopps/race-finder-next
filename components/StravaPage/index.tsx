@@ -7,7 +7,12 @@ import LeftSide from "./LeftSide";
 import ProfileCard from "./ProfileCard";
 import RightSide from "./RightSide";
 import RunList from "./RunList";
-import { getStats, getActivities, getAthlete } from "@/lib/strava";
+import {
+  getStats,
+  getActivities,
+  getAthlete,
+  refreshToken,
+} from "@/lib/strava";
 
 export default function StravaPage() {
   const router = useRouter();
@@ -19,31 +24,30 @@ export default function StravaPage() {
   const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
-    
     if (!LoginData.isLoggedIn()) {
       router.push("/strava/");
       return;
     }
 
     const cachedData = localStorage.getItem("data");
-        const cachedActivities = localStorage.getItem("activities");
-        const cachedStats = localStorage.getItem("stats");
-        const expirationTime = localStorage.getItem("expirationTime");
-        const cachedUsername = localStorage.getItem("username");
-  
-        if (
-          cachedData &&
-          cachedActivities &&
-          cachedStats &&
-          expirationTime &&
-          cachedUsername === LoginData.getUsername() &&
-          Date.now() < +expirationTime
-        ) {
-          setData(JSON.parse(cachedData));
-          setStats(JSON.parse(cachedStats));
-          setActivities(JSON.parse(cachedActivities));
-          return;
-        }
+    const cachedActivities = localStorage.getItem("activities");
+    const cachedStats = localStorage.getItem("stats");
+    const expirationTime = localStorage.getItem("expirationTime");
+    const cachedUsername = localStorage.getItem("username");
+
+    if (
+      cachedData &&
+      cachedActivities &&
+      cachedStats &&
+      expirationTime &&
+      cachedUsername === LoginData.getUsername() &&
+      Date.now() < +expirationTime
+    ) {
+      setData(JSON.parse(cachedData));
+      setStats(JSON.parse(cachedStats));
+      setActivities(JSON.parse(cachedActivities));
+      return;
+    }
 
     const fetchData = async () => {
       const data = await getAthlete();
@@ -53,12 +57,12 @@ export default function StravaPage() {
       setActivities(activities);
       setStats(stats);
 
-        localStorage.setItem("data", JSON.stringify(data));
-        localStorage.setItem("activities", JSON.stringify(activities));
-        localStorage.setItem("stats", JSON.stringify(stats));
-        const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
-        localStorage.setItem("expirationTime", newExpirationTime.toString());
-        localStorage.setItem("username", LoginData.getUsername());
+      localStorage.setItem("data", JSON.stringify(data));
+      localStorage.setItem("activities", JSON.stringify(activities));
+      localStorage.setItem("stats", JSON.stringify(stats));
+      const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
+      localStorage.setItem("expirationTime", newExpirationTime.toString());
+      localStorage.setItem("username", LoginData.getUsername());
     };
     fetchData();
   }, [accessToken, router]);

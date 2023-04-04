@@ -1,20 +1,24 @@
 import axios from "axios";
 import { Goal } from "./types";
-import { setToken } from "@/lib/strava";
+import { setToken, refreshToken } from "@/lib/strava";
 
 export default class LoginData {
     static loggedIn = false
     static accessToken = ''
+    static expiresAt = 0
     static username = ''
     static goals: Goal[] = []
     static _id: string = ''
+    static refreshToken = ''
 
-    static Login(accessToken: string, username: string, goals: Goal[], id: string) {
+    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string) {
         this.loggedIn = true
         this.accessToken = accessToken
         this.username = username
         this.goals = goals
         this._id = id
+        this.expiresAt = expiresAt
+        this.refreshToken = refresh_token
 
         setToken(accessToken)
 
@@ -22,6 +26,8 @@ export default class LoginData {
         sessionStorage.setItem("username", this.username)
         sessionStorage.setItem("goals", JSON.stringify(this.goals))
         sessionStorage.setItem("id", this._id)
+        sessionStorage.setItem("expiresAt", this.expiresAt.toString())
+        sessionStorage.setItem("refreshToken", this.refreshToken)
     }
 
     static Logout() {
@@ -34,6 +40,7 @@ export default class LoginData {
         sessionStorage.removeItem("username")
         sessionStorage.removeItem("goals")
         sessionStorage.removeItem("id")
+        sessionStorage.removeItem("expiresAt")
     }
 
     static isLoggedIn() {
@@ -48,7 +55,7 @@ export default class LoginData {
         this.accessToken = token
         sessionStorage.setItem("accessToken", LoginData.accessToken);
         setToken(token)
-    }
+    }        
 
     static getUsername() {
         return this.username
@@ -111,13 +118,23 @@ export default class LoginData {
         return this._id
     }
 
-    static getStorage() {
+    static async getStorage() {
         if (this.loggedIn) return
 
         this.accessToken = sessionStorage.getItem("accessToken") || ''
         this.username = sessionStorage.getItem("username") || ''
         this.goals = JSON.parse(sessionStorage.getItem("goals") || '{}')
         this._id = sessionStorage.getItem("id") || ''
+        this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
+        this.refreshToken = sessionStorage.getItem("refreshToken") || ''
+
+        if(!this.expiresAt || !this.refreshToken) return
+
+        if (this.expiresAt * 1000 < Date.now()) {
+            const res = await refreshToken(this.refreshToken)
+            this.accessToken = res.data.access_token
+        }
+
 
         setToken(this.accessToken)
 

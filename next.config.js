@@ -11,6 +11,13 @@ const nextConfig = {
       }
     ]
   },
+
+  env: {
+    STRAVA_CLIENT_ID: process.env.STRAVA_CLIENT_ID,
+    STRAVA_CLIENT_SECRET: process.env.STRAVA_CLIENT_SECRET,
+    MONGODB_URI: process.env.MONGODB_URI,
+  },
+
   webpack: (config, isServer) => {
     config.resolve.fallback = { 
       tls: false,
