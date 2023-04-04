@@ -109,29 +109,38 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
 
   return (
     <div className="flex flex-col w-full gap-4 grow flex-center">
-      <h1 className="text-2xl font-bold text-center">
+      {/* <h1 className="text-2xl font-bold text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
-      </h1>
-     <div className="w-full max-h-32 grid place-items-center">
-          <LineGraph
-            data={
-              (showHR ? daysHeartRate : daysVdot)
-              .map(
-              (day) =>
-                (day /
-                  daysHeartRate.reduce((prev: number, curr: number) =>
-                    curr > prev ? curr : prev
-                  )) *
-                100
-            )}
-            labels={daysVdot.map((day, index) =>
-              new Date(new Date().setDate(new Date().getDate() - (13 - index)))
-                .getDate()
-                .toString()
-            )}
-          />
-        </div>
-      <button onClick={() => setShowHR(!showHR)}>Toggle</button>
+      </h1> */}
+      <div className="grid grid-cols-2 px-8 place-items-center">
+        <h1 className="text-2xl font-bold text-center">
+          Intensity using {showHR ? "HR" : "VDOT"}
+        </h1>
+        <button
+          className="px-12 py-2 text-xl rounded-xl bg-wisteria-600 hover:bg-faded-lavender-600 "
+          onClick={() => setShowHR(!showHR)}
+        >
+          Toggle
+        </button>
+      </div>
+      <div className="grid w-full max-h-32 place-items-center">
+        <LineGraph
+          data={(showHR ? daysHeartRate : daysVdot).map(
+            (day) =>
+              (day /
+                (showHR ? daysHeartRate : daysVdot).reduce(
+                  (prev: number, curr: number) => (curr > prev ? curr : prev)
+                )) *
+              100
+          )}
+          labels={daysVdot.map((day, index) =>
+            new Date(new Date().setDate(new Date().getDate() - (13 - index)))
+              .getDate()
+              .toString()
+          )}
+        />
+      </div>
+      {/* <button onClick={() => setShowHR(!showHR)}>Toggle</button> */}
     </div>
   );
 }

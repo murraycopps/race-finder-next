@@ -1,9 +1,10 @@
 import { Athlete, Shoe } from "@/scripts/stravaTypes";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const RightSide = ({ data }: { data: Athlete }) => {
     const [wide, setWide] = useState(false);
     const [delayedWide, setDelayedWide] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
       const timeout = setTimeout(
         () => {
@@ -13,9 +14,22 @@ const RightSide = ({ data }: { data: Athlete }) => {
       );
       return () => clearTimeout(timeout);
     }, [wide]);
+    
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (ref.current && !ref.current.contains(event.target as Node)) {
+                setWide(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [ref]);
   
     return (
         <div
+            ref={ref}
           className={`absolute h-196 right-0 flex flex-col items-center justify-center ${
             wide ? "w-128 px-16" : "w-64 pl-12 pr-4"
           } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-300 transition-all-300 `}

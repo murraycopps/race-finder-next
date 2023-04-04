@@ -20,9 +20,9 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
           })}
       </p>
     </div>
-    <div className="flex flex-row w-full gap-8 grow">
-      <div className="flex flex-col justify-evenly gap-4 h-full p-8">
-        <div className="flex flex-col items-center w-full justify-evenly gap-2">
+    <div className="flex flex-row justify-between w-full gap-8 grow">
+      <div className="flex flex-col h-full gap-4 p-8 justify-evenly">
+        <div className="flex flex-col items-center w-full gap-2 justify-evenly">
           <p className="text-lg">Distance (Mi)</p>
           <p className="text-3xl">
             {Math.round((activity.distance / 1609.34) * 100) / 100 || "--"}
@@ -42,11 +42,11 @@ const SingleRunCard = ({ activity }: { activity: Run }) => (
       </div>
       {activity.map.summary_polyline !== null &&
         activity.map.summary_polyline !== "" && (
-          <div className="relative overflow-hidden h-full w-3/4 rounded-2xl">
+          <div className="relative w-3/4 h-full overflow-hidden rounded-2xl">
             <MapWithNoSSR map={activity.map} />
           </div>
         )}
-      <div className="flex flex-col justify-evenly gap-4 h-full p-4">
+      <div className="flex flex-col h-full gap-4 p-4 justify-evenly">
         <div className="flex flex-col items-center justify-start gap-2">
           <p className="text-lg">Average HeartRate (bpm)</p>
           <p className="text-3xl">{activity.average_heartrate || "--"}</p>

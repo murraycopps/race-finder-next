@@ -23,7 +23,7 @@ const RunCard = ({
                 // href={`/strava/activities/${activity.id}`}
                 onClick={() => setRunId(activity.id)}
             >
-                <div className="flex flex-row justify-between w-full gap-8">
+                <div className="flex flex-row items-center justify-between w-full gap-8">
                     <h3 className="px-4 text-3xl truncate text-ellipsis max-w-3/4">
                         {activity.name}
                     </h3>
@@ -40,7 +40,7 @@ const RunCard = ({
                     activity.map.summary_polyline !== "" &&
                     displayMap && (
                         <div className="w-full px-16">
-                            <div className="w-full aspect-video overflow-hidden rounded-2xl">
+                            <div className="w-full overflow-hidden aspect-video rounded-2xl">
                                 <MapWithNoSSR map={activity.map} fixed />
                             </div>
                         </div>
