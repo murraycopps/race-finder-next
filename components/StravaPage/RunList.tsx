@@ -9,6 +9,18 @@ export default function RunList({ activities }: { activities: Run[] }) {
   const [activity, setActivity] = useState<Run | null>(null);
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+            setRunId(0);
+        }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, []);
+
+  useEffect(() => {
     if (runId === 0) {
       setActivity(null);
       return;
