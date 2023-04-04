@@ -40,7 +40,7 @@ const RunCard = ({
                     activity.map.summary_polyline !== "" &&
                     displayMap && (
                         <div className="w-full px-16">
-                            <div className="w-full overflow-hidden rounded-2xl">
+                            <div className="w-full aspect-video overflow-hidden rounded-2xl">
                                 <MapWithNoSSR map={activity.map} fixed />
                             </div>
                         </div>
