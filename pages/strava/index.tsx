@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import StravaPage from "@/components/StravaPage";
 
+
 export default function Page() {
   const [loggedIn, setLoggedIn] = useState(LoginData.isLoggedIn());
   const router = useRouter();

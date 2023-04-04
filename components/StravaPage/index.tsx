@@ -7,6 +7,7 @@ import LeftSide from "./LeftSide";
 import ProfileCard from "./ProfileCard";
 import RightSide from "./RightSide";
 import RunList from "./RunList";
+import { getStats, getActivities, getAthlete } from "@/lib/strava";
 
 export default function StravaPage() {
   const router = useRouter();
@@ -18,104 +19,48 @@ export default function StravaPage() {
   const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
+    
     if (!LoginData.isLoggedIn()) {
       router.push("/strava/");
       return;
     }
+
     const cachedData = localStorage.getItem("data");
-    const cachedActivities = localStorage.getItem("activities");
-    const cachedStats = localStorage.getItem("stats");
-    const expirationTime = localStorage.getItem("expirationTime");
-    const cachedUsername = localStorage.getItem("username");
+        const cachedActivities = localStorage.getItem("activities");
+        const cachedStats = localStorage.getItem("stats");
+        const expirationTime = localStorage.getItem("expirationTime");
+        const cachedUsername = localStorage.getItem("username");
+  
+        if (
+          cachedData &&
+          cachedActivities &&
+          cachedStats &&
+          expirationTime &&
+          cachedUsername === LoginData.getUsername() &&
+          Date.now() < +expirationTime
+        ) {
+          setData(JSON.parse(cachedData));
+          setStats(JSON.parse(cachedStats));
+          setActivities(JSON.parse(cachedActivities));
+          return;
+        }
 
-    if (
-      cachedData &&
-      cachedActivities &&
-      cachedStats &&
-      expirationTime &&
-      cachedUsername === LoginData.getUsername() &&
-      Date.now() < +expirationTime
-    ) {
-      setData(JSON.parse(cachedData));
-      setStats(JSON.parse(cachedStats));
-      setActivities(JSON.parse(cachedActivities));
-      return;
-    }
+    const fetchData = async () => {
+      const data = await getAthlete();
+      const activities = await getActivities();
+      const stats = await getStats(data.id);
+      setData(data);
+      setActivities(activities);
+      setStats(stats);
 
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          `https://www.strava.com/api/v3/athlete`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        setData(response.data);
-        localStorage.setItem("data", JSON.stringify(response.data));
-        getStats(response.data.id);
-      } catch (error: any) {
-        console.log(error);
-      }
-    }
-
-    async function getLoggedInAthleteActivities(page: number, perPage: number) {
-      const headers = {
-        Authorization: `Bearer ${accessToken}`,
-        Accept: "application/json",
-      };
-
-      const params = {
-        page,
-        per_page: perPage,
-      };
-
-      try {
-        const response = await axios.get(
-          `https://www.strava.com/api/v3/athlete/activities`,
-          {
-            headers,
-            params,
-          }
-        );
-        const { data } = response;
-
-        setActivities(data.filter((activity: Run) => activity.type === "Run"));
-        localStorage.setItem(
-          "activities",
-          JSON.stringify(
-            data.filter((activity: Run) => activity.type === "Run")
-          )
-        );
-      } catch (error: any) {
-        console.log(error);
-      }
-    }
-
-    async function getStats(id: string) {
-      try {
-        const response = await axios.get(
-          `https://www.strava.com/api/v3/athletes/${id}/stats`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-
-        setStats(response.data);
-        localStorage.setItem("stats", JSON.stringify(response.data));
-      } catch (error: any) {
-        console.log(error);
-      }
-    }
-
-    getLoggedInAthleteActivities(1, 60);
+        localStorage.setItem("data", JSON.stringify(data));
+        localStorage.setItem("activities", JSON.stringify(activities));
+        localStorage.setItem("stats", JSON.stringify(stats));
+        const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
+        localStorage.setItem("expirationTime", newExpirationTime.toString());
+        localStorage.setItem("username", LoginData.getUsername());
+    };
     fetchData();
-    const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
-    localStorage.setItem("expirationTime", newExpirationTime.toString());
-    localStorage.setItem("username", LoginData.getUsername());
   }, [accessToken, router]);
 
   if (!LoginData.isLoggedIn()) {
@@ -153,31 +98,6 @@ export default function StravaPage() {
         <LeftSide stats={stats} />
         <RunList activities={activities} />
         <RightSide data={data} />
-        <div className="fixed inset-0 grid bg-black place-items-center">
-          <button
-            onClick={() => {
-              const headers = {
-                Authorization: `Bearer ${accessToken}`,
-                Accept: "application/json",
-              };
-
-              console.log("here", headers);
-
-              const response2 = axios.get(
-                `https://www.strava.com/api/v3/athlete/activities/8815290888`,
-                {
-                  headers,
-                  params: {
-                    include_all_efforts: true,
-                  },
-                }
-              ).then((res) => console.log(res))
-              .catch((err) => console.log(err));
-            }}
-          >
-            click
-          </button>
-        </div>
       </div>
     </div>
   );

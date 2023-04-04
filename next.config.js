@@ -11,6 +11,16 @@ const nextConfig = {
       }
     ]
   },
-}
+  webpack: (config, isServer) => {
+    config.resolve.fallback = { 
+      tls: false,
+      fs: false,
+      net: false,
+    };
+
+
+      return config;
+    }
+  }
 
 module.exports = nextConfig

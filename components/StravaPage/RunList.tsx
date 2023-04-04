@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 
-
-
 export default function RunList({ activities }: { activities: Run[] }) {
   const [runId, setRunId] = useState<number>(0);
   const [activity, setActivity] = useState<Run | null>(null);
@@ -40,6 +38,3 @@ export default function RunList({ activities }: { activities: Run[] }) {
     </div>
   );
 }
-
-
-

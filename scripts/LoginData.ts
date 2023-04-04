@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Goal } from "./types";
+import { setToken } from "@/lib/strava";
 
 export default class LoginData {
     static loggedIn = false
@@ -14,6 +15,8 @@ export default class LoginData {
         this.username = username
         this.goals = goals
         this._id = id
+
+        setToken(accessToken)
 
         sessionStorage.setItem("accessToken", this.accessToken)
         sessionStorage.setItem("username", this.username)
@@ -44,6 +47,7 @@ export default class LoginData {
     static setAccessToken(token: string) {
         this.accessToken = token
         sessionStorage.setItem("accessToken", LoginData.accessToken);
+        setToken(token)
     }
 
     static getUsername() {
@@ -114,6 +118,8 @@ export default class LoginData {
         this.username = sessionStorage.getItem("username") || ''
         this.goals = JSON.parse(sessionStorage.getItem("goals") || '{}')
         this._id = sessionStorage.getItem("id") || ''
+
+        setToken(this.accessToken)
 
         if (this.accessToken && this.username && this.goals && this._id) {
             this.loggedIn = true
