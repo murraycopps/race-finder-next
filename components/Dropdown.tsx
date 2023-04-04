@@ -12,6 +12,11 @@ type DropdownProps = {
   value?: string | number;
   placeholder?: string;
   setValue: (value: string | number) => void;
+  outerColor?: string;
+  innerColor?: string;
+  hoverColor?: string;
+    borderColor?: string;
+    textColor?: string;
 };
 
 export default function Dropdown({
@@ -19,11 +24,15 @@ export default function Dropdown({
   value,
   setValue,
   placeholder,
+    outerColor = "bg-gray-50",
+    innerColor = "bg-gray-500",
+    hoverColor = "bg-gray-600",
+    borderColor = "border-gray-500",
+    textColor = "text-black",
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-
   const displayedValue = (value: string | number | undefined) => {
     if (value) {
       const item = items.find((item) => {
@@ -66,7 +75,7 @@ export default function Dropdown({
       ref={dropdownRef}
     >
       <button
-        className={`relative w-full text-3xl text-left pl-8 p-4 bg-gray-50 text-black ${
+        className={`relative w-full text-3xl text-left pl-8 p-4 ${outerColor} ${textColor} ${
           open
             ? "rounded-b-none dropdown-rounded"
             : "rounded-full transition-delayed"
@@ -89,7 +98,7 @@ export default function Dropdown({
             >
               <path
                 d="M7 10L12 15L17 10"
-                stroke="black"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -101,11 +110,11 @@ export default function Dropdown({
       <div
         className={`absolute z-50 flex text-3xl flex-col max-h-96 overflow-y-auto items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
-        } w-full px-4 bg-gray-500 top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-gray-500 border-2 scrollbar-m-b-2`}
+        } w-full px-4 ${innerColor} top-full rounded-b-2xl pb-2 scrollbar-gray-800 ${borderColor} border-2 scrollbar-m-b-2`}
       >
         {items.map((item, index) => (
           <button
-            className="w-full px-4 py-1 rounded-md hover:bg-gray-600"
+            className={`w-full px-4 py-1 rounded-md ${hoverColor}`}
             key={index}
             onClick={() => {
               if (typeof item !== "object") {
