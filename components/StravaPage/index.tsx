@@ -10,6 +10,7 @@ import {
   getStats,
   getActivities,
   getAthlete,
+  refreshToken,
 } from "@/lib/strava";
 
 export default function StravaPage() {

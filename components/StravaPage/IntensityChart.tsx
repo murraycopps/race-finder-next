@@ -97,7 +97,6 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
   const [daysVdot, setDaysVdot] = useState<number[]>([]);
   const [daysHeartRate, setDaysHeartRate] = useState<number[]>([]);
   const [showHR, setShowHR] = useState(false);
-  const [animationState, setAnimationState] = useState(false);
 
   useEffect(() => {
     const lastWeek = new Date();
@@ -115,8 +114,10 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowHR(!showHR);
+      setShowHR(showHR => !showHR);
     }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -124,25 +125,6 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
       <h1 className="text-xl text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
       </h1>
-      {/* <div
-        className={`grid grid-cols-2 px-8 place-items-center ${
-          animationState && "fade-out-in"
-        }`}
-      >
-        <h1 className="text-2xl font-bold text-center">
-          Intensity using {showHR ? "HR" : "VDOT"}
-        </h1>
-        <button
-          className="px-4 py-1 text-xl rounded-full bg-wisteria-500"
-          onClick={() => {
-            setAnimationState(true);
-            setTimeout(() => setAnimationState(false), 1000);
-            setTimeout(() => setShowHR(!showHR), 500);
-          }}
-        >
-          Switch to {showHR ? "VDOT" : "HR"}
-        </button>
-      </div> */}
       <div className="grid w-full max-h-32 place-items-center">
         <LineGraph
           data={showHR ? daysHeartRate : daysVdot}
@@ -153,7 +135,6 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
           )}
         />
       </div>
-      {/* <button onClick={() => setShowHR(!showHR)}>Toggle</button> */}
     </div>
   );
 }
