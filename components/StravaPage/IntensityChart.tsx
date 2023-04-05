@@ -115,7 +115,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowHR(showHR => !showHR);
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

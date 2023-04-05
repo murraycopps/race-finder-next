@@ -10,8 +10,8 @@ import L from "leaflet";
 
 const polyline = require("polyline-encoded");
 
-function parseMapPoints(map: MapType) {
-  const polylineString = map.summary_polyline;
+function parseMapPoints(map: MapType, detailed: boolean) {
+  const polylineString = detailed && map.polyline ? map.polyline: map.summary_polyline;
   const coordinates = polyline.decode(polylineString);
   const mapPoints = coordinates.map((coord: [number, number]) => ({
     lat: coord[0],
@@ -20,8 +20,8 @@ function parseMapPoints(map: MapType) {
   return mapPoints;
 }
 
-export default function Map({ map, fixed = false }: { map: MapType; fixed?: boolean }) {
-  const positions = parseMapPoints(map);
+export default function Map({ map, fixed = false, detailed = false }: { map: MapType; fixed?: boolean, detailed?: boolean }) {
+  const positions = parseMapPoints(map, detailed);
 
   const center = {
     lat:
