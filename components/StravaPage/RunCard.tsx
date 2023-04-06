@@ -28,9 +28,9 @@ const RunCard = ({
                         {activity.name}
                     </h3>
                     <p className="text-xl">
-                        {new Date(activity.start_date_local).toLocaleDateString() +
+                        {new Date(activity.start_date).toLocaleDateString() +
                             " " +
-                            new Date(activity.start_date_local).toLocaleTimeString([], {
+                            new Date(activity.start_date).toLocaleTimeString([], {
                                 hour: "numeric",
                                 minute: "2-digit",
                             })}

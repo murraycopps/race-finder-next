@@ -12,12 +12,40 @@ type Split = {
     pace_zone: number;
 }
 
+type Segment = {
+    id: number;
+    resource_state: number;
+    name: string;
+    activity_type: string;
+    distance: number;
+    average_grade: number;
+    maximum_grade: number;
+    elevation_high: number;
+    elevation_low: number;
+    start_latlng: [number, number];
+    end_latlng: [number, number];
+    elavation_profile: string | null;
+    climb_category: number;
+    city: string;
+    state: string;
+    country: string;
+    private: boolean;
+    hazardous: boolean;
+    starred: boolean;
+};
+
 type SegmentEffort = {
     id: number;
     resource_state: number;
     name: string;
-    activity: any;
-    athlete: any;
+    activity: {
+        id: number;
+        resource_state: number;
+    };
+    athlete: {
+        id: number;
+        resource_state: number;
+    };
     elapsed_time: number;
     moving_time: number;
     start_date: string;
@@ -29,8 +57,8 @@ type SegmentEffort = {
     device_watts: boolean;
     average_heartrate: number;
     max_heartrate: number;
-    segment: any;
-    pr_rank: number;
+    segment: Segment;
+    pr_rank: number | null;
     achievements: any;
     hidden: boolean;
 }
