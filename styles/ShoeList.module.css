@@ -23,7 +23,7 @@
 .width {
     width: 24rem;
     min-height: 24rem;
-    background-color: #051a4f;
+;
 }
 .display {
     grid-template-columns: repeat(3, 24rem);

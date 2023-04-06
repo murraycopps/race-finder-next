@@ -24,7 +24,7 @@ export default function PacingCard() {
   }, [dis, time]);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full gap-8 p-4 rounded-3xl bg-faded-purple-600">
+    <div className="flex flex-col items-center justify-between w-full h-full gap-8 py-4 px-10 bg-wisteria-600 card-slant">
         <h3 className="text-2xl font-bold">Calculate Mile Pace</h3>
       <Dropdown
         items={inputDistances}
@@ -34,7 +34,7 @@ export default function PacingCard() {
       />
       <TimeInput time={time} setTime={setTime} />
       <p className="text-5xl font-bold">{outTime(pace)}</p>
-      <Link href="/tools/pacing" className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-lavender-500 hover:bg-lavender-400 rounded-3xl">See More</Link>
+      <Link href="/tools/pacing" className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-faded-purple-600 hover:bg-faded-purple-700 rounded-3xl">See More</Link>
     </div>
   );
 }

@@ -284,7 +284,7 @@ html {
   height: 1.25rem;
   background-color: transparent;
   border-bottom-right-radius: 1.25rem;
-  box-shadow: .2rem .44rem 0 .2rem  rgb(84 72 119);
+  box-shadow: .2rem .44rem 0 .2rem  currentColor;
 }
 
 .quote-image::after {
@@ -296,7 +296,7 @@ html {
   height: 1.25rem;
   background-color: transparent;
   border-bottom-left-radius: 1.25rem;
-  box-shadow: -.2rem .44rem 0 .2rem  rgb(84 72 119);
+  box-shadow: -.2rem .44rem 0 .2rem  currentColor;
 }
 
 .fade-out-in{

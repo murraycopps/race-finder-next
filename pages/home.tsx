@@ -64,7 +64,7 @@ export default function HomePage() {
           title="Strava"
           description="Connect to Strava and view your stats"
           link="/strava/login"
-          img="/review-cards/strava-icon.png"
+          img="/review-cards/strava-white.png"
         />
         <LinkCard
           title="Tools"
@@ -79,19 +79,19 @@ export default function HomePage() {
           img="/review-cards/shoe.webp"
         />
       </div>
-        <SlantedTitle title="Our Quotes" />
+        <SlantedTitle title="" />
         <div className="grid w-full grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
            <ShoeList shoes={shoeslistrace} />
           <QuoteCard />
             <ShoeList shoes={shoeslisttrain} />
         </div>
-      <SlantedTitle title="Our Reviews" />
+      <SlantedTitle title="Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">
         {randomItems.slice(0, 4).map(({ item, des }, i) => (
           <ItemCard item={item} des={des} key={i} />
         ))}
       </div>
-      <SlantedTitle title="Our Tools" />
+      <SlantedTitle title="Tools" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <PacingCard />
         <VdotCard />
