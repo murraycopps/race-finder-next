@@ -132,7 +132,7 @@ export default class LoginData {
 
         if (this.expiresAt * 1000 < Date.now()) {
             const res = await refreshToken(this.refreshToken)
-            this.accessToken = res.data.access_token
+            this.accessToken = res.access_token
         }
 
 

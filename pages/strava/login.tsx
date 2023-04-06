@@ -5,6 +5,7 @@ import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
 import { User } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
+import { refreshToken } from "@/lib/strava";
 
 export default function LoginPage({
   clientId,
@@ -33,17 +34,16 @@ export default function LoginPage({
       // check if user.expiresAt is in the past
       if (new Date(user.expiresAt * 1000) < new Date()) {
         // refresh token
-        const response = await axios.post(
-          `https://www.strava.com/api/v3/oauth/token`,
-          {
-            client_id: clientId,
-            client_secret: clientSecret,
-            grant_type: "refresh_token",
-            refresh_token: user.refreshToken,
-          }
-        );
-        const { access_token, refresh_token, expires_at } = response.data;
-
+        // const response = await axios.post(
+        //   `https://www.strava.com/api/v3/oauth/token`,
+        //   {
+        //     client_id: clientId,
+        //     client_secret: clientSecret,
+        //     grant_type: "refresh_token",
+        //     refresh_token: user.refreshToken,
+        //   }
+        // );
+        const { access_token, refresh_token, expires_at } = await refreshToken(user.refreshToken);
         axios.put(`${url}/api/users`, {
           _id: user._id,
           accessToken: access_token,
