@@ -314,3 +314,7 @@ html {
     opacity: 1;
   }
 }
+
+.home-link-card{
+  height: calc(100% - 3rem);
+}
