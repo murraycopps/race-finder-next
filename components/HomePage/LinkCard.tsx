@@ -11,7 +11,7 @@ type CardProps = {
   const LinkCard = ({ title, description, link, img }: CardProps) => (
     <Link
       href={link}
-      className="relative flex flex-col gap-8 p-8 overflow-hidden justify-evenly rounded-3xl bg-lavender-600 aspect-square"
+      className="relative flex flex-col gap-8 p-8 overflow-hidden justify-evenly  bg-lavender-600 aspect-square card-slant"
     >
       <Image
         src={img}
