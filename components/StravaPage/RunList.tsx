@@ -29,7 +29,7 @@ export default function RunList({ activities }: { activities: Run[] }) {
     if (activity) setActivity(activity);
   }, [runId]);
   return (
-    <div className="flex flex-col items-center justify-start w-full gap-8 p-4 text-center">
+    <div className="flex flex-col items-center justify-start w-full p-4 text-center gap-8">
       {activities.map((activity: Run, i: number) => (
         <RunCard
           activity={activity}

@@ -22,9 +22,9 @@ export default function RunList({ activities }: {activities: Run[]}) {
 const Run: FC<{ activity: Run }> = ({ activity }) => (
   <Link
     href={`/strava/activities/${activity.id}`}
-    className="grid w-full h-full grid-cols-2"
+    className="w-full h-full grid grid-cols-2"
   >
-    <div className="grid items-center grid-rows-2 ">
+    <div className="items-center grid grid-rows-2 ">
       <h2 className="w-full text-xl text-center truncate sm:text-3xl two-lines">
         {activity.name}
       </h2>

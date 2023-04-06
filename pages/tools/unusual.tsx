@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <PageWrapper
       page="Unusual"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen p-4 text-center gap-4"
     >
       <h1 className="text-4xl">Convert Unusual Distances</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
@@ -53,7 +53,7 @@ export default function Home() {
             className="w-full p-4 text-3xl text-black bg-white rounded-full"
           />
 
-          <div className="grid w-full grid-cols-3 gap-4">
+          <div className="w-full grid grid-cols-3 gap-4">
             <button
               className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
               onClick={() => {

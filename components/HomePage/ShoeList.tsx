@@ -134,21 +134,21 @@ export default function ShoeList({ shoes }: { shoes: Shoes}) {
 		</button>
 	</div>
 	<div className={`${styles.display} grid place-items-center ${left && styles.left} ${right && styles.right}`}>
-		<ul className="flex flex-col gap-2 text-2xl w-fit">
+		<ul className="flex flex-col text-2xl gap-2 w-fit">
 			{shoes.at(index - 1)?.shoes.map((shoe, i) => (
 				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
 					{shoe.shoe}
 				</li>
 			))}
 		</ul>
-		<ul className="flex flex-col gap-2 text-2xl">
+		<ul className="flex flex-col text-2xl gap-2">
 			{shoes[index]?.shoes.map((shoe, i) => (
 				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
 					{shoe.shoe}
 				</li>
 )        )}
 		</ul>
-		<ul className="flex flex-col gap-2 text-2xl">
+		<ul className="flex flex-col text-2xl gap-2">
 			{shoes.at(index < shoes.length - 1 ? index + 1 : 0)?.shoes.map((shoe, i) => (
 				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
 					{shoe.shoe}

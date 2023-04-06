@@ -56,10 +56,10 @@ export default function HomePage() {
   return (
     <PageWrapper
       page="Home"
-      className="flex flex-col items-center min-h-screen gap-16 p-16 text-center"
+      className="flex flex-col items-center min-h-screen p-16 text-center gap-16"
     >
       <h1 className="text-4xl font-bold">Welcome to my website!</h1>
-      <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
+      <div className="w-full grid grid-cols-1 gap-8 sm:grid-cols-3">
         <LinkCard
           title="Strava"
           description="Connect to Strava and view your stats"
@@ -80,13 +80,13 @@ export default function HomePage() {
         />
       </div>
         <SlantedTitle title="" />
-        <div className="grid w-full grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full grid grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3">
            <ShoeList shoes={shoeslistrace} />
           <QuoteCard />
             <ShoeList shoes={shoeslisttrain} />
         </div>
       <SlantedTitle title="Reviews" />
-      <div className="grid w-full grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="w-full px-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {randomItems.slice(0, 4).map(({ item, des }, i) => (
           <ItemCard item={item} des={des} key={i} />
         ))}

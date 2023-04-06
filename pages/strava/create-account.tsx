@@ -63,7 +63,7 @@ export default function LoginPage({
       page="Create Account"
       className="flex flex-col items-center justify-center h-screen"
     >
-      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-base-300 run-field-sizing">
+      <form className="flex flex-col px-4 py-6 rounded-lg shadow-lg gap-4 bg-faded-base-300 run-field-sizing">
         <label className="block text-lg font-bold" htmlFor="username">
           Username:
         </label>

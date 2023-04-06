@@ -19,7 +19,7 @@ export default function ShopLink({
         width={500}
         height={500}
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-4 text-white">
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white gap-4">
         <h2 className="text-5xl">{capitalize(type)}</h2>
         {/*<p className="text-2xl">Shop our selection of {type}</p>*/}
       </div>

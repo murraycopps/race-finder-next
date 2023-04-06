@@ -25,8 +25,8 @@ export default function Page() {
         // <HomePage />
         <StravaPage   />
       ) : (
-        <div className="grid h-screen place-items-center">
-          <div className="flex flex-col gap-8 text-center">
+        <div className="h-screen grid place-items-center">
+          <div className="flex flex-col text-center gap-8">
             <h1 className="text-4xl font-bold">Redirecting...</h1>
             <p className="text-2xl">
               Click{" "}

@@ -30,11 +30,11 @@ export default function ShoesPage() {
 
         <PageWrapper page={article?.name || "articles"} className="flex flex-col justify-center min-h-screen mx-32 my-4 item-center">
             {article ? (
-                <div className="grid w-4/5 h-full grid-cols-3 p-4 m-4 rounded-lg bg-slate-400 min-w-fit">
+                <div className="w-4/5 h-full p-4 m-4 rounded-lg grid grid-cols-3 bg-slate-400 min-w-fit">
                     <PageCard item={article}/>
 
-                    <div className="flex flex-col h-full col-span-2 p-4">
-                        <div className="grid flex-wrap justify-center grid-cols-5 gap-4 p-4 m-4 text-xl font-medium leading-6 text-center text-white border-4 border-solid rounded-lg flex-2 bg-slate-400 border-base">
+                    <div className="flex flex-col h-full p-4 col-span-2">
+                        <div className="flex-wrap justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid grid-cols-5 gap-4 leading-6 flex-2 bg-slate-400 border-base">
                             <SpecsCard item={article}/>
                             
                             {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}

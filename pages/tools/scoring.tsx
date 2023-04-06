@@ -50,7 +50,7 @@ export default function Scoring() {
   return (
     <PageWrapper
       page="scoring"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen p-4 text-center gap-4"
     >
       <h1 className="text-4xl">Calculate {isTrack ? "Track" : "XC"} Scores</h1>
       <div className="grid grid-cols-2 gap-4 grow place-items-center">
@@ -58,7 +58,7 @@ export default function Scoring() {
           {isTrack ? (
             <>
               {custom ? (
-                  <div className="flex flex-row items-center justify-center w-full gap-2 bg-white rounded-full overlay">
+                  <div className="flex flex-row items-center justify-center w-full bg-white rounded-full gap-2 overlay">
                     <input
                       type="number"
                       placeholder="Custom Distance"

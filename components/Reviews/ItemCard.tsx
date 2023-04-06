@@ -22,7 +22,7 @@ const ItemCard = ({ item, des }: { item: Item; des?: string }) => (
         height="300"
         width="300"
       />
-      <div className="grid w-full grid-cols-2 text-xl place-items-center">
+      <div className="w-full text-xl grid grid-cols-2 place-items-center">
         <p className="text-2xl">${item.price}</p>
         <p>
           <Stars number={item.rating} total={5} />

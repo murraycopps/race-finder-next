@@ -12,7 +12,7 @@ export default function Reviews({clothes} : {clothes: Clothes}) {
                             <h2 className="text-xl text-center truncate itemblockTitle text-ellipsis">{clothes.name}</h2>
                             <img className={` w-full object-cover ${clothes.type}`}src={clothes.img} alt={clothes.name} height="300" width="300"/>
                         </div>
-                        {/*<span className="box-content block w-full h-0 m-2 border-solid border-y-2 border-base"/>*/}
+                        {/*<span className="block w-full h-0 m-2 border-solid box-content border-y-2 border-base"/>*/}
 
                         <div className="flex w-full justify-evenly">
                             <div>

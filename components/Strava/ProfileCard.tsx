@@ -36,12 +36,12 @@ export default function ProfileCard({
 
     return (
         <div className="flex flex-col h-auto pt-8 overflow-x-hidden profile-sizing lg:h-screen">
-            <div className="flex flex-row flex-wrap gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
+            <div className="flex flex-row flex-wrap p-8 mb-4 bg-gray-700 gap-4 rounded-md lg:ml-4">
                 <div className="flex flex-col justify-between flex-grow sm:h-36 h-28 sm:pb-4">
                     <h1 className="w-full text-2xl font-bold text-center sm:text-4xl sm:mb-4">
                         {data.firstname} {data.lastname}
                     </h1>
-                    <div className="flex flex-row justify-center gap-4 text-center sm:gap-8">
+                    <div className="flex flex-row justify-center text-center gap-4 sm:gap-8">
                         <div>
                             Followers:
                             <p className="text-2xl font-bold">{data.follower_count}</p>
@@ -62,7 +62,7 @@ export default function ProfileCard({
                 <h2 className="w-full text-xl font-bold text-center">
                     {showYear ? "Yearly" : "Lifetime"} Stats
                 </h2>
-                <div className="grid w-full grid-cols-2 gap-8 sm:grid-cols-4">
+                <div className="w-full grid grid-cols-2 gap-8 sm:grid-cols-4">
                     <div className="flex flex-col items-center justify-start gap-2">
                         <FontAwesomeIcon icon={faRuler} className="w-12 h-12"/>{" "}
                         <p className="text-lg">
@@ -96,7 +96,7 @@ export default function ProfileCard({
                     Toggle
                 </button>
             </div>
-            {/* <div className="flex flex-row flex-wrap gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
+            {/* <div className="flex flex-row flex-wrap p-8 mb-4 bg-gray-700 gap-4 rounded-md lg:ml-4">
         <button
           className="w-full p-2 bg-gray-600 rounded-md hover:bg-gray-500"
           onClick={() => setShowShoes(!showShoes)}
@@ -122,7 +122,7 @@ export default function ProfileCard({
           </ul>
         )}
       </div> */}
-            {/* <div className="grid grid-cols-2 gap-4 p-8 mb-4 bg-gray-700 rounded-md lg:ml-4">
+            {/* <div className="p-8 mb-4 bg-gray-700 grid grid-cols-2 gap-4 rounded-md lg:ml-4">
         <Link
           className="w-full p-2 text-center bg-gray-600 rounded-md hover:bg-gray-500"
           href="/strava/profile"
@@ -136,7 +136,7 @@ export default function ProfileCard({
           Manage Goals
         </Link>
       </div> */}
-            <div className="flex flex-row flex-wrap gap-4 p-4 bg-gray-700 rounded-md lg:ml-4">
+            <div className="flex flex-row flex-wrap p-4 bg-gray-700 gap-4 rounded-md lg:ml-4">
                 <button
                     className="w-full p-2 bg-gray-600 rounded-md hover:bg-gray-500"
                     onClick={() => {

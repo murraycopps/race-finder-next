@@ -125,7 +125,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
       <h1 className="text-xl text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
       </h1>
-      <div className="grid w-full max-h-32 place-items-center">
+      <div className="w-full grid max-h-32 place-items-center">
         <LineGraph
           data={showHR ? daysHeartRate : daysVdot}
           labels={daysVdot.map((day, index) =>

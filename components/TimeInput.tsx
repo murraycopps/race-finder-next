@@ -22,7 +22,7 @@ export default function TimeInput({
     setSec(Math.round(time % 60 * 10000) / 10000);
   }, [time]);
   return (
-    <div className="grid grid-cols-3 text-3xl text-black">
+    <div className="text-3xl text-black grid grid-cols-3">
       <div className="relative w-full h-full">
         <input
           type="number"

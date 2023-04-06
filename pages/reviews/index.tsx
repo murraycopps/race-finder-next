@@ -17,7 +17,7 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen gap-4 overflow-y-auto"
+      className="flex flex-col items-center justify-start w-screen h-screen overflow-y-auto gap-4"
     >
       <div className="relative">
         <Image
@@ -28,13 +28,13 @@ export default function Reviews() {
             height={1080}
 
         />
-        <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>
+        <h1 className="absolute inset-0 flex flex-col items-center justify-center text-base gap-4 text-8xl">Reviews</h1>
       </div>
 
 
 
 
-      <div className="grid w-full grid-cols-1 gap-8 px-16 sm:grid-cols-2 md:grid-cols-3">
+      <div className="w-full px-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
         <ReviewsRoutingCard type="clothes" image="/review-cards/clothesnew.webp" />
         <ReviewsRoutingCard type="other" image="/review-cards/gearnew.png" />
@@ -43,7 +43,7 @@ export default function Reviews() {
       <div className="w-full h-8 bg-white ">
 
       </div>
-      <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="justify-start w-full p-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {randomItems.slice(0, 4).map((item, i) => {
           return <ItemCard item={item} key={i} />;
         })}

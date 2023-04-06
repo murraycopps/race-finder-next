@@ -5,7 +5,7 @@ export default function Tools() {
   return (
     <PageWrapper
       page="Tools"
-      className="flex flex-col items-center min-h-screen gap-8 p-4 font-sans text-white justify-evenly"
+      className="flex flex-col items-center min-h-screen p-4 font-sans text-white gap-8 justify-evenly"
     >
       <h1 className="text-6xl">Tools</h1>
       <p className="w-3/4 text-2xl text-center">
