@@ -83,9 +83,13 @@ const calculateHeartIntensities = (activities: Run[]) => {
     });
     if (!dayActivities.length) return 0;
 
-    const dayIntensity = dayActivities.reduce((prev: number, curr: Run) => {
-      return prev + curr.average_heartrate + curr.max_heartrate;
-    }, 0);
+    const dayIntensity = dayActivities
+      .filter(
+        (activity: Run) => activity.average_heartrate && activity.max_heartrate
+      )
+      .reduce((prev: number, curr: Run) => {
+        return prev + curr.average_heartrate + curr.max_heartrate;
+      }, 0);
     return dayIntensity / (dayActivities.length * 2);
   });
   dayIntensities.reverse();
@@ -114,7 +118,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowHR(showHR => !showHR);
+      setShowHR((showHR) => !showHR);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -125,7 +129,7 @@ export default function IntensityChart({ activities }: { activities: Run[] }) {
       <h1 className="text-xl text-center">
         Intensity using {showHR ? "HR" : "VDOT"}
       </h1>
-      <div className="w-full grid max-h-32 place-items-center">
+      <div className="grid w-full max-h-32 place-items-center">
         <LineGraph
           data={showHR ? daysHeartRate : daysVdot}
           labels={daysVdot.map((day, index) =>
