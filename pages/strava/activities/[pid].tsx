@@ -1,11 +1,12 @@
 import PageWrapper from "@/components/PageWrapper";
-import { getActivity } from "@/lib/strava";
+import { getActivity, getActivityComments } from "@/lib/strava";
 import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
-import { DetailedRun, Lap } from "@/scripts/singleRunTypes";
+import { Comment, DetailedRun, Lap, Split } from "@/scripts/singleRunTypes";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { json } from "stream/consumers";
 
 const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -15,8 +16,15 @@ export default function ActivityPage() {
   const [activity, setActivity] = useState<DetailedRun>();
   const router = useRouter();
   const [imperialSplit, setImperialSplit] = useState(false);
+  const [detailedType, setDetailedType] = useState<"laps" | "splits" | "none">(
+    "none"
+  );
+  const [allSegments, setAllSegments] = useState(false);
+  const [allEfforts, setAllEfforts] = useState(false);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
+    LoginData.getStorage();
     if (!LoginData.isLoggedIn()) {
       router.push("/strava/");
       return;
@@ -24,24 +32,37 @@ export default function ActivityPage() {
 
     const { pid } = router.query;
     if (!pid || typeof pid !== "string") return;
-    console.log(pid);
     const getDetailedActivity = async () => {
       // check local storage
-      const cachedActivity = localStorage.getItem(pid as string);
-      if (cachedActivity) {
-        setActivity(JSON.parse(cachedActivity));
+      const { data, expirationTime, comments } = JSON.parse(
+        localStorage.getItem(pid) || "{}"
+      );
+      if (data && comments && expirationTime && Date.now() < expirationTime) {
+        setActivity(data);
+        setComments(comments);
         return;
       }
 
       const res = await getActivity(pid);
-      if (!res) {
+      const com = await getActivityComments(pid);
+
+      if (!res || !com) {
+        console.log("Error getting activity");
         router.push("/strava/");
         return;
       }
+
       setActivity(res);
-      // store to local storage
-      localStorage.setItem(pid, JSON.stringify(res));
-      console.log(res);
+      setComments(com);
+
+      localStorage.setItem(
+        pid,
+        JSON.stringify({
+          data: res,
+          expirationTime: Date.now() + 1000 * 60 * 60 * 24,
+          comments: com,
+        })
+      );
     };
     getDetailedActivity();
   }, [router]);
@@ -179,25 +200,148 @@ export default function ActivityPage() {
 
         <div className="flex flex-col items-center justify-center gap-4 p-8">
           <h1 className="text-xl font-bold">Shoes</h1>
-          <p className="text-2xl">{activity.gear.name || "--"}</p>
+          <p className="text-2xl">{activity.gear.name.replace(activity.gear.nickname || "", "") || "--"}</p>
         </div>
       </div>
       <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
         <div className="relative w-full h-full">
-          <button
-            className="absolute z-10 p-2 text-white rounded-full bg-lavender-600 hover:bg-lavender-700 top-8 right-8"
-            onClick={() => setImperialSplit(!imperialSplit)}
-          >
-            Switch to {imperialSplit ? "km" : "mi"}
-          </button>
+          {activity.splits_standard && activity.splits_metric ? (
+            <>
+              <button
+                className="absolute z-10 p-2 text-white rounded-full bg-lavender-600 hover:bg-lavender-700 top-8 right-8"
+                onClick={() => setImperialSplit(!imperialSplit)}
+              >
+                Switch to {imperialSplit ? "mi" : "km"}
+              </button>
+              <Graph
+                name={imperialSplit ? "Splits (km)" : "Splits (mi)"}
+                nums={
+                  imperialSplit
+                    ? activity.splits_metric
+                    : activity.splits_standard
+                }
+                onClick={() => setDetailedType("splits")}
+              />
+            </>
+          ) : (
+            <h2 className="text-4xl font-bold text-center">No Splits</h2>
+          )}
+        </div>
+        {activity.laps ? (
           <Graph
-            name={imperialSplit ? "Splits (mi)" : "Splits (km)"}
-            nums={
+            name="Laps"
+            nums={activity.laps}
+            onClick={() => setDetailedType("laps")}
+          />
+        ) : (
+          <h2 className="text-4xl font-bold">No Laps</h2>
+        )}
+      </div>
+      {detailedType === "laps" && (
+        <>
+          <div
+            className="fixed inset-0 bg-black opacity-50"
+            onClick={() => setDetailedType("none")}
+          />
+          <DetailedCard laps={activity.laps} label="Lap" />
+        </>
+      )}
+      {detailedType === "splits" && (
+        <>
+          <div
+            className="fixed inset-0 bg-black opacity-50"
+            onClick={() => setDetailedType("none")}
+          />
+          <DetailedCard
+            laps={
               imperialSplit ? activity.splits_metric : activity.splits_standard
             }
+            label={imperialSplit ? "Kilometer" : "Mile"}
           />
+        </>
+      )}
+      <div className="grid w-full grid-cols-2 gap-4 place-items-center">
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
+          {activity.best_efforts.length > 0 ? (
+            <>
+              <h1 className="my-4 text-4xl font-bold">Best Efforts</h1>
+              {activity.best_efforts
+                .filter((effort) => effort.pr_rank !== null || allEfforts)
+                .sort((a, b) => (a.pr_rank || 100) - (b.pr_rank || 100))
+
+                .map((effort, i) => (
+                  <p key={i} className="flex text-2xl place-items-center">
+                    {effort.name} - {outTime(effort.moving_time)} -{" "}
+                    {effort.pr_rank === 1 ? (
+                      <span className="text-4xl">🥇</span>
+                    ) : effort.pr_rank === 2 ? (
+                      <span className="text-4xl">🥈</span>
+                    ) : effort.pr_rank === 3 ? (
+                      <span className="text-4xl">🥉</span>
+                    ) : (
+                      effort.pr_rank
+                    )}
+                  </p>
+                ))}
+              <button
+                className="w-3/4 p-2 my-4 text-3xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+                onClick={() => setAllEfforts(!allEfforts)}
+              >
+                Show {allEfforts ? "Prs" : "All"}
+              </button>
+            </>
+          ) : (
+            <h2 className="text-4xl font-bold">No Best Efforts</h2>
+          )
+        }
+          {activity.segment_efforts.length > 0 ? (
+            <>
+              <h1 className="mt-8 mb-4 text-4xl font-bold">Segment Efforts</h1>
+              {activity.segment_efforts
+                .filter((effort) => effort.pr_rank !== null || allSegments)
+                .sort((a, b) => (a.pr_rank || 100) - (b.pr_rank || 100))
+                .map((effort, i) => (
+                  <p key={i} className="flex text-xl place-items-center">
+                    {effort.name} - {outTime(effort.moving_time)} -{" "}
+                    {Math.round(effort.distance)}m -{" "}
+                    {effort.pr_rank === 1 ? (
+                      <span className="text-4xl">🥇</span>
+                    ) : effort.pr_rank === 2 ? (
+                      <span className="text-4xl">🥈</span>
+                    ) : effort.pr_rank === 3 ? (
+                      <span className="text-4xl">🥉</span>
+                    ) : (
+                      effort.pr_rank
+                    )}
+                  </p>
+                ))}
+              <button
+                className="w-3/4 p-2 m-4 text-3xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+                onClick={() => setAllSegments(!allSegments)}
+              >
+                Show {allSegments ? "Prs" : "All"}
+              </button>
+            </>
+          ) : (
+            <h1 className="mt-8 mb-4 text-4xl font-bold">No Segment Efforts</h1>
+          )}
         </div>
-        <Graph name="Laps" nums={activity.laps} />
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
+          <h1 className="text-4xl font-bold">
+            {comments.length > 0 ? "Comments" : "No Comments"}
+          </h1>
+          {comments.map((comment, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center gap-4 p-8"
+            >
+              <p className="text-xl">{comment.text}</p>
+              <p className="text-xl">
+                {comment.athlete.firstname} {comment.athlete.lastname}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </PageWrapper>
   );
@@ -213,9 +357,11 @@ const StatsCard = ({ name, des }: { name: string; des: string | number }) => (
 const Graph = ({
   name,
   nums,
+  onClick,
 }: {
   name: string;
   nums: { moving_time: number }[];
+  onClick: () => void;
 }) => {
   const numbers = nums.map((num) => num.moving_time);
   const max = Math.max(...numbers);
@@ -236,6 +382,55 @@ const Graph = ({
           </div>
         ))}
       </div>
+      <button
+        className="px-4 py-2 text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+        onClick={onClick}
+      >
+        View Detailed
+      </button>
     </div>
   );
 };
+
+const DetailedCard = ({
+  laps,
+  label,
+}: {
+  laps: Split[] | Lap[];
+  label: string;
+}) => (
+  <div className="fixed z-20 flex flex-col items-center gap-4 p-8 overflow-y-auto justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
+    {laps.map((lap, i) => (
+      <div
+        key={i}
+        className="flex flex-col items-center justify-center w-full gap-4"
+      >
+        <h1 className="text-2xl font-bold">
+          {label} {i + 1}
+        </h1>
+        <div className="grid w-full grid-cols-4 place-items-center">
+          <LapStatsCard name="Distance" des={lap.distance} />
+          <LapStatsCard
+            name="Pace"
+            des={outTime(lap.moving_time / lap.distance)}
+          />
+          <LapStatsCard name="MovingTime" des={outTime(lap.moving_time)} />
+          <LapStatsCard name="ElapsedTime" des={outTime(lap.elapsed_time)} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const LapStatsCard = ({
+  name,
+  des,
+}: {
+  name: string;
+  des: string | number;
+}) => (
+  <div className="flex flex-col items-center justify-center gap-2">
+    <h1 className="text-lg font-bold">{name}</h1>
+    <p className="text-xl">{des}</p>
+  </div>
+);

@@ -1,5 +1,4 @@
-import {Map } from './stravaTypes'
-import { Shoe } from './types';
+import {Map, Shoe } from './stravaTypes'
 type Split = {
     distance: number;
     elapsed_time: number;
@@ -111,7 +110,7 @@ type BestEffort = {
     lap_index?: number;
     split?: number;
     pace_zone?: number;
-    pr_rank?: number | null;
+    pr_rank: number | null;
     achievements?: any[];
 }
 
@@ -212,4 +211,23 @@ type DetailedRun = {
     available_zones: any[];
 }
 
-export type {DetailedRun, Split, SegmentEffort, Lap, BestEffort }
+type Comment = {
+    id: number;
+    activity_id: number;
+    post_id: null | number;
+    resource_state: number;
+    text: string;
+    mentions_metadata: null | any;
+    created_at: string;
+    cursor: null | any;
+    athlete: {
+      resource_state: number;
+      firstname: string;
+      lastname: string;
+    };
+    reaction_count: number;
+    has_reacted: boolean;
+  };
+
+  
+export type {DetailedRun, Split, SegmentEffort, Lap, BestEffort, Comment }

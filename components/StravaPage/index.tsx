@@ -23,6 +23,7 @@ export default function StravaPage() {
   const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
+    LoginData.getStorage();
     if (!LoginData.isLoggedIn()) {
       router.push("/strava/");
       return;
