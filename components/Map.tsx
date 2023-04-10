@@ -39,7 +39,7 @@ export default function Map({ map, fixed = false, detailed = false }: { map: Map
   return (
     <MapContainer
       center={center}
-      className="w-full h-full"
+      className="z-0 w-full h-full"
       bounds={L.latLngBounds(positions)}
       zoomControl={!fixed}
       scrollWheelZoom={!fixed}

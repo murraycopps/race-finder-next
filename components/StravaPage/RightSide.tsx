@@ -30,9 +30,9 @@ const RightSide = ({ data }: { data: Athlete }) => {
     return (
         <div
             ref={ref}
-          className={`absolute h-196 right-0 flex flex-col items-center justify-center ${
+          className={`absolute h-196 right-0 flex flex-col items-center justify-center strava-right ${
             wide ? "w-128 px-16" : "w-64 pl-12 pr-4"
-          } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-300 transition-all-300 `}
+          } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-500 transition-all-300 `}
         >
           <h2 className="text-3xl font-bold text-center text-white"> Shoes: </h2>
           {data.shoes.map((shoe: Shoe, i) => (

@@ -59,7 +59,7 @@ export default function ActivityPage() {
         pid,
         JSON.stringify({
           data: res,
-          expirationTime: Date.now() + 1000 * 60 * 60 * 24,
+          expirationTime: Date.now() + 1000 * 60 * 60 * 24 * 7,
           comments: com,
         })
       );
@@ -403,12 +403,12 @@ const DetailedCard = ({
     {laps.map((lap, i) => (
       <div
         key={i}
-        className="flex flex-col items-center justify-center w-full gap-4"
+        className="flex flex-row items-center justify-center w-full gap-2"
       >
-        <h3 className="text-2xl font-bold">
+        <h3 className="text-xl font-bold">
           {label} {i + 1}
         </h3>
-        <div className="grid w-full grid-cols-4 place-items-center">
+        <div className="grid grid-cols-4 grow place-items-center">
           <LapStatsCard name="Distance" des={lap.distance} />
           <LapStatsCard
             name="Pace"
@@ -430,7 +430,7 @@ const LapStatsCard = ({
   des: string | number;
 }) => (
   <div className="flex flex-col items-center justify-center gap-2">
-    <h1 className="text-lg font-bold">{name}</h1>
-    <p className="text-xl">{des}</p>
+    <h1 className="font-bold text-md">{name}</h1>
+    <p className="text-lg">{des}</p>
   </div>
 );

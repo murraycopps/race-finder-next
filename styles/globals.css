@@ -318,3 +318,29 @@ html {
 .home-link-card{
   height: calc(100% - 3rem);
 }
+
+.strava-left::before{
+  --size: 1.5rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--size));
+  width: var(--size);
+  height: var(--size);
+  background-color: transparent;
+  border-top-left-radius: var(--size);
+  box-shadow: calc(-0.25 * var(--size)) calc(-0.25 * var(--size)) 0 calc(0.25 * var(--size)) #2D2B52;
+}
+
+.strava-right::before{
+  --size: 1.5rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--size));
+  width: var(--size);
+  height: var(--size);
+  background-color: transparent;
+  border-top-right-radius: var(--size);
+  box-shadow: calc(0.25 * var(--size)) calc(-0.25 * var(--size)) 0 calc(0.25 * var(--size)) #2D2B52;
+}
