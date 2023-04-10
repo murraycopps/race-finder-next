@@ -412,7 +412,7 @@ const DetailedCard = ({
           <LapStatsCard name="Distance" des={lap.distance} />
           <LapStatsCard
             name="Pace"
-            des={outTime(lap.moving_time / lap.distance)}
+            des={outTime(lap.moving_time / lap.distance * 1609.34)}
           />
           <LapStatsCard name="MovingTime" des={outTime(lap.moving_time)} />
           <LapStatsCard name="ElapsedTime" des={outTime(lap.elapsed_time)} />
