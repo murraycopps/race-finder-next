@@ -12,9 +12,7 @@ const ItemCard = ({ item, des }: { item: Item; des?: string }) => (
         {item.name}
       </h2>
       <img
-        className={`w-full ${
-          item.type === "shoe" ? "object-contain" : "object-cover"
-        } grow home ${item.type}  ${
+        className={`w-full object-contain grow home ${item.type}  ${
           item.name.toLowerCase().includes("zinal") && "-rotate-3"
         }`}
         src={item.img}
@@ -22,7 +20,7 @@ const ItemCard = ({ item, des }: { item: Item; des?: string }) => (
         height="300"
         width="300"
       />
-      <div className="w-full text-xl grid grid-cols-2 place-items-center">
+      <div className="grid w-full grid-cols-2 text-xl place-items-center">
         <p className="text-2xl">${item.price}</p>
         <p>
           <Stars number={item.rating} total={5} />
