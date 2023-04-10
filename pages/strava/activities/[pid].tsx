@@ -405,9 +405,9 @@ const DetailedCard = ({
         key={i}
         className="flex flex-col items-center justify-center w-full gap-4"
       >
-        <h1 className="text-2xl font-bold">
+        <h3 className="text-2xl font-bold">
           {label} {i + 1}
-        </h1>
+        </h3>
         <div className="grid w-full grid-cols-4 place-items-center">
           <LapStatsCard name="Distance" des={lap.distance} />
           <LapStatsCard
