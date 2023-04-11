@@ -1,4 +1,4 @@
-import {Clothes} from "@/scripts/types";
+import { Clothes } from "@/scripts/types";
 
 const clothes: Clothes[] = [
     {
@@ -6,6 +6,7 @@ const clothes: Clothes[] = [
         price: 42,
         rating: 5,
         img: "/images/clothes/boa-shorts.png",
+        croppedImg: "/images/clothes-cropped/boa-shorts.png",
         use: "Training/Racing",
         brand: "BOA",
         brandLogo: "/images/logos/boa-logo.png",
@@ -31,6 +32,7 @@ const clothes: Clothes[] = [
         price: 90,
         rating: 4,
         img: "/images/clothes/aeroswift-singlet.png",
+        croppedImg: "/images/clothes-cropped/aeroswift-singlet.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -42,12 +44,13 @@ const clothes: Clothes[] = [
         clotheType: "singlet",
 
     },
-//     BOA Men's Constrictor Plus Half Tight
+    //     BOA Men's Constrictor Plus Half Tight
     {
         name: "BOA Men's Constrictor Plus Half Tight",
         price: 44,
         rating: 4,
         img: "/images/clothes/boa-half.png",
+        croppedImg: "/images/clothes-cropped/boa-half.png",
         use: "Training/Racing",
         brand: "BOA",
         brandLogo: "/images/logos/boa-logo.png",
@@ -58,12 +61,13 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "spandex",
     },
-//     BOA Men's Singlet
+    //     BOA Men's Singlet
     {
         name: "BOA Men's Singlet",
         price: 30,
         rating: 4,
         img: "/images/clothes/boa-singlet.png",
+        croppedImg: "/images/clothes-cropped/boa-singlet.png",
         use: "Training/Racing",
         brand: "BOA",
         brandLogo: "/images/logos/boa-logo.png",
@@ -74,12 +78,13 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "singlet",
     },
-//     Nike Men's Core Dri-FIT ADV Aeroswift Half Tight
+    //     Nike Men's Core Dri-FIT ADV Aeroswift Half Tight
     {
         name: "Nike Men's Core Dri-FIT ADV Aeroswift Half Tight",
         price: 90,
         rating: 5,
         img: "/images/clothes/aeroswift-half-tight.png",
+        croppedImg: "/images/clothes-cropped/aeroswift-half-tight.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -90,28 +95,30 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "spandex",
     },
-//     Nike Men's Dri-FIT ADV Aeroswift Tight
+    //     Nike Men's Dri-FIT ADV Aeroswift Tight
     {
-            name: "Nike Men's Dri-FIT ADV Aeroswift Tight",
-            price: 125,
-            rating: 5,
-            img: "/images/clothes/aeroswift-full-tight.png",
-            use: "Training/Racing",
-            brand: "Nike",
-            brandLogo: "/images/logos/nikeLogo.jfif",
-            link: "https://www.runningwarehouse.com/Nike_Mens_Dri-FIT_ADV_Aeroswift_Tight_Black_White/descpage-NMCASTG.html?color=",
-            brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-            review: "stuff",
-            id: 'nike-mens-dri-fit-adv-aeroswift-tight',
-            type: "clothes",
-            clotheType: "tights",
+        name: "Nike Men's Dri-FIT ADV Aeroswift Tight",
+        price: 125,
+        rating: 5,
+        img: "/images/clothes/aeroswift-full-tight.png",
+        croppedImg: "/images/clothes-cropped/aeroswift-full-tight.png",
+        use: "Training/Racing",
+        brand: "Nike",
+        brandLogo: "/images/logos/nikeLogo.jfif",
+        link: "https://www.runningwarehouse.com/Nike_Mens_Dri-FIT_ADV_Aeroswift_Tight_Black_White/descpage-NMCASTG.html?color=",
+        brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
+        review: "stuff",
+        id: 'nike-mens-dri-fit-adv-aeroswift-tight',
+        type: "clothes",
+        clotheType: "tights",
     },
-//     Nike Men's Fall 2" Aeroswift Short
+    //     Nike Men's Fall 2" Aeroswift Short
     {
         name: "Nike Men's Fall 2\" Aeroswift Short",
         price: 80,
         rating: 4,
         img: "/images/clothes/aeroswift-shorts.png",
+        croppedImg: "/images/clothes-cropped/aeroswift-shorts.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -122,12 +129,13 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "shorts",
     },
-//     Nike Men's Core Dri-FIT Phenom Elite Woven Pant
+    //     Nike Men's Core Dri-FIT Phenom Elite Woven Pant
     {
         name: "Nike Men's Core Dri-FIT Phenom Elite Woven Pant",
         price: 95,
         rating: 4,
         img: "/images/clothes/phenom-pants.png",
+        croppedImg: "/images/clothes-cropped/phenom-pants.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -138,12 +146,13 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "pants",
     },
-//     Nike Men's Core Dri-FIT Phenom Elite Tight Black
+    //     Nike Men's Core Dri-FIT Phenom Elite Tight Black
     {
         name: "Nike Men's Core Dri-FIT Phenom Elite Tight Black",
         price: 80,
         rating: 4,
         img: "/images/clothes/phenom-tight.png",
+        croppedImg: "/images/clothes-cropped/phenom-tight.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -154,12 +163,13 @@ const clothes: Clothes[] = [
         type: "clothes",
         clotheType: "tights",
     },
-//     Nike Men's Core Dri-FIT Fast Half Tight
+    //     Nike Men's Core Dri-FIT Fast Half Tight
     {
         name: "Nike Men's Core Dri-FIT Fast Half Tight",
         price: 60,
         rating: 4,
         img: "/images/clothes/fast-half-tight.png",
+        croppedImg: "/images/clothes-cropped/fast-half-tight.png",
         use: "Training/Racing",
         brand: "Nike",
         brandLogo: "/images/logos/nikeLogo.jfif",
@@ -173,4 +183,4 @@ const clothes: Clothes[] = [
 
 
 ]
-export {clothes};
+export { clothes };
