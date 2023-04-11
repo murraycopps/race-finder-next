@@ -106,10 +106,6 @@ html {
   clip-path: polygon(0 0%, 100% 0, 100% 0, 0% 0);
 }
 
-.tool-link-width {
-  width: clamp(300px, calc(25% - 3rem), 450px);
-}
-
 .run-field-sizing {
   width: clamp(500px, 50vw, 800px);
   max-width: 100%;

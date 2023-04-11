@@ -32,25 +32,25 @@ export default function Intensity() {
   }, [distance, time, useMeters]);
 
   return (
-    <div className="flex flex-col w-2/3 p-8 text-3xl gap-8 rounded-3xl bg-faded-lavender-800">
-      <h3 className="text-2xl font-bold">Estimate Vdot Score</h3>
+    <div className="flex flex-col w-full gap-8 p-8 text-3xl rounded-3xl bg-wisteria-600">
+      <h3 className="text-3xl font-bold text-center">Estimate Vdot Score</h3>
       <div className="grid grid-cols-4">
         <input
           type="number"
           value={distance}
-          className="w-full p-4 text-black rounded-full col-span-3"
+          className="w-full col-span-3 p-4 text-black rounded-full"
           placeholder="Distance"
           onChange={(event) => setDistance(parseFloat(event.target.value))}
         />
         <button
-          className="w-full p-4 text-white rounded-full col-span-1 bg-faded-base-600"
+          className="w-full col-span-1 p-4 text-white rounded-full bg-faded-base-600"
           onClick={() => setUseMeters(!useMeters)}
         >
           {useMeters ? "Meters" : "Miles"}
         </button>
       </div>
       <TimeInput time={time} setTime={setTime} />
-        <div className="text-5xl font-bold">{Math.round(vdot * 100) / 100}</div>
+        <div className="text-5xl font-bold text-center">{Math.round(vdot * 100) / 100}</div>
     </div>
   );
 }

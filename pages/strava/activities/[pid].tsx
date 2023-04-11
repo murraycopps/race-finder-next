@@ -80,7 +80,7 @@ export default function ActivityPage() {
   return (
     <PageWrapper
       page={activity?.name || "Activity"}
-      className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto"
+      className="flex flex-col items-center justify-start h-screen p-16 overflow-y-auto gap-16"
     >
       <div className="flex items-center w-full justify-evenly">
         <h1 className="text-4xl font-bold">{activity?.name}</h1>
@@ -101,7 +101,7 @@ export default function ActivityPage() {
             </div>
           </div>
         )}
-      <div className="flex flex-row items-start justify-start w-full gap-8 px-48">
+      <div className="flex flex-row items-start justify-start w-full px-48 gap-8">
         <p className="p-4 text-lg text-black bg-gray-300 rounded-2xl grow min-h-20">
           {activity.description || "No Description"}
         </p>
@@ -110,7 +110,7 @@ export default function ActivityPage() {
           <p className="text-xs">Kudos</p>
         </div>
       </div>
-      <div className="grid w-full grid-cols-4 gap-4 place-items-center">
+      <div className="w-full grid grid-cols-4 gap-4 place-items-center">
         <StatsCard
           name="Distance (mi)"
           des={Math.round((activity.distance / 1609.34) * 100) / 100 || "--"}
@@ -198,12 +198,12 @@ export default function ActivityPage() {
           }
         />
 
-        <div className="flex flex-col items-center justify-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center p-8 gap-4">
           <h1 className="text-xl font-bold">Shoes</h1>
           <p className="text-2xl">{activity.gear.name.replace(activity.gear.nickname || "", "") || "--"}</p>
         </div>
       </div>
-      <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+      <div className="w-full p-4 grid grid-cols-2 gap-4 place-items-center">
         <div className="relative w-full h-full">
           {activity.splits_standard && activity.splits_metric ? (
             <>
@@ -260,8 +260,8 @@ export default function ActivityPage() {
           />
         </>
       )}
-      <div className="grid w-full grid-cols-2 gap-4 place-items-center">
-        <div className="flex flex-col items-center justify-center gap-4 p-8">
+      <div className="w-full grid grid-cols-2 gap-4 place-items-center">
+        <div className="flex flex-col items-center justify-center p-8 gap-4">
           {activity.best_efforts.length > 0 ? (
             <>
               <h1 className="my-4 text-4xl font-bold">Best Efforts</h1>
@@ -326,14 +326,14 @@ export default function ActivityPage() {
             <h1 className="mt-8 mb-4 text-4xl font-bold">No Segment Efforts</h1>
           )}
         </div>
-        <div className="flex flex-col items-center justify-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center p-8 gap-4">
           <h1 className="text-4xl font-bold">
             {comments.length > 0 ? "Comments" : "No Comments"}
           </h1>
           {comments.map((comment, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center gap-4 p-8"
+              className="flex flex-col items-center justify-center p-8 gap-4"
             >
               <p className="text-xl">{comment.text}</p>
               <p className="text-xl">
@@ -348,7 +348,7 @@ export default function ActivityPage() {
 }
 
 const StatsCard = ({ name, des }: { name: string; des: string | number }) => (
-  <div className="flex flex-col items-center justify-center gap-4 p-8">
+  <div className="flex flex-col items-center justify-center p-8 gap-4">
     <h1 className="text-xl font-bold">{name}</h1>
     <p className="text-3xl">{des}</p>
   </div>
@@ -366,10 +366,10 @@ const Graph = ({
   const numbers = nums.map((num) => num.moving_time);
   const max = Math.max(...numbers);
   return (
-    <div className="flex flex-col items-center justify-center w-full gap-6 p-8">
+    <div className="flex flex-col items-center justify-center w-full p-8 gap-6">
       <h2 className="text-4xl font-bold">{name}</h2>
 
-      <div className="flex items-end justify-center w-full h-64 gap-1 pt-4">
+      <div className="flex items-end justify-center w-full h-64 pt-4 gap-1">
         {numbers.map((num, i) => (
           <div
             key={i}
@@ -399,7 +399,7 @@ const DetailedCard = ({
   laps: Split[] | Lap[];
   label: string;
 }) => (
-  <div className="fixed z-20 flex flex-col items-center gap-4 p-8 overflow-y-auto justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
+  <div className="fixed z-20 flex flex-col items-center p-8 overflow-y-auto gap-4 justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
     {laps.map((lap, i) => (
       <div
         key={i}
