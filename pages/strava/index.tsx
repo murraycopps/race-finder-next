@@ -8,13 +8,13 @@ import StravaPage from "@/components/StravaPage";
 
 
 export default function Page() {
-  const [loggedIn, setLoggedIn] = useState(LoginData.isLoggedIn());
+  const [loggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     LoginData.getStorage();
     setLoggedIn(LoginData.isLoggedIn());
-    if (!loggedIn) {
+    if (!LoginData.isLoggedIn()) {
       router.push("/strava/login");
     }
   }, []);

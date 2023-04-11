@@ -24,7 +24,7 @@ export default function PacingCard() {
   }, [dis, time]);
 
   return (
-    <div className="flex flex-col items-center justify-between w-full h-full px-10 py-4 gap-8 bg-wisteria-600 card-slant">
+    <div className="flex flex-col items-center justify-between w-full h-full gap-8 px-12 py-4 bg-wisteria-600 card-slant">
         <h3 className="text-2xl font-bold">Calculate Mile Pace</h3>
       <Dropdown
         items={inputDistances}

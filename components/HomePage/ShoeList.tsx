@@ -63,7 +63,7 @@ export default function ShoeList({ shoes }: { shoes: Shoes}) {
     const [pastHalf, setPastHalf] = useState(false);
     return(
         <div
-	className={` bg-wisteria-600 flex-col items-center float-left gap-4 p-4  overflow-x-hidden text-white ${styles.width} `}
+	className={` bg-wisteria-600 flex-col rounded-3xl float-left gap-4 p-4  place-items-center overflow-x-hidden text-white ${styles.width} `}
 >
 	<h2 className="text-4xl font-bold text-center">Fastest Shoes</h2>
 	<div className="flex flex-row items-center justify-center gap-2">
@@ -133,24 +133,24 @@ export default function ShoeList({ shoes }: { shoes: Shoes}) {
 			</svg>
 		</button>
 	</div>
-	<div className={`${styles.display} grid place-items-center ${left && styles.left} ${right && styles.right}`}>
-		<ul className="flex flex-col text-2xl gap-2 w-fit">
+	<div className={`${styles.display} gap-4 text-left text-xl w-full grid place-items-center ${left && styles.left} ${right && styles.right}`}>
+		<ul className="flex flex-col w-full gap-2">
 			{shoes.at(index - 1)?.shoes.map((shoe, i) => (
-				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
+				<li className={`${styles[shoe.brand]} ${styles.shoe} truncate`} key={i}>
 					{shoe.shoe}
 				</li>
 			))}
 		</ul>
-		<ul className="flex flex-col text-2xl gap-2">
+		<ul className="flex flex-col w-full gap-2">
 			{shoes[index]?.shoes.map((shoe, i) => (
-				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
+				<li className={`${styles[shoe.brand]} ${styles.shoe} truncate`} key={i}>
 					{shoe.shoe}
 				</li>
 )        )}
 		</ul>
-		<ul className="flex flex-col text-2xl gap-2">
+		<ul className="flex flex-col w-full gap-2">
 			{shoes.at(index < shoes.length - 1 ? index + 1 : 0)?.shoes.map((shoe, i) => (
-				<li className={`${styles[shoe.brand]} ${styles.shoe}`} key={i}>
+				<li className={`${styles[shoe.brand]} ${styles.shoe} truncate`} key={i}>
 					{shoe.shoe}
 				</li>
 			))}

@@ -9,7 +9,7 @@ export default function QuotesCard() {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-between p-4 pt-20 mt-20 w-96 h-fit gap-8 rounded-3xl bg-wisteria-600">
+    <div className="relative flex flex-col items-center justify-between w-full gap-8 p-4 pt-20 mt-20 h-fit rounded-3xl bg-wisteria-600">
         <div className="absolute flex w-40 h-40 rounded-full text-wisteria-600 -top-20 bg-wisteria-600 quote-image">
             <img className="object-cover w-32 h-32 m-auto rounded-full border-amber-900" src={quote.img} alt=""/>
         </div>
