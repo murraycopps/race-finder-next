@@ -26,7 +26,7 @@ export default function Dropdown({
   placeholder,
     outerColor = "bg-gray-50",
     innerColor = "bg-gray-500",
-    hoverColor = "bg-gray-600",
+    hoverColor = "hover:bg-gray-600",
     borderColor = "border-gray-500",
     textColor = "text-black",
 }: DropdownProps) {
@@ -87,7 +87,7 @@ export default function Dropdown({
       >
         <>
           {displayedValue(value)}
-          <span className="absolute right-0 h-full p-2 overflow-hidden rounded-full -translate-y-1/2 top-1/2 aspect-square">
+          <span className="absolute right-0 h-full p-2 overflow-hidden -translate-y-1/2 rounded-full top-1/2 aspect-square">
             <svg
               className={`w-full h-full transition-all-300 ${
                 open ? "rotate-180" : "transition-delayed"
@@ -114,7 +114,7 @@ export default function Dropdown({
       >
         {items.map((item, index) => (
           <button
-            className={`w-full px-4 py-1 rounded-md ${hoverColor}`}
+            className={`w-full px-4 py-1 transition-all-300 rounded-md ${hoverColor}`}
             key={index}
             onClick={() => {
               if (typeof item !== "object") {
