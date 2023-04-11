@@ -11,8 +11,8 @@ type CardProps = {
 }
 export default function PageCard({item}: CardProps) {
     return (
-        <div className="flex flex-col justify-center p-4 m-1 font-medium text-white leading-6 item-center align-center">
-                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full text-2xl">{item.name}</h1>
+        <div className="grid grid-cols-2 p-4 m-1 font-medium text-white leading-6 ">
+                        <h1 className="bg-slate-400 rounded-lg p-0.5 w-full text-3xl">{item.name}</h1>
                         <img
                             src={item.img}
                             alt={item.name}
