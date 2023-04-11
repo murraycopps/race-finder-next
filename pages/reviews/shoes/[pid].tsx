@@ -28,13 +28,13 @@ export default function ShoesPage() {
 
     return (
 
-        <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center min-h-screen mx-32 my-4 item-center">
+        <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center h-screen overflow-y-auto w-screen px-32 py-16 item-center">
             {shoe ? (
-                <div className="w-4/5 h-full p-4 m-4 rounded-lg grid grid-flow-row bg-slate-400 min-w-fit">
+                <div className="w-full h-full p-4 rounded-lg ">
                     <PageCard item={shoe}/>
 
                     <div className="flex flex-col h-full p-4 col-span-2">
-                        <div className="flex-wrap justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid grid-cols-5 gap-4 leading-6 flex-2 bg-slate-400 border-dark">
+                        <div className="flex-wrap justify-center p-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid grid-cols-5 gap-4 leading-6 flex-2 bg-slate-400 border-dark">
                             
                             <SpecsCard item={shoe}/>
                             <div className="flex flex-col items-center gap-2 justify-evenly">
