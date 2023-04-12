@@ -1,6 +1,7 @@
 import { Run } from "@/scripts/stravaTypes";
 
 import { useEffect, useState } from "react";
+import HeartRateStream from "./HeartRateStream";
 import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 
@@ -30,6 +31,7 @@ export default function RunList({ activities }: { activities: Run[] }) {
   }, [runId]);
   return (
     <div className="flex flex-col items-center justify-start w-full gap-8 p-4 text-center">
+
       {activities.map((activity: Run, i: number) => (
         <RunCard
           activity={activity}

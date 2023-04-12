@@ -60,7 +60,7 @@ export default function StravaPage() {
       localStorage.setItem("data", JSON.stringify(data));
       localStorage.setItem("activities", JSON.stringify(activities));
       localStorage.setItem("stats", JSON.stringify(stats));
-      const newExpirationTime = Date.now() + 240 * 1000; // 15 minutes from now
+      const newExpirationTime = Date.now() + 3600 * 1000; // 1 hour from now
       localStorage.setItem("expirationTime", newExpirationTime.toString());
       localStorage.setItem("username", LoginData.getUsername());
     };

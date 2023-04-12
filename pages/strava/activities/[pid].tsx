@@ -1,15 +1,47 @@
 import PageWrapper from "@/components/PageWrapper";
-import { getActivity, getActivityComments } from "@/lib/strava";
+import HeartRateStream from "@/components/StravaPage/HeartRateStream";
+import {
+  getActivity,
+  getActivityComments,
+  getActivityStream,
+  setToken,
+} from "@/lib/strava";
 import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
-import { Comment, DetailedRun, Lap, Split } from "@/scripts/singleRunTypes";
+import { Comment, DetailedRun, Lap, Split, Stream } from "@/scripts/singleRunTypes";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 
 const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
   ssr: false,
 });
+
+  
+
+
+const choseStreams = (streams: Stream[]) => {
+  const orderOfPreference = [
+    "heartrate",
+    "altitude",
+    "velocity_smooth",
+    "cadence",
+    "temp",
+    "moving",
+    "grade_smooth",
+  ];
+  // get top 2
+  const top2: Stream[] = [];
+
+  orderOfPreference.forEach((type) => {
+    if (top2.length === 2) return;
+    const stream = streams.find((stream) => stream.type === type);
+    if (stream) top2.push(stream);
+  });
+  return top2;
+};
+
 
 export default function ActivityPage() {
   const [activity, setActivity] = useState<DetailedRun>();
@@ -21,6 +53,7 @@ export default function ActivityPage() {
   const [allSegments, setAllSegments] = useState(false);
   const [allEfforts, setAllEfforts] = useState(false);
   const [comments, setComments] = useState<Comment[]>([]);
+  const [streams, setStreams] = useState<Stream[]>([]);
 
   useEffect(() => {
     LoginData.getStorage();
@@ -33,19 +66,29 @@ export default function ActivityPage() {
     if (!pid || typeof pid !== "string") return;
     const getDetailedActivity = async () => {
       // check local storage
-      const { data, expirationTime, comments } = JSON.parse(
+      const { data, expirationTime, comments, streams } = JSON.parse(
         localStorage.getItem(pid) || "{}"
       );
-      if (data && comments && expirationTime && Date.now() < expirationTime) {
+      if (
+        data &&
+        comments &&
+        streams &&
+        expirationTime &&
+        Date.now() < expirationTime
+      ) {
         setActivity(data);
         setComments(comments);
+        setStreams(choseStreams(streams));
         return;
       }
+
+      const response = await getActivityStream(pid);
+      setStreams(choseStreams(response));
 
       const res = await getActivity(pid);
       const com = await getActivityComments(pid);
 
-      if (!res || !com) {
+      if (!res || !com || !response) {
         console.log("Error getting activity");
         router.push("/strava/");
         return;
@@ -60,6 +103,7 @@ export default function ActivityPage() {
           data: res,
           expirationTime: Date.now() + 1000 * 60 * 60 * 24 * 7,
           comments: com,
+          streams: response,
         })
       );
     };
@@ -79,8 +123,19 @@ export default function ActivityPage() {
   return (
     <PageWrapper
       page={activity?.name || "Activity"}
-      className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto"
+      className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto text-center"
     >
+      {/* make a button that calls getActivityStreams */}
+      <button
+        onClick={async () => {
+          const response = await getActivityStream(8874022508);
+        }
+      }
+      >
+        Get Streams
+      </button>
+      
+
       <div className="flex items-center w-full justify-evenly">
         <h1 className="text-4xl font-bold">{activity?.name}</h1>
         <p className="text-xl">
@@ -101,7 +156,7 @@ export default function ActivityPage() {
           </div>
         )}
       <div className="flex flex-row items-start justify-start w-full gap-8 px-48">
-        <p className="p-4 text-lg text-black bg-gray-300 rounded-2xl grow min-h-20">
+        <p className="p-4 text-lg text-left text-black bg-gray-300 rounded-2xl grow min-h-20">
           {activity.description || "No Description"}
         </p>
         <div className="flex flex-col h-20 pt-4 text-black bg-gray-300 rounded-full aspect-square place-items-center">
@@ -199,7 +254,10 @@ export default function ActivityPage() {
 
         <div className="flex flex-col items-center justify-center gap-4 p-8">
           <h1 className="text-xl font-bold">Shoes</h1>
-          <p className="text-2xl">{activity.gear.name.replace(activity.gear.nickname || "", "") || "--"}</p>
+          <p className="text-2xl">
+            {activity.gear.name.replace(activity.gear.nickname || "", "") ||
+              "--"}
+          </p>
         </div>
       </div>
       <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
@@ -242,7 +300,11 @@ export default function ActivityPage() {
             className="fixed inset-0 bg-black opacity-50"
             onClick={() => setDetailedType("none")}
           />
-          <DetailedCard laps={activity.laps} label="Lap" close={() => setDetailedType("none")} />
+          <DetailedCard
+            laps={activity.laps}
+            label="Lap"
+            close={() => setDetailedType("none")}
+          />
         </>
       )}
       {detailedType === "splits" && (
@@ -256,15 +318,28 @@ export default function ActivityPage() {
               imperialSplit ? activity.splits_metric : activity.splits_standard
             }
             label={imperialSplit ? "Kilometer" : "Mile"}
-            close={() => setDetailedType("none")} 
+            close={() => setDetailedType("none")}
           />
         </>
       )}
+      {streams.length === 2 && (
+        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+          <div className="w-full h-full">
+            
+            <HeartRateStream stream={streams[0]} />
+          </div>
+          <div className="w-full h-full">
+  
+            <HeartRateStream stream={streams[1]} />
+          </div>
+        </div>
+      )}
+
       <div className="grid w-full grid-cols-2 gap-4 place-items-center">
         <div className="flex flex-col items-center justify-center gap-4 p-8">
           {activity.best_efforts.length > 0 ? (
             <>
-              <h1 className="my-4 text-4xl font-bold">Best Efforts</h1>
+              <h2 className="my-4 text-4xl font-bold">Best Efforts</h2>
               {activity.best_efforts
                 .filter((effort) => effort.pr_rank !== null || allEfforts)
                 .sort((a, b) => (a.pr_rank || 100) - (b.pr_rank || 100))
@@ -292,8 +367,7 @@ export default function ActivityPage() {
             </>
           ) : (
             <h2 className="text-4xl font-bold">No Best Efforts</h2>
-          )
-        }
+          )}
           {activity.segment_efforts.length > 0 ? (
             <>
               <h1 className="mt-8 mb-4 text-4xl font-bold">Segment Efforts</h1>
@@ -402,32 +476,28 @@ const DetailedCard = ({
   close: () => void;
 }) => (
   <div className="fixed z-20 flex flex-col items-center gap-4 p-8 overflow-y-auto justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
-
     <button
       className="absolute flex flex-col justify-between w-12 h-10 px-1 py-2 text-white rounded-full nav-button open top-4 left-4"
       onClick={close}
     >
-       <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
-        <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
-        <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
+      <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
+      <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
+      <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
     </button>
-    
+
     {laps.map((lap, i) => (
-      <div
-        key={i}
-        className="grid w-full grid-cols-5 place-items-center"
-      >
+      <div key={i} className="grid w-full grid-cols-5 place-items-center">
         <h3 className="text-xl font-bold">
           {label} {i + 1}
         </h3>
         {/* <div className="grid grid-cols-4 grow place-items-center"> */}
-          <LapStatsCard name="Distance" des={lap.distance} />
-          <LapStatsCard
-            name="Pace"
-            des={outTime(lap.moving_time / lap.distance * 1609.34)}
-          />
-          <LapStatsCard name="MovingTime" des={outTime(lap.moving_time)} />
-          <LapStatsCard name="ElapsedTime" des={outTime(lap.elapsed_time)} />
+        <LapStatsCard name="Distance" des={lap.distance} />
+        <LapStatsCard
+          name="Pace"
+          des={outTime((lap.moving_time / lap.distance) * 1609.34)}
+        />
+        <LapStatsCard name="MovingTime" des={outTime(lap.moving_time)} />
+        <LapStatsCard name="ElapsedTime" des={outTime(lap.elapsed_time)} />
         {/* </div> */}
       </div>
     ))}

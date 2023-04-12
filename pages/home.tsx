@@ -108,7 +108,6 @@ export default function HomePage() {
         <PacingCard />
         <VdotCard />
       </div>
-      <HeartRateStream />
 
     </PageWrapper>
   );

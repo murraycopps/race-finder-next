@@ -228,6 +228,13 @@ type Comment = {
     reaction_count: number;
     has_reacted: boolean;
   };
+   type Stream = {
+    type: string;
+    data: number[];
+    resolution: string;
+    series_type: string;
+    original_size: number;
+  };
 
   
-export type {DetailedRun, Split, SegmentEffort, Lap, BestEffort, Comment }
+export type {DetailedRun, Split, SegmentEffort, Lap, BestEffort, Comment, Stream }
