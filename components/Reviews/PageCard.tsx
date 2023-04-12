@@ -17,7 +17,7 @@ type CardProps = {
 export default function PageCard({item}: CardProps) {
     return (
         <div className="flex flex-col gap-4 p-4 w-full font-medium text-white leading-6 ">
-            <h1 className="flex justify-center p-0.5 w-full text-3xl">{item.name}</h1>
+            <h1 className="flex justify-center w-full text-3xl slanted bg-wisteria-600 p-2">{item.name}</h1>
                 <div className="flex flex-row w-full gap-12">
 
                         <Image

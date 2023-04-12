@@ -6,6 +6,7 @@ import ItemCard from "@/components/Reviews/ItemCard";
 import { clothes } from "@/scripts/clothes";
 import ReviewsRoutingCard from "@/components/Reviews/ReviewsRoutingCard";
 import Image from "next/image";
+import SlantedTitle from "@/components/HomePage/SlantedTitle";
 export default function Reviews() {
   const [randomItems, setRandomItems] = useState([] as Item[]);
   useEffect(() => {
@@ -19,19 +20,19 @@ export default function Reviews() {
       page="Reviews"
       className="flex flex-col items-center justify-start w-screen h-screen overflow-y-auto gap-4"
     >
-      <div className="relative">
-        <Image
-            src="/review-cards/review-landing.jpg"
-            alt="Reviews"
-            className="object-cover w-screen opacity-20"
-            width={1920}
-            height={1080}
+      {/*<div className="relative">*/}
+      {/*  <Image*/}
+      {/*      src="/review-cards/review-landing.jpg"*/}
+      {/*      alt="Reviews"*/}
+      {/*      className="object-cover w-screen opacity-20"*/}
+      {/*      width={1920}*/}
+      {/*      height={1080}*/}
 
-        />
-        <h1 className="absolute inset-0 flex flex-col items-center justify-center text-base gap-4 text-8xl">Reviews</h1>
-      </div>
+      {/*  />*/}
+      {/*  <h1 className="absolute inset-0 flex flex-col items-center justify-center text-base gap-4 text-8xl">Reviews</h1>*/}
+      {/*</div>*/}
 
-
+      <h1 className="relative inset-0 flex flex-col w-full items-center justify-center text-yellow-300 gap-6 text-6xl slanted bg-wisteria-600">Reviews</h1>
 
 
       <div className="w-full px-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -43,6 +44,7 @@ export default function Reviews() {
       <div className="w-full h-8 bg-white ">
 
       </div>
+      <SlantedTitle title={" "}/>
       <div className="justify-start w-full p-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {randomItems.slice(0, 4).map((item, i) => {
           return <ItemCard item={item} key={i} />;

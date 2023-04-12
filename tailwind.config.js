@@ -30,6 +30,7 @@ module.exports = {
                 '18': '4.5rem',
             },
             minHeight: {
+                '12' : '3rem',
                 '16': '4rem',
                 '20': '5rem',
             },
