@@ -8,6 +8,7 @@ import FeaturesCard from "@/components/Reviews/FeatuersCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
 import PageCard from "@/components/Reviews/PageCard";
 import SpecsCard from "@/components/Reviews/SpecsCard";
+import IndSpecsCard from "@/components/Reviews/IndSpecCard";
 
 
 export default function ShoesPage() {
@@ -28,27 +29,26 @@ export default function ShoesPage() {
 
     return (
 
-        <PageWrapper page={article?.name || "articles"} className="flex flex-col justify-center min-h-screen mx-32 my-4 item-center">
+        <PageWrapper page={article?.name || "Shoe"} className="flex flex-col justify-center h-screen overflow-y-auto w-screen px-32 py-16 item-center">
             {article ? (
-                <div className="w-4/5 h-full p-4 m-4 rounded-lg grid grid-cols-3 bg-slate-400 min-w-fit">
+                <div className="w-full h-full p-4 rounded-lg ">
                     <PageCard item={article}/>
 
+                    <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Specs</h1>
                     <div className="flex flex-col h-full p-4 col-span-2">
-                        <div className="flex-wrap justify-center p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid grid-cols-5 gap-4 leading-6 flex-2 bg-slate-400 border-base">
-                            <SpecsCard item={article}/>
-                            
-                            {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}
-                            {/*    <p><span className="text-lg font-medium"> Heel Stack Height:</span></p>*/}
-                            {/*    <p className="text-lg font-bold">{article.color}mm</p>*/}
-                            {/*</div>*/}
-                            
+                        <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
 
-                        {/* div with dispkayt fkex to display optional features */}
-                        {article?.features && article.features.length > 0 && (
-                            <FeaturesCard features={article.features} />
-                        )}
+                            {/*<SpecsCard item={article}/>*/}
+                            <IndSpecsCard info={article.brand} title={"Brand"}/>
+                            <IndSpecsCard info={article.use} title={"Best Use"}/>
+
+
+                            {article?.features && article.features.length > 0 && (
+                                <FeaturesCard features={article.features} />
+                            )}
                         </div>
-                        <ReviewTextCard article={article} />
+                        <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Review</h1>
+                        <ReviewTextCard article={article}/>
                     </div>
                 </div>
             ) : (
@@ -57,6 +57,8 @@ export default function ShoesPage() {
 
 
         </PageWrapper>
+
+        
     )
 
 }

@@ -8,7 +8,7 @@ const ItemCard = ({ item, des }: { item: Item; des?: string }) => (
   >
     <div className="flex flex-col items-center justify-center w-full h-full p-4 px-12 bg-wisteria-600 hover:bg-wisteria-700 card-slant">
       {des && <h3 className="mb-2 text-2xl font-bold">{des}</h3>}
-      <h2 className="w-full overflow-hidden text-xl text-center truncate text-ellipsis">
+      <h2 className="w-full overflow-hidden text-xl font-medium text-center truncate text-ellipsis">
         {item.name}
       </h2>
       <img

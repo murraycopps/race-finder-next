@@ -34,15 +34,13 @@ export default function ShoesPage() {
                 <div className="w-full h-full p-4 rounded-lg ">
                     <PageCard item={shoe}/>
 
-                    <SlantedTitle title={"Specs"}/>
+                    <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Specs</h1>
                     <div className="flex flex-col h-full p-4 col-span-2">
-                        <div className="flex-wrap justify-center p-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid grid-cols-5 gap-4 leading-6 flex-2 border-dark">
+                        <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
                             
-                            <SpecsCard item={shoe}/>
-                            {/*<div className="flex flex-col items-center gap-2 justify-evenly">*/}
-                            {/*    <p><span className="text-lg font-medium">Surface:</span></p>*/}
-                            {/*    <p className="text-lg font-bold">{shoe.surface}</p>*/}
-                            {/*</div>*/}
+                            {/*<SpecsCard item={shoe}/>*/}
+                            <IndSpecsCard info={shoe.brand} title={"Brand"}/>
+                            <IndSpecsCard info={shoe.use} title={"Best Use"}/>
                             <IndSpecsCard title={"Surface"} info={shoe.surface}/>
                             <IndSpecsCard info={shoe.drop + " mm"} title={"Drop"}/>
                             <IndSpecsCard info={shoe.weight + " g"} title={"Weight"}/>
@@ -50,7 +48,7 @@ export default function ShoesPage() {
                             <IndSpecsCard info={shoe.forefootStackHeight +" mm"} title={"Fore Foot Stack Height"}/>
                             <IndSpecsCard info={shoe.arch} title={"Support"}/>
                         </div>
-                        <SlantedTitle title={"Review"}/>
+                        <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Review</h1>
                         <ReviewTextCard article={shoe}/>
                     </div>
                 </div>

@@ -17,15 +17,15 @@ type CardProps = {
 export default function PageCard({item}: CardProps) {
     return (
         <div className="flex flex-col gap-4 p-4 w-full font-medium text-white leading-6 ">
-            <h1 className="flex justify-center w-full text-3xl slanted bg-wisteria-600 p-2">{item.name}</h1>
-                <div className="flex flex-row w-full gap-12">
+            <h1 className="flex justify-center w-full text-3xl slanted bg-wisteria-600 text-white p-4">{item.name}</h1>
+                <div className="flex justify-evenly flex-row w-full gap-12">
 
                         <Image
                             src={item.img}
                             alt={item.name}
                             width="400"
                             height="400"
-                            className="w-3/4 aspect-video object-contain"
+                            className="w-2/3 aspect-video object-contain"
                         />
 
                         <div className="justify-center p-4 text-lg font-medium text-center text-white flex flex-col gap-6">

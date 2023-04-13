@@ -8,6 +8,7 @@ import PageCard from "@/components/Reviews/PageCard";
 import SpecsCard from "@/components/Reviews/SpecsCard";
 import FeaturesCard from "@/components/Reviews/FeatuersCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
+import IndSpecsCard from "@/components/Reviews/IndSpecCard";
 
 
 export default function ShoesPage() {
@@ -28,22 +29,26 @@ export default function ShoesPage() {
 
     return (
 
-        <PageWrapper page={item?.name || "other"} className="flex flex-col justify-center min-h-screen mx-32 my-4 item-center">
+        <PageWrapper page={item?.name || "Shoe"} className="flex flex-col justify-center h-screen overflow-y-auto w-screen px-32 py-16 item-center">
             {item ? (
-                <div className="w-4/5 h-full p-4 m-4 rounded-lg grid grid-cols-3 bg-slate-400 min-w-fit">
-                   <PageCard item={item}/>
+                <div className="w-full h-full p-4 rounded-lg ">
+                    <PageCard item={item}/>
 
+                    <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Specs</h1>
                     <div className="flex flex-col h-full p-4 col-span-2">
-                        <div className="flex flex-wrap p-4 m-4 text-xl font-medium text-center text-white border-4 border-solid rounded-lg grid-cols-5 gap-6 leading-6 justify-evenly flex-2 bg-slate-400 border-base">
-                            <SpecsCard item={item}/>
-                            {/* div with dispkayt fkex to display optional features */}
+                        <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
+
+                            {/*<SpecsCard item={itemm}/>*/}
+                            <IndSpecsCard info={item.brand} title={"Brand"}/>
+                            <IndSpecsCard info={item.use} title={"Best Use"}/>
+
+
                             {item?.features && item.features.length > 0 && (
-                            <FeaturesCard features={item.features} />
-                        )}
-
+                                <FeaturesCard features={item.features} />
+                            )}
                         </div>
-
-                        <ReviewTextCard article={item} />
+                        <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Review</h1>
+                        <ReviewTextCard article={item}/>
                     </div>
                 </div>
             ) : (

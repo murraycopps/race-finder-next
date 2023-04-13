@@ -22,15 +22,15 @@ export default function Reviews({shoe} : {shoe: Shoe}) {
                                 <p className="m-0 text-xl ">${shoe.price}</p>
                             </div>
 
-                            <div>
-                                <p className="text-xs font-bold">Best Use:</p>
-                                <p className="m-0 text-xl ">{shoe.use}</p>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <p className="text-xs font-bold">Best Use:</p>*/}
+                            {/*    <p className="m-0 text-xl ">{shoe.use}</p>*/}
+                            {/*</div>*/}
 
-                            <div>
-                                <p className="text-xs font-bold">Surface:</p>
-                                <p className="m-0 text-xl ">{shoe.surface}</p>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <p className="text-xs font-bold">Surface:</p>*/}
+                            {/*    <p className="m-0 text-xl ">{shoe.surface}</p>*/}
+                            {/*</div>*/}
 
                             <div>
                                 <p className="text-xs font-bold">Rating:</p>
