@@ -10,7 +10,6 @@ export default function Page({ url }: { url: string }) {
   const formRef = useRef<HTMLFormElement>(null);
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-if(LoginData.isLoggedIn()) return;
       await LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
         router.push("/strava/login");

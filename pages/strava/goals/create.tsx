@@ -11,7 +11,6 @@ export default function CreateGoal({ url }: { url: string }) {
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-if(LoginData.isLoggedIn()) return;
       await LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
         router.push("/strava/login");

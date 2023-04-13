@@ -128,7 +128,6 @@ export default class LoginData {
     }
 
     static async getStorage() {
-        console.log("getStorage")
         if (this.loggedIn) return
 
         this.accessToken = sessionStorage.getItem("accessToken") || ''
@@ -137,8 +136,6 @@ export default class LoginData {
         this._id = sessionStorage.getItem("id") || ''
         this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
         this.refreshToken = sessionStorage.getItem("refreshToken") || ''
-
-        console.log(this.accessToken, this.username, this.goals, this._id, this.expiresAt, this.refreshToken)
 
         if(!this.expiresAt || !this.refreshToken) return
 
@@ -152,7 +149,6 @@ export default class LoginData {
         setToken(this.accessToken)
 
         if (this.accessToken && this._id || this.username) {
-            console.log("logged in")
             this.loggedIn = true
         }
     }
