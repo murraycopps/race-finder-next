@@ -51,11 +51,20 @@ export default class LoginData {
         return this.accessToken
     }
 
+    static getRefreshToken() {
+        return this.refreshToken
+    }
+
     static setAccessToken(token: string) {
         this.accessToken = token
         sessionStorage.setItem("accessToken", LoginData.accessToken);
         setToken(token)
-    }        
+    } 
+    
+    static setRefreshToken(token: string) {
+        this.refreshToken = token
+        sessionStorage.setItem("refreshToken", LoginData.refreshToken);
+    }
 
     static getUsername() {
         return this.username
@@ -119,6 +128,7 @@ export default class LoginData {
     }
 
     static async getStorage() {
+        console.log("getStorage")
         if (this.loggedIn) return
 
         this.accessToken = sessionStorage.getItem("accessToken") || ''
@@ -128,17 +138,21 @@ export default class LoginData {
         this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
         this.refreshToken = sessionStorage.getItem("refreshToken") || ''
 
+        console.log(this.accessToken, this.username, this.goals, this._id, this.expiresAt, this.refreshToken)
+
         if(!this.expiresAt || !this.refreshToken) return
 
         if (this.expiresAt * 1000 < Date.now()) {
             const res = await refreshToken(this.refreshToken)
             this.accessToken = res.access_token
+            console.log(res)
         }
 
 
         setToken(this.accessToken)
 
-        if (this.accessToken && this.username && this.goals && this._id) {
+        if (this.accessToken && this._id || this.username) {
+            console.log("logged in")
             this.loggedIn = true
         }
     }

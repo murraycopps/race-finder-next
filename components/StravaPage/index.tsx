@@ -23,11 +23,14 @@ export default function StravaPage() {
   const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
-    LoginData.getStorage();
-    if (!LoginData.isLoggedIn()) {
-      router.push("/strava/");
-      return;
-    }
+    const checkIfLoggedIn = async () => {
+      await LoginData.getStorage();
+      if (!LoginData.isLoggedIn()) {
+        router.push("/strava/");
+      }
+    };
+
+    checkIfLoggedIn();
 
     const cachedData = localStorage.getItem("data");
     const cachedActivities = localStorage.getItem("activities");
@@ -65,8 +68,7 @@ export default function StravaPage() {
       localStorage.setItem("username", LoginData.getUsername());
     };
     fetchData();
-  },
-  [accessToken, router]);
+  }, [accessToken, router]);
   if (!LoginData.isLoggedIn()) {
     return (
       <div className="flex items-center justify-center h-screen">

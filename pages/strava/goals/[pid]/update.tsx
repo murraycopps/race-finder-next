@@ -9,13 +9,14 @@ export default function Page({ url }: { url: string }) {
 
   const formRef = useRef<HTMLFormElement>(null);
   useEffect(() => {
-    if (!LoginData.isLoggedIn()) {
-      LoginData.getStorage();
+    const checkIfLoggedIn = async () => {
+if(LoginData.isLoggedIn()) return;
+      await LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
-        router.push("/strava/");
-        return;
+        router.push("/strava/login");
       }
-    }
+    };
+    checkIfLoggedIn();
     LoginData.updateGoals(url);
     const goal = LoginData.getGoals().find(
       (goal: Goal) => goal.id.toString() === router.query.pid
@@ -46,7 +47,7 @@ export default function Page({ url }: { url: string }) {
   }
 
   return (
-    <div className="flex flex-col items-center font-sans text-white bg-gray-800 gap-4">
+    <div className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800">
       <form
         className="flex flex-col items-center gap-4"
         onSubmit={handleSubmit}

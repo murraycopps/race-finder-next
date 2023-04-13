@@ -1,14 +1,19 @@
 import Head from "next/head";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, useEffect } from "react";
 import Navbar from "./Navbar";
-import {useRouter} from "next/router";
+import LoginData from "@/scripts/LoginData";
 
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
 }
 
 export default function PageWrapper(props: PageWrapperProps) {
-    const router = useRouter();
+    
+    useEffect(() => {
+      if(!LoginData.isLoggedIn()) {
+        LoginData.getStorage();
+      }
+    }, []);
 
   return (
     <>

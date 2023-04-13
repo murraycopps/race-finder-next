@@ -10,13 +10,14 @@ export default function CreateGoal({ url }: { url: string }) {
   const router = useRouter();
 
   useEffect(() => {
-   if(!LoginData.isLoggedIn()){
-      LoginData.getStorage()
-      if(!LoginData.isLoggedIn()){
-        router.push("/strava")
-        return
+    const checkIfLoggedIn = async () => {
+if(LoginData.isLoggedIn()) return;
+      await LoginData.getStorage();
+      if (!LoginData.isLoggedIn()) {
+        router.push("/strava/login");
       }
-   }
+    };
+    checkIfLoggedIn();
    LoginData.updateGoals(url)
   }, [router, url])
   

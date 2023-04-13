@@ -11,18 +11,19 @@ export default function Goals({ url }: { url: string }) {
   const [displayCompleted, setDisplayCompleted] = useState(false);
 
   useEffect(() => {
-    if (!LoginData.isLoggedIn()) {
-      LoginData.getStorage();
+    const checkIfLoggedIn = async () => {
+if(LoginData.isLoggedIn()) return;
+      await LoginData.getStorage();
       if (!LoginData.isLoggedIn()) {
-        router.push("/strava/");
-        return;
+        router.push("/strava/login");
       }
-    }
+    };
+    checkIfLoggedIn();
     LoginData.updateGoals(url);
   }, [router, url]);
 
   return (
-    <main className="flex flex-col items-center font-sans text-white bg-gray-800 gap-4">
+    <main className="flex flex-col items-center gap-4 font-sans text-white bg-gray-800">
       <div className="px-16 py-4 m-4 text-center bg-gray-700 rounded-lg">
         <h1 className="text-3xl">Goals</h1>
       </div>

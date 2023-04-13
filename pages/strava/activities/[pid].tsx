@@ -8,7 +8,13 @@ import {
 } from "@/lib/strava";
 import { outTime } from "@/scripts";
 import LoginData from "@/scripts/LoginData";
-import { Comment, DetailedRun, Lap, Split, Stream } from "@/scripts/singleRunTypes";
+import {
+  Comment,
+  DetailedRun,
+  Lap,
+  Split,
+  Stream,
+} from "@/scripts/singleRunTypes";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
@@ -18,9 +24,6 @@ const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
   ssr: false,
 });
 
-  
-
-
 const choseStreams = (streams: Stream[]) => {
   const orderOfPreference = [
     "heartrate",
@@ -28,7 +31,6 @@ const choseStreams = (streams: Stream[]) => {
     "velocity_smooth",
     "cadence",
     "temp",
-    "moving",
     "grade_smooth",
   ];
   // get top 2
@@ -41,7 +43,6 @@ const choseStreams = (streams: Stream[]) => {
   });
   return top2;
 };
-
 
 export default function ActivityPage() {
   const [activity, setActivity] = useState<DetailedRun>();
@@ -56,11 +57,14 @@ export default function ActivityPage() {
   const [streams, setStreams] = useState<Stream[]>([]);
 
   useEffect(() => {
-    LoginData.getStorage();
-    if (!LoginData.isLoggedIn()) {
-      router.push("/strava/");
-      return;
-    }
+    const checkIfLoggedIn = async () => {
+      if (LoginData.isLoggedIn()) return;
+      await LoginData.getStorage();
+      if (!LoginData.isLoggedIn()) {
+        router.push("/strava/login");
+      }
+    };
+    checkIfLoggedIn();
 
     const { pid } = router.query;
     if (!pid || typeof pid !== "string") return;
@@ -125,17 +129,6 @@ export default function ActivityPage() {
       page={activity?.name || "Activity"}
       className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto text-center"
     >
-      {/* make a button that calls getActivityStreams */}
-      <button
-        onClick={async () => {
-          const response = await getActivityStream(8874022508);
-        }
-      }
-      >
-        Get Streams
-      </button>
-      
-
       <div className="flex items-center w-full justify-evenly">
         <h1 className="text-4xl font-bold">{activity?.name}</h1>
         <p className="text-xl">
@@ -325,18 +318,16 @@ export default function ActivityPage() {
       {streams.length === 2 && (
         <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
           <div className="w-full h-full">
-            
             <HeartRateStream stream={streams[0]} />
           </div>
           <div className="w-full h-full">
-  
             <HeartRateStream stream={streams[1]} />
           </div>
         </div>
       )}
 
       <div className="grid w-full grid-cols-2 gap-4 place-items-center">
-        <div className="flex flex-col items-center justify-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center w-full gap-4 p-8">
           {activity.best_efforts.length > 0 ? (
             <>
               <h2 className="my-4 text-4xl font-bold">Best Efforts</h2>

@@ -2,6 +2,7 @@
 
 import { Stream } from "@/scripts/singleRunTypes";
 import { useRef, useEffect } from "react";
+import HRLineGraph from "./HRLineGraph";
 type Names = {
     [key: string]: string;
   };
@@ -15,12 +16,25 @@ type Names = {
     moving: "Moving",
     grade_smooth: "Grade",
   };
+
+  const maxLen = 500;
+  const reduceData = (data: number[]): number[] => {
+    if (data.length <= maxLen) return data;
+    // average every other values
+    const newData = [];
+    for (let i = 0; i < data.length; i += 2) {
+        newData.push((data[i] + data[i + 1]) / 2);
+    }
+    return reduceData(newData);
+    };
   
 
 export default function HeartRateStream({ stream }: { stream: Stream }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // const points = reduceData(stream.data);
+    
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -42,7 +56,8 @@ export default function HeartRateStream({ stream }: { stream: Stream }) {
       const height = hr * barHeightUnit;
       const x = i * barWidth;
       const y = canvas.height - height;
-      const barColor = "hsl(" + Math.round((hr / max) * 360) + ", 100%, 50%)";
+    //   const barColor = "hsl(" + Math.round((hr / max) * 360) + ", 100%, 50%)";
+    const barColor = "rgb(239 68 68)"
 
       ctx.fillStyle = barColor;
       ctx.fillRect(x, y, barWidth, height);
@@ -50,12 +65,13 @@ export default function HeartRateStream({ stream }: { stream: Stream }) {
   }, [stream]);
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full gap-8 aspect-video">
       <h2 className="text-4xl font-bold text-center">
         {names[stream.type] || stream.type}
       </h2>
-      <div className="w-full aspect-video">
-        <canvas ref={canvasRef} className="w-full h-full"></canvas>
+      <div className="w-full h-full">
+        {/* <canvas ref={canvasRef} className="w-full h-full"></canvas> */}
+        <HRLineGraph  labels={reduceData(stream.data).map(p => p.toString())} data={reduceData(stream.data)} />
       </div>
     </div>
   );

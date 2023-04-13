@@ -6,27 +6,30 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import StravaPage from "@/components/StravaPage";
 
-
 export default function Page() {
   const [loggedIn, setLoggedIn] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    LoginData.getStorage();
-    setLoggedIn(LoginData.isLoggedIn());
-    if (!LoginData.isLoggedIn()) {
-      router.push("/strava/login");
-    }
+    const checkIfLoggedIn = async () => {
+      if(LoginData.isLoggedIn()) return;
+      await LoginData.getStorage();
+      setLoggedIn(LoginData.isLoggedIn());
+      if (!LoginData.isLoggedIn()) {
+        router.push("/strava/login");
+      }
+    };
+    checkIfLoggedIn();
   }, []);
 
   return (
     <PageWrapper page="Strava">
       {loggedIn ? (
         // <HomePage />
-        <StravaPage   />
+        <StravaPage />
       ) : (
-        <div className="h-screen grid place-items-center">
-          <div className="flex flex-col text-center gap-8">
+        <div className="grid h-screen place-items-center">
+          <div className="flex flex-col gap-8 text-center">
             <h1 className="text-4xl font-bold">Redirecting...</h1>
             <p className="text-2xl">
               Click{" "}
