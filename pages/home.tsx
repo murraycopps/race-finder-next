@@ -51,7 +51,7 @@ export default function HomePage() {
         <LinkCard
           title="Strava"
           description="Connect to Strava and view your stats"
-          link="/strava/login"
+          link="/strava"
           img="/review-cards/strava-white.png"
         />
         <LinkCard
@@ -75,14 +75,10 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col w-full gap-4 place-items-center lg:hidden">
           <QuoteCard/>
-          <div className="flex flex-row flex-wrap w-full gap-4 place-items-center">
+          <div className="flex flex-row flex-wrap items-center justify-center w-full gap-4">
             <ShoeList shoes={shoeslistrace} />
             <ShoeList shoes={shoeslisttrain} />
           </div>
-          {/* <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 place-items-center">
-            <ShoeList shoes={shoeslistrace} />
-            <ShoeList shoes={shoeslisttrain} />
-          </div> */}
         </div>
       <SlantedTitle title="Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">

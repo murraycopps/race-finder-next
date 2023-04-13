@@ -26,7 +26,7 @@ export default function ProfileCard({
   }, [stats, showYear]);
 
   return (
-    <div className="z-10 w-full p-8 grid grid-cols-2 place-items-center bg-faded-base-500">
+    <div className="z-10 grid w-full grid-cols-2 p-8 place-items-center bg-faded-base-500">
       <div className="flex flex-row items-center justify-center gap-8">
         <Image
           src={data.profile}
@@ -34,12 +34,13 @@ export default function ProfileCard({
           alt="Profile Picture"
           width={192}
           height={192}
+          priority
         />
         <div className="flex flex-col">
           <h1 className="w-full text-2xl font-bold text-center sm:text-4xl sm:mb-4">
             {data.firstname} {data.lastname}
           </h1>
-          <div className="flex flex-row justify-center text-center gap-4 sm:gap-8">
+          <div className="flex flex-row justify-center gap-4 text-center sm:gap-8">
             <div>
               Followers:
               <p className="text-2xl font-bold">{data.follower_count}</p>

@@ -19,6 +19,7 @@ type CardProps = {
         width="1000"
         height="1000"
         className="absolute inset-0 object-cover w-full h-full py-8 px-14"
+        priority
       />
       <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-75 hover:opacity-60" />
       <h2 className="z-50 text-4xl font-bold pointer-events-none">{title}</h2>

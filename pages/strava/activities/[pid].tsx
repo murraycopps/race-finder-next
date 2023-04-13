@@ -17,7 +17,6 @@ import {
 } from "@/scripts/singleRunTypes";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 
 const MapWithNoSSR = dynamic(() => import("@/components/StravaPage/Map"), {
@@ -26,7 +25,7 @@ const MapWithNoSSR = dynamic(() => import("@/components/StravaPage/Map"), {
 
 const choseStreams = (streams: Stream[]) => {
   const orderOfPreference = [
-    "heartrate",
+    "heartrate", 
     "altitude",
     "velocity_smooth",
     "cadence",
@@ -253,7 +252,8 @@ export default function ActivityPage() {
           </p>
         </div>
       </div>
-      <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+      { (activity.laps || (activity.splits_standard && activity.splits_metric)) && (
+        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
         <div className="relative w-full h-full">
           {activity.splits_standard && activity.splits_metric ? (
             <>
@@ -287,6 +287,7 @@ export default function ActivityPage() {
           <h2 className="text-4xl font-bold">No Laps</h2>
         )}
       </div>
+      )}
       {detailedType === "laps" && (
         <>
           <div
@@ -322,7 +323,8 @@ export default function ActivityPage() {
         </div>
       )}
 
-      <div className="grid w-full grid-cols-2 gap-4 place-items-center">
+      {(activity.best_efforts.length > 0 || activity.segment_efforts. length > 0 || comments.length > 0) && (
+          <div className="grid w-full grid-cols-2 gap-4 place-items-center">
         <div className="flex flex-col items-center justify-center w-full gap-4 p-8">
           {activity.best_efforts.length > 0 ? (
             <>
@@ -404,6 +406,8 @@ export default function ActivityPage() {
           ))}
         </div>
       </div>
+        )
+      }
     </PageWrapper>
   );
 }

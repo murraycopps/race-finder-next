@@ -38,7 +38,7 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
   useEffect(() => {
     if (LoginData.isLoggedIn()) {
       console.log("already logged in");
-      router.push("/strava/activities");
+      router.push("/strava");
       return;
     }
 
@@ -66,7 +66,7 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
 
         LoginData.Login(access_token, updated.data.data[0].username, updated.data.data[0].goals || [], updated.data.data[0]._id, expires_at, refresh_token ) 
 
-        router.push("/strava/activities");
+        router.push("/strava");
       } catch (error) {
         console.error(error);
       }

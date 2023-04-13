@@ -23,15 +23,6 @@ export default function StravaPage() {
   const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
-    const checkIfLoggedIn = async () => {
-      await LoginData.getStorage();
-      if (!LoginData.isLoggedIn()) {
-        router.push("/strava/");
-      }
-    };
-
-    checkIfLoggedIn();
-
     const cachedData = localStorage.getItem("data");
     const cachedActivities = localStorage.getItem("activities");
     const cachedStats = localStorage.getItem("stats");
@@ -69,13 +60,6 @@ export default function StravaPage() {
     };
     fetchData();
   }, [accessToken, router]);
-  if (!LoginData.isLoggedIn()) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-2xl font-bold text-white">Redirecting...</div>
-      </div>
-    );
-  }
 
   if (!data || !stats || !activities) {
     return (

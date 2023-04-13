@@ -22,14 +22,12 @@
 }
 .width {
      width: 100%;
-    /* min-width: 24rem;  */
-    /* width: clamp(24rem, 100%, 32rem); */
-
+    max-width: 32rem;
 }
 .display {
 grid-template-columns: repeat(3, calc(100% / 3));
 width: 300%;
-transform: translateX(calc(-100% / 3 - 1rem));
+/* transform: translateX(calc(-100% / 3 - 1rem)); */
 
 
 }
@@ -43,24 +41,23 @@ transform: translateX(calc(-100% / 3 - 1rem));
 
 @keyframes left {
     0% {
-        transform: translateX(calc(-100% / 3 - 1rem));
+        transform: 0;
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(calc(100% / 3 + 1rem));
     }
 }
 
 @keyframes right {
     0% {
-        transform: translateX(calc(-100% / 3 - 1rem));
+        transform: 0;
     }
     100% {
-        transform: translateX(calc(2 * (-100% / 3 - 1rem)));
+        transform: translateX(calc(-100% / 3 - 1rem));
     }
 }
 .shoe {
     background-repeat: no-repeat;
-    background-position: left center;
     width: 100%;
     position: relative;
     padding-left: 3.5rem;
@@ -71,10 +68,10 @@ transform: translateX(calc(-100% / 3 - 1rem));
     left: 0;
     position: absolute;
     width: 2rem;
-    height: 2rem;
+    height: 100%;
     display: inline-block;
     background-repeat: no-repeat;
-    background-position: left bottom;
+    background-position: left center;
     margin-right: 1.5rem;
     filter: invert();
 }
@@ -100,7 +97,7 @@ transform: translateX(calc(-100% / 3 - 1rem));
 .hoka::before {
     background-image: url(/brand-logos/hoka.png);
     background-size: 2.125rem;
-    background-position: left 75%;
+    background-position: left 25%;
 }
 .brooks::before {
     background-image: url(/brand-logos/brooks.png);

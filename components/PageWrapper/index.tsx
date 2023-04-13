@@ -12,6 +12,7 @@ export default function PageWrapper(props: PageWrapperProps) {
     useEffect(() => {
       if(!LoginData.isLoggedIn()) {
         LoginData.getStorage();
+        console.log("Logged in: " + LoginData.isLoggedIn());
       }
     }, []);
 
