@@ -328,6 +328,10 @@ html {
   box-shadow: calc(-0.25 * var(--size)) calc(-0.25 * var(--size)) 0 calc(0.25 * var(--size)) #2D2B52;
 }
 
+.strava-right{
+  box-shadow: -1rem 1rem 0 0 var(--dark-base)
+}
+
 .strava-right::before{
   --size: 1.5rem;
   content: "";
@@ -338,5 +342,10 @@ html {
   height: var(--size);
   background-color: transparent;
   border-top-right-radius: var(--size);
-  box-shadow: calc(0.25 * var(--size)) calc(-0.25 * var(--size)) 0 calc(0.25 * var(--size)) #2D2B52;
+  box-shadow: calc(0.25 * var(--size)) calc(-0.25 * var(--size)) 0 calc(0.25 * var(--size)) #2D2B52, inset -0.5rem 0.5rem 0 0.5rem var(--dark-base);
 }
+
+.aspect-2-1{
+  aspect-ratio: 2/1;
+}
+

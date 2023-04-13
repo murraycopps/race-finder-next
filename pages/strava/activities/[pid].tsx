@@ -20,7 +20,7 @@ import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 
-const MapWithNoSSR = dynamic(() => import("@/components/Map"), {
+const MapWithNoSSR = dynamic(() => import("@/components/StravaPage/Map"), {
   ssr: false,
 });
 
@@ -130,8 +130,8 @@ export default function ActivityPage() {
       className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto text-center"
     >
       <div className="flex items-center w-full justify-evenly">
-        <h1 className="text-4xl font-bold">{activity?.name}</h1>
-        <p className="text-xl">
+        <h1 className="text-5xl font-bold">{activity?.name}</h1>
+        <p className="text-2xl">
           {new Date(activity.start_date_local).toLocaleDateString() +
             " " +
             new Date(activity.start_date_local).toLocaleTimeString([], {
@@ -317,12 +317,8 @@ export default function ActivityPage() {
       )}
       {streams.length === 2 && (
         <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
-          <div className="w-full h-full">
             <HeartRateStream stream={streams[0]} />
-          </div>
-          <div className="w-full h-full">
             <HeartRateStream stream={streams[1]} />
-          </div>
         </div>
       )}
 

@@ -3,7 +3,7 @@ import { Run } from "@/scripts/stravaTypes";
 import dynamic from "next/dynamic";
 
 
-const MapWithNoSSR = dynamic(() => import("../Map"), {
+const MapWithNoSSR = dynamic(() => import("./Map"), {
     ssr: false,
   });
 
@@ -19,7 +19,7 @@ const RunCard = ({
   }) => {
         return (
             <button
-                className="z-0 flex flex-col items-center justify-start w-full p-8 text-center shadow-lg gap-8 rounded-2xl bg-faded-base-500 hover:bg-faded-base-600"
+                className="z-0 flex flex-col items-center justify-start w-full gap-8 p-8 text-center shadow-lg rounded-2xl bg-faded-base-500 hover:bg-faded-base-600"
                 // href={`/strava/activities/${activity.id}`}
                 onClick={() => setRunId(activity.id)}
             >
@@ -45,7 +45,7 @@ const RunCard = ({
                             </div>
                         </div>
                     )}
-                <div className="w-full px-8 grid grid-cols-3 gap-4 place-items-center">
+                <div className="grid w-full grid-cols-3 gap-4 px-8 place-items-center">
                     <div className="flex flex-col items-center justify-start gap-2">
                         <p className="text-lg">Distance (Mi)</p>
                         <p className="text-3xl">

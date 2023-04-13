@@ -3,7 +3,7 @@ import { Run } from "@/scripts/stravaTypes";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const MapWithNoSSR = dynamic(() => import("../Map"), {
+const MapWithNoSSR = dynamic(() => import("./Map"), {
   ssr: false,
 });
 

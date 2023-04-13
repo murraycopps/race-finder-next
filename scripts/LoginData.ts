@@ -142,7 +142,11 @@ export default class LoginData {
         if (this.expiresAt * 1000 < Date.now()) {
             const res = await refreshToken(this.refreshToken)
             this.accessToken = res.access_token
-            console.log(res)
+            this.expiresAt = res.expires_at
+            this.refreshToken = res.refresh_token
+            sessionStorage.setItem("accessToken", this.accessToken)
+            sessionStorage.setItem("expiresAt", this.expiresAt.toString())
+            sessionStorage.setItem("refreshToken", this.refreshToken)
         }
 
 

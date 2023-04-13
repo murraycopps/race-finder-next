@@ -1,6 +1,5 @@
 import LoginData from "@/scripts/LoginData";
 import { useEffect, useState } from "react";
-import HomePage from "@/components/Strava/HomePage";
 import PageWrapper from "@/components/PageWrapper";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -12,7 +11,6 @@ export default function Page() {
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      if(LoginData.isLoggedIn()) return;
       await LoginData.getStorage();
       setLoggedIn(LoginData.isLoggedIn());
       if (!LoginData.isLoggedIn()) {
@@ -25,7 +23,6 @@ export default function Page() {
   return (
     <PageWrapper page="Strava">
       {loggedIn ? (
-        // <HomePage />
         <StravaPage />
       ) : (
         <div className="grid h-screen place-items-center">

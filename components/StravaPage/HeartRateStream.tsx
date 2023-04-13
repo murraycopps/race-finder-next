@@ -30,48 +30,18 @@ type Names = {
   
 
 export default function HeartRateStream({ stream }: { stream: Stream }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
-    // const points = reduceData(stream.data);
-    
-    if (!canvasRef.current) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
 
-    if (!ctx) return;
-
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Get the maximum heart rate value
-    const max = Math.max(...stream.data);
-
-    // Calculate the width and height of each bar
-    const barWidth = canvas.width / stream.data.length;
-    const barHeightUnit = canvas.height / max;
-
-    // Draw the bars on the canvas
-    stream.data.forEach((hr, i) => {
-      const height = hr * barHeightUnit;
-      const x = i * barWidth;
-      const y = canvas.height - height;
-    //   const barColor = "hsl(" + Math.round((hr / max) * 360) + ", 100%, 50%)";
-    const barColor = "rgb(239 68 68)"
-
-      ctx.fillStyle = barColor;
-      ctx.fillRect(x, y, barWidth, height);
-    });
-  }, [stream]);
 
   return (
-    <div className="flex flex-col w-full gap-8 aspect-video">
+    <div className="flex flex-col w-full gap-8 aspect-2-1">
       <h2 className="text-4xl font-bold text-center">
         {names[stream.type] || stream.type}
       </h2>
-      <div className="w-full h-full">
-        {/* <canvas ref={canvasRef} className="w-full h-full"></canvas> */}
-        <HRLineGraph  labels={reduceData(stream.data).map(p => p.toString())} data={reduceData(stream.data)} />
+      <div className="grow">
+        {/* <HRLineGraph  labels={reduceData(stream.data).map(p => p.toString())} data={reduceData(stream.data)} /> */}
+        <HRLineGraph  labels={stream.data.map(p => p.toString())} data={stream.data} />
+
       </div>
     </div>
   );

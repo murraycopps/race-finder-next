@@ -1,13 +1,9 @@
-import Link from "next/link";
-import Image from "next/image";
 import PageWrapper from "@/components/PageWrapper";
 import ShoeList from "@/components/HomePage/ShoeList";
 import { shoes } from "@/scripts/shoes";
 import { clothes } from "@/scripts/clothes";
 import { other } from "@/scripts/other";
 import { Item } from "@/scripts/types";
-import ShoeCard from "@/components/Reviews/ShoeCard";
-import Stars from "@/components/Reviews/Stars";
 import { useEffect, useState } from "react";
 import PacingCard from "@/components/HomePage/PacingCard";
 import VdotCard from "@/components/HomePage/VdotCard";
@@ -15,17 +11,8 @@ import QuoteCard from "@/components/HomePage/QuoteCard";
 import LinkCard from "@/components/HomePage/LinkCard";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
 import ItemCard from "@/components/Reviews/ItemCard";
-import IntensityCard from "@/components/IntensityCard";
 import {shoeslistrace} from "@/scripts/shoelist";
 import {shoeslisttrain} from "@/scripts/shoelist";
-// import Map from "@/components/Map";
-
-import dynamic from 'next/dynamic';
-import HeartRateStream from "@/components/StravaPage/HeartRateStream";
-
-const MapWithNoSSR = dynamic(() => import('../components/Map'), {
-  ssr: false,
-});
 
 const items = [
   { item: shoes[0], des: "Best Racer" },
