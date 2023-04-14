@@ -11,14 +11,14 @@ export default function Reviews() {
   const [randomItems, setRandomItems] = useState([] as Item[]);
   useEffect(() => {
     setRandomItems(
-      [...shoes, ...clothes].sort((a, b) => Math.random() - 0.5).slice(0, 6)
+      [...shoes, ...clothes].sort((a, b) => Math.random() - 0.5)
     );
   }, []);
 
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen overflow-y-auto gap-4 p-16"
+      className="flex flex-col items-center justify-start w-screen h-screen gap-16 p-16 overflow-y-auto"
     >
       {/*<div className="relative">*/}
       {/*  <Image*/}
@@ -29,22 +29,22 @@ export default function Reviews() {
       {/*      height={1080}*/}
 
       {/*  />*/}
-      {/*  <h1 className="absolute inset-0 flex flex-col items-center justify-center text-base gap-4 text-8xl">Reviews</h1>*/}
+      {/*  <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>*/}
       {/*</div>*/}
 
-      <h1 className="text-white w-full text-center text-6xl slanted bg-wisteria-600 p-2">Reviews</h1>
 
 
-      <div className="w-full px-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
         <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
         <ReviewsRoutingCard type="clothes" image="/review-cards/clothesnew.webp" />
         <ReviewsRoutingCard type="other" image="/review-cards/gearnew.png" />
       </div>
+      <h1 className="w-full p-2 text-6xl text-center text-white slanted bg-ronchi-600">Reviews</h1>
 
-      <SlantedTitle title={" "}/>
-      <div className="justify-start w-full p-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      {/* <SlantedTitle title={" "}/> */}
+      <div className="grid justify-start w-full grid-cols-1 gap-4 px-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
 
-        {randomItems.slice(0, 4).map((item, i) => {
+        {randomItems.slice(0, 8).map((item, i) => {
           return <ItemCard item={item} key={i} />;
         })}
       </div>

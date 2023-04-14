@@ -6,7 +6,7 @@ import PageWrapper from "@/components/PageWrapper";
 import Stars from "@/components/Reviews/Stars";
 import FeaturesCard from "@/components/Reviews/FeatuersCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
-import PageCard from "@/components/Reviews/PageCard";
+import PageCard from "@/components/Reviews/Overview";
 import SpecsCard from "@/components/Reviews/SpecsCard";
 import IndSpecsCard from "@/components/Reviews/IndSpecCard";
 

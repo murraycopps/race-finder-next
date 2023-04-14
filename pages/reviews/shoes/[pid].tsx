@@ -4,7 +4,7 @@ import {shoes} from "@/scripts/shoes";
 import {Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Stars from "@/components/Reviews/Stars";
-import PageCard from "@/components/Reviews/PageCard";
+import Overview from "@/components/Reviews/Overview";
 import SpecsCard from "@/components/Reviews/SpecsCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
 import IndSpecsCard from "@/components/Reviews/IndSpecCard";
@@ -29,14 +29,14 @@ export default function ShoesPage() {
 
     return (
 
-        <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center h-screen overflow-y-auto w-screen px-32 py-16 item-center">
+        <PageWrapper page={shoe?.name || "Shoe"} className="flex flex-col justify-center w-screen h-screen px-32 py-16 overflow-y-auto item-center">
             {shoe ? (
                 <div className="w-full h-full p-4 rounded-lg ">
-                    <PageCard item={shoe}/>
+                    <Overview item={shoe}/>
 
-                    <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Specs</h1>
-                    <div className="flex flex-col h-full p-4 col-span-2">
-                        <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
+                    <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">Specs</h1>
+                    <div className="flex flex-col h-full col-span-2 p-4">
+                        <div className="grid grid-cols-4 gap-12 p-4 text-xl font-medium text-center text-white">
                             
                             {/*<SpecsCard item={shoe}/>*/}
                             <IndSpecsCard info={shoe.brand} title={"Brand"}/>
@@ -48,7 +48,7 @@ export default function ShoesPage() {
                             <IndSpecsCard info={shoe.forefootStackHeight +" mm"} title={"Fore Foot Stack Height"}/>
                             <IndSpecsCard info={shoe.arch} title={"Support"}/>
                         </div>
-                        <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Review</h1>
+                        <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">Review</h1>
                         <ReviewTextCard article={shoe}/>
                     </div>
                 </div>
