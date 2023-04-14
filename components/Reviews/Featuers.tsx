@@ -5,7 +5,7 @@ type CardProps = {
     }[];
 }
 
-export default function FeaturesCard({features}: CardProps) {
+export default function Features({features}: CardProps) {
     return (
        <>
            {features.map((feature, i) =>(

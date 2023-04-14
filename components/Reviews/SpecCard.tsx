@@ -7,7 +7,7 @@ type CardProps = {
     
 }
 
-export default function IndSpecsCard({title,info}: CardProps) {
+export default function SpecsCard({title,info}: CardProps) {
     return (
         <>
         <div className="flex flex-col items-center gap-4 justify-evenly">

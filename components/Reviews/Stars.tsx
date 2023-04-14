@@ -5,12 +5,6 @@ export default function Stars({
   number: number;
   total: number;
 }) {
-  // const stars = [];
-  // for (let i = 0; i < total; i++) {
-  //     stars.push(i < number ? "★" : "☆" );
-  // }
-  // return <span className="text-yellow-500">{stars}</span>
-  // make the full stars yellow and the empty stars black
   return (
     <span>
       <span className="text-yellow-500">
