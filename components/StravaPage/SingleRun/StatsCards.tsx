@@ -80,7 +80,7 @@ const StatsCards = ({ activity }: { activity: DetailedRun }) => (
   );
   
   const StatsCard = ({ name, des }: { name: string; des: string | number }) => (
-    <div className="flex flex-col items-center justify-center gap-4 p-8">
+    <div className="flex flex-col items-center justify-center p-8 gap-4">
       <h1 className="text-xl font-bold">{name}</h1>
       <p className="text-3xl">{des}</p>
     </div>

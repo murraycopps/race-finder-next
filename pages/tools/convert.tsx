@@ -172,7 +172,11 @@ export default function Home() {
               />
             </>
           )}
-          <Switch state={isTime} setState={setIsTime} options={["Time", "Distance"]} />
+          <Switch
+            state={isTime}
+            setState={setIsTime}
+            options={["Time", "Distance"]}
+          />
         </div>
         <div className="flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white lex h-3/4 rounded-3xl">
           <p>{output.join("\n")}</p>

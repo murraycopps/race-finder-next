@@ -11,7 +11,10 @@ export default function LinkCard({
   image: string;
 }) {
   return (
-    <Link href={`/reviews/${type}`} className="relative w-full aspect-square reviews-routing-card">
+    <Link
+      href={`/reviews/${type}`}
+      className="relative w-full aspect-square reviews-routing-card"
+    >
       <Image
         src={image}
         alt={type}

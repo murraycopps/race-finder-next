@@ -3,7 +3,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-
 interface Props {
   query: {
     code: string;
@@ -54,8 +53,8 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
           }
         );
         const { access_token, refresh_token, expires_at } = response.data;
-        console.log(response.data)
-        console.log(new Date(response.data.expires_at * 1000).toLocaleString())
+        console.log(response.data);
+        console.log(new Date(response.data.expires_at * 1000).toLocaleString());
 
         const updated = await axios.put(`${url}/api/users`, {
           _id: _id,
@@ -64,7 +63,14 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
           expiresAt: expires_at,
         });
 
-        LoginData.Login(access_token, updated.data.data[0].username, updated.data.data[0].goals || [], updated.data.data[0]._id, expires_at, refresh_token ) 
+        LoginData.Login(
+          access_token,
+          updated.data.data[0].username,
+          updated.data.data[0].goals || [],
+          updated.data.data[0]._id,
+          expires_at,
+          refresh_token
+        );
 
         router.push("/strava");
       } catch (error) {
@@ -79,7 +85,7 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
     <div className="flex items-center justify-center h-screen">
       <div className="text-2xl font-bold text-white">Authenticating...</div>
     </div>
-  )
+  );
 }
 
 export default AuthCallbackPage;

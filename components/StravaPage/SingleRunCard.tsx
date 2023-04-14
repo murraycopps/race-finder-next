@@ -8,7 +8,7 @@ const MapWithNoSSR = dynamic(() => import("./Map"), {
 });
 
 const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }) => (
-  <div className="fixed z-50 flex flex-col items-center justify-start gap-8 p-8 text-center rounded-lg shadow-lg inset-x-16s top-16s inset-16 bg-faded-base-500">
+  <div className="fixed z-50 flex flex-col items-center justify-start p-8 text-center rounded-lg shadow-lg gap-8 inset-x-16s top-16s inset-16 bg-faded-base-500">
     <button
       className="absolute flex flex-col justify-between w-12 h-10 px-1 py-2 text-white rounded-full nav-button open top-4 left-4"
       onClick={close}
@@ -17,7 +17,7 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
         <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
         <span className="z-50 w-full h-1 bg-gray-200 rounded-full transition-all-300" />
     </button>
-    <div className="grid w-3/4 grid-cols-2 gap-8 place-items-center">
+    <div className="w-3/4 grid grid-cols-2 gap-8 place-items-center">
       <h3 className="px-4 text-3xl">{activity.name}</h3>
       <p className="text-xl">
         {new Date(activity.start_date_local).toLocaleDateString() +
@@ -29,7 +29,7 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
       </p>
     </div>
     <div className="flex flex-row justify-between w-full gap-8 grow">
-      <div className="flex flex-col h-full gap-4 p-8 justify-evenly">
+      <div className="flex flex-col h-full p-8 gap-4 justify-evenly">
         <div className="flex flex-col items-center w-full gap-2 justify-evenly">
           <p className="text-lg">Distance (Mi)</p>
           <p className="text-3xl">
@@ -54,7 +54,7 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
             <MapWithNoSSR map={activity.map} />
           </div>
         )}
-      <div className="flex flex-col h-full gap-4 p-4 justify-evenly">
+      <div className="flex flex-col h-full p-4 gap-4 justify-evenly">
         <div className="flex flex-col items-center justify-start gap-2">
           <p className="text-lg">Average HeartRate (bpm)</p>
           <p className="text-3xl">{activity.average_heartrate || "--"}</p>
@@ -77,8 +77,8 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
         </div>
       </div>
     </div>
-    <div className="grid w-full grid-cols-3 place-items-center">
-      <div className="grid w-full grid-cols-3 col-span-2">
+    <div className="w-full grid grid-cols-3 place-items-center">
+      <div className="w-full grid grid-cols-3 col-span-2">
         <div className="flex flex-col items-center justify-start gap-2">
           <p className="text-lg">Cadence (spm)</p>
           <p className="text-3xl">{activity.average_cadence || "--"}</p>

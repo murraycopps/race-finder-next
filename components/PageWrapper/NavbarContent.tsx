@@ -26,23 +26,23 @@ const routes: Route[] = [
     route: "/tools",
     name: "Tools",
     children: [
-        {
-            route:  "/pacing",
-            name: "Pacing"
-        },
-        {
-            route: "/vdot",
-            name: "VDOT"
-        },
-        {
-            route: "/unusual",
-            name: "Unusual"
-        },
-        // {
-        //     route: "/relay",
-        //     name: "Relay"
-        // }
-    ]
+      {
+        route: "/pacing",
+        name: "Pacing",
+      },
+      {
+        route: "/vdot",
+        name: "VDOT",
+      },
+      {
+        route: "/unusual",
+        name: "Unusual",
+      },
+      // {
+      //     route: "/relay",
+      //     name: "Relay"
+      // }
+    ],
   },
 ];
 
@@ -55,8 +55,11 @@ const NavbarContent = forwardRef<HTMLDivElement, { open: boolean }>(
         }`}
         ref={ref}
       >
-        <Link href='/home' className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-base-500 transition-all-150">
-            Home
+        <Link
+          href="/home"
+          className="block w-full p-4 text-3xl text-center text-white hover:bg-faded-base-500 transition-all-150"
+        >
+          Home
         </Link>
         {routes.map((route, index) => (
           <NavbarDropdown key={index} route={route} close={() => {}} />

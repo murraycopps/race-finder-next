@@ -1,4 +1,4 @@
-type Route  = {
+type Route = {
     route: string;
     name: string;
     children?: Route[];

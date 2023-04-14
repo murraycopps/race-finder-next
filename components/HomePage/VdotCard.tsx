@@ -5,13 +5,13 @@ import TimeInput from "../TimeInput";
 import { vdotTable } from "@/scripts/vdot-table";
 
 export const DISTANCES = [
-    { name: 'Mile', 'value': "DISTANCE_MILE", distance: 1609 },
-    { name: '3000m', 'value': "DISTANCE_3k", distance: 3000 },
-    { name: '5000m', 'value': "DISTANCE_5k", distance: 5000 },
-    { name: '10,000m', 'value': "DISTANCE_10k", distance: 10000 },
-    { name: 'Half-Marathon', 'value': "DISTANCE_HALF", distance: 21097 },
-    { name: 'Marathon', 'value': "DISTANCE_MARATHON", distance: 42195 }
-  ];
+  { name: "Mile", value: "DISTANCE_MILE", distance: 1609 },
+  { name: "3000m", value: "DISTANCE_3k", distance: 3000 },
+  { name: "5000m", value: "DISTANCE_5k", distance: 5000 },
+  { name: "10,000m", value: "DISTANCE_10k", distance: 10000 },
+  { name: "Half-Marathon", value: "DISTANCE_HALF", distance: 21097 },
+  { name: "Marathon", value: "DISTANCE_MARATHON", distance: 42195 },
+];
 
 export default function PacingCard() {
   const [time, setTime] = useState(0);

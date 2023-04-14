@@ -43,7 +43,9 @@ export default function LoginPage({
         //     refresh_token: user.refreshToken,
         //   }
         // );
-        const { access_token, refresh_token, expires_at } = await refreshToken(user.refreshToken);
+        const { access_token, refresh_token, expires_at } = await refreshToken(
+          user.refreshToken
+        );
         axios.put(`${url}/api/users`, {
           _id: user._id,
           accessToken: access_token,
@@ -51,20 +53,34 @@ export default function LoginPage({
           expiresAt: expires_at,
         });
 
-        LoginData.Login(access_token, username, user.goals || [], user._id, expires_at, refresh_token);
+        LoginData.Login(
+          access_token,
+          username,
+          user.goals || [],
+          user._id,
+          expires_at,
+          refresh_token
+        );
 
         router.push("/strava/");
         return;
       }
       if (!user.accessToken) return;
-      LoginData.Login(user.accessToken, username, user.goals || [], user._id, user.expiresAt, user.refreshToken || "");
+      LoginData.Login(
+        user.accessToken,
+        username,
+        user.goals || [],
+        user._id,
+        user.expiresAt,
+        user.refreshToken || ""
+      );
 
       router.push("/strava/");
     } else {
       setErrorMessage("Incorrect username or password");
     }
   }
-  
+
   useEffect(() => {
     if (LoginData.isLoggedIn()) {
       router.push("/strava/");
@@ -76,7 +92,7 @@ export default function LoginPage({
       page="Login"
       className="flex flex-col items-center justify-center h-screen"
     >
-      <form className="flex flex-col px-4 py-6 rounded-lg shadow-lg gap-4 bg-faded-base-300 run-field-sizing">
+      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-base-300 run-field-sizing">
         <label className="block text-lg font-bold" htmlFor="username">
           Username:
         </label>

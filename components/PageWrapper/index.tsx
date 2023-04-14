@@ -8,13 +8,12 @@ interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function PageWrapper(props: PageWrapperProps) {
-    
-    useEffect(() => {
-      if(!LoginData.isLoggedIn()) {
-        LoginData.getStorage();
-        console.log("Logged in: " + LoginData.isLoggedIn());
-      }
-    }, []);
+  useEffect(() => {
+    if (!LoginData.isLoggedIn()) {
+      LoginData.getStorage();
+      console.log("Logged in: " + LoginData.isLoggedIn());
+    }
+  }, []);
 
   return (
     <>

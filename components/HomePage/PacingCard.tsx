@@ -19,13 +19,13 @@ export default function PacingCard() {
 
   useEffect(() => {
     if (dis > 0 && time > 0) {
-      setPace(time / dis * 1609.34);
+      setPace((time / dis) * 1609.34);
     }
   }, [dis, time]);
 
   return (
     <div className="flex flex-col items-center justify-between w-full h-full gap-8 px-12 py-4 bg-wisteria-600 card-slant">
-        <h3 className="text-2xl font-bold">Calculate Mile Pace</h3>
+      <h3 className="text-2xl font-bold">Calculate Mile Pace</h3>
       <Dropdown
         items={inputDistances}
         placeholder="Distance"
@@ -34,7 +34,12 @@ export default function PacingCard() {
       />
       <TimeInput time={time} setTime={setTime} />
       <p className="text-5xl font-bold">{outTime(pace)}</p>
-      <Link href="/tools/pacing" className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-faded-purple-600 hover:bg-faded-purple-700 rounded-3xl">See More</Link>
+      <Link
+        href="/tools/pacing"
+        className="w-2/3 px-8 py-4 text-2xl transition-all-300 bg-faded-purple-600 hover:bg-faded-purple-700 rounded-3xl"
+      >
+        See More
+      </Link>
     </div>
   );
 }

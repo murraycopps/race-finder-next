@@ -10,7 +10,7 @@ const DetailedLapsCard = ({
   label: string;
   close: () => void;
 }) => (
-  <div className="fixed z-20 flex flex-col items-center gap-4 p-8 overflow-y-auto justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
+  <div className="fixed z-20 flex flex-col items-center p-8 overflow-y-auto gap-4 justify-evenly inset-x-64 inset-y-16 bg-wisteria-700 rounded-3xl">
     <button
       className="absolute flex flex-col justify-between w-12 h-10 px-1 py-2 text-white rounded-full nav-button open top-4 left-4"
       onClick={close}
@@ -21,7 +21,7 @@ const DetailedLapsCard = ({
     </button>
 
     {laps.map((lap, i) => (
-      <div key={i} className="grid w-full grid-cols-5 place-items-center">
+      <div key={i} className="w-full grid grid-cols-5 place-items-center">
         <h3 className="text-xl font-bold">
           {label} {i + 1}
         </h3>
@@ -47,7 +47,7 @@ const LapStatsCard = ({
     name: string;
     des: string | number;
   }) => (
-    <div className="flex flex-col items-center justify-center w-full gap-2 border-l-2 border-white">
+    <div className="flex flex-col items-center justify-center w-full border-l-2 border-white gap-2">
       <h1 className="font-bold text-md">{name}</h1>
       <p className="text-lg">{des}</p>
     </div>

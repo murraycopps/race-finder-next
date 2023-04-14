@@ -12,10 +12,10 @@ const Graph = ({
     const numbers = nums.map((num) => num.moving_time);
     const max = Math.max(...numbers);
     return (
-      <div className="flex flex-col items-center justify-center w-full gap-6 p-8">
+      <div className="flex flex-col items-center justify-center w-full p-8 gap-6">
         <h2 className="text-4xl font-bold">{name}</h2>
   
-        <div className="flex items-end justify-center w-full h-64 gap-1 pt-4">
+        <div className="flex items-end justify-center w-full h-64 pt-4 gap-1">
           {numbers.map((num, i) => (
             <div
               key={i}

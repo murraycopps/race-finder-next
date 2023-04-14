@@ -6,7 +6,7 @@ export default function Tools() {
   return (
     <PageWrapper
       page="Tools"
-      className="flex flex-col items-center min-h-screen gap-8 p-4 font-sans text-white justify-evenly"
+      className="flex flex-col items-center min-h-screen p-4 font-sans text-white gap-8 justify-evenly"
     >
       <h1 className="w-full py-2 text-6xl text-center slanted bg-ronchi-600">Tools</h1>
       {/* <p className="w-3/4 text-2xl text-center">
@@ -52,7 +52,7 @@ export default function Tools() {
           description="Calculate your running pace on hills using change in elevation."
         />
       </div> */}
-      <div className="grid w-full grid-cols-2 gap-8 place-items-center">
+      <div className="w-full grid grid-cols-2 gap-8 place-items-center">
         <div className="flex flex-col items-center w-full h-full gap-4 justify-evenly">
           
         <ToolLink

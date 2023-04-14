@@ -20,8 +20,8 @@ const SegmentsCommentsCard = ({
       {(activity.best_efforts.length > 0 ||
         activity.segment_efforts.length > 0 ||
         comments.length > 0) && (
-        <div className="grid w-full grid-cols-2 gap-4 place-items-center">
-          <div className="flex flex-col items-center justify-center w-full gap-4 p-8">
+        <div className="w-full grid grid-cols-2 gap-4 place-items-center">
+          <div className="flex flex-col items-center justify-center w-full p-8 gap-4">
             {activity.best_efforts.length > 0 ? (
               <>
                 <h2 className="my-4 text-4xl font-bold">Best Efforts</h2>
@@ -85,14 +85,14 @@ const SegmentsCommentsCard = ({
               <h1 className="mt-8 mb-4 text-4xl font-bold">No Segment Efforts</h1>
             )}
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 p-8">
+          <div className="flex flex-col items-center justify-center p-8 gap-4">
             <h1 className="text-4xl font-bold">
               {comments.length > 0 ? "Comments" : "No Comments"}
             </h1>
             {comments.map((comment, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center justify-center gap-4 p-8"
+                className="flex flex-col items-center justify-center p-8 gap-4"
               >
                 <p className="text-xl">{comment.text}</p>
                 <p className="text-xl">
