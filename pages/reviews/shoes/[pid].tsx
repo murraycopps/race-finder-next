@@ -3,7 +3,6 @@ import {useRouter} from "next/router";
 import {shoes} from "@/scripts/shoes";
 import {Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
-import Stars from "@/components/Reviews/Stars";
 import Overview from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
 
@@ -32,7 +31,7 @@ export default function ShoesPage() {
                     <Overview item={shoe}/>
 
                     <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">Specs</h1>
-                    <div className="flex flex-col h-full col-span-2 p-4">
+                    <div className="flex flex-col h-full col-span-2 p-4 gap-4">
                         <div className="grid grid-cols-4 gap-12 p-4 text-xl font-medium text-center text-white">
                             
                             {/*<SpecsCard item={shoe}/>*/}
@@ -46,7 +45,7 @@ export default function ShoesPage() {
                             <SpecCard info={shoe.arch} title={"Support"}/>
                         </div>
                         <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">Review</h1>
-                        <ReviewTextCard article={shoe}/>
+                        <p className="text-center text-xl text-center text-white">{shoe.review}</p>
                     </div>
                 </div>
             ) : (

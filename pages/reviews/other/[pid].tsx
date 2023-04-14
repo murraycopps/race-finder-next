@@ -3,7 +3,6 @@ import {useRouter} from "next/router";
 import {other} from "@/scripts/other";
 import {Other} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
-import Stars from "@/components/Reviews/Stars";
 import PageCard from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
 import FeaturesCard from "@/components/Reviews/Featuers";
@@ -46,7 +45,7 @@ export default function ShoesPage() {
                             )}
                         </div>
                         <h1 className="flex justify-center w-full text-4xl slanted font-medium bg-ronchi-500 text-white p-4">Review</h1>
-                        <ReviewTextCard article={item}/>
+                        <p className="text-center text-xl text-center text-white">{item.review}</p>
                     </div>
                 </div>
             ) : (

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-export default function ShopLink({
+export default function LinkCard({
   type,
   image,
 }: {
