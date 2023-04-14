@@ -33,9 +33,9 @@ const items = ['All', 'Road', 'Trail', 'Track'];
 
 
     return (
-        <section className="flex content-center justify-center p-4 mx-auto bg-faded-purple-600">
+        <div className="flex content-center justify-center p-4 mx-auto ">
         <div className="flex content-center justify-center w-full max-w-3xl">
-            <label className="mr-4" htmlFor="surface">Filter by Surface</label>
+            <label className="mr-4 text-xl" htmlFor="surface">Filter by Surface</label>
            <Dropdown textColor="text-white" innerColor="bg-faded-purple-400" borderColor="border-faded-purple-400" outerColor="bg-faded-purple-400" hoverColor="hover:bg-faded-purple-500" items={items} setValue={(value)=> {
                setValue(value.toString());
            }} value={value}/>
@@ -49,6 +49,6 @@ const items = ['All', 'Road', 'Trail', 'Track'];
 
             {/*</select>*/}
         </div>
-    </section>
+    </div>
     );
 }

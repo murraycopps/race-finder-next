@@ -5,10 +5,8 @@ import {Other} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Stars from "@/components/Reviews/Stars";
 import PageCard from "@/components/Reviews/Overview";
-import SpecsCard from "@/components/Reviews/SpecsCard";
-import FeaturesCard from "@/components/Reviews/FeatuersCard";
-import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
-import IndSpecsCard from "@/components/Reviews/IndSpecCard";
+import SpecCard from "@/components/Reviews/SpecCard";
+import FeaturesCard from "@/components/Reviews/Featuers";
 
 
 export default function ShoesPage() {
@@ -39,8 +37,8 @@ export default function ShoesPage() {
                         <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
 
                             {/*<SpecsCard item={itemm}/>*/}
-                            <IndSpecsCard info={item.brand} title={"Brand"}/>
-                            <IndSpecsCard info={item.use} title={"Best Use"}/>
+                            <SpecCard info={item.brand} title={"Brand"}/>
+                            <SpecCard info={item.use} title={"Best Use"}/>
 
 
                             {item?.features && item.features.length > 0 && (

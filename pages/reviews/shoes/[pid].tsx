@@ -5,10 +5,7 @@ import {Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Stars from "@/components/Reviews/Stars";
 import Overview from "@/components/Reviews/Overview";
-import SpecsCard from "@/components/Reviews/SpecsCard";
-import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
-import IndSpecsCard from "@/components/Reviews/IndSpecCard";
-import SlantedTitle from "@/components/HomePage/SlantedTitle";
+import SpecCard from "@/components/Reviews/SpecCard";
 
 
 export default function ShoesPage() {
@@ -39,14 +36,14 @@ export default function ShoesPage() {
                         <div className="grid grid-cols-4 gap-12 p-4 text-xl font-medium text-center text-white">
                             
                             {/*<SpecsCard item={shoe}/>*/}
-                            <IndSpecsCard info={shoe.brand} title={"Brand"}/>
-                            <IndSpecsCard info={shoe.use} title={"Best Use"}/>
-                            <IndSpecsCard title={"Surface"} info={shoe.surface}/>
-                            <IndSpecsCard info={shoe.drop + " mm"} title={"Drop"}/>
-                            <IndSpecsCard info={shoe.weight + " g"} title={"Weight"}/>
-                            <IndSpecsCard info={shoe.heelStackHeight + " mm"} title={"Heel Stack Height"}/>
-                            <IndSpecsCard info={shoe.forefootStackHeight +" mm"} title={"Fore Foot Stack Height"}/>
-                            <IndSpecsCard info={shoe.arch} title={"Support"}/>
+                            <SpecCard info={shoe.brand} title={"Brand"}/>
+                            <SpecCard info={shoe.use} title={"Best Use"}/>
+                            <SpecCard title={"Surface"} info={shoe.surface}/>
+                            <SpecCard info={shoe.drop + " mm"} title={"Drop"}/>
+                            <SpecCard info={shoe.weight + " g"} title={"Weight"}/>
+                            <SpecCard info={shoe.heelStackHeight + " mm"} title={"Heel Stack Height"}/>
+                            <SpecCard info={shoe.forefootStackHeight +" mm"} title={"Fore Foot Stack Height"}/>
+                            <SpecCard info={shoe.arch} title={"Support"}/>
                         </div>
                         <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">Review</h1>
                         <ReviewTextCard article={shoe}/>

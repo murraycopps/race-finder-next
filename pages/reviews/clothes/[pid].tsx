@@ -7,8 +7,7 @@ import Stars from "@/components/Reviews/Stars";
 import FeaturesCard from "@/components/Reviews/FeatuersCard";
 import ReviewTextCard from "@/components/Reviews/ReviewTextCard";
 import PageCard from "@/components/Reviews/Overview";
-import SpecsCard from "@/components/Reviews/SpecsCard";
-import IndSpecsCard from "@/components/Reviews/IndSpecCard";
+import SpecCard from "@/components/Reviews/SpecCard";
 
 
 export default function ShoesPage() {
@@ -39,9 +38,8 @@ export default function ShoesPage() {
                         <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
 
                             {/*<SpecsCard item={article}/>*/}
-                            <IndSpecsCard info={article.brand} title={"Brand"}/>
-                            <IndSpecsCard info={article.use} title={"Best Use"}/>
-
+                            <SpecCard info={article.brand} title={"Brand"}/>
+                            <SpecCard info={article.use} title={"Best Use"}/>
 
                             {article?.features && article.features.length > 0 && (
                                 <FeaturesCard features={article.features} />

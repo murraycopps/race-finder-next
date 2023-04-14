@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Item } from "@/scripts/types";
 import ItemCard from "@/components/Reviews/ItemCard";
 import { clothes } from "@/scripts/clothes";
-import ReviewsRoutingCard from "@/components/Reviews/ReviewsRoutingCard";
+import ReviewsRoutingCard from "@/components/Reviews/LinkCard";
 import Image from "next/image";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
 export default function Reviews() {
