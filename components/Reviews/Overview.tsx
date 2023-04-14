@@ -26,6 +26,7 @@ export default function Overview({ item }: CardProps) {
           width="400"
           height="400"
           className="object-contain w-2/3 aspect-video"
+          priority
         />
 
         <div className="flex flex-col justify-center gap-6 p-4 text-lg font-medium text-center text-white">
