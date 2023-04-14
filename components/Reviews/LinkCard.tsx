@@ -21,6 +21,7 @@ export default function LinkCard({
         className="object-cover bg-slate-400 rounded-3xl aspect-square w-full filter blur-[0.4rem] brightness-[0.75]"
         width={500}
         height={500}
+        priority
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-4 text-white">
         <h2 className="text-5xl">{capitalize(type)}</h2>

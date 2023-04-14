@@ -4,13 +4,37 @@ import { useEffect, useState } from "react";
 import { Item } from "@/scripts/types";
 import ItemCard from "@/components/Reviews/ItemCard";
 import { clothes } from "@/scripts/clothes";
-import ReviewsRoutingCard from "@/components/Reviews/LinkCard";
+import LinkCard from "@/components/Reviews/LinkCard";
 import Image from "next/image";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
+const items = [
+  { item: shoes[0], des: "Best Racer" },
+  { item: shoes[1], des: "Best Track" },
+  { item: shoes[5], des: "Best Trail" },
+  { item: shoes[6], des: "Best Road" },
+  { item: clothes[4], des: "Best Bottom" },
+  { item: clothes[1], des: "Best Top" },
+  // {item: other[0], des: "Best Watch"},
+];
 export default function Reviews() {
-  const [randomItems, setRandomItems] = useState([] as Item[]);
+  // const [randomItems, setRandomItems] = useState([] as Item[]);
+  // useEffect(() => {
+  //   setRandomItems([...shoes, ...clothes].sort((a, b) => Math.random() - 0.5));
+  // }, []);
+  const [randomItems, setRandomItems] = useState(
+    [] as { item: Item; des: string }[]
+  );
+
   useEffect(() => {
-    setRandomItems([...shoes, ...clothes].sort((a, b) => Math.random() - 0.5));
+    setRandomItems(items.sort(() => Math.random() - 0.5));
+    // make an interval that shifts the list
+    // const interval = setInterval(() => {
+    //     setRandomItems((prev) => {
+    //         const newItems = [...prev];
+    //         newItems.push(newItems.shift() as { item: Item; des: string });
+    //         return newItems;
+    //     });
+    // }, 5000);
   }, []);
 
   return (
@@ -31,12 +55,12 @@ export default function Reviews() {
       {/*</div>*/}
 
       <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        <ReviewsRoutingCard type="shoes" image="/review-cards/shoe.webp" />
-        <ReviewsRoutingCard
+        <LinkCard type="shoes" image="/review-cards/shoe.webp" />
+        <LinkCard
           type="clothes"
           image="/review-cards/clothesnew.webp"
         />
-        <ReviewsRoutingCard type="other" image="/review-cards/gearnew.png" />
+        <LinkCard type="other" image="/review-cards/gearnew.png" />
       </div>
       <h1 className="w-full p-2 text-6xl text-center text-white slanted bg-ronchi-600">
         Reviews
@@ -44,8 +68,8 @@ export default function Reviews() {
 
       {/* <SlantedTitle title={" "}/> */}
       <div className="grid justify-start w-full grid-cols-1 gap-4 px-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-        {randomItems.slice(0, 8).map((item, i) => {
-          return <ItemCard item={item} key={i} />;
+        {randomItems.slice(0, 4).map((item, i) => {
+          return <ItemCard item={item.item} des={item.des} key={i} />;
         })}
       </div>
     </PageWrapper>
