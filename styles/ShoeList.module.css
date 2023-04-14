@@ -28,6 +28,7 @@
 grid-template-columns: repeat(3, calc(100% / 3));
 width: 300%;
 /* transform: translateX(calc(-100% / 3 - 1rem)); */
+transform: translateX(-1rem);
 
 
 }
@@ -41,19 +42,19 @@ width: 300%;
 
 @keyframes left {
     0% {
-        transform: 0;
+        transform: translateX(-1rem);
     }
     100% {
-        transform: translateX(calc(100% / 3 + 1rem));
+        transform: translateX(calc(100% / 3));
     }
 }
 
 @keyframes right {
     0% {
-        transform: 0;
+        transform: translateX(-1rem);
     }
     100% {
-        transform: translateX(calc(-100% / 3 - 1rem));
+        transform: translateX(calc(-100% / 3 - 2rem));
     }
 }
 .shoe {
@@ -61,7 +62,6 @@ width: 300%;
     width: 100%;
     position: relative;
     padding-left: 3.5rem;
-    padding-right: 1rem;
 }
 .shoe::before {
     content: '';

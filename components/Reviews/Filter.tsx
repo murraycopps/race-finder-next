@@ -2,6 +2,7 @@ import { shoes } from '@/scripts/shoes';
 import {Shoe} from "@/scripts/types";
 import {useEffect, useState} from "react";
 import Dropdown from "@/components/Dropdown";
+import FilterDropdown from './FilterDropdown';
 
 export default function Filter ({setFilteredShoes} : {setFilteredShoes: (shoes: Shoe[]) => void }) {
 const [value, setValue] = useState('All');
@@ -36,7 +37,7 @@ const items = ['All', 'Road', 'Trail', 'Track'];
         <div className="flex content-center justify-center p-4 mx-auto ">
         <div className="flex content-center justify-center w-full max-w-3xl">
             <label className="mr-4 text-xl" htmlFor="surface">Filter by Surface</label>
-           <Dropdown textColor="text-white" innerColor="bg-faded-purple-400" borderColor="border-faded-purple-400" outerColor="bg-faded-purple-400" hoverColor="hover:bg-faded-purple-500" items={items} setValue={(value)=> {
+           <FilterDropdown items={items} setValue={(value)=> {
                setValue(value.toString());
            }} value={value}/>
 

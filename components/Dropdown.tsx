@@ -12,11 +12,7 @@ type DropdownProps = {
   value?: string | number;
   placeholder?: string;
   setValue: (value: string | number) => void;
-  outerColor?: string;
-  innerColor?: string;
-  hoverColor?: string;
-    borderColor?: string;
-    textColor?: string;
+  
 };
 
 export default function Dropdown({
@@ -24,11 +20,7 @@ export default function Dropdown({
   value,
   setValue,
   placeholder,
-    outerColor = "bg-gray-50",
-    innerColor = "bg-gray-500",
-    hoverColor = "hover:bg-gray-600",
-    borderColor = "border-gray-500",
-    textColor = "text-black",
+    
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
@@ -71,11 +63,11 @@ export default function Dropdown({
 
   return (
     <div
-      className="relative flex flex-col items-center w-full"
+      className="relative flex flex-col items-center w-full text-black"
       ref={dropdownRef}
     >
       <button
-        className={`relative w-full text-3xl text-left pl-8 p-4 ${outerColor} ${textColor} ${
+        className={`relative w-full text-3xl bg-gray-50 text-left pl-8 p-4 ${
           open
             ? "rounded-b-none dropdown-rounded"
             : "rounded-full transition-delayed"
@@ -108,13 +100,13 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 flex text-3xl flex-col max-h-96 overflow-y-auto items-center transition-all-300 ${
+        className={`absolute z-50 border-gray-500 text-white bg-gray-500 flex text-3xl flex-col max-h-96 overflow-y-auto items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
-        } w-full px-4 ${innerColor} top-full rounded-b-2xl pb-2 scrollbar-gray-800 ${borderColor} border-2 scrollbar-m-b-2`}
+        } w-full px-4  top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-2 scrollbar-m-b-2`}
       >
         {items.map((item, index) => (
           <button
-            className={`w-full px-4 py-1 transition-all-300 rounded-md ${hoverColor}`}
+            className="w-full px-4 py-1 rounded-md transition-all-300 hover:bg-gray-600"
             key={index}
             onClick={() => {
               if (typeof item !== "object") {
