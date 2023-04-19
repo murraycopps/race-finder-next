@@ -46,7 +46,7 @@ export default function HomePage() {
       page="Home"
       className="flex flex-col items-center min-h-screen p-16 text-center gap-16"
     >
-      <h1 className="text-4xl font-bold">Welcome to my website!</h1>
+      <h1 className="text-4xl font-bold">Runner's Hub!</h1>
       <div className="w-full grid grid-cols-1 gap-8 sm:grid-cols-3">
         <LinkCard
           title="Strava"
