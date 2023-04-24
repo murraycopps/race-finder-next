@@ -5,6 +5,7 @@ import { Shoe } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Overview from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
+import CreateReview from "@/components/Reviews/CreateReview";
 
 export default function ShoesPage() {
   const router = useRouter();
@@ -56,6 +57,7 @@ export default function ShoesPage() {
             </h1>
             <p className="text-xl text-center text-white">{shoe.review}</p>
           </div>
+          <CreateReview />
         </div>
       ) : (
         <p>Sorry, no shoe found</p>

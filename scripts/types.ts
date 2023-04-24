@@ -106,4 +106,13 @@ type Quote = {
     img: string;
 }
 
-export type { Shoe, User, Goal, Clothes, Item, Other, Quote }
+type Review = {
+    title: string;
+    author: string;
+    email: string;
+    rating: number;
+    review: string;
+
+}
+
+export type { Shoe, User, Goal, Clothes, Item, Other, Quote, Review }
