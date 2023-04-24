@@ -29,8 +29,16 @@ html {
 .scrollbar-gray-800::-webkit-scrollbar-thumb {
   background-color: #1f2937;
 }
+
+.scrollbar-light-gray::-webkit-scrollbar-thumb {
+  background-color: #E4E4E7;
+}
 .scrollbar-m-b-2::-webkit-scrollbar-track {
   margin-bottom: 0.5rem;
+}
+.scrollbar-m-y-4::-webkit-scrollbar-track {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card-width {

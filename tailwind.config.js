@@ -30,7 +30,7 @@ module.exports = {
                 '18': '4.5rem',
             },
             minHeight: {
-                '12' : '3rem',
+                '12': '3rem',
                 '16': '4rem',
                 '20': '5rem',
             },
@@ -134,6 +134,10 @@ module.exports = {
                 'centered-lg': '0 0 16px var(--tw-shadow-color)',
 
             },
+            spacing: {
+                '68': '17rem',
+            }
+           
         }
 
     },
