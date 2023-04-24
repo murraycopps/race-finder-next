@@ -33,7 +33,7 @@ export default function IndexPage() {
       <Image
         src="/landing-images/inner-blob.svg"
         alt="inner-blob"
-        className="absolute right-0 w-3/4 sm:w-2/3 md:w-7/12 lg:w-1/2 bottom-16 inner-blob"
+        className="absolute right-0 w-4/5 sm:w-2/3 md:w-7/12 lg:w-1/2 bottom-16 inner-blob"
         width={1000}
         height={1000}
         priority
@@ -46,7 +46,7 @@ export default function IndexPage() {
         height={1000}
         priority
       />
-      <div className="relative z-10 flex flex-col items-center justify-center w-2/3 h-full p-4 col-span-2 gap-16 shadow-base-800">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full col-span-2 gap-16 p-4 sm:w-3/4 md:w-2/3 shadow-base-800">
         <h1 className="text-8xl text-shadow-centered-lg">Runner&#39;s Hub</h1>
         <p className="w-3/4 text-3xl text-shadow-centered-sm">
           Run smarter with our platform! Connect with Strava, calculate splits,
