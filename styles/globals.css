@@ -349,3 +349,8 @@ html {
   aspect-ratio: 2/1;
 }
 
+
+.controls-width-clamp{
+  width: clamp(30rem, 50vw, 50rem);
+  max-width: 100%;
+}

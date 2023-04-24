@@ -9,13 +9,13 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen p-10 overflow-y-auto gap-4"
+      className="flex flex-col items-center justify-start w-screen h-screen gap-4 p-10 overflow-y-auto"
     >
       <h1 className="w-full p-4 mt-8 text-4xl font-medium text-center text-white slanted bg-ronchi-600">
         Shoe Reviews
       </h1>
       <Filter setFilteredShoes={setFilteredShoes} />
-      <div className="justify-start w-full p-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {filteredShoes.map((shoe, i) => (
           <ItemCard item={shoe} key={i} />
         ))}
