@@ -44,10 +44,10 @@ export default function HomePage() {
   return (
     <PageWrapper
       page="Home"
-      className="flex flex-col items-center min-h-screen gap-16 p-16 text-center"
+      className="flex flex-col items-center min-h-screen gap-16 p-8 md:p-16 text-center"
     >
       {/* <h1 className="text-4xl font-bold">Runner's Hub!</h1> */}
-      <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
+      <div className="grid w-full grid-cols-1 gap-4 md:gap-8 sm:grid-cols-3 px-6">
         <LinkCard
           title="Strava"
           description="Connect to Strava and view your stats"
@@ -75,10 +75,8 @@ export default function HomePage() {
         </div>
         <div className="flex flex-col w-full gap-4 place-items-center lg:hidden">
           <QuoteCard/>
-          <div className="flex flex-row flex-wrap items-center justify-center w-full gap-4">
             <ShoeList shoes={shoeslistrace} />
             <ShoeList shoes={shoeslisttrain} />
-          </div>
         </div>
       <SlantedTitle title="Reviews" />
       <div className="grid w-full grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-4">
