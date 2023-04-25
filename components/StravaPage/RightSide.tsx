@@ -30,7 +30,7 @@ const RightSide = ({ data }: { data: Athlete }) => {
     return (
         <div
             ref={ref}
-          className={`absolute h-196 right-0 flex flex-col items-center justify-center strava-right ${
+          className={`absolute h-196 right-0 hidden lg:flex flex-col items-center justify-center strava-right ${
             wide ? "w-128 px-16" : "w-64 pl-12 pr-4"
           } gap-6 py-8 rounded-bl-3xl h-192 bg-faded-base-500 transition-all-300 `}
         >

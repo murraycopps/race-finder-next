@@ -1,11 +1,9 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { outTime } from "@/scripts";
-import LoginData from "@/scripts/LoginData";
+import {  useState } from "react";
 import Image from "next/image";
 import IntensityChart from "@/components/StravaPage/IntensityChart";
-import IntensityCard from "../IntensityCard";
 import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
+import CollapsibleShoeList from "./CollapsibleShoeList";
+import StatsDisplay from "./StatsDisplay";
 
 export default function ProfileCard({
   data,
@@ -16,31 +14,23 @@ export default function ProfileCard({
   stats: Stats;
   activities: Run[];
 }) {
-  const [showYear, setShowYear] = useState(false);
-  const [usedStats, setUsedStats] = useState<Stats["all_run_totals"] | Stats["ytd_run_totals"]>();
-
-  const router = useRouter();
-  useEffect(() => {
-    if (!stats) return;
-    setUsedStats(showYear ? stats.ytd_run_totals : stats.all_run_totals);
-  }, [stats, showYear]);
 
   return (
-    <div className="z-10 w-full p-8 grid grid-cols-2 place-items-center bg-faded-base-500">
+    <div className="z-10 flex flex-col w-full grid-cols-2 gap-8 p-8 lg:gap-0 lg:grid place-items-center bg-faded-base-500">
       <div className="flex flex-row items-center justify-center gap-8">
         <Image
           src={data.profile}
-          className="object-cover rounded-full sm:w-36 sm:h-36 w-28 h-28"
+          className="object-cover w-32 h-32 rounded-full sm:w-36 sm:h-36"
           alt="Profile Picture"
           width={192}
           height={192}
           priority
         />
-        <div className="flex flex-col">
-          <h1 className="w-full text-2xl font-bold text-center sm:text-4xl sm:mb-4">
+        <div className="flex flex-col gap-2 sm:gap-4">
+          <h1 className="w-full text-3xl font-bold text-center sm:text-4xl">
             {data.firstname} {data.lastname}
           </h1>
-          <div className="flex flex-row justify-center text-center gap-4 sm:gap-8">
+          <div className="flex flex-row gap-4 text-center justify-evenly sm:gap-8">
             <div>
               Followers:
               <p className="text-2xl font-bold">{data.follower_count}</p>
@@ -52,7 +42,13 @@ export default function ProfileCard({
           </div>
         </div>
       </div>
-      <IntensityChart activities={activities} />
+      <div className="hidden w-full h-full lg:grid place-items-center">
+        <IntensityChart activities={activities} />
+      </div>
+      <div className="flex flex-col items-center w-full gap-8 lg:hidden">
+        <CollapsibleShoeList data={data} />
+        <StatsDisplay stats={stats} />
+      </div>
     </div>
   );
 }

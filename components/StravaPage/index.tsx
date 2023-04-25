@@ -84,7 +84,7 @@ export default function StravaPage() {
   return (
     <div className="flex flex-col items-center justify-start w-screen h-screen overflow-y-scroll">
       <ProfileCard data={data} stats={stats} activities={activities} />
-      <div className="relative flex flex-row w-full px-64">
+      <div className="relative flex flex-row w-full lg:px-64">
         <LeftSide stats={stats} />
         <RunList activities={activities} />
         <RightSide data={data} />
