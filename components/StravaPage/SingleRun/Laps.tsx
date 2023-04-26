@@ -1,5 +1,5 @@
 import { DetailedRun, Stream } from "@/scripts/singleRunTypes";
-import HeartRateStream from "../HeartRateStream";
+import StreamCard from "./StreamCard";
 import DetailedLapsCard from "./DetailedLapsCard";
 import Graph from "./Graph";
 

@@ -1,5 +1,5 @@
 import { DetailedRun, Stream } from "@/scripts/singleRunTypes";
-import HRLineGraph from "./HRLineGraph";
+import HRLineGraph from "./StreamLineGraph";
 
 type Names = {
   [key: string]: string;
@@ -26,7 +26,7 @@ const reduceData = (data: number[]): number[] => {
   return reduceData(newData);
 };
 
-export default function HeartRateStream({
+export default function StreamCard({
   stream,
   activity,
 }: {

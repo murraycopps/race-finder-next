@@ -1,7 +1,7 @@
 import { outTime } from "@/scripts";
 import { DetailedRun } from "@/scripts/singleRunTypes";
 
-const StatsCards = ({ activity }: { activity: DetailedRun }) => (
+const StatsCards = ({ activity, streamTypes = ["", ""] }: { activity: DetailedRun, streamTypes?: [string, string] }) => (
     <>
       <StatsCard
         name="Distance (mi)"
@@ -18,11 +18,15 @@ const StatsCards = ({ activity }: { activity: DetailedRun }) => (
         name="Elapsed Time"
         des={outTime(activity.elapsed_time) || "--"}
       />
-      <StatsCard
-        name="Average Heart Rate"
-        des={activity.average_heartrate || "--"}
-      />
-      <StatsCard name="Max Heart Rate" des={activity.max_heartrate || "--"} />
+        {streamTypes[0] !== "heartrate" && (
+           <>
+               <StatsCard
+                   name="Average Heart Rate"
+                   des={activity.average_heartrate || "--"}
+               />
+               <StatsCard name="Max Heart Rate" des={activity.max_heartrate || "--"} />
+           </>
+        )}
       <StatsCard
         name="Max Speed (mph)"
         des={Math.round(activity.max_speed * 2.23694 * 100) / 100 || "--"}

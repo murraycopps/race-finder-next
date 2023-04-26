@@ -1,5 +1,5 @@
 import PageWrapper from "@/components/PageWrapper";
-import HeartRateStream from "@/components/StravaPage/HeartRateStream";
+import StreamCard from "@/components/StravaPage/SingleRun/StreamCard";
 import Laps from "@/components/StravaPage/SingleRun/Laps";
 import SegmentsCommentsCard from "@/components/StravaPage/SingleRun/SegmentCommentCard";
 import StatsCards from "@/components/StravaPage/SingleRun/StatsCards";
@@ -152,7 +152,7 @@ export default function ActivityPage() {
         </div>
       </div>
       <div className="grid w-full grid-cols-4 gap-4 px-16 place-items-center">
-        <StatsCards activity={activity} />
+        <StatsCards activity={activity} streamTypes={[streams.map(str => str.type)[0], streams.map(str => str.type)[1]]} />
 
         <div className="flex flex-col items-center justify-center gap-4 p-8">
           <h1 className="text-xl font-bold">Shoes</h1>
@@ -171,8 +171,8 @@ export default function ActivityPage() {
       />
        {streams.length === 2 && (
         <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
-          <HeartRateStream stream={streams[0]} activity={activity} />
-          <HeartRateStream stream={streams[1]} activity={activity}/>
+          <StreamCard stream={streams[0]} activity={activity} />
+          <StreamCard stream={streams[1]} activity={activity}/>
         </div>
       )}
 

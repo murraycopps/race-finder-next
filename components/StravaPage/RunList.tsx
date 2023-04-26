@@ -1,7 +1,7 @@
 import { Run } from "@/scripts/stravaTypes";
 
 import { useEffect, useState } from "react";
-import HeartRateStream from "./HeartRateStream";
+import StreamCard from "./SingleRun/StreamCard";
 import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 
