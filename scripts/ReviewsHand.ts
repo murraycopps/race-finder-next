@@ -9,9 +9,8 @@ export default class ReviewsHand {
         // }
         this.hasReview = true;
         const reviews = await fetch('/api/reviews');
-        console.log(reviews);
         const reviewsJson = await reviews.json();
-        return reviewsJson;
+        return reviewsJson.data
     }
 
     static async addReview(review: Review) {
