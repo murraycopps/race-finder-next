@@ -121,11 +121,11 @@ export default function ActivityPage() {
   return (
     <PageWrapper
       page={activity?.name || "Activity"}
-      className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto text-center"
+      className="flex flex-col items-center justify-start h-screen gap-16 p-8 overflow-y-auto text-center sm:p-16"
     >
       <div className="flex items-center w-full justify-evenly">
-        <h1 className="text-5xl font-bold">{activity?.name}</h1>
-        <p className="text-2xl">
+        <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{activity?.name}</h1>
+        <p className="text-xl md:text-2xl">
           {new Date(activity.start_date_local).toLocaleDateString() +
             " " +
             new Date(activity.start_date_local).toLocaleTimeString([], {
@@ -136,13 +136,13 @@ export default function ActivityPage() {
       </div>
       {activity.map.summary_polyline !== null &&
         activity.map.summary_polyline !== "" && (
-          <div className="w-full px-48">
+          <div className="w-full md:px-16 lg:px-36">
             <div className="w-full overflow-hidden aspect-video rounded-3xl">
               <MapWithNoSSR map={activity.map} detailed />
             </div>
           </div>
         )}
-      <div className="flex flex-row items-start justify-start w-full gap-8 px-48">
+      <div className="flex flex-row items-start justify-start w-full gap-4 sm:gap-8 md:px-16 lg:px-36">
         <p className="p-4 text-lg text-left text-black bg-gray-300 rounded-2xl grow min-h-20">
           {activity.description || "No Description"}
         </p>
@@ -168,7 +168,7 @@ export default function ActivityPage() {
         setDetailedType={setDetailedType}
       />
       {streams.length === 2 && (
-        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+        <div className="grid w-full gap-4 p-4 md:grid-cols-2 place-items-center">
           <StreamCard stream={streams[0]} activity={activity} />
           <StreamCard stream={streams[1]} activity={activity} />
         </div>

@@ -19,15 +19,15 @@ const Laps = ({
     <>
       {(activity.laps ||
         (activity.splits_standard && activity.splits_metric)) && (
-        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+        <div className="grid w-full gap-4 md:p-4 lg:grid-cols-2 place-items-center">
           <div className="relative w-full h-full">
             {activity.splits_standard && activity.splits_metric ? (
               <>
                 <button
-                  className="absolute z-10 p-2 text-white rounded-full bg-lavender-600 hover:bg-lavender-700 top-8 right-8"
+                  className="absolute top-0 right-0 z-10 w-12 h-12 text-2xl text-white rounded-full aspect-square bg-lavender-600 hover:bg-lavender-700 md:top-8 md:right-8"
                   onClick={() => setImperialSplit(!imperialSplit)}
                 >
-                  Switch to {imperialSplit ? "mi" : "km"}
+                  {imperialSplit ? "mi" : "km"}
                 </button>
                 <Graph
                   name={imperialSplit ? "Splits (km)" : "Splits (mi)"}

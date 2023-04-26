@@ -15,7 +15,7 @@ const StatsCards = ({
   activity: DetailedRun;
   streamTypes?: [string, string];
 }) => (
-  <div className="grid w-full grid-cols-4 gap-4 px-16 place-items-center">
+  <div className="grid w-full grid-cols-2 gap-4 lg:px-16 sm:grid-cols-4 place-items-center">
     <StatsCard
       name="Distance (mi)"
       des={Math.round((activity.distance / 1609.34) * 100) / 100 || "--"}
