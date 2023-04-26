@@ -30,12 +30,12 @@ import {
           // display: false,
         },
         grid: {
-          // display: false,
+          display: false,
         },
       },
       x: {
         grid: {
-          // display: false,
+          display: false,
         },
         ticks: {
           display: false,

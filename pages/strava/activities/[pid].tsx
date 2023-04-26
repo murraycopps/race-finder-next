@@ -1,4 +1,5 @@
 import PageWrapper from "@/components/PageWrapper";
+import HeartRateStream from "@/components/StravaPage/HeartRateStream";
 import Laps from "@/components/StravaPage/SingleRun/Laps";
 import SegmentsCommentsCard from "@/components/StravaPage/SingleRun/SegmentCommentCard";
 import StatsCards from "@/components/StravaPage/SingleRun/StatsCards";
@@ -120,7 +121,7 @@ export default function ActivityPage() {
   return (
     <PageWrapper
       page={activity?.name || "Activity"}
-      className="flex flex-col items-center justify-start h-screen p-16 overflow-y-auto text-center gap-16"
+      className="flex flex-col items-center justify-start h-screen gap-16 p-16 overflow-y-auto text-center"
     >
       <div className="flex items-center w-full justify-evenly">
         <h1 className="text-5xl font-bold">{activity?.name}</h1>
@@ -141,7 +142,7 @@ export default function ActivityPage() {
             </div>
           </div>
         )}
-      <div className="flex flex-row items-start justify-start w-full px-48 gap-8">
+      <div className="flex flex-row items-start justify-start w-full gap-8 px-48">
         <p className="p-4 text-lg text-left text-black bg-gray-300 rounded-2xl grow min-h-20">
           {activity.description || "No Description"}
         </p>
@@ -150,10 +151,10 @@ export default function ActivityPage() {
           <p className="text-xs">Kudos</p>
         </div>
       </div>
-      <div className="w-full px-16 grid grid-cols-4 gap-4 place-items-center">
+      <div className="grid w-full grid-cols-4 gap-4 px-16 place-items-center">
         <StatsCards activity={activity} />
 
-        <div className="flex flex-col items-center justify-center p-8 gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
           <h1 className="text-xl font-bold">Shoes</h1>
           <p className="text-2xl">
             {activity.gear.name.replace(activity.gear.nickname || "", "") ||
@@ -167,8 +168,13 @@ export default function ActivityPage() {
         setImperialSplit={setImperialSplit}
         detailedType={detailedType}
         setDetailedType={setDetailedType}
-        streams={streams}
       />
+       {streams.length === 2 && (
+        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
+          <HeartRateStream stream={streams[0]} activity={activity} />
+          <HeartRateStream stream={streams[1]} activity={activity}/>
+        </div>
+      )}
 
       <SegmentsCommentsCard
         activity={activity}
@@ -181,3 +187,4 @@ export default function ActivityPage() {
     </PageWrapper>
   );
 }
+

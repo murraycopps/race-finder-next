@@ -9,19 +9,17 @@ const Laps = ({
     setImperialSplit,
     detailedType,
     setDetailedType,
-    streams
   }: {
     activity: DetailedRun;
     imperialSplit: boolean;
     setImperialSplit: (imperialSplit: boolean) => void;
     detailedType: string;
     setDetailedType: (detailedType: "laps" | "splits" | "none") => void;
-    streams: Stream[];
   }) => (
     <>
       {(activity.laps ||
         (activity.splits_standard && activity.splits_metric)) && (
-        <div className="w-full p-4 grid grid-cols-2 gap-4 place-items-center">
+        <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
           <div className="relative w-full h-full">
             {activity.splits_standard && activity.splits_metric ? (
               <>
@@ -83,12 +81,6 @@ const Laps = ({
             close={() => setDetailedType("none")}
           />
         </>
-      )}
-      {streams.length === 2 && (
-        <div className="w-full p-4 grid grid-cols-2 gap-4 place-items-center">
-          <HeartRateStream stream={streams[0]} />
-          <HeartRateStream stream={streams[1]} />
-        </div>
       )}
     </>
   );
