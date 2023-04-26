@@ -151,17 +151,15 @@ export default function ActivityPage() {
           <p className="text-xs">Kudos</p>
         </div>
       </div>
-      <div className="grid w-full grid-cols-4 gap-4 px-16 place-items-center">
-        <StatsCards activity={activity} streamTypes={[streams.map(str => str.type)[0], streams.map(str => str.type)[1]]} />
 
-        <div className="flex flex-col items-center justify-center gap-4 p-8">
-          <h1 className="text-xl font-bold">Shoes</h1>
-          <p className="text-2xl">
-            {activity.gear.name.replace(activity.gear.nickname || "", "") ||
-              "--"}
-          </p>
-        </div>
-      </div>
+      <StatsCards
+        activity={activity}
+        streamTypes={[
+          streams.map((str) => str.type)[0],
+          streams.map((str) => str.type)[1],
+        ]}
+      />
+
       <Laps
         activity={activity}
         imperialSplit={imperialSplit}
@@ -169,10 +167,10 @@ export default function ActivityPage() {
         detailedType={detailedType}
         setDetailedType={setDetailedType}
       />
-       {streams.length === 2 && (
+      {streams.length === 2 && (
         <div className="grid w-full grid-cols-2 gap-4 p-4 place-items-center">
           <StreamCard stream={streams[0]} activity={activity} />
-          <StreamCard stream={streams[1]} activity={activity}/>
+          <StreamCard stream={streams[1]} activity={activity} />
         </div>
       )}
 
@@ -187,4 +185,3 @@ export default function ActivityPage() {
     </PageWrapper>
   );
 }
-
