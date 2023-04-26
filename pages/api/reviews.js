@@ -5,7 +5,7 @@ import clientPromise from "../../lib/mongodb";
 
 export default async function handler(req, res) {
   const client = await clientPromise;
-  const db = client.db("review");
+  const db = client.db("reviews");
 
   const bodyObject = typeof req.body === "string" && req.body ? JSON.parse(req.body) : req.body;
 
@@ -17,7 +17,9 @@ export default async function handler(req, res) {
       res.json({ status: 200, data: results });
       break;
     case "GET":
+      console.log("get");
       const allPosts = await db.collection("reviews").find({}).toArray();
+      console.log(allPosts);
       res.json({ status: 200, data: allPosts });
       break;
     case "DELETE":

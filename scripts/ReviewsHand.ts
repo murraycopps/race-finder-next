@@ -4,16 +4,17 @@ export default class ReviewsHand {
     static hasReview = false;
 
     static async getReviews() {
-        if(this.hasReview) {
-            return [];
-        }
+        // if(this.hasReview) {
+        //     return [];
+        // }
         this.hasReview = true;
         const reviews = await fetch('/api/reviews');
+        console.log(reviews);
         const reviewsJson = await reviews.json();
         return reviewsJson;
     }
 
-    static async postReview(review: Review) {
+    static async addReview(review: Review) {
 const response = await fetch('/api/reviews', {
             method: 'POST',
             headers: {

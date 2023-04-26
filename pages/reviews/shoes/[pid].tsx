@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { shoes } from "@/scripts/shoes";
-import { Shoe } from "@/scripts/types";
+import {Review, Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Overview from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
 import CreateReview from "@/components/Reviews/CreateReview";
+import ReviewsHand from "@/scripts/ReviewsHand";
 
 export default function ShoesPage() {
+  const [reviews, setReviews] = useState<Review[]>([]);
+
   const router = useRouter();
   const { pid } = router.query;
   const [shoe, setShoe] = useState(null as Shoe | null);
+
+  useEffect (() => {
+    ReviewsHand.getReviews().then((res) => {
+      setReviews(res);
+    });
+    }, []);
+
   useEffect(() => {
     if (pid) {
       const shoe = shoes.find((shoe) => shoe.id == pid);
@@ -57,6 +67,22 @@ export default function ShoesPage() {
             </h1>
             <p className="text-xl text-center text-white">{shoe.review}</p>
           </div>
+          {reviews.length > 0 ? (
+            <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+                <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+                    Reviews
+                </h1>
+                {reviews.map((review) => (
+                    <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+                        <p className="text-xl text-center text-white">{review.review}</p>
+                    </div>
+                ))}
+            </div>
+            ) : (
+                <p className="text-xl text-center text-white">No reviews yet</p>
+            )}
+
+
           <CreateReview />
         </div>
       ) : (
