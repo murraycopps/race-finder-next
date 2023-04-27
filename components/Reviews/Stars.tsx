@@ -1,9 +1,9 @@
 export default function Stars({
   number,
-  total,
+  total = 5,
 }: {
   number: number;
-  total: number;
+  total?: number;
 }) {
   return (
     <span>

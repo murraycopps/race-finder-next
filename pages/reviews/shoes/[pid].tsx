@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { shoes } from "@/scripts/shoes";
+import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import {shoes} from "@/scripts/shoes";
 import {Review, Shoe} from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import Overview from "@/components/Reviews/Overview";
@@ -45,50 +45,57 @@ export default function ShoesPage() {
           <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
             Specs
           </h1>
-          <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+          <div className="flex flex-col p-4 col-span-2 gap-4">
             <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
               {/*<SpecsCard item={shoe}/>*/}
-              <SpecCard info={shoe.brand} title={"Brand"} />
-              <SpecCard info={shoe.use} title={"Best Use"} />
-              <SpecCard title={"Surface"} info={shoe.surface} />
-              <SpecCard info={shoe.drop + " mm"} title={"Drop"} />
-              <SpecCard info={shoe.weight + " g"} title={"Weight"} />
+              <SpecCard info={shoe.brand} title={"Brand"}/>
+              <SpecCard info={shoe.use} title={"Best Use"}/>
+              <SpecCard title={"Surface"} info={shoe.surface}/>
+              <SpecCard info={shoe.drop + " mm"} title={"Drop"}/>
+              <SpecCard info={shoe.weight + " g"} title={"Weight"}/>
               <SpecCard
-                info={shoe.heelStackHeight + " mm"}
-                title={"Heel Stack Height"}
+                  info={shoe.heelStackHeight + " mm"}
+                  title={"Heel Stack Height"}
               />
               <SpecCard
-                info={shoe.forefootStackHeight + " mm"}
-                title={"Fore Foot Stack Height"}
+                  info={shoe.forefootStackHeight + " mm"}
+                  title={"Fore Foot Stack Height"}
               />
-              <SpecCard info={shoe.arch} title={"Support"} />
-            </div>
-            <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
-              Review
-            </h1>
-            <p className="text-xl text-center text-white">{shoe.review}</p>
-          </div>
-          {reviews.length > 0 ? (
-            <div className="flex flex-col h-full p-4 col-span-2 gap-4">
-                <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
-                   Costomer Reviews
-                </h1>
+              <SpecCard info={shoe.arch} title={"Support"}/>
 
-                {reviews.map((review) => (
-                    <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+
+            </div>
+            <div className="grid grid-col-2 ">
+                <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+              <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+                Review
+              </h1>
+              <p className="text-xl text-center text-white">{shoe.review}</p>
+            </div>
+            {reviews.length > 0 ? (
+                <div className="flex flex-col h-full p-4 col-span-2 gap-4">
+                  <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+                    Costomer Reviews
+                  </h1>
+
+                  {reviews.map((review, i) => (
+                      <div key={i} className="flex flex-col h-full p-4 col-span-2 gap-4">
                         <p className="text-xl text-center text-white">{review.author}</p>
-                        <Stars>{review.rating}</Stars>
+                        <Stars number={review.rating}/>
                         <p className="text-xl text-center text-white">{review.title}</p>
                         <p className="text-xl text-center text-white">{review.review}</p>
-                    </div>
-                ))}
-            </div>
+                      </div>
+                  ))}
+                </div>
             ) : (
                 <p className="text-xl text-center text-white">No reviews yet</p>
             )}
 
+          </div>
+
 
           <CreateReview />
+        </div>
         </div>
       ) : (
         <p>Sorry, no shoe found</p>

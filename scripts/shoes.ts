@@ -19,7 +19,7 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
-        review: "stuff",
+        review: "Ingredients for life, said the backside of the truck. They mean food, but really food is only 1 ingredient of life. Life has so many more ingredients such as pain, happiness, laughter, joy, tears, and smiles. Life also has hard work, easy play, sleepless nights, and sunbathing by the ocean. Love, hatred, envy, self-assurance, and fear could be just down aisle 3 ready to be bought when needed. How I wish I could pull ingredients like these off shelves in a store.",
         id: 'nike-zoomx-vaporfly-next-2',
         type: "shoe"
     },
