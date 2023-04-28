@@ -15,18 +15,17 @@ export default function ShoesPage() {
   const { pid } = router.query;
   const [shoe, setShoe] = useState(null as Shoe | null);
 
-  useEffect (() => {
-    ReviewsHand.getReviews()
-    }, []);
 
   useEffect(() => {
     if (pid) {
+    ReviewsHand.getReviews().then(() => {
       const shoe = shoes.find((shoe) => shoe.id == pid);
       if (!shoe) {
         router.back();
         return;
       }
       setShoe(shoe);
+    })
     }
   }, [pid]);
 

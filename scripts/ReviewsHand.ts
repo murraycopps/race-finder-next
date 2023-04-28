@@ -1,4 +1,5 @@
 import {Review} from "@/scripts/types";
+import {shoes} from "@/scripts/shoes";
 
 interface ReviewID extends Review {
     id: string
@@ -12,9 +13,14 @@ export default class ReviewsHand {
         //     return [];
         // }
         this.hasReview = true;
-        const reviews = await fetch('/api/reviews');
-        const reviewsJson = await reviews.json();
-        return reviewsJson.data
+        const res = await fetch('/api/reviews');
+        const reviewsJson = await res.json();
+        const reviews =  reviewsJson.data as ReviewID[];
+        shoes.map(shoe => {
+            shoe.reviews = reviews.filter(review => review.id === shoe.id)
+        })
+
+        return reviews;
     }
 
     static async addReview(review: ReviewID) {
