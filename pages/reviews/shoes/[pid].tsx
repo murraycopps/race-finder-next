@@ -72,21 +72,22 @@ export default function ShoesPage() {
               </h1>
               <p className="text-xl text-center text-white">{shoe.review}</p>
             </div>
-            <div className="grid grid-cols-2 ">
-            {reviews.length > 0 ? (
-                <div className="flex flex-col h-full p-4 gap-4 ">
                   <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
                     Costomer Reviews
                   </h1>
+            <div className="grid grid-cols-2 ">
+            {reviews.length > 0 ? (
+                <div className="flex flex-col p-4 gap-4 ">
 
                   <div className="grid grid-cols-2 gap-4">
                     {reviews.map((review, i) => (
                         <div key={i} className="flex flex-col h-full p-4 p-4 bg-wisteria-600 rounded-3xl">
+                          <p className="text-2xl text-center text-white">{review.title}</p>
+
                           <div className="flex flex-row justify-evenly text-xl">
                             <p className="text-xl text-center text-white">{review.author}</p>
                             <Stars number={review.rating}/>
                           </div>
-                          <p className="text-2xl text-center text-white">{review.title}</p>
                           <p className="text-l text-center text-white">{review.review}</p>
                         </div>
                     ))}
