@@ -16,12 +16,12 @@ type CardProps = {
 export default function Overview({ item }: CardProps) {
   return (
     <div className="flex flex-col w-full gap-12 text-white">
-      {/*<h1 className="flex justify-center w-full p-4 text-3xl text-white slanted bg-wisteria-600">*/}
-      {/*  {item.name}*/}
-      {/*</h1>*/}
-      <h1 className="text-5xl text-slate-400 text-center">
+      <h1 className="flex justify-center w-full p-4 text-5xl text-3xl text-white slanted bg-wisteria-600">
         {item.name}
       </h1>
+      {/*<h1 className="text-5xl text-slate-400 text-center">*/}
+      {/*  {item.name}*/}
+      {/*</h1>*/}
       <div className="flex flex-row w-full gap-12 justify-evenly">
         <Image
           src={item.img}
