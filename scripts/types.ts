@@ -106,7 +106,7 @@ type Quote = {
     img: string;
 }
 
-type Review = {
+interface Review  {
     title: string;
     author: string;
     email: string;
@@ -114,5 +114,7 @@ type Review = {
     review: string;
 
 }
+
+
 
 export type { Shoe, User, Goal, Clothes, Item, Other, Quote, Review }

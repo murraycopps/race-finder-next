@@ -79,7 +79,7 @@ export default function ShoesPage() {
                     Costomer Reviews
                   </h1>
 
-                  <div className="grid grid-cols-2">
+                  <div className="grid grid-cols-2 gap-4">
                     {reviews.map((review, i) => (
                         <div key={i} className="flex flex-col h-full p-4 p-4 bg-wisteria-600 rounded-3xl">
                           <div className="flex flex-row justify-evenly text-xl">
@@ -96,7 +96,7 @@ export default function ShoesPage() {
                 <p className="text-xl text-center text-white">No reviews yet</p>
             )}
 
-          <CreateReview />
+          <CreateReview id={shoe.id} />
           </div>
 
 

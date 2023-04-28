@@ -1,5 +1,7 @@
 import {Review} from "@/scripts/types";
 
+interface ReviewID extends Review { id: string }
+
 export default class ReviewsHand {
     static hasReview = false;
 
@@ -13,7 +15,7 @@ export default class ReviewsHand {
         return reviewsJson.data
     }
 
-    static async addReview(review: Review) {
+    static async addReview(review: ReviewID) {
 const response = await fetch('/api/reviews', {
             method: 'POST',
             headers: {

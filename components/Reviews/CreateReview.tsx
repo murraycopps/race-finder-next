@@ -1,7 +1,7 @@
 import ReviewsHand from "@/scripts/ReviewsHand";
 import {ChangeEvent, SyntheticEvent, useState} from "react";
 
-export default function CreateReview() {
+export default function CreateReview({id}: { id: string}) {
     const [reviewText, setReviewText] = useState("");
 
 const addReview = async (e: SyntheticEvent) => {
@@ -15,6 +15,7 @@ e.preventDefault();
 
 
     const review = {
+        id,
         title,
         author,
         email,
