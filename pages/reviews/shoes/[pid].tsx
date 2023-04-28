@@ -10,16 +10,13 @@ import ReviewsHand from "@/scripts/ReviewsHand";
 import Stars from "@/components/Reviews/Stars";
 
 export default function ShoesPage() {
-  const [reviews, setReviews] = useState<Review[]>([]);
 
   const router = useRouter();
   const { pid } = router.query;
   const [shoe, setShoe] = useState(null as Shoe | null);
 
   useEffect (() => {
-    ReviewsHand.getReviews().then((res) => {
-      setReviews(res);
-    });
+    ReviewsHand.getReviews()
     }, []);
 
   useEffect(() => {
@@ -76,11 +73,11 @@ export default function ShoesPage() {
                     Costomer Reviews
                   </h1>
             <div className="grid grid-cols-2 ">
-            {reviews.length > 0 ? (
+            {shoe.reviews.length > 0 ? (
                 <div className="flex flex-col p-4 gap-4 ">
 
                   <div className="grid grid-cols-2 gap-4">
-                    {reviews.map((review, i) => (
+                    {shoe.reviews.map((review, i) => (
                         <div key={i} className="flex flex-col h-full p-4 p-4 bg-wisteria-600 rounded-3xl">
                           <p className="text-2xl text-center text-white">{review.title}</p>
 
