@@ -21,7 +21,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
         review: "Ingredients for life, said the backside of the truck. They mean food, but really food is only 1 ingredient of life. Life has so many more ingredients such as pain, happiness, laughter, joy, tears, and smiles. Life also has hard work, easy play, sleepless nights, and sunbathing by the ocean. Love, hatred, envy, self-assurance, and fear could be just down aisle 3 ready to be bought when needed. How I wish I could pull ingredients like these off shelves in a store.",
         id: 'nike-zoomx-vaporfly-next-2',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Nike ZoomX Drangonfly',
@@ -42,7 +43,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/zoomx-dragoy-track-field-distance-spikes-0P9jtc",
         review: "stuff",
         id: 'nike-zoomx-dragonfly',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
 
     },
     {
@@ -64,7 +66,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.on-running.com/en-us/products/cloudmonster-61",
         review: "stuff",
         id: 'on-cloudmonster',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Nike ZoomX Streakfly',
@@ -85,7 +88,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/streakfly-premium-road-racing-shoes-8rTxtR",
         review: "stuff",
         id: 'nike-zoomx-streakfly',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Nike Air Zoom Victory',
@@ -106,7 +110,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/air-zoom-victory-track-field-distance-spikes-MsLPjj",
         review: "stuff",
         id: 'nike-air-zoom-victory',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Hoka Tecton X',
@@ -126,7 +131,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.hoka.com/en/us/sale/tecton-x/1123161.html",
         review: "stuff",
         id: 'hoka-tecton-x',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Nike ZoomX Invincible Run Flyknit 3',
@@ -146,7 +152,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/invincible-3-mens-road-running-shoes-CLdFjq",
         review: "stuff",
         id: 'nike-zoomx-invincible-run-flyknit-3',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Hoka Zinal',
@@ -166,7 +173,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.hoka.com/en/us/mens-trail/zinal/194715595507.html",
         review: "stuff",
         id: 'hoka-zinal',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     },
     {
         name: 'Nike Pegasus Turbo Next Nature',
@@ -186,7 +194,8 @@ const shoes:Shoe[] = [
         brandLink: "https://www.nike.com/t/pegasus-turbo-next-nature-mens-road-running-shoes-pnz45r",
         review: "stuff",
         id: 'nike-pegasus-turbo-next-nature',
-        type: "shoe"
+        type: "shoe",
+        reviews: []
     }
 
 

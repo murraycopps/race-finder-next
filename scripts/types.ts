@@ -17,6 +17,7 @@ type Shoe = {
     review: string;
     id: string;
     type: "shoe";
+    reviews: Review[];
 }
 
 type User = {
