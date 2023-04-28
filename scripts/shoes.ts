@@ -19,7 +19,13 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
-        review: "Ingredients for life, said the backside of the truck. They mean food, but really food is only 1 ingredient of life. Life has so many more ingredients such as pain, happiness, laughter, joy, tears, and smiles. Life also has hard work, easy play, sleepless nights, and sunbathing by the ocean. Love, hatred, envy, self-assurance, and fear could be just down aisle 3 ready to be bought when needed. How I wish I could pull ingredients like these off shelves in a store.",
+        review: "The Nike ZoomX Vaporfly Next% 2 is an excellent shoe designed for distance racing on the road. With a price tag of $250, it may seem expensive, but it is well worth the investment for serious runners. The shoe has a neutral arch, making it suitable for a wide range of foot types. The shoe's weight of 196 grams is relatively light, making it easier to maintain a fast pace and reducing fatigue during long-distance runs.\n" +
+            "\n" +
+            "The drop of 7.7mm and stack heights of 38.6mm and 30.9mm in the heel and forefoot, respectively, provide a comfortable balance between cushioning and responsiveness. This is especially beneficial during long-distance runs where cushioning is critical for reducing impact on the feet and joints. The shoe's design also features the ZoomX foam technology, which provides excellent energy return, allowing for a smooth and effortless stride.\n" +
+            "\n" +
+            "The shoe's surface is specifically designed for road running, providing excellent grip and traction on pavement. This makes it an ideal choice for distance runners who primarily train or compete on the road. The shoe's innovative design, lightweight construction, and cushioned sole make it an excellent choice for serious runners looking to improve their performance.\n" +
+            "\n" +
+            "In summary, the Nike ZoomX Vaporfly Next% 2 is an exceptional shoe that incorporates several innovative features to enhance the running experience. Its lightweight design, cushioned sole, and excellent energy return make it a must-have for serious runners who are looking to take their performance to the next level.",
         id: 'nike-zoomx-vaporfly-next-2',
         type: "shoe",
         reviews: []
@@ -41,7 +47,11 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/search-mens.html?searchtext=nike%20dragonfly&opt_perpage=20&opt_sort=relevance&opt_page=1",
         brandLink: "https://www.nike.com/t/zoomx-dragoy-track-field-distance-spikes-0P9jtc",
-        review: "stuff",
+        review: "The Nike ZoomX Dragonfly is an excellent shoe designed for distance racing on the track. With a price tag of $150, it offers excellent value for serious runners who are looking to enhance their performance. The shoe's weight of 133.24 grams is exceptionally light, providing a feeling of weightlessness, and reducing fatigue during long-distance races.\n" +
+            "\n" +
+            "The shoe's surface is specifically designed for track running, providing excellent grip and traction on the track. This makes it an ideal choice for distance runners who primarily train or compete on the track. The shoe's innovative design features the ZoomX foam technology, which provides excellent energy return, allowing for a smooth and effortless stride. The shoe's lightweight construction and cushioned sole make it an excellent choice for serious runners looking to improve their performance.\n" +
+            "\n" +
+            "In summary, the Nike ZoomX Dragonfly is an exceptional shoe that incorporates several innovative features to enhance the running experience. Its lightweight design, cushioned sole, and excellent energy return make it a must-have for serious runners who are looking to take their performance to the next level on the track.",
         id: 'nike-zoomx-dragonfly',
         type: "shoe",
         reviews: []
@@ -64,7 +74,13 @@ const shoes:Shoe[] = [
         brandLogo: "https://www.therunnershub.net/wp-content/uploads/2017/01/11249876_1635506986735635_175419393_a-300x300.jpg",
         link: "https://www.runningwarehouse.com/search-mens.html?searchtext=cloudmonster&opt_perpage=20&opt_sort=relevance&opt_page=1",
         brandLink: "https://www.on-running.com/en-us/products/cloudmonster-61",
-        review: "stuff",
+        review: "The On Cloudmonster is a highly rated training shoe for road running. With a price tag of $169.99, it's a solid investment for runners looking for quality and durability in their training shoes. The shoe has a neutral arch and weighs 264 grams. Its heel stack height is 34.9 mm, and the forefoot stack height is 28.1 mm. The drop is 6.8 mm, which provides a balance between cushioning and responsiveness.\n" +
+            "\n" +
+            "The Cloudmonster's upper is made from engineered mesh, which provides breathability and a comfortable fit. The shoe's outsole is made from a durable rubber material that provides excellent traction and grip on a variety of surfaces. The shoe's unique cushioning system features CloudTec pods that absorb impact and provide a responsive feel during each stride.\n" +
+            "\n" +
+            "Although the Cloudmonster is primarily a training shoe, it has received high ratings from runners who have used it for races as well. The shoe's design and construction make it versatile for a range of running activities. The Cloudmonster's distinctive design and vibrant colors also make it a stylish option for runners who want a shoe that looks as good as it performs.\n" +
+            "\n" +
+            "Overall, the On Cloudmonster is a high-quality shoe that offers excellent cushioning, durability, and versatility for road running. It's a solid investment for runners who prioritize quality and performance in their footwear.",
         id: 'on-cloudmonster',
         type: "shoe",
         reviews: []

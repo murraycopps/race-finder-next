@@ -9,9 +9,9 @@ export default class ReviewsHand {
     static hasReview = false;
 
     static async getReviews() {
-        // if(this.hasReview) {
-        //     return [];
-        // }
+        if(this.hasReview) {
+            return [];
+        }
         this.hasReview = true;
         const res = await fetch('/api/reviews');
         const reviewsJson = await res.json();
@@ -24,6 +24,11 @@ export default class ReviewsHand {
     }
 
     static async addReview(review: ReviewID) {
+        // first add the review to the shoe
+        const shoe = shoes.find(shoe => shoe.id === review.id);
+        if(!shoe) return;
+
+            shoe.reviews.push(review);
         const response = await fetch('/api/reviews', {
             method: 'POST',
             headers: {
