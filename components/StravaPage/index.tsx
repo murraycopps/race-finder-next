@@ -10,7 +10,6 @@ import {
   getStats,
   getActivities,
   getAthlete,
-  refreshToken,
 } from "@/lib/strava";
 
 export default function StravaPage() {
@@ -20,7 +19,6 @@ export default function StravaPage() {
   const [activities, setActivities] = useState<Run[]>([]);
   const [stats, setStats] = useState<Stats>();
 
-  const accessToken = LoginData.getAccessToken();
 
   useEffect(() => {
     const cachedData = localStorage.getItem("data");
@@ -59,7 +57,7 @@ export default function StravaPage() {
       localStorage.setItem("username", LoginData.getUsername());
     };
     fetchData();
-  }, [accessToken, router]);
+  }, [ router]);
 
   if (!data || !stats || !activities) {
     return (
