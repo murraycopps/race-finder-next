@@ -22,6 +22,7 @@ export default function LoginPage({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
   async function handleClick() {
     // check if username and password are valid
     const user = users.find(
@@ -83,7 +84,7 @@ export default function LoginPage({
 
   useEffect(() => {
     if (LoginData.isLoggedIn()) {
-      router.push("/strava/");
+      // router.push("/strava/");
     }
   }, []);
 
@@ -114,7 +115,7 @@ export default function LoginPage({
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p className="text-red-500 ">{errorMessage}</p>
+        {errorMessage && <p className="text-red-500 ">{errorMessage}</p> }
         <button
           className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 focus:outline-none focus:shadow-outline"
           type="button"
