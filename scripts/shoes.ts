@@ -102,7 +102,15 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_ZoomX_Streakfly/descpage-NZXSF6.html",
         brandLink: "https://www.nike.com/t/streakfly-premium-road-racing-shoes-8rTxtR",
-        review: "stuff",
+        review: "The Nike ZoomX Streakfly is a fantastic shoe for distance racing on the road. With a price of $160, it's not the cheapest option out there, but the shoe is worth every penny. The Streakfly is designed for serious runners who want to push themselves to their limits and achieve their personal bests.\n" +
+            "\n" +
+            "One of the best features of the Streakfly is its weight. At just 170.1 grams, it's incredibly lightweight and won't weigh you down during a race. The shoe also has a low drop of 6mm, which encourages a more natural foot strike and helps to reduce the risk of injury.\n" +
+            "\n" +
+            "The ZoomX foam in the midsole provides excellent cushioning and responsiveness, making the Streakfly perfect for fast-paced workouts and races. The heel stack height of 32mm and forefoot stack height of 26mm provide ample cushioning, while the shoe's neutral arch ensures a comfortable fit for most runners.\n" +
+            "\n" +
+            "In addition to being a great choice for distance racing on the road, the Nike ZoomX Streakfly is also an ideal shoe for track workouts. Its lightweight design and low drop make it perfect for quick, explosive movements, while the ZoomX foam in the midsole provides the necessary cushioning and responsiveness for fast-paced intervals. Whether you're doing short sprints or longer tempo runs, the Streakfly will help you perform at your best on the track.\n" +
+            "\n" +
+            "Overall, the Nike ZoomX Streakfly is an excellent choice for runners who are serious about their racing. It's a high-quality shoe that provides great support, cushioning, and responsiveness, all while being incredibly lightweight. With a rating of 4 out of 5, it's clear that the Streakfly is a top choice for distance runners.",
         id: 'nike-zoomx-streakfly',
         type: "shoe",
         reviews: []
@@ -124,7 +132,15 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Air_Zoom_Victory_Spikes/descpage-NZVUS07.html",
         brandLink: "https://www.nike.com/t/air-zoom-victory-track-field-distance-spikes-MsLPjj",
-        review: "stuff",
+        review: "The Nike Air Zoom Victory is a top-of-the-line racing shoe designed for distance runners who compete on the track. Priced at $180, it's a premium option, but one that's worth the investment if you're serious about your racing.\n" +
+            "\n" +
+            "The Victory is incredibly lightweight, coming in at just 130.41 grams, which will give you a feeling of speed and agility as you compete. The shoe's neutral arch and sleek design make it a comfortable fit for most runners.\n" +
+            "\n" +
+            "One of the standout features of the Victory is its Zoom Air cushioning, which provides excellent responsiveness and energy return. The shoe also has a plate in the midsole that helps to increase stiffness, which translates to a more efficient stride and better propulsion.\n" +
+            "\n" +
+            "The Victory is specifically designed for use on the track, with spikes on the outsole that provide excellent traction on the surface. The shoe's drop and stack height are not available, but it's designed to be a responsive racing shoe.\n" +
+            "\n" +
+            "Overall, the Nike Air Zoom Victory is an excellent choice for serious distance runners who compete on the track. It's a high-quality shoe that provides excellent cushioning, responsiveness, and traction, all while being incredibly lightweight. With a rating of 5 out of 5, it's clear that the Victory is a top choice for track and field athletes.",
         id: 'nike-air-zoom-victory',
         type: "shoe",
         reviews: []
