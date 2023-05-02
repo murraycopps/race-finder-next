@@ -2,7 +2,7 @@ import Head from "next/head";
 import { HTMLAttributes, useEffect } from "react";
 import Navbar from "./Navbar";
 import LoginData from "@/scripts/LoginData";
-
+import Link from "next/link";
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
 }
@@ -24,6 +24,14 @@ export default function PageWrapper(props: PageWrapperProps) {
       </Head>
       <header>
         <Navbar />
+          <div className="relative">
+
+          <Link href="/create-account"
+                className="px-6 py-2 right-4 text-lg h-10 rounded-2xl hover:rounded-full transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 absolute top-10 transform -translate-y-1/2 "
+          >
+              Login
+            </Link>
+          </div>
       </header>
       <main {...props} />
     </>

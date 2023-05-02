@@ -40,8 +40,6 @@ e.preventDefault();
 
 
                 <input type="text" name="title" id="title" className=" w-full p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300" placeholder="Title" />
-                <input type="text" name="author" id="author" className="w-full h-16 p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300" placeholder="Author" />
-                <input type="email" name="email" id="email" className="w-full h-16 p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300" placeholder="RunnersHub@gmail.com"/>
                 <textarea value={reviewText} onChange={(e: ChangeEvent <HTMLTextAreaElement>) => setReviewText(e.target.value)} className="w-full h-32 p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300" placeholder="Write your review here..."></textarea>
 
                 <div className="flex flex-col items-center justify-center gap-2">

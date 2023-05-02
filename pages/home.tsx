@@ -44,7 +44,7 @@ export default function HomePage() {
   return (
     <PageWrapper
       page="Home"
-      className="flex flex-col items-center min-h-screen gap-16 p-8 text-center md:p-16"
+      className="flex flex-col items-center min-h-screen gap-16 p-8 text-center md:p-16 md:py-24"
     >
       {/* <h1 className="text-4xl font-bold">Runner's Hub!</h1> */}
       <div className="grid w-full grid-cols-1 px-6 md:gap-8 sm:grid-cols-3">

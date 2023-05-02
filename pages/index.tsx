@@ -59,6 +59,15 @@ export default function IndexPage() {
         >
          Try now!
         </Link>
+
+
+          {/*<Link href ="/create-account"*/}
+          {/*  className="px-16 py-4 text-2xl rounded-full bg-rose-500 hover:bg-rose-600 home-button"*/}
+          {/*  onMouseMove={moveGradient}*/}
+          {/*  >*/}
+          {/*  Create Account*/}
+          {/*  </Link>*/}
+
       </div>
     </PageWrapper>
   );
