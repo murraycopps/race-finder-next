@@ -1,9 +1,18 @@
 import { useRouter } from "next/router";
 import axios from "axios";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import { User } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
+
+const generateRoute = (route: string | string[] | undefined) => {
+  if(typeof route === "string"){
+
+  //   check if route is a valid route
+    if(route.charAt(0) === "/") return route
+  }
+  return "/home"
+}
 
 export default function LoginPage({
   clientId,
@@ -21,6 +30,11 @@ export default function LoginPage({
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [popup, setPopup] = useState(false);
+  const [insertedId, setInsertedId] = useState("")
+
+  useEffect(()=>{
+    console.log(router)
+  })
 
   async function handleClick() {
     // check if username is used and if it is a new user
@@ -50,6 +64,7 @@ export default function LoginPage({
       })
       .then((response) => {
           setPopup(true)
+        setInsertedId(response.data.data.insertedId)
       })
       .catch((error) => {
         console.error(error);
@@ -62,7 +77,7 @@ export default function LoginPage({
       className="flex flex-col items-center justify-center h-screen"
     >
       <form className="flex flex-col px-4 py-6 rounded-lg shadow-lg gap-4 bg-faded-base-300 run-field-sizing">
-        <label className="block text-lg font-bold" htmlFor="username">
+        <label className="text-lg font-bold" htmlFor="username">
           Username:
         </label>
         <input
@@ -72,7 +87,7 @@ export default function LoginPage({
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label className="block text-lg font-bold" htmlFor="password">
+        <label className="text-lg font-bold" htmlFor="password">
           Password:
         </label>
         <input
@@ -83,7 +98,6 @@ export default function LoginPage({
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/* email */}
         {errorMessage && <p className="text-red-500 ">{errorMessage}</p>}
         <button
           className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"
@@ -109,10 +123,13 @@ export default function LoginPage({
           else
             router.push('/home')
         }*/}
-                <h3 className="text-3xl">Account Created</h3>
-                <div className="grid grid-cols-2 w-full gap-4">
-                  <Link href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${response.data.data.insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
-
+                <h3 className="text-4xl">Account Created</h3>
+                <div className="grid grid-cols-2 w-full gap-4 text-center text-2xl px-6">
+                  <Link className="bg-ronchi-600 py-2 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
+                      Link to Strava
+                  </Link>
+                  <Link className="bg-ronchi-600 py-2 card-slant-sm"  href={generateRoute(router.query.route)}  >
+                    Continue
                   </Link>
                 </div>
               </div>
