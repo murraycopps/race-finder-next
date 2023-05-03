@@ -5,6 +5,7 @@ import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
+  loginPage?: boolean;
 }
 
 export default function PageWrapper(props: PageWrapperProps) {
@@ -24,14 +25,16 @@ export default function PageWrapper(props: PageWrapperProps) {
       </Head>
       <header>
         <Navbar />
-          <div className="relative">
-
-          <Link href="/create-account"
-                className="px-6 py-2 right-4 text-lg h-10 rounded-2xl hover:rounded-full transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 absolute top-10 transform -translate-y-1/2 "
-          >
+        <div className="relative">
+          {!props.loginPage && (
+            <Link
+              href="/create-account"
+              className="absolute grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
+            >
               Login
             </Link>
-          </div>
+          )}
+        </div>
       </header>
       <main {...props} />
     </>
