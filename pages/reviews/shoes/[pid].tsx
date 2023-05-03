@@ -71,12 +71,8 @@ export default function ShoesPage() {
                   <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
                     Costomer Reviews
                   </h1>
-            <div className="grid grid-cols-2 ">
-            {shoe.reviews.length > 0 ? (
-                <div className="flex flex-col p-4 gap-4 ">
-
-                  <div className="grid grid-cols-2 gap-4 ">
-                    {shoe.reviews.map((review, i) => (
+            <div className="grid grid-cols-4 gap-4">
+            {shoe.reviews.length > 0 ? shoe.reviews.map((review, i) => (
                         <div key={i} className="flex flex-col h-full px-16 py-4 bg-wisteria-600 card-slant">
                           <p className="text-2xl text-center text-white">{review.title}</p>
 
@@ -86,10 +82,7 @@ export default function ShoesPage() {
                           </div>
                           <p className="text-l text-center text-white">{review.review}</p>
                         </div>
-                    ))}
-                  </div>
-                </div>
-            ) : (
+                    )) : (
                 <p className="text-xl text-center text-white">No reviews yet</p>
             )}
 

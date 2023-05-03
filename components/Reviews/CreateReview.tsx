@@ -35,6 +35,7 @@ e.preventDefault();
 }
 
     return (
+            <div className="flex flex-col gap-2 p-4  card-slant bg-wisteria-600">
 
             <form onSubmit={addReview} className="flex flex-col items-center gap-2 justify-evenly p-8">
 
@@ -49,7 +50,7 @@ e.preventDefault();
                 <button type="submit" className=" py-4 px-20 text-2xl font-semibold bg-ronchi-500 border-2 border-ronchi-400 rounded-md text-white">Submit</button>
 
             </form>
-
+</div>
     )
 }
 
