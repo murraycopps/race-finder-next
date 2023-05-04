@@ -263,6 +263,12 @@ html {
   width: calc(100% + var(--slant-amount));
   margin-left: calc(-1 * var(--slant-amount) / 2);
 }
+.card-slant-lg{
+  --slant-amount: 6rem;
+  clip-path: polygon(var(--slant-amount) 0,100% 0,calc(100% - var(--slant-amount)) 100%,0 100%);
+  width: calc(100% + var(--slant-amount) / 2);
+  margin-left: calc(-1 * var(--slant-amount) / 4);
+}
 
 .beveled{
   --beveled-amount: 3rem;

@@ -26,7 +26,7 @@ export default class ReviewsHand {
     static async addReview(review: ReviewID) {
         // first add the review to the shoe
         const shoe = shoes.find(shoe => shoe.id === review.id);
-        if(!shoe) return;
+        if(!shoe) return console.error("No shoe found");
 
             shoe.reviews.push(review);
         const response = await fetch('/api/reviews', {
