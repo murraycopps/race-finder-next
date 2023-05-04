@@ -61,6 +61,7 @@ export default function LoginPage({
         username: username,
         password: password,
         goals: [],
+        linked: false
       })
       .then((response) => {
           setPopup(true)
@@ -76,7 +77,7 @@ export default function LoginPage({
       page="Create Account"
       className="flex flex-col items-center justify-center h-screen"
     >
-      <form className="flex flex-col px-4 py-6 rounded-lg shadow-lg gap-4 bg-faded-base-300 run-field-sizing">
+      <form className="flex flex-col gap-4 px-4 py-6 rounded-lg shadow-lg bg-faded-base-300 run-field-sizing">
         <label className="text-lg font-bold" htmlFor="username">
           Username:
         </label>
@@ -110,8 +111,8 @@ export default function LoginPage({
       {
         popup && (
             <>
-              <div className="inset-0 fixed bg-base opacity-50" />
-              <div className="fixed w-128 h-128 flex flex-col gap-4 p-4 bg-faded-base-300 rounded-3xl items-center justify-evenly">
+              <div className="fixed inset-0 opacity-50 bg-base" />
+              <div className="fixed flex flex-col items-center gap-4 p-4 w-128 h-128 bg-faded-base-300 rounded-3xl justify-evenly">
                 {/*  if(linkToStrava)
           router.push(
             `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${response.data.data.insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`
@@ -124,11 +125,11 @@ export default function LoginPage({
             router.push('/home')
         }*/}
                 <h3 className="text-4xl">Account Created</h3>
-                <div className="grid grid-cols-2 w-full gap-4 text-center text-2xl px-6">
-                  <Link className="bg-ronchi-600 py-2 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
+                <div className="grid w-full grid-cols-2 gap-4 px-6 text-2xl text-center">
+                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
                       Link to Strava
                   </Link>
-                  <Link className="bg-ronchi-600 py-2 card-slant-sm"  href={generateRoute(router.query.route)}  >
+                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={generateRoute(router.query.route)}  >
                     Continue
                   </Link>
                 </div>

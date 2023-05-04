@@ -7,12 +7,14 @@ import StravaPage from "@/components/StravaPage";
 
 export default function Page() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [linked, setLinked] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
       await LoginData.getStorage();
       setLoggedIn(LoginData.isLoggedIn());
+      setLinked(LoginData.getLinked())
       if (!LoginData.isLoggedIn()) {
         router.push("/strava/login");
       }
@@ -23,7 +25,11 @@ export default function Page() {
   return (
     <PageWrapper page="Strava">
       {loggedIn ? (
-        <StravaPage />
+        linked ? (
+          <StravaPage />
+        ) : (
+          <div className="">please link with strava to continue</div>
+        )
       ) : (
         <div className="grid h-screen place-items-center">
           <div className="flex flex-col gap-8 text-center">

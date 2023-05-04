@@ -4,6 +4,7 @@ import { setToken, refreshToken } from "@/lib/strava";
 
 export default class LoginData {
     static loggedIn = false
+    static linked = false;
     static accessToken = ''
     static expiresAt = 0
     static username = ''
@@ -11,7 +12,7 @@ export default class LoginData {
     static _id: string = ''
     static refreshToken = ''
 
-    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string) {
+    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string, linked: boolean) {
         this.loggedIn = true
         this.accessToken = accessToken
         this.username = username
@@ -19,6 +20,7 @@ export default class LoginData {
         this._id = id
         this.expiresAt = expiresAt
         this.refreshToken = refresh_token
+        this.linked = linked
 
         setToken(accessToken)
 
@@ -28,6 +30,7 @@ export default class LoginData {
         sessionStorage.setItem("id", this._id)
         sessionStorage.setItem("expiresAt", this.expiresAt.toString())
         sessionStorage.setItem("refreshToken", this.refreshToken)
+        sessionStorage.setItem("linked", this.linked.toString())
     }
 
     static Logout() {
@@ -72,6 +75,9 @@ export default class LoginData {
 
     static getGoals() {
         return this.goals
+    }
+    static getLinked () {
+        return this.linked
     }
 
     static addGoal(goal: Goal) {
@@ -136,10 +142,14 @@ export default class LoginData {
         this._id = sessionStorage.getItem("id") || ''
         this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
         this.refreshToken = sessionStorage.getItem("refreshToken") || ''
+        this.linked = sessionStorage.getItem("linked") ===  "true"
 
-        if(!this.expiresAt || !this.refreshToken) return
+        if(this.accessToken){
+            this.linked = true
+        }
 
-        if (this.expiresAt * 1000 < Date.now()) {
+
+        if (this.expiresAt && this.refreshToken && this.expiresAt * 1000 < Date.now()) {
             const res = await refreshToken(this.refreshToken)
             this.accessToken = res.access_token
             this.expiresAt = res.expires_at
@@ -152,7 +162,7 @@ export default class LoginData {
 
         setToken(this.accessToken)
 
-        if (this.accessToken && this._id || this.username) {
+        if (this._id || this.username) {
             this.loggedIn = true
         }
     }
