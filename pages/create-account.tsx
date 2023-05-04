@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import Link from "next/link";
 import { User } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
+import LoginData from "@/scripts/LoginData";
 
 const generateRoute = (route: string | string[] | undefined) => {
   if(typeof route === "string"){
@@ -66,6 +67,15 @@ export default function LoginPage({
       .then((response) => {
           setPopup(true)
         setInsertedId(response.data.data.insertedId)
+        LoginData.Login(
+            "",
+            username,
+             [],
+            response.data.data.insertedId,
+            0,
+             "",
+            false
+        );
       })
       .catch((error) => {
         console.error(error);

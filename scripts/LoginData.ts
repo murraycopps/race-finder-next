@@ -12,7 +12,7 @@ export default class LoginData {
     static _id: string = ''
     static refreshToken = ''
 
-    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string, linked: boolean) {
+    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string, linked?: boolean) {
         this.loggedIn = true
         this.accessToken = accessToken
         this.username = username
@@ -20,7 +20,7 @@ export default class LoginData {
         this._id = id
         this.expiresAt = expiresAt
         this.refreshToken = refresh_token
-        this.linked = linked
+        this.linked = linked || this.accessToken !== ''
 
         setToken(accessToken)
 
@@ -143,8 +143,10 @@ export default class LoginData {
         this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
         this.refreshToken = sessionStorage.getItem("refreshToken") || ''
         this.linked = sessionStorage.getItem("linked") ===  "true"
+        console.log(this.linked)
 
         if(this.accessToken){
+            console.log("linked")
             this.linked = true
         }
 

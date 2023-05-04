@@ -128,7 +128,7 @@ export default function LoginPage({
       <Link
         className="px-4 py-2 mt-4 font-bold text-center rounded-md bg-faded-base-300 run-field-sizing hover:bg-faded-base-200 focus:outline-none focus:shadow-outline"
         type="button"
-        href="/create-account"
+        href="/create-account?route=/strava"
       >
         Create Account
       </Link>

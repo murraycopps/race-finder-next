@@ -28,7 +28,7 @@ export default function Page() {
         linked ? (
           <StravaPage />
         ) : (
-          <div className="">please link with strava to continue</div>
+          <div className="w-screen h-screen grid place-items-center">please link with strava to continue</div>
         )
       ) : (
         <div className="grid h-screen place-items-center">
