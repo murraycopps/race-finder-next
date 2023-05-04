@@ -36,7 +36,7 @@ export default function Page() {
             <h1 className="text-4xl font-bold">Redirecting...</h1>
             <p className="text-2xl">
               Click{" "}
-              <Link href="/strava/login" className="text-blue-500">
+              <Link href="/login" className="text-blue-500">
                 here
               </Link>{" "}
               if you are not redirected
