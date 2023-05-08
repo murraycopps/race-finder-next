@@ -16,6 +16,7 @@ const clothes: Clothes[] = [
         id: 'boa-elite-split-shorts',
         type: "clothes",
         clotheType: "shorts",
+        reviews: [],
         features: [
             {
                 name: "Inseam",
@@ -42,6 +43,7 @@ const clothes: Clothes[] = [
         id: 'nikr-dri-fit-adv-aeroswift',
         type: "clothes",
         clotheType: "singlet",
+        reviews: []
 
     },
     //     BOA Men's Constrictor Plus Half Tight
@@ -60,6 +62,7 @@ const clothes: Clothes[] = [
         id: 'boa-mens-constrictor-plus-half-tight',
         type: "clothes",
         clotheType: "spandex",
+        reviews: []
     },
     //     BOA Men's Singlet
     {
@@ -77,6 +80,7 @@ const clothes: Clothes[] = [
         id: 'boa-mens-singlet',
         type: "clothes",
         clotheType: "singlet",
+        reviews: []
     },
     //     Nike Men's Core Dri-FIT ADV Aeroswift Half Tight
     {
@@ -94,6 +98,7 @@ const clothes: Clothes[] = [
         id: 'nike-mens-core-dri-fit-adv-aeroswift-half-tight',
         type: "clothes",
         clotheType: "spandex",
+        reviews: []
     },
     //     Nike Men's Dri-FIT ADV Aeroswift Tight
     {
@@ -111,6 +116,7 @@ const clothes: Clothes[] = [
         id: 'nike-mens-dri-fit-adv-aeroswift-tight',
         type: "clothes",
         clotheType: "tights",
+        reviews: []
     },
     //     Nike Men's Fall 2" Aeroswift Short
     {
@@ -128,6 +134,7 @@ const clothes: Clothes[] = [
         id: 'nike-mens-fall-2-aeroswift-short',
         type: "clothes",
         clotheType: "shorts",
+        reviews: [],
     },
     //     Nike Men's Core Dri-FIT Phenom Elite Woven Pant
     {
@@ -144,6 +151,7 @@ const clothes: Clothes[] = [
         review: "stuff",
         id: 'nike-mens-core-dri-fit-phenom-elite-woven-pant',
         type: "clothes",
+        reviews: [],
         clotheType: "pants",
     },
     //     Nike Men's Core Dri-FIT Phenom Elite Tight Black
@@ -161,6 +169,7 @@ const clothes: Clothes[] = [
         review: "stuff",
         id: 'nike-mens-core-dri-fit-phenom-elite-tight-black',
         type: "clothes",
+        reviews: [],
         clotheType: "tights",
     },
     //     Nike Men's Core Dri-FIT Fast Half Tight
@@ -178,6 +187,7 @@ const clothes: Clothes[] = [
         review: "stuff",
         id: 'nike-mens-core-dri-fit-fast-half-tight',
         type: "clothes",
+        reviews: [],
         clotheType: "spandex",
     },
 

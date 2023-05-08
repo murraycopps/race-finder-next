@@ -53,6 +53,7 @@ type Clothes = {
     review: string;
     id: string;
     type: "clothes";
+    reviews: Review[];
     clotheType: "shorts" | "spandex" | "pants" | "tights" | "shirt" | "singlet" | "jacket" | "socks" | "other"
     features?: {
         name: string;

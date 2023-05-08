@@ -69,7 +69,7 @@ export default function ShoesPage() {
               <p className="text-xl text-center text-white">{shoe.review}</p>
             </div>
                   <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
-                    Costomer Reviews
+                    User Reviews
                   </h1>
             <div className="grid grid-cols-4 gap-4">
             {shoe.reviews.length > 0 ? shoe.reviews.map((review, i) => (
@@ -80,7 +80,7 @@ export default function ShoesPage() {
                             <p className="text-xl text-center text-white">{review.author}</p>
                             <Stars number={review.rating}/>
                           </div>
-                          <p className="text-l text-center text-white overflow-hidden h-full overflow-ellipse" >{review.review}</p>
+                          <p className="text-l text-center text-white overflow-hidden h-full overflow-ellipse overflow-y-auto" >{review.review}</p>
                         </div>
                     )) : (
                 <p className="text-xl text-center text-white">No reviews yet</p>

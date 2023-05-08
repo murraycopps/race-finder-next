@@ -31,7 +31,7 @@ const shoes:Shoe[] = [
         reviews: []
     },
     {
-        name: 'Nike ZoomX Drangonfly',
+        name: 'Nike ZoomX Dragonfly',
         price: 150,
         use: "Distance racing",
         surface: "Track",
