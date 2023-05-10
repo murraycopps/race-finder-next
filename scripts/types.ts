@@ -111,7 +111,6 @@ type Quote = {
 interface Review  {
     title: string;
     author: string;
-    email: string;
     rating: number;
     review: string;
 
