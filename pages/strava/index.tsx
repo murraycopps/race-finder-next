@@ -16,11 +16,16 @@ export default function Page() {
       setLoggedIn(LoginData.isLoggedIn());
       setLinked(LoginData.getLinked())
       if (!LoginData.isLoggedIn()) {
-        router.push("/strava/login");
+        router.push("/login?route=/strava");
       }
     };
     checkIfLoggedIn();
   }, []);
+
+  const onClick = async () => {
+  }
+
+
 
   return (
     <PageWrapper page="Strava">
@@ -28,7 +33,18 @@ export default function Page() {
         linked ? (
           <StravaPage />
         ) : (
-          <div className="w-screen h-screen grid place-items-center">please link with strava to continue</div>
+          <div className="w-screen h-screen grid place-items-center">
+            <div className="flex flex-col gap-8 text-center">
+                <h1 className="text-4xl font-bold">Link your Strava account</h1>
+                <p className="text-2xl">
+                    Click{" "}
+                    <button onClick={onClick} className="text-blue-500">
+                        here
+                    </button>{" "}
+                    to link your Strava account
+                </p>
+            </div>
+          </div>
         )
       ) : (
         <div className="grid h-screen place-items-center">

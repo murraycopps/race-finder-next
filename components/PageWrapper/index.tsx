@@ -3,17 +3,22 @@ import { HTMLAttributes, useEffect } from "react";
 import Navbar from "./Navbar";
 import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
+import {useRouter} from "next/router";
 interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
   page: string;
   loginPage?: boolean;
 }
 
 export default function PageWrapper(props: PageWrapperProps) {
+    const router = useRouter();
+    const route = router.route.replace("[pid]", router.query.pid as string)
+
   useEffect(() => {
     if (!LoginData.isLoggedIn()) {
       LoginData.getStorage();
       console.log("Logged in: " + LoginData.isLoggedIn());
     }
+
   }, []);
 
   return (
@@ -28,7 +33,7 @@ export default function PageWrapper(props: PageWrapperProps) {
         <div className="relative">
           {!props.loginPage && (
             <Link
-              href="/create-account"
+                href={`/login${route ? `?route=${route}` : ""}`}
               className="absolute grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
             >
               Login
