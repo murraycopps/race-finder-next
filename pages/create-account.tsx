@@ -122,7 +122,7 @@ export default function LoginPage({
               <div className="fixed flex flex-col items-center gap-4 p-4 w-128 h-128 bg-faded-base-300 rounded-3xl justify-evenly">
                 {/*  if(linkToStrava)
           router.push(
-            `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${response.data.data.insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`
+            `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/strava/data?_id=${response.data.data.insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`
         );
         else {
           const route = router.query.route
@@ -133,7 +133,7 @@ export default function LoginPage({
         }*/}
                 <h3 className="text-4xl">Account Created</h3>
                 <div className="grid w-full grid-cols-2 gap-4 px-6 text-2xl text-center">
-                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
+                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/strava/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
                       Link to Strava
                   </Link>
                   <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={generateRoute(router.query.route)}  >
@@ -149,7 +149,7 @@ export default function LoginPage({
         type="button"
         href={`/login${router.query.route ? `?route=${router.query.route}` : ""}`}
       >
-        Login
+        Already have an Account? Click here to Login
       </Link>
     </PageWrapper>
   );

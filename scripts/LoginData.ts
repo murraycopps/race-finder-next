@@ -38,12 +38,18 @@ export default class LoginData {
         this.accessToken = ''
         this.username = ''
         this.goals = []
+        this._id = ''
+        this.expiresAt = 0
+        this.refreshToken = ''
+        this.linked = false
 
         sessionStorage.removeItem("accessToken")
         sessionStorage.removeItem("username")
         sessionStorage.removeItem("goals")
         sessionStorage.removeItem("id")
         sessionStorage.removeItem("expiresAt")
+        sessionStorage.removeItem("refreshToken")
+        sessionStorage.removeItem("linked")
     }
 
     static isLoggedIn() {

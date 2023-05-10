@@ -139,7 +139,7 @@ export default function LoginPage({
         type="button"
         href={`/create-account${router.query.route ? `?route=${router.query.route}` : ""}`}
       >
-        Create Account
+        Need an account? Click here to create one
       </Link>
     </PageWrapper>
   );
