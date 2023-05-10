@@ -10,6 +10,18 @@ interface PageWrapperProps extends HTMLAttributes<HTMLDivElement> {
     loginPage?: boolean;
 }
 
+const generateRoute = (route: string | string[] | undefined) => {
+    if(typeof route === "string"){
+        if(route.includes("strava")){
+            return "/home"
+        }
+
+        //   check if route is a valid route
+        if(route.charAt(0) === "/") return route
+    }
+    return "/home"
+}
+
 export default function PageWrapper(props: PageWrapperProps) {
     const router = useRouter();
     const route = router.route.replace("[pid]", router.query.pid as string)
@@ -32,7 +44,7 @@ export default function PageWrapper(props: PageWrapperProps) {
             </Head>
             <header>
                 <Navbar/>
-                {!route.includes("login") && !route.includes("create-account") && (
+                {!route.includes("login") && !route.includes("create-account") ? (
                         <div className="relative">
                             {loggedIn ? (
                                 <div className="flex justify-end">
@@ -58,6 +70,13 @@ export default function PageWrapper(props: PageWrapperProps) {
                             ))}
 
                         </div>
+                    ) : (
+                            <Link
+                                href={generateRoute(router.query.route)}
+                                className="absolute grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
+                            >
+                                Back
+                            </Link>
                     )
 
                 }

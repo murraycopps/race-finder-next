@@ -70,9 +70,7 @@ export default function LoginPage({
              [],
             response.data.data.insertedId,
             0,
-             "",
-            false
-        );
+             "");
       })
       .catch((error) => {
         console.error(error);

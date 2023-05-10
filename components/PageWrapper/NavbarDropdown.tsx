@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Route } from "@/components/PageWrapper/types";
 import Link from "next/link";
 
-export default function Dropdown({
+export default function NavbarDropdown({
   route,
   close,
 }: {
@@ -66,7 +66,7 @@ export default function Dropdown({
               {route.children.map((child, i) => (
                 <>
                   {child.children ? (
-                    <Dropdown key={i} route={child} close={() => {}} />
+                    <NavbarDropdown key={i} route={child} close={() => {}} />
                   ) : (
                     <Link
                       href={route.route + child.route}

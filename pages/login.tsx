@@ -31,38 +31,52 @@ export default function LoginPage({
     );
 
     if (user) {
-     if(user.expiresAt){
-       // check if user.expiresAt is in the past
-       if (new Date(user.expiresAt * 1000) < new Date()) {
-         // refresh token
-         // const response = await axios.post(
-         //   `https://www.strava.com/api/v3/oauth/token`,
-         //   {
-         //     client_id: clientId,
-         //     client_secret: clientSecret,
-         //     grant_type: "refresh_token",
-         //     refresh_token: user.refreshToken,
-         //   }
-         // );
-         const {access_token, refresh_token, expires_at} = await refreshToken(
-             user.refreshToken
-         );
-         axios.put(`${url}/api/users`, {
-           _id: user._id,
-           accessToken: access_token,
-           refreshToken: refresh_token,
-           expiresAt: expires_at,
-         });
+     if(user.expiresAt && new Date(user.expiresAt * 1000) < new Date()){
 
-         LoginData.Login(
-             access_token,
-             username,
-             user.goals || [],
-             user._id,
-             expires_at,
-             refresh_token
-         );
-       }
+         const refreash = async () => {
+           const {access_token, refresh_token, expires_at} = await refreshToken(
+               user.refreshToken
+           );
+           axios.put(`${url}/api/users`, {
+             _id: user._id,
+             accessToken: access_token,
+             refreshToken: refresh_token,
+             expiresAt: expires_at,
+           });
+
+           LoginData.Login(
+               access_token,
+               username,
+               user.goals || [],
+               user._id,
+               expires_at,
+               refresh_token
+           );
+           const generateRoute = (route: string | string[] | undefined) => {
+             if(typeof route === "string"){
+
+               //   check if route is a valid route
+               if(route.charAt(0) === "/") return route
+             }
+             return "/home"
+           }
+
+           router.push(generateRoute(router.query.route || "/home"));
+
+         }
+
+
+      }
+      else{
+       LoginData.Login(
+           user.accessToken || "",
+           username,
+           user.goals || [],
+           user._id,
+           user.expiresAt || 0,
+           user.refreshToken || ""
+       );
+
        const generateRoute = (route: string | string[] | undefined) => {
          if(typeof route === "string"){
 
@@ -72,20 +86,8 @@ export default function LoginPage({
          return "/home"
        }
 
-        router.push(generateRoute(router.query.route || "/home"));
-        return;
-      }
-      if (!user.accessToken) return;
-      LoginData.Login(
-        user.accessToken,
-        username,
-        user.goals || [],
-        user._id,
-        user.expiresAt || 0,
-        user.refreshToken || ""
-      );
-
-      router.push("/strava/");
+       router.push(generateRoute(router.query.route || "/home"));
+     }
     } else {
       setErrorMessage("Incorrect username or password");
     }

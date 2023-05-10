@@ -12,7 +12,7 @@ export default class LoginData {
     static _id: string = ''
     static refreshToken = ''
 
-    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string, linked?: boolean) {
+    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string) {
         this.loggedIn = true
         this.accessToken = accessToken
         this.username = username
@@ -20,7 +20,7 @@ export default class LoginData {
         this._id = id
         this.expiresAt = expiresAt
         this.refreshToken = refresh_token
-        this.linked = linked || this.accessToken !== ''
+        this.linked = this.accessToken !== ''
 
         setToken(accessToken)
 
