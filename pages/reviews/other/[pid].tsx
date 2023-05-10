@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { other } from "@/scripts/other";
 import { Other } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
-import PageCard from "@/components/Reviews/Overview";
+import Overview from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
 import FeaturesCard from "@/components/Reviews/Featuers";
 
@@ -29,7 +29,7 @@ export default function ShoesPage() {
     >
       {item ? (
         <div className="w-full h-full p-4 rounded-lg ">
-          <PageCard item={item} />
+          <Overview item={item} />
 
           <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
             Specs
