@@ -149,7 +149,7 @@ export default function LoginPage({
         type="button"
         href={`/login${router.query.route ? `?route=${router.query.route}` : ""}`}
       >
-        Already have an Account? Click here to Login
+        Already have an account? Click here to Login
       </Link>
     </PageWrapper>
   );
