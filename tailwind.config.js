@@ -23,6 +23,11 @@ module.exports = {
                 '3xs': '5rem',
                 '3/4': '75%',
             },
+            minWidth: {
+                '48': '12rem',
+            },
+
+            
             height: {
                 '125': '31.25rem',
                 '128': '32rem',

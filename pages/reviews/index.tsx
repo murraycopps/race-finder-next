@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Item } from "@/scripts/types";
 import ItemCard from "@/components/Reviews/ItemCard";
 import { clothes } from "@/scripts/clothes";
-import LinkCard from "@/components/Reviews/LinkCard";
+import LinkCard from "@/components/HomePage/LinkCard";
 import Image from "next/image";
 import SlantedTitle from "@/components/HomePage/SlantedTitle";
 const items = [
@@ -54,20 +54,32 @@ export default function Reviews() {
       {/*  <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>*/}
       {/*</div>*/}
 
-      <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-        <LinkCard type="shoes" image="/review-cards/shoe.webp" />
+      <div className="grid w-full grid-cols-1 text-center gap-8 p-8 sm:grid-cols-2 md:grid-cols-3">
         <LinkCard
-          type="clothes"
-          image="/review-cards/clothesnew.webp"
+            img="/review-cards/shoe.webp"
+            link="/review/shoes"
+            description="Revirews of the best shoes for running"
+            title="Shoes" />
+        <LinkCard
+          link="/review/clothes"
+          img="/review-cards/clothesnew.webp"
+          description="Reviews of the best clothes for running"
+          title="Clothes"
         />
-        <LinkCard type="other" image="/review-cards/gearnew.png" />
+        <LinkCard
+          img="/review-cards/gearnew.png"
+          link="/review/other"
+          description="Reviews of the best gear for running"
+          title="Gear"
+
+        />
       </div>
       <h1 className="w-full p-2 text-6xl text-center text-white slanted bg-ronchi-600">
         Reviews
       </h1>
 
       {/* <SlantedTitle title={" "}/> */}
-      <div className="grid justify-start w-full grid-cols-1 gap-4 px-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="grid justify-start w-full grid-cols-1 gap-4 px-8 sm:grid-cols-2 lg:grid-cols-4 ">
         {randomItems.slice(0, 4).map((item, i) => {
           return <ItemCard item={item.item} des={item.des} key={i} />;
         })}

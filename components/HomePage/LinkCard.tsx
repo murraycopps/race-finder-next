@@ -22,7 +22,7 @@ const LinkCard = ({ title, description, link, img }: CardProps) => (
       priority
     />
     <div className="absolute inset-0 w-full h-full bg-gray-600 opacity-75 hover:opacity-60" />
-    <h2 className="z-50 text-4xl font-bold pointer-events-none">{title}</h2>
+    <h1 className="z-50 text-6xl font-semibold pointer-events-none">{title}</h1>
     <p className="z-50 text-2xl pointer-events-none">{description}</p>
   </Link>
 );

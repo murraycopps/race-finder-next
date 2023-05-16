@@ -38,7 +38,7 @@ export default function PageWrapper(props: PageWrapperProps) {
     return (
         <>
             {/* breakpoints */}
-            {/* <div className="fixed top-0 right-0 w-10 h-10 bg-red-500 border-2 z-100 sm:bg-green-500 md:bg-blue-600 lg:bg-lavender-600 border-base" /> */}
+             <div className="fixed top-0 right-0 w-10 h-10 bg-red-500 border-2 z-100 sm:bg-green-500 md:bg-blue-600 lg:bg-lavender-600 border-base" />
             <Head>
                 <title>{props.page}</title>
             </Head>
