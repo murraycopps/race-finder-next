@@ -140,7 +140,7 @@ const shoes:Shoe[] = [
             "\n" +
             "The Victory is specifically designed for use on the track, with spikes on the outsole that provide excellent traction on the surface. The shoe's drop and stack height are not available, but it's designed to be a responsive racing shoe.\n" +
             "\n" +
-            "Overall, the Nike Air Zoom Victory is an excellent choice for serious distance runners who compete on the track. It's a high-quality shoe that provides excellent cushioning, responsiveness, and traction, all while being incredibly lightweight. With a rating of 5 out of 5, it's clear that the Victory is a top choice for track and field athletes.",
+            "Overall, the Nike Air Zoom Victory is an excellent choice for serious mid-distance runners who compete on the track. It's a high-quality shoe that provides excellent cushioning, responsiveness, and traction, all while being incredibly lightweight. With a rating of 5 out of 5, it's clear that the Victory is a top choice for track and field athletes.",
         id: 'nike-air-zoom-victory',
         type: "shoe",
         reviews: []
@@ -161,7 +161,17 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/hoka-logo.png",
         link: "https://www.runningwarehouse.com/Mens_HOKA_Tecton_X/catpage-MRSHTECX.html",
         brandLink: "https://www.hoka.com/en/us/sale/tecton-x/1123161.html",
-        review: "stuff",
+        review: "The Hoka Tecton X is a versatile shoe that excels not only in trail racing but also in trail training and can be uses on roads. Priced at $200, it offers a premium experience for runners who want a high-performance shoe for various terrains.\n" +
+            "\n" +
+            "Designed with the demands of trail racing in mind, the Tecton X remains an excellent choice for competitive trail runners. Its durable construction ensures it can withstand the rigors of challenging off-road courses, providing stability and protection when you need it most.\n" +
+            "\n" +
+            "However, what sets the Tecton X apart is its ability to shine as a trail training shoe. The shoe's reliable cushioning, achieved through its 35.3mm heel stack height and 27.3mm forefoot stack height, offers excellent impact absorption during long training runs on rugged trails. The neutral arch design accommodates a variety of foot types, ensuring a comfortable fit for extended training sessions.\n" +
+            "\n" +
+            "Remarkably, the Tecton X isn't limited to trail running alone. It also performs admirably on road surfaces, making it a versatile option for runners who enjoy switching between terrains. The shoe's traction, though optimized for trails, can handle occasional road running, making it a great choice for runners who incorporate both surfaces into their training routes.\n" +
+            "\n" +
+            "The upper of the Tecton X is made from a breathable mesh material that provides excellent ventilation and keeps your feet cool during long runs. Although the Upper dose bunch up around the toe box when tied tight.\n" +
+
+            "With its durability, cushioning, and adaptability to various terrains, it offers a premium running experience for those seeking a shoe that can handle a range of running activities. Whether you're racing, training, or transitioning between road and trail, the Tecton X is a reliable companion.",
         id: 'hoka-tecton-x',
         type: "shoe",
         reviews: []
@@ -182,7 +192,19 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_ZoomX_Invincible_Run_Flyknit_3/descpage-NZIR3M1.html",
         brandLink: "https://www.nike.com/t/invincible-3-mens-road-running-shoes-CLdFjq",
-        review: "stuff",
+        review: "\n" +
+            "The Nike ZoomX Invincible Run Flyknit 3 is an exceptional shoe designed for easy training runs on the road. Priced at $180, it offers a high-quality experience for runners who prioritize comfort and cushioning during their training sessions.\n" +
+            "\n" +
+            "The Invincible Run Flyknit 3 is built to provide a plush and responsive ride. With a weight of 275 grams, it may be slightly heavier than some other running shoes, but the shoe compensates with its outstanding cushioning and support.\n" +
+            "\n" +
+            "Featuring a neutral arch, the Invincible Run Flyknit 3 accommodates a variety of foot types, ensuring a comfortable fit for most runners. The shoe's ZoomX foam midsole delivers an incredibly soft and responsive feel, absorbing impact and providing energy return with each stride.\n" +
+            "\n" +
+            "The shoe's stack heights of 37mm in the heel and 28mm in the forefoot contribute to its impressive cushioning, making it suitable for longer, easy-paced training runs. The 9mm drop promotes a smooth transition from heel to toe, enhancing overall comfort.\n" +
+            "\n" +
+            "One aspect to note about the Nike ZoomX Invincible Run Flyknit 3 is the heel counter, which may not fit every individual's foot shape perfectly. However, it's important to mention that this issue can easily be addressed through various lacing techniques. After a few runs, I personally didn't notice any discomfort or slippage thanks to adjusting the laces accordingly. \n" +
+            "\n" +
+            "Overall, the Nike ZoomX Invincible Run Flyknit 3 is a top-tier option for runners who prioritize comfort and cushioning during their easy-paced training runs. With its plush ride, responsive foam midsole, and stylish design, it's a shoe that combines performance and style seamlessly.",
+
         id: 'nike-zoomx-invincible-run-flyknit-3',
         type: "shoe",
         reviews: []
@@ -203,7 +225,13 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/hoka-logo.png",
         link: "https://www.runningwarehouse.com/HOKA_Zinal/descpage-HZN1M2.html",
         brandLink: "https://www.hoka.com/en/us/mens-trail/zinal/194715595507.html",
-        review: "stuff",
+        review: "The Hoka Zinal is an exceptional shoe designed for trail runs on light trails. Priced at $160, it offers great value for trail runners who are seeking comfort and performance. The shoe's weight of 231 grams provides a good balance between durability and agility, allowing you to navigate trails with ease.\n" +
+            "\n" +
+            "With a 5mm drop and stack heights of 32mm in the heel and 27mm in the forefoot, the Hoka Zinal offers a comfortable and supportive platform. The shoe's neutral arch accommodates a variety of foot types, providing stability and preventing excessive pronation. These features work together to ensure a smooth and efficient running experience on light trails.\n" +
+            "\n" +
+            "The Hoka Zinal is built to withstand the demands of trail running. Its outsole provides reliable traction, allowing you to confidently tackle different terrains. The shoe's cushioned midsole offers excellent shock absorption, reducing the impact on your joints and providing a comfortable ride on uneven surfaces.\n" +
+            "\n" +
+            "Overall, the Hoka Zinal is a top choice for trail runners looking for a lightweight and versatile shoe. Its comfortable fit, supportive platform, and durable construction make it an excellent companion for tackling light trails. Whether you're an experienced trail runner or just starting out, the Hoka Zinal is sure to elevate your trail running experience.",
         id: 'hoka-zinal',
         type: "shoe",
         reviews: []
@@ -224,7 +252,15 @@ const shoes:Shoe[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Pegasus_Turbo_Next_Nature/descpage-NMPTNN0.html",
         brandLink: "https://www.nike.com/t/pegasus-turbo-next-nature-mens-road-running-shoes-pnz45r",
-        review: "stuff",
+        review: "The Nike Pegasus Turbo Next Nature is a fantastic shoe designed for tempo training on the road. Priced at $150, it offers great value for runners looking to enhance their tempo runs. With a weight of 264 grams, the shoe provides a good balance of cushioning and responsiveness.\n" +
+            "\n" +
+            "The shoe's surface is specifically designed for road running, offering excellent traction and durability on pavement. This makes it an ideal choice for runners who focus on tempo training sessions on the road. The shoe features a neutral arch, making it suitable for various foot types.\n" +
+            "\n" +
+            "With a drop of 10mm, the shoe promotes a smooth transition from heel to toe, providing a comfortable and efficient running experience. The heel stack height of 32mm and forefoot stack height of 22mm offer sufficient cushioning to reduce impact on the feet and joints during tempo runs.\n" +
+            "\n" +
+            "The Nike Pegasus Turbo Next Nature is designed to provide a lightweight and responsive ride, helping runners maintain a fast pace during tempo training. Its construction and cushioned sole make it a reliable choice for runners seeking both comfort and performance.\n" +
+            "\n" +
+            "In summary, the Nike Pegasus Turbo Next Nature is a versatile shoe designed specifically for tempo training on the road. With its comfortable fit, responsive cushioning, and durable design, it offers a great running experience for runners looking to improve their performance during tempo runs.",
         id: 'nike-pegasus-turbo-next-nature',
         type: "shoe",
         reviews: []
