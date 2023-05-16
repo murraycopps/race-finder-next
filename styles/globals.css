@@ -371,6 +371,6 @@ html {
 
 
 .controls-width-clamp{
-  width: clamp(30rem, 50vw, 50rem);
+  width: clamp(50rem, 50vw, 70rem);
   max-width: 100%;
 }

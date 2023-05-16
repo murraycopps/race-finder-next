@@ -12,7 +12,7 @@ type DropdownProps = {
   value?: string | number;
   placeholder?: string;
   setValue: (value: string | number) => void;
-  usePlaceholder?: boolean;
+  valuePrefix?: string;
 };
 
 export default function FilterDropdown({
@@ -20,7 +20,7 @@ export default function FilterDropdown({
   value,
   setValue,
   placeholder,
-  usePlaceholder = false,
+                                         valuePrefix,
 }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
@@ -36,10 +36,11 @@ export default function FilterDropdown({
       });
       if (item) {
         if (typeof item !== "object") {
-          return usePlaceholder ? placeholder + " - " + item : item;
+          // return usePlaceholder ? placeholder + " - " + item : item;
+          return valuePrefix ? valuePrefix + " " + item : item;
         } else {
-          return usePlaceholder
-            ? placeholder + " - " + (item.name || item.value)
+          return valuePrefix
+            ? valuePrefix + (item.name || item.value)
             : item.name || item.value;
         }
       }
@@ -105,7 +106,7 @@ export default function FilterDropdown({
       <div
         className={`absolute z-50 flex text-3xl flex-col max-h-96 overflow-y-auto items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
-        } w-full px-4  top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-t-4 scrollbar-m-b-2 bg-faded-lavender-600 border-faded-lavender-600`}
+        } w-full px-4  top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-t-4 scrollbar-m-b-2 bg-base-500 border-base-500`}
       >
         {items.map((item, index) => (
           <button

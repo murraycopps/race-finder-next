@@ -14,7 +14,7 @@ export default function Reviews() {
       {/* <h1 className="w-full p-4 mt-8 text-4xl font-medium text-center text-white slanted bg-ronchi-600">
         Shoe Reviews
       </h1> */}
-      <h1 className="mt-8 text-6xl text-slate-400">Shoe Reviews</h1>
+      <h1 className="flex justify-center w-full p-4 text-5xl text-white slanted bg-ronchi-500">Shoe Reviews</h1>
 
       <Filter setFilteredShoes={setFilteredShoes} />
       <div className="grid justify-start w-full grid-cols-1 gap-4 p-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">

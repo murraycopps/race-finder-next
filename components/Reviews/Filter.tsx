@@ -74,7 +74,7 @@ export default function Filter({
     sort();
   }, [value, sortBy]);
   return (
-    <div className="flex flex-col items-center justify-center gap-4 p-4 controls-width-clamp ">
+    <div className="grid grid-cols-2 items-center justify-center gap-4 p-4 controls-width-clamp ">
       {/* <div className="flex content-center justify-center w-full max-w-3xl"> */}
       {/* <label className="mr-4 text-xl" htmlFor="surface">
           Filter by Surface
@@ -87,7 +87,7 @@ export default function Filter({
         }}
         value={value}
         placeholder="Filter by Surface"
-        usePlaceholder        
+        valuePrefix="Surface: "
       />
         <FilterDropdown
             items={sortOptions}

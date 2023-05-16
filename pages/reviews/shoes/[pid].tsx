@@ -66,7 +66,7 @@ export default function ShoesPage() {
               <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
                 Review
               </h1>
-              <p className="text-xl text-center text-white">{shoe.review}</p>
+              <p className="text-2xl text-center text-white whitespace-pre-wrap">{shoe.review}</p>
             </div>
                   <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
                     User Reviews
