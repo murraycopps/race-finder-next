@@ -2,6 +2,7 @@ import ReviewsHand from "@/scripts/ReviewsHand";
 import {ChangeEvent, SyntheticEvent, useEffect, useRef, useState} from "react";
 import LoginData from "@/scripts/LoginData";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 export default function CreateReview({id}: { id: string}) {
     const [reviewText, setReviewText] = useState("");
@@ -11,9 +12,10 @@ export default function CreateReview({id}: { id: string}) {
     }
     const [rating, setRating] = useState(-1);
     const ref = useRef<HTMLFormElement>(null);
+    const router = useRouter();
 
 const [loggedIn, setLoggedIn] = useState(false);
-
+    const route = router.route.replace("[pid]", router.query.pid as string)
     useEffect(() => {
         const checkIfLoggedIn = async () => {
             await LoginData.getStorage();
@@ -75,7 +77,7 @@ if(!LoginData.isLoggedIn()){
             {!loggedIn && (
                 <div className="absolute inset-0 grid place-items-center z-10">
 
-                <Link href={"/login"} className=" py-4 px-8 w-40 text-center text-2xl  rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600">Login</Link>
+                <Link href={`/login?route=${route}`} className=" py-4 px-8 w-40 text-center text-2xl  rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600">Login</Link>
                 </div>
 
 

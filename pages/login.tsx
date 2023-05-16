@@ -64,6 +64,7 @@ export default function LoginPage({
            router.push(generateRoute(router.query.route || "/home"));
 
          }
+            refreash()
 
 
       }

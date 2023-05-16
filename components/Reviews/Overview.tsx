@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Stars from "@/components/Reviews/Stars";
+import Link from "next/link";
 
 type CardProps = {
   item: {
@@ -26,8 +27,8 @@ export default function Overview({ item }: CardProps) {
         <Image
           src={item.img}
           alt={item.name}
-          width="400"
-          height="400"
+          width="1000"
+          height="1000"
           className="object-contain w-2/3 aspect-video"
           priority
         />
@@ -42,27 +43,29 @@ export default function Overview({ item }: CardProps) {
           <div className="flex flex-col justify-center gap-2">
             <h2 className="text-xl text-center">Purchase</h2>
             <div className="flex flex-row justify-center gap-3">
-              <a
-                className="grid w-24 h-24 p-2 bg-white rounded-lg hover:opacity-50 place-items-center"
+              <Link
+                className="grid w-24 h-24 p-2 bg-white rounded-lg hover:brightness-75 place-items-center"
                 href={item.link}
               >
-                <img
-                  className="block overflow-hidden bg-transparent rounded-md opacity-100 transition-background"
+                <Image
+                  className="block overflow-hidden bg-transparent rounded-md transition-background"
                   src="https://media.licdn.com/dms/image/C4E0BAQHBmWI9w3tzog/company-logo_200_200/0/1544572615288?e=2147483647&v=beta&t=HhwAog-YBLZyc1ULuVv48MZefPUw3EHejmW25OtMwUQ"
                   alt="running warehouse"
+                    width="100"
+                    height="100"
                 />
-              </a>
+              </Link>
 
-              <a
-                className="grid w-24 h-24 p-2 bg-white rounded-lg hover:opacity-50 place-items-center"
+              <Link
+                className="grid w-24 h-24 p-2 bg-white rounded-lg hover:brightness-75 place-items-center"
                 href={item.brandLink}
               >
                 <img
-                  className="block overflow-hidden bg-transparent rounded-md opacity-100 transition-background"
+                  className="block overflow-hidden bg-transparent rounded-md transition-background"
                   src={item.brandLogo}
                   alt={item.brand}
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
