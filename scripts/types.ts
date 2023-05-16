@@ -90,6 +90,7 @@ type Other = {
     brand: string;
     brandLogo: string;
     link: string;
+    reviews: Review[];
     brandLink: string;
     review: string;
     id: string;

@@ -15,6 +15,7 @@ const other: Other[] = [
         review: "stuff",
         id: 'garmin-forerunner-955',
         type: "other",
+        reviews: [],
         otherType: "watch",
         features: [
             {
