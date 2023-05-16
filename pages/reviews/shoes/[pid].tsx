@@ -8,24 +8,44 @@ import SpecCard from "@/components/Reviews/SpecCard";
 import CreateReview from "@/components/Reviews/CreateReview";
 import ReviewsHand from "@/scripts/ReviewsHand";
 import Stars from "@/components/Reviews/Stars";
+import ReviewCard from "@/components/Reviews/Review";
 
 export default function ShoesPage() {
 
   const router = useRouter();
   const { pid } = router.query;
   const [shoe, setShoe] = useState(null as Shoe | null);
+  const [reviews, setReviews] = useState<Review[]>([]);
 
 
   useEffect(() => {
     if (pid) {
-    ReviewsHand.getReviews().then(() => {
-      const shoe = shoes.find((shoe) => shoe.id == pid);
-      if (!shoe) {
-        router.back();
-        return;
+    // ReviewsHand.getReviews().then(() => {
+    //   const shoe = shoes.find((shoe) => shoe.id == pid);
+    //   if (!shoe) {
+    //     router.back();
+    //     return;
+    //   }
+    //   setShoe(shoe);
+    // })
+      // convert to async/await
+      const getShoe = async () => {
+        const reviews = await ReviewsHand.getReviews();
+        const shoe = shoes.find((shoe) => shoe.id == pid);
+
+        if (!shoe) {
+            router.back();
+            return;
+        }
+        if(shoe.reviews.length === 0){
+            shoe.reviews = reviews.filter((review) => review.id === shoe.id);
+        }
+
+        setReviews(shoe.reviews);
+
+        setShoe(shoe);
       }
-      setShoe(shoe);
-    })
+        getShoe();
     }
   }, [pid]);
 
@@ -72,16 +92,8 @@ export default function ShoesPage() {
                     User Reviews
                   </h1>
             <div className="grid grid-cols-4 gap-4">
-            {shoe.reviews.length > 0 ? shoe.reviews.map((review, i) => (
-                        <div key={i} className="flex flex-col  px-16 py-4 bg-wisteria-600 card-slant h-64">
-                          <p className="text-2xl text-center text-white">{review.title}</p>
-
-                          <div className="flex flex-row justify-evenly text-xl">
-                            <p className="text-xl text-center text-white">{review.author}</p>
-                            <Stars number={review.rating}/>
-                          </div>
-                          <p className="text-l text-center text-white overflow-hidden h-full overflow-ellipse overflow-y-auto" >{review.review}</p>
-                        </div>
+            {reviews.length !== 0 ? reviews.map((review, i) => (
+                        <ReviewCard review={review} key={i}/>
                     )) : (
                 <p className="text-xl text-center text-white">No reviews yet</p>
             )}

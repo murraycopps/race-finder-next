@@ -20,6 +20,8 @@ export default class ReviewsHand {
             shoe.reviews = reviews.filter(review => review.id === shoe.id)
         })
 
+
+
         return reviews;
     }
 

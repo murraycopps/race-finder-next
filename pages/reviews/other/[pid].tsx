@@ -7,6 +7,7 @@ import Overview from "@/components/Reviews/Overview";
 import SpecCard from "@/components/Reviews/SpecCard";
 import FeaturesCard from "@/components/Reviews/Featuers";
 import Stars from "@/components/Reviews/Stars";
+import ReviewCard from "@/components/Reviews/Review";
 
 export default function ShoesPage() {
   const router = useRouter();
@@ -55,15 +56,7 @@ export default function ShoesPage() {
           </h1>
           <div className="grid grid-cols-4 gap-4">
             {item.reviews.length > 0 ? item.reviews.map((review, i) => (
-                <div key={i} className="flex flex-col  px-16 py-4 bg-wisteria-600 card-slant h-64">
-                  <p className="text-2xl text-center text-white">{review.title}</p>
-
-                  <div className="flex flex-row justify-evenly text-xl">
-                    <p className="text-xl text-center text-white">{review.author}</p>
-                    <Stars number={review.rating}/>
-                  </div>
-                  <p className="text-l text-center text-white overflow-hidden h-full overflow-ellipse overflow-y-auto" >{review.review}</p>
-                </div>
+                <ReviewCard review={review} key={i}/>
             )) : (
                 <p className="text-xl text-center text-white">No reviews yet</p>
             )}
