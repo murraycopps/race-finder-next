@@ -12,7 +12,16 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/boa-logo.png",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/w?q=vaporfly&vst=vaporfly",
-        review: "stuff",
+        review: "\n" +
+            "The BOA 1\" Elite split shorts are high-quality training and racing shorts designed to enhance your running experience. Priced at $42, they offer great value for their performance and durability. With a sleek design and a rating of 5 stars, these shorts are highly regarded by athletes.\n" +
+            "\n" +
+            "The shorts feature a 1\" inseam, providing freedom of movement and allowing for a full range of motion during your runs. This shorter inseam length is favored by many runners for its lightweight and breathable feel. The BOA 1\" Elite split shorts also come in various patterns, adding a touch of style to your running wardrobe.\n" +
+            "\n" +
+            "Designed by BOA, a trusted brand in athletic apparel, these shorts are made with quality materials to ensure long-lasting performance. The brand logo, featuring BOA's distinctive emblem, adds to the overall aesthetic appeal of the shorts.\n" +
+            "\n" +
+            "Whether you're training or racing, the BOA 1\" Elite split shorts are designed to keep you comfortable and focused on your performance. Their lightweight construction and breathable fabric help to wick away moisture, keeping you cool and dry during intense workouts. The split design allows for unrestricted leg movement, enabling you to achieve your maximum potential.\n" +
+            "\n" +
+            "In summary, the BOA 1\" Elite split shorts are a top choice for runners seeking high-performance training and racing apparel. With their 1\" inseam, stylish patterns, and trusted brand reputation, these shorts offer both functionality and style. Invest in a pair to experience the comfort, flexibility, and durability they provide during your training sessions and races.",
         id: 'boa-elite-split-shorts',
         type: "clothes",
         clotheType: "shorts",
@@ -39,7 +48,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Mens_Nike_Vaporfly/catpage-MVAPORFLY.html",
         brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-        review: "stuff",
+        review: "The Nike Dri-FIT ADV AeroSwift is a high-performance singlet designed for training and racing. Priced at $90, it offers excellent value for its advanced features and quality construction. With a rating of 4 stars, this singlet is well-regarded by athletes.\n" +
+            "\n" +
+            "The singlet features Nike's Dri-FIT technology, which wicks away moisture and keeps you dry and comfortable during intense workouts and races. The advanced AeroSwift fabric provides lightweight breathability, allowing for optimal airflow and ventilation. This helps regulate your body temperature, keeping you cool when the competition heats up.\n" +
+            "\n" +
+            "Nike, a renowned brand in athletic apparel, ensures the singlet's quality and durability. The Nike logo, prominently displayed on the singlet, represents the brand's commitment to excellence and performance.\n" +
+            "\n" +
+            "The Nike Dri-FIT ADV AeroSwift singlet is designed to enhance your training and racing experience. Its streamlined fit and ergonomic construction allow for freedom of movement and reduce distractions while running. The singlet's design also minimizes chafing and irritation, ensuring a comfortable fit during long-distance runs.\n" +
+            "\n" +
+            "Whether you're training for a marathon or competing in a race, the Nike Dri-FIT ADV AeroSwift singlet is a reliable choice. Its moisture-wicking properties, breathable fabric, and performance-oriented design make it an essential piece of apparel for serious runners.\n" +
+            "\n" +
+            "In summary, the Nike Dri-FIT ADV AeroSwift singlet combines advanced technology, comfort, and style to elevate your training and racing. With Nike's trusted brand reputation and attention to detail, this singlet is a worthwhile investment for runners looking for top-notch performance and comfort during their workouts and races.",
         id: 'nikr-dri-fit-adv-aeroswift',
         type: "clothes",
         clotheType: "singlet",
@@ -58,7 +77,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/boa-logo.png",
         link: "https://www.runningwarehouse.com/BOA_Mens_Constrictor_Plus_Half_Tight/descpage-BMCPHT.html?color=bk",
         brandLink: "https://www.boafit.com/",
-        review: "stuff",
+        review: "The BOA Men's Constrictor Plus Half Tight is a high-quality spandex tight designed for training and racing. Priced at $44, it offers excellent value for its performance and durability. With a rating of 4 stars, these tights are well-regarded by athletes.\n" +
+            "\n" +
+            "The half tight design provides a snug and supportive fit, allowing for unrestricted movement during your training sessions and races. The spandex material offers compression benefits, enhancing blood circulation and reducing muscle fatigue. These tights are suitable for a variety of activities, including running, gym workouts, and other high-intensity exercises.\n" +
+            "\n" +
+            "Designed by BOA, a trusted brand in athletic apparel, these tights are made with quality materials to ensure long-lasting performance. The brand logo, featuring BOA's distinctive emblem, adds to the overall aesthetic appeal of the tights.\n" +
+            "\n" +
+            "The BOA Men's Constrictor Plus Half Tight is designed to provide comfort and support during your most demanding workouts. Its moisture-wicking properties help keep you dry by quickly moving sweat away from your skin. The tight fit also offers a streamlined silhouette, reducing drag and enhancing your performance.\n" +
+            "\n" +
+            "Whether you're training or racing, the BOA Men's Constrictor Plus Half Tight is a reliable choice. Its compression benefits, comfortable fit, and durable construction make it an essential piece of apparel for athletes seeking optimal performance.\n" +
+            "\n" +
+            "In summary, the BOA Men's Constrictor Plus Half Tight is a versatile and high-performance option for training and racing. With its supportive fit, compression benefits, and trusted brand reputation, these tights offer both functionality and style. Invest in a pair to experience the comfort, flexibility, and durability they provide during your workouts and races.",
         id: 'boa-mens-constrictor-plus-half-tight',
         type: "clothes",
         clotheType: "spandex",

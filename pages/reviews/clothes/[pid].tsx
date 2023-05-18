@@ -30,15 +30,15 @@ export default function ShoesPage() {
     return (
         <PageWrapper
             page={article.name || "Shoe"}
-            className="flex flex-col w-screen h-screen py-16 px-32 gap-8 overflow-y-auto item-center"
+            className="flex flex-col w-screen h-screen p-4 sm:p-8 md:p-16 lg:px-32 gap-8 overflow-y-auto item-center"
         >
             <Overview item={article}/>
 
-            <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+            <h2 className="flex justify-center w-full p-4 text-3xl sm:text-4xl font-medium text-white slanted bg-ronchi-500">
                 Specs/Review
-            </h1>
-            <div className="grid grid-cols-2 px-16">
-                <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-2 gap-4">
+            </h2>
+            <div className="flex flex-col px-8 lg:px-16 gap-8">
+                <div className="px-8 text-xl flex-wrap font-medium text-center text-white flex justify-evenly gap-8">
                     {/*<SpecsCard item={article}/>*/}
                     <SpecCard info={article.brand} title={"Brand"}/>
                     <SpecCard info={article.use} title={"Best Use"}/>
@@ -50,12 +50,12 @@ export default function ShoesPage() {
                 {/*<h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">*/}
                 {/*  Review*/}
                 {/*</h1>*/}
-                <p className="text-2xl text-left text-white">{article.review}</p>
+                <p className="sm:text-2xl text-lg text-center whitespace-pre-wrap text-white">{article.review}</p>
 
             </div>
-            <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+            <h2 className="flex justify-center w-full p-4 text-3xl sm:text-4xl font-medium text-white slanted bg-ronchi-500">
                 User Reviews
-            </h1>
+            </h2>
             <div className="grid grid-cols-4 gap-4">
                 {article.reviews.length > 0 ? article.reviews.map((review, i) => (
                     <ReviewCard review={review} key={i}/>

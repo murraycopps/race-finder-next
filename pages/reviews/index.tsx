@@ -57,18 +57,18 @@ export default function Reviews() {
       <div className="grid w-full grid-cols-1 text-center gap-8 p-8 sm:grid-cols-2 md:grid-cols-3">
         <LinkCard
             img="/review-cards/shoe.webp"
-            link="/review/shoes"
+            link="/reviews/shoes"
             description="Revirews of the best shoes for running"
             title="Shoes" />
         <LinkCard
-          link="/review/clothes"
+          link="/reviews/clothes"
           img="/review-cards/clothesnew.webp"
           description="Reviews of the best clothes for running"
           title="Clothes"
         />
         <LinkCard
           img="/review-cards/gearnew.png"
-          link="/review/other"
+          link="/reviews/other"
           description="Reviews of the best gear for running"
           title="Gear"
 
