@@ -52,15 +52,15 @@ export default function ShoesPage() {
   return (
     <PageWrapper
       page={shoe?.name || "Shoe"}
-      className="flex flex-col justify-center w-screen h-screen px-32 py-16 overflow-y-auto item-center"
+      className="flex flex-col justify-center w-screen h-screen p-4 sm:p-8 md:p-16 lg:px-32 overflow-y-auto item-center"
     >
       {shoe ? (
         <div className="w-full h-full p-4 rounded-lg ">
           <Overview item={shoe} />
 
-          <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
-            Specs
-          </h1>
+          <h2 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+            Specs/Review
+          </h2>
           <div className="flex flex-col p-4 col-span-2 gap-4">
             <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
               {/*<SpecsCard item={shoe}/>*/}
@@ -83,15 +83,13 @@ export default function ShoesPage() {
             </div>
 
             <div className="flex flex-col h-full p-8 col-span-2 gap-8">
-              <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
-                Review
-              </h1>
+
               <p className="text-2xl text-center text-white whitespace-pre-wrap">{shoe.review}</p>
             </div>
-                  <h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
+                  <h2 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
                     User Reviews
-                  </h1>
-            <div className="grid grid-cols-4 gap-4">
+                  </h2>
+            <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
             {reviews.length !== 0 ? reviews.map((review, i) => (
                         <ReviewCard review={review} key={i}/>
                     )) : (

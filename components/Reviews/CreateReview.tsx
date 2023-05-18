@@ -73,7 +73,7 @@ if(!LoginData.isLoggedIn()){
 
     return (
 
-        <div className="flex flex-col relative items-center justify-center card-slant-lg gap-2 col-end-5 col-start-3 row-start-1 row-end-3">
+        <div className="flex flex-col relative items-center justify-center card-slant-lg gap-2 lg:col-end-5 lg:col-start-3 lg:row-start-1 lg:row-end-3">
             {!loggedIn && (
                 <div className="absolute inset-0 grid place-items-center z-10">
 
@@ -84,10 +84,11 @@ if(!LoginData.isLoggedIn()){
             )}
 
         <div
-            className={` ${!loggedIn && "blur-sm"} flex flex-col gap-2 p-16 w-full  bg-wisteria-600 `}>
+            className={` ${!loggedIn && "blur-sm"} flex flex-col gap-2 px-20 py-4 w-full  bg-wisteria-600 `}>
 
-            <form onSubmit={addReview} className="flex flex-col items-center gap-2 justify-evenly p-8" ref={ref}>
+            <form onSubmit={addReview} className="flex flex-col items-center gap-4 justify-evenly p-8 sm:w-full" ref={ref}>
 
+                <h2 className="text-4xl font-semibold text-center">Create Review</h2>
 
                 <input type="text" name="title" id="title" required maxLength={50}
                        onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
@@ -100,11 +101,11 @@ if(!LoginData.isLoggedIn()){
 
                 <textarea value={reviewText}
                           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setReviewText(e.target.value)}
-                          maxLength={200} required
+                          maxLength={250} required
                           className="w-full h-32 p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300"
                           placeholder="Write your review here..."></textarea>
                           <span className="charLeft ">
-                              {200 - reviewText.length} characters
+                              {250 - reviewText.length} characters
                               </span>
 
                 <div className="flex flex-col items-center justify-center gap-2">
