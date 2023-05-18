@@ -40,7 +40,7 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen gap-16 p-16 overflow-y-auto"
+      className="flex flex-col items-center justify-start w-screen h-screen sm:gap-16 gap-8 p-8 sm:p-16 overflow-y-auto"
     >
       {/*<div className="relative">*/}
       {/*  <Image*/}
@@ -54,7 +54,7 @@ export default function Reviews() {
       {/*  <h1 className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-base text-8xl">Reviews</h1>*/}
       {/*</div>*/}
 
-      <div className="grid w-full grid-cols-1 text-center gap-8 p-8 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid w-full grid-cols-1 text-center gap-4 lg:gap-8 p-4 lg:p-8 sm:grid-cols-2 lg:grid-cols-3">
         <LinkCard
             img="/review-cards/shoe.webp"
             link="/reviews/shoes"
@@ -74,7 +74,7 @@ export default function Reviews() {
 
         />
       </div>
-      <h1 className="w-full p-2 text-6xl text-center text-white slanted bg-ronchi-600">
+      <h1 className="w-full p-2 text-5xl md:text-6xl text-center text-white slanted bg-ronchi-600">
         Reviews
       </h1>
 

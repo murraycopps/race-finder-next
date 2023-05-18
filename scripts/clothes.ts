@@ -105,7 +105,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/boa-logo.png",
         link: "https://www.runningwarehouse.com/BOA_Mens_Singlet_/descpage-BOAMSAL.html?color=rd",
         brandLink: "https://www.boafit.com/",
-        review: "stuff",
+        review: "The BOA Men's Singlet is a versatile and reliable piece of apparel designed for training and racing. Priced at $30, it offers excellent value for its performance and quality. With a rating of 4 stars, this singlet is highly regarded by athletes.\n" +
+            "\n" +
+            "The singlet is designed for both training and racing, making it a suitable choice for various activities and distances. Whether you're hitting the track, running on the road, or participating in a race, this singlet provides the comfort and functionality you need to perform at your best.\n" +
+            "\n" +
+            "Designed by BOA, a trusted brand in athletic apparel, this singlet is made with quality materials to ensure durability and comfort. The brand logo, featuring BOA's distinctive emblem, adds to the overall aesthetic appeal of the singlet.\n" +
+            "\n" +
+            "The BOA Men's Singlet offers a lightweight and breathable design, allowing for optimal airflow and ventilation. The moisture-wicking fabric helps keep you dry by quickly moving sweat away from your skin, ensuring a comfortable running experience even during intense workouts.\n" +
+            "\n" +
+            "With its comfortable fit and performance-oriented design, the BOA Men's Singlet allows for unrestricted movement and reduces chafing or irritation. Its sleek and stylish look adds to its appeal, making you feel confident and ready to tackle your training sessions or races.\n" +
+            "\n" +
+            "In summary, the BOA Men's Singlet is a versatile and high-performance option for both training and racing. Its comfortable fit, moisture-wicking properties, and trusted brand reputation make it a reliable choice for athletes seeking optimal performance and comfort. Invest in this singlet to experience its quality and functionality during your workouts and races.",
         id: 'boa-mens-singlet',
         type: "clothes",
         clotheType: "singlet",
@@ -123,7 +133,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Mens_Core_Dri-FIT_ADV_Aeroswift_Half_Tight_/descpage-NMCAWHT.html?color=bk",
         brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-        review: "stuff",
+        review: "The Nike Men's Core Dri-FIT ADV Aeroswift Half Tight is a premium spandex tight designed for training and racing. Priced at $90, it offers exceptional value for its advanced features and top-notch quality. With a perfect rating of 5 stars, this tight is highly regarded by athletes.\n" +
+            "\n" +
+            "The half tight design provides a snug and supportive fit, allowing for optimal performance during intense training sessions and races. The spandex material offers excellent stretch and flexibility, enabling a full range of motion while running. These tights are designed to provide compression benefits, aiding in muscle support and reducing fatigue.\n" +
+            "\n" +
+            "Nike, a renowned brand in athletic apparel, ensures the quality and durability of the Core Dri-FIT ADV Aeroswift Half Tight. The Nike logo, prominently displayed on the tight, represents the brand's commitment to excellence and performance.\n" +
+            "\n" +
+            "The tight features Nike's Dri-FIT technology, which efficiently wicks away moisture, keeping you dry and comfortable throughout your workouts. The advanced AeroSwift fabric provides lightweight breathability and optimal airflow, enhancing ventilation and regulating your body temperature.\n" +
+            "\n" +
+            "Whether you're training for a race or pushing your limits in a competition, the Nike Men's Core Dri-FIT ADV Aeroswift Half Tight is a reliable choice. Its comfortable fit, moisture-wicking properties, and advanced features make it an essential piece of apparel for serious runners.\n" +
+            "\n" +
+            "In summary, the Nike Men's Core Dri-FIT ADV Aeroswift Half Tight combines cutting-edge technology, comfort, and style to elevate your training and racing experience. With Nike's trusted brand reputation, attention to detail, and exceptional performance, these tights are a worthwhile investment for runners seeking the best in performance apparel.",
         id: 'nike-mens-core-dri-fit-adv-aeroswift-half-tight',
         type: "clothes",
         clotheType: "spandex",
@@ -141,7 +161,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Mens_Dri-FIT_ADV_Aeroswift_Tight_Black_White/descpage-NMCASTG.html?color=",
         brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-        review: "stuff",
+        review: "The Nike Men's Dri-FIT ADV Aeroswift Tight is a high-performance full-length tight designed for training and racing. Priced at $125, it offers exceptional value for its advanced features and top-quality construction. With a perfect rating of 5 stars, this tight is highly regarded by athletes.\n" +
+            "\n" +
+            "Designed for both training and racing, the Nike Men's Dri-FIT ADV Aeroswift Tight provides a snug and supportive fit that allows for optimal performance. The tight is made with Nike's innovative Dri-FIT fabric, which effectively wicks away moisture, keeping you dry and comfortable during intense workouts. It also features advanced AeroSwift technology, providing lightweight breathability and enhanced airflow for optimal ventilation.\n" +
+            "\n" +
+            "The full-length design of the tight offers comprehensive coverage and support for your legs. It is made with high-quality materials to ensure durability and longevity. The Nike logo, displayed prominently on the tight, represents the brand's commitment to excellence and performance.\n" +
+            "\n" +
+            "The Nike Men's Dri-FIT ADV Aeroswift Tight is designed to provide maximum comfort and freedom of movement. It features a stretchy fabric that allows for a full range of motion, while the compression fit offers muscle support and reduces fatigue. The tight also has a sleek and stylish look, making you feel confident and ready to take on any training session or race.\n" +
+            "\n" +
+            "Whether you're going for a long run, participating in a race, or pushing your limits during intense workouts, the Nike Men's Dri-FIT ADV Aeroswift Tight is a reliable choice. Its advanced features, comfortable fit, and trusted Nike brand reputation make it an essential piece of apparel for serious athletes.\n" +
+            "\n" +
+            "In summary, the Nike Men's Dri-FIT ADV Aeroswift Tight is a top-notch choice for training and racing. Its advanced moisture-wicking technology, lightweight breathability, and supportive design make it an ideal option for runners seeking optimal performance and comfort. Invest in these tights to experience the difference they can make in your training and racing endeavors.",
         id: 'nike-mens-dri-fit-adv-aeroswift-tight',
         type: "clothes",
         clotheType: "tights",
@@ -159,7 +189,17 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Mens_Fall_2_Aeroswift_Short/descpage-NMF2ASS.html?color=",
         brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-        review: "stuff",
+        review: "The Nike Men's Fall 2\" Aeroswift Short is a high-performance short designed for training and racing. Priced at $80, it offers excellent value for its advanced features and quality craftsmanship. With a rating of 4 stars, this short is highly regarded by athletes.\n" +
+            "\n" +
+            "Designed for both training and racing, the Nike Men's Fall 2\" Aeroswift Short provides a comfortable and supportive fit. The 2\" inseam offers freedom of movement while still providing sufficient coverage. The short is made with Nike's innovative AeroSwift technology, which combines lightweight breathability and moisture-wicking properties to keep you cool and dry during intense workouts.\n" +
+            "\n" +
+            "The short is crafted from high-quality materials to ensure durability and longevity. It features an elastic waistband with an adjustable drawcord for a personalized fit. The Nike logo, displayed prominently on the short, represents the brand's commitment to excellence and performance.\n" +
+            "\n" +
+            "The Nike Men's Fall 2\" Aeroswift Short is designed to optimize your performance. It provides a lightweight and streamlined feel, allowing you to move freely and comfortably. The short also features convenient storage options with multiple pockets, so you can carry your essentials with ease.\n" +
+            "\n" +
+            "Whether you're training for a race or pushing your limits in a competition, the Nike Men's Fall 2\" Aeroswift Short is a reliable choice. Its advanced features, comfortable fit, and trusted Nike brand reputation make it an essential piece of apparel for serious athletes.\n" +
+            "\n" +
+            "In summary, the Nike Men's Fall 2\" Aeroswift Short is a top-notch option for training and racing. Its lightweight design, moisture-wicking properties, and quality construction make it an ideal choice for runners seeking optimal performance and comfort. Invest in these shorts to experience the difference they can make in your training and racing endeavors.",
         id: 'nike-mens-fall-2-aeroswift-short',
         type: "clothes",
         clotheType: "shorts",
@@ -177,7 +217,18 @@ const clothes: Clothes[] = [
         brandLogo: "/images/logos/nikeLogo.jfif",
         link: "https://www.runningwarehouse.com/Nike_Mens_Core_Dri-FIT_Phenom_Elite_Woven_Pant/descpage-NMCPEWP.html?color=",
         brandLink: "https://www.nike.com/t/dri-fit-adv-aeroswift-mens-racing-singlet-9xgk0c",
-        review: "stuff",
+        review: "\n" +
+            "The Nike Men's Core Dri-FIT Phenom Elite Woven Pant is a versatile and high-performance option for training and racing. Priced at $95, these pants offer great value for their advanced features and quality construction. With a rating of 4 stars, they come highly recommended by athletes.\n" +
+            "\n" +
+            "Designed for both training and racing, the Nike Men's Core Dri-FIT Phenom Elite Woven Pant combines functionality with style. Made with Nike's Dri-FIT technology, these pants effectively wick away sweat to keep you dry and comfortable during your workouts. The woven fabric provides durability and freedom of movement, allowing you to perform at your best.\n" +
+            "\n" +
+            "These pants feature a comfortable and adjustable fit with an elastic waistband and a drawcord. The tapered design and ankle zippers ensure a secure fit and easy on and off. Multiple pockets, including a zippered back pocket, offer convenient storage for small essentials like keys or energy gels.\n" +
+            "\n" +
+            "The Nike Men's Core Dri-FIT Phenom Elite Woven Pant is designed to optimize your performance. The sleek design and modern look make them suitable for both training sessions and casual wear. The Nike logo, displayed prominently on the pant, represents the brand's commitment to quality and performance.\n" +
+            "\n" +
+            "Whether you're going for a run, hitting the gym, or simply running errands, the Nike Men's Core Dri-FIT Phenom Elite Woven Pant is a reliable and stylish choice. Its advanced features, comfortable fit, and trusted Nike brand make it a must-have item for athletes and active individuals.\n" +
+            "\n" +
+            "In summary, the Nike Men's Core Dri-FIT Phenom Elite Woven Pant offers excellent performance and style. With their moisture-wicking properties, comfortable fit, and durable construction, these pants are perfect for training and racing. Invest in these pants to elevate your workouts and enjoy the benefits of Nike's renowned quality and innovation.",
         id: 'nike-mens-core-dri-fit-phenom-elite-woven-pant',
         type: "clothes",
         reviews: [],
