@@ -70,7 +70,6 @@ function AuthCallbackPage({ query, clientID, clientSecret, url }: Props) {
           updated.data.data[0]._id,
           expires_at,
           refresh_token,
-          true
         );
 
         router.push("/strava");
