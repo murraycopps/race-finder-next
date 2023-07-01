@@ -56,7 +56,7 @@ export default function PageWrapper(props: PageWrapperProps) {
                                             router.reload();
                                         }
                                     }}
-                                            className="absolute grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 ">
+                                            className="fixed grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 ">
                                         Logout
                                     </button>
                                 </div>

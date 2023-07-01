@@ -18,7 +18,7 @@ export default function IndexPage() {
   };
 
   return (
-    <PageWrapper page="Runner&#39;s Hub" className="fixed top-0 left-0 w-full h-full text-center bg-base">
+    <PageWrapper page="Runner&#39;s Hub" className="fixed inset-0 text-center bg-base">
         <Head>
             <title>Runner&#39;s Hub</title>
         </Head>
@@ -47,9 +47,9 @@ export default function IndexPage() {
         priority
       />
       {/* https://pngtree.com/freepng/people-running-fast_1138048.html?sol=downref&id=bef*/}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full col-span-2 gap-16 p-4 sm:w-3/4 md:w-2/3 shadow-base-800">
-        <h1 className="text-8xl text-shadow-centered-lg">Runner&#39;s Hub</h1>
-        <p className="w-3/4 text-3xl text-shadow-centered-sm">
+      <div className="relative z-10 flex flex-col items-center justify-center col-span-2 gap-16 p-4 sm:h-full h-3/4 sm:w-3/4 md:w-2/3 shadow-base-800">
+        <h1 className="text-6xl sm:text-8xl text-shadow-centered-lg">Runner&#39;s Hub</h1>
+        <p className="w-3/4 text-2xl sm:text-3xl text-shadow-centered-sm">
           Run smarter with our platform! Connect with Strava, calculate splits,
           and get gear recommendations.
         </p>
