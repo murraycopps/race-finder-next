@@ -18,7 +18,7 @@ export default function IndexPage() {
   };
 
   return (
-    <PageWrapper page="Runner&#39;s Hub" className="fixed inset-0 text-center bg-base">
+    <PageWrapper page="Runner&#39;s Hub" className="fixed top-0 left-0 w-full h-full text-center bg-base">
         <Head>
             <title>Runner&#39;s Hub</title>
         </Head>
