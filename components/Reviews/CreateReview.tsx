@@ -58,6 +58,7 @@ if(!LoginData.isLoggedIn()){
     if (ref.current) {
         ref.current.reset();
     }
+    router.reload();
     //
     // const state = {
     //     chars_left: 200,
@@ -73,11 +74,11 @@ if(!LoginData.isLoggedIn()){
 
     return (
 
-        <div className="flex flex-col relative items-center justify-center card-slant-lg gap-2 lg:col-end-5 lg:col-start-3 lg:row-start-1 lg:row-end-3">
+        <div className="relative flex flex-col items-center justify-center gap-2 card-slant-lg lg:col-end-5 lg:col-start-3 lg:row-start-1 lg:row-end-3">
             {!loggedIn && (
-                <div className="absolute inset-0 grid place-items-center z-10">
+                <div className="absolute inset-0 z-10 grid place-items-center">
 
-                <Link href={`/login?route=${route}`} className=" py-4 px-8 w-40 text-center text-2xl  rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600">Login</Link>
+                <Link href={`/login?route=${route}`} className="w-40 px-8 py-4 text-2xl text-center  rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600">Login</Link>
                 </div>
 
 
@@ -86,13 +87,13 @@ if(!LoginData.isLoggedIn()){
         <div
             className={` ${!loggedIn && "blur-sm"} flex flex-col gap-2 px-20 py-4 w-full  bg-wisteria-600 `}>
 
-            <form onSubmit={addReview} className="flex flex-col items-center gap-4 justify-evenly p-8 sm:w-full" ref={ref}>
+            <form onSubmit={addReview} className="flex flex-col items-center gap-4 p-8 justify-evenly sm:w-full" ref={ref}>
 
                 <h2 className="text-4xl font-semibold text-center">Create Review</h2>
 
                 <input type="text" name="title" id="title" required maxLength={50}
                        onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
-                       className=" w-full p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300"
+                       className="w-full p-2 text-xl placeholder-gray-300 border-2 rounded-md  bg-wisteria-600 border-wisteria-500"
                        placeholder="Title"/>
                 {/*<span className="charLeft ">*/}
                 {/*              {50 - title.length} characters*/}
@@ -102,7 +103,7 @@ if(!LoginData.isLoggedIn()){
                 <textarea value={reviewText}
                           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setReviewText(e.target.value)}
                           maxLength={250} required
-                          className="w-full h-32 p-2 text-xl bg-wisteria-600 border-2 border-wisteria-500 rounded-md placeholder-gray-300"
+                          className="w-full h-32 p-2 text-xl placeholder-gray-300 border-2 rounded-md bg-wisteria-600 border-wisteria-500"
                           placeholder="Write your review here..."></textarea>
                           <span className="charLeft ">
                               {250 - reviewText.length} characters
@@ -113,7 +114,7 @@ if(!LoginData.isLoggedIn()){
                     <StarRating rating={rating} setRating={setRating}/>
                 </div>
                 <button type="submit"
-                        className=" py-4 px-20 text-2xl font-semibold bg-ronchi-500 border-2 border-ronchi-400 rounded-md text-white">Submit
+                        className="px-20 py-4 text-2xl font-semibold text-white border-2 rounded-md  bg-ronchi-500 border-ronchi-400">Submit
                 </button>
 
             </form>
