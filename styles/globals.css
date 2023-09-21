@@ -334,7 +334,7 @@ html {
 }
 
 .home-link-card{
-  /* height: calc(100% - 3rem); */
+  height: calc(100% - 1rem);
 }
 
 .strava-left::before{
