@@ -40,12 +40,12 @@ export default function Page({
 
 
     return (
-        <PageWrapper page="Strava">
+        <PageWrapper page="Strava" className="flex flex-col items-center min-h-screen gap-16 p-8 text-center md:p-16 md:py-24">
             {loggedIn ? (
                 linked ? (
                     <StravaPage/>
                 ) : (
-                    <div className="w-screen h-screen grid place-items-center">
+                    <div className="grid w-screen h-screen place-items-center">
                         <div className="flex flex-col gap-8 text-center">
                             <h1 className="text-4xl font-bold">Link your Strava account</h1>
                             <p className="text-2xl">
