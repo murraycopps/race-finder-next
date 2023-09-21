@@ -5,9 +5,7 @@
 :root {
   --dark-base: rgb(12, 5, 33);
 }
-* {
-  border: 1px solid red !important;
-}
+
 body,
 html {
   /* background-color: rgb(31 41 55); */
