@@ -335,7 +335,6 @@ html {
 
 .home-link-card{
   /* height: calc(100% - 3rem); */
-  height: 100%;
 }
 
 .strava-left::before{
