@@ -374,3 +374,7 @@ html {
   width: clamp(50rem, 50vw, 70rem);
   max-width: 100%;
 }
+
+.tool-link{
+  grid-template-columns: minmax(0, 1fr) 2fr;
+}

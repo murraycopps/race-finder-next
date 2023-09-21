@@ -9,7 +9,7 @@ type Props = {
 export default function ToolLink({ href, name, description}: Props) {
   return (
     <Link
-      className="w-full p-4 text-center grid grid-cols-2 gap-8 rounded-2xl place-items-center justify-evenly bg-wisteria-600 hover:bg-wisteria-700"
+      className="grid w-full gap-2 px-2 py-4 text-center tool-link sm:gap-8 sm:p-4 rounded-2xl place-items-center justify-evenly bg-wisteria-600 hover:bg-wisteria-700"
       href={href}
     >
       <h2 className="text-2xl">{name}</h2>
