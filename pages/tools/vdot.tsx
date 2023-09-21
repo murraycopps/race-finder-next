@@ -104,11 +104,11 @@ export default function VDOT() {
   return (
     <PageWrapper
       page="Vdot"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Calculate Equivalent Times</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center h-3/4 justify-evenly">
+      <div className="grid sm:grid-cols-2 sm:gap-4 grow place-items-center">
+        <div className="flex flex-col items-center h-full sm:h-3/4 justify-evenly">
           <Dropdown
             items={DISTANCES}
             placeholder="Distance"
@@ -132,7 +132,7 @@ export default function VDOT() {
             }}
           />
         </div>
-        <div className="relative flex flex-col flex-wrap items-start justify-start w-full p-4 text-4xl text-left text-black whitespace-pre-wrap bg-white h-3/4 min-h-fit rounded-3xl">
+        <div className="relative flex flex-col flex-wrap items-start justify-start w-full p-4 text-4xl text-left text-black whitespace-pre-wrap bg-white h-96 sm:h-3/4 min-h-fit rounded-3xl">
           {vdot.precise !== 0 && vdot.precise < 100 && vdot.precise > 10 && (
             <p className="text-5xl">
               Vdot: {vdot.precise.toFixed(2)}

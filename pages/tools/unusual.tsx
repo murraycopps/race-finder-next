@@ -23,11 +23,11 @@ export default function Home() {
   return (
     <PageWrapper
       page="Unusual"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Convert Unusual Distances</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center h-3/4 justify-evenly">
+      <div className="grid gap-4 sm:grid-cols-2 grow place-items-center">
+        <div className="flex flex-col items-center h-full sm:h-3/4 justify-evenly">
           <input
             type="number"
             placeholder="Input Distance"
@@ -53,9 +53,9 @@ export default function Home() {
             className="w-full p-4 text-3xl text-black bg-white rounded-full"
           />
 
-          <div className="w-full grid grid-cols-3 gap-4">
+          <div className="grid w-full grid-cols-3 gap-4">
             <button
-              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+              className="p-2 text-xl text-white rounded-full sm:p-4 bg-lavender-600 hover:bg-lavender-700"
               onClick={() => {
                 setOutputDistances((oldValue) => [...oldValue, 0]);
                 if (outputDistanceRef.current)
@@ -65,7 +65,7 @@ export default function Home() {
               Add Distance
             </button>
             <button
-              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+              className="p-2 text-xl text-white rounded-full sm:p-4 bg-lavender-600 hover:bg-lavender-700"
               onClick={() => {
                 if (outputDistances.length !== 1) {
                   setOutputDistances((oldValue) => [...oldValue.slice(0, -1)]);
@@ -78,7 +78,7 @@ export default function Home() {
               Remove Distance
             </button>
             <button
-              className="p-4 text-xl text-white rounded-full bg-lavender-600 hover:bg-lavender-700"
+              className="p-2 text-xl text-white rounded-full sm:p-4 bg-lavender-600 hover:bg-lavender-700"
               onClick={() => {
                 setOutputDistances([0]);
                 outputDistanceRef.current!.value = "";
@@ -88,7 +88,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 rounded-3xl">
+        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-115 rounded-3xl">
           <p>{output.join("\n")}</p>
         </div>
       </div>

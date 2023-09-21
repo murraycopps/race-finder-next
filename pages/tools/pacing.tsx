@@ -133,13 +133,13 @@ export default function Home() {
   return (
     <PageWrapper
       page="Pacing"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Calculate Paces</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center h-3/4 justify-evenly">
+      <div className="grid sm:gap-4 sm:grid-cols-2 grow place-items-center">
+        <div className="flex flex-col items-center h-full sm:h-3/4 justify-evenly">
           {isCustomOpen ? (
-            <div className="flex flex-row items-center justify-center w-full bg-white rounded-full gap-2 overlay">
+            <div className="flex flex-row items-center justify-center w-full gap-2 bg-white rounded-full overlay">
               <input
                 type="number"
                 placeholder="Custom Distance"
@@ -174,7 +174,7 @@ export default function Home() {
               options={["Show Less", "Show More"]}
             />
         </div>
-        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-125 rounded-3xl">
+        <div className="flex flex-row flex-wrap items-start justify-between w-full p-4 text-2xl text-left text-black whitespace-pre-wrap bg-white sm:text-3xl h-125 rounded-3xl">
           <p>{output.join("\n")}</p>
           <p>{secondOutput.join("\n")}</p>
         </div>
