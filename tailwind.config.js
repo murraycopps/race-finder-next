@@ -141,7 +141,10 @@ module.exports = {
             },
             spacing: {
                 '68': '17rem',
-            }
+            },
+            lineHeight: {
+                '20': '5rem',
+            },
            
         }
 

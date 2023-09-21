@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "@/styles/ShoeList.module.css";
 
-
 type Shoe = { shoe: string; brand: string };
 type Shoes = { distance: string; shoes: Shoe[] }[];
 
@@ -12,7 +11,7 @@ export default function ShoeList({ shoes }: { shoes: Shoes }) {
   const [pastHalf, setPastHalf] = useState(false);
   return (
     <div
-      className={` bg-wisteria-600 flex-col rounded-3xl float-left gap-4 flex p-4  place-items-center overflow-x-hidden text-white ${styles.width} `}
+      className={` bg-wisteria-600 flex-col rounded-3xl float-left gap-2 flex p-4  place-items-center overflow-x-hidden text-white ${styles.width} `}
     >
       <h2 className="text-4xl font-bold text-center">Fastest Shoes</h2>
       <div className="flex flex-row items-center justify-center w-full gap-2">
@@ -48,23 +47,25 @@ export default function ShoeList({ shoes }: { shoes: Shoes }) {
         </button>
 
         <p
-          className={`w-64 text-4xl text-center ${
+          className={`w-64 text-4xl text-center min-h-20 grid items-center ${
             (left || right) && styles["fade-change"]
           }`}
         >
-          {
-            shoes[
-              pastHalf
-                ? left
-                  ? index > 0
-                    ? index - 1
-                    : shoes.length - 1
-                  : index < shoes.length - 1
-                  ? index + 1
-                  : 0
-                : index
-            ].distance
-          }
+          <span>
+            {
+              shoes[
+                pastHalf
+                  ? left
+                    ? index > 0
+                      ? index - 1
+                      : shoes.length - 1
+                    : index < shoes.length - 1
+                    ? index + 1
+                    : 0
+                  : index
+              ].distance
+            }
+          </span>
         </p>
 
         <button
