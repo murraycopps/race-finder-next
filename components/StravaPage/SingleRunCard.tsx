@@ -81,7 +81,7 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
       <div className="grid w-full grid-cols-3 col-span-2">
         <div className="flex flex-col items-center justify-start gap-2">
           <p className="text-lg">Cadence (spm)</p>
-          <p className="text-2xl">{activity.average_cadence || "--"}</p>
+          <p className="text-2xl">{activity.average_cadence * 2 || "--"}</p>
         </div>
         <div className="flex flex-col items-center justify-start gap-2">
           <p className="text-lg">Number of Steps</p>
