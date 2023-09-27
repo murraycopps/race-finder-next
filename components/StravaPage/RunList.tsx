@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import StreamCard from "./SingleRun/StreamCard";
 import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
+import SingleRideCard from "./SingleRideCard";
 
 export default function RunList({ activities }: { activities: Run[] }) {
   const [runId, setRunId] = useState(0);
@@ -30,7 +31,7 @@ export default function RunList({ activities }: { activities: Run[] }) {
     if (activity) setActivity(activity);
   }, [runId]);
   return (
-    <div className="flex flex-col items-center justify-start w-full p-4 text-center gap-8">
+    <div className="flex flex-col items-center justify-start w-full gap-8 p-4 text-center">
 
       {activities.map((activity: Run, i: number) => (
         <RunCard
@@ -46,7 +47,8 @@ export default function RunList({ activities }: { activities: Run[] }) {
             className="fixed inset-0 z-50 bg-black opacity-70"
             onClick={() => setRunId(0)}
           ></div>
-          <SingleRunCard activity={activity} close={() => setRunId(0)} />
+          {activity.type === "Run" && (<SingleRunCard activity={activity} close={() => setRunId(0)} />)}
+          {activity.type === "Ride" && (<SingleRideCard activity={activity} close={() => setRunId(0)} />)}
         </>
       )}
     </div>
