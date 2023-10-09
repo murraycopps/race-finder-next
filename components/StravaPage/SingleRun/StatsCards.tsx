@@ -117,7 +117,7 @@ const StatsCards = ({
     <div className={`flex flex-col items-center justify-center gap-4 p-8 ${numberOfStats[streamTypes[0] as keyof typeof numberOfStats] + numberOfStats[streamTypes[1] as keyof typeof numberOfStats] === 5 && "col-span-2"}`}>
           <h1 className="text-xl font-bold">Shoes</h1>
           <p className="text-2xl">
-            {activity.gear.name.replace(activity.gear.nickname || "", "") ||
+            {activity.gear?.name?.replace(activity?.gear?.nickname || "", "") ||
               "--"}
           </p>
         </div>

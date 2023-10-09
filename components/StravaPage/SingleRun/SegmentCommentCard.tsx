@@ -17,12 +17,12 @@ const SegmentsCommentsCard = ({
     setAllSegments: (b: boolean) => void;
   }) => (
     <>
-      {(activity.best_efforts.length > 0 ||
+      {(activity.best_efforts?.length > 0 ||
         activity.segment_efforts.length > 0 ||
         comments.length > 0) && (
         <div className="grid w-full gap-4 md:grid-cols-2 place-items-center">
           <div className="flex flex-col items-center justify-center w-full gap-4 p-8">
-            {activity.best_efforts.length > 0 ? (
+            {activity.best_efforts?.length > 0 ? (
               <>
                 <h2 className="my-4 text-4xl font-bold">Best Efforts</h2>
                 {activity.best_efforts
