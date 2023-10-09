@@ -1,21 +1,29 @@
 import { DetailedRun, Stream } from "@/scripts/singleRunTypes";
-import StreamCard from "./StreamCard";
 import DetailedLapsCard from "./DetailedLapsCard";
 import Graph from "./Graph";
+import { useEffect } from "react";
 
 const Laps = ({
-    activity,
-    imperialSplit,
-    setImperialSplit,
-    detailedType,
-    setDetailedType,
-  }: {
-    activity: DetailedRun;
-    imperialSplit: boolean;
-    setImperialSplit: (imperialSplit: boolean) => void;
-    detailedType: string;
-    setDetailedType: (detailedType: "laps" | "splits" | "none") => void;
-  }) => (
+  activity,
+  imperialSplit,
+  setImperialSplit,
+  detailedType,
+  setDetailedType,
+}: {
+  activity: DetailedRun;
+  imperialSplit: boolean;
+  setImperialSplit: (imperialSplit: boolean) => void;
+  detailedType: string;
+  setDetailedType: (detailedType: "laps" | "splits" | "none") => void;
+}) => {
+  useEffect(() => {
+    const closeOnEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setDetailedType("none");
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+  return (
     <>
       {(activity.laps ||
         (activity.splits_standard && activity.splits_metric)) && (
@@ -84,7 +92,6 @@ const Laps = ({
       )}
     </>
   );
-
-
+};
 
 export default Laps;

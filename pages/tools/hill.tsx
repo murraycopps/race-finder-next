@@ -23,11 +23,11 @@ export default function Home() {
   return (
     <PageWrapper
       page="hill"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Calculate Hill Pace</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center h-3/4 justify-evenly">
+      <div className="flex flex-col gap-4 pb-8 sm:grid sm:grid-cols-2 justify-evenly grow place-items-center">
+        <div className="flex flex-col items-center grow sm:h-3/4 justify-evenly">
           <p className="w-full text-3xl">
             {isPrediction ? "Time on Flat" : "Time on Hill"}
           </p>
@@ -48,7 +48,7 @@ export default function Home() {
             options={["Prediction", "Conversion"]}
           />
         </div>
-        <div className="w-full p-4 text-3xl text-left text-black bg-white h-3/4 rounded-3xl">
+        <div className="w-full p-4 text-3xl text-left text-black bg-white sm:h-3/4 rounded-3xl">
           <p>
             {isPrediction ? "Time on Hill" : "Time on Flat"}: {output}
           </p>

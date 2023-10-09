@@ -129,11 +129,11 @@ export default function Home() {
   return (
     <PageWrapper
       page="Convert"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Convert Time and Speed</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center w-full h-3/4 justify-evenly">
+      <div className="flex flex-col gap-4 pb-8 sm:grid sm:grid-cols-2 justify-evenly grow place-items-center">
+        <div className="flex flex-col items-center w-full sm:h-3/4 justify-evenly">
           {isTime ? (
             <>
               <input
@@ -178,7 +178,7 @@ export default function Home() {
             options={["Time", "Distance"]}
           />
         </div>
-        <div className="flex-row flex-wrap items-start justify-between w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white lex h-3/4 rounded-3xl">
+        <div className="flex-row flex-wrap items-start justify-between flex-1 w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white lex sm:h-3/4 rounded-3xl">
           <p>{output.join("\n")}</p>
         </div>
       </div>

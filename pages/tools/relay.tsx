@@ -22,11 +22,11 @@ export default function Home() {
   return (
     <PageWrapper
       page="Relay"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Add Times for Relay</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center gap-2 h-3/4 justify-evenly">
+      <div className="flex flex-col h-full gap-4 sm:grid sm:grid-cols-2 sm:h-auto grow place-items-center">
+        <div className="flex flex-col items-center gap-2 grow sm:grow-0 sm:h-3/4 justify-evenly">
           {times.map((time, index) => {
             return (
               <TimeInput
@@ -38,7 +38,7 @@ export default function Home() {
               />
             );
           })}
-          <div className="w-full grid grid-cols-3 gap-4">
+          <div className="grid self-end w-full grid-cols-3 gap-4">
             <button
               className="p-4 text-2xl text-white bg-blue-500 rounded-full hover:bg-blue-600"
               onClick={() => {
@@ -70,7 +70,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-3/4 rounded-3xl">
+        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white sm:h-3/4 rounded-3xl">
           <p>{output}</p>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Scoring() {
     inputRefs.forEach((ref: any) => {
       if (ref.current) ref.current.value = "";
     });
-  }, [isTrack, inputRefs]);
+  }, [isTrack]);
 
   useEffect(() => {
     if (isTrack) {
@@ -50,15 +50,15 @@ export default function Scoring() {
   return (
     <PageWrapper
       page="scoring"
-      className="flex flex-col min-h-screen p-4 text-center gap-4"
+      className="flex flex-col min-h-screen gap-4 p-4 text-center"
     >
       <h1 className="text-4xl">Calculate {isTrack ? "Track" : "XC"} Scores</h1>
-      <div className="grid grid-cols-2 gap-4 grow place-items-center">
-        <div className="flex flex-col items-center justify-between w-full gap-2 h-3/4">
+      <div className="flex flex-col gap-4 justify-evenly sm:grid sm:grid-cols-2 grow place-items-center">
+        <div className="flex flex-col items-center justify-between w-full gap-2 sm:h-3/4">
           {isTrack ? (
             <>
               {custom ? (
-                  <div className="flex flex-row items-center justify-center w-full bg-white rounded-full gap-2 overlay">
+                  <div className="flex flex-row items-center justify-center w-full gap-2 bg-white rounded-full overlay">
                     <input
                       type="number"
                       placeholder="Custom Distance"
@@ -191,7 +191,7 @@ export default function Scoring() {
           />
         </div>
 
-        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white h-3/4 rounded-3xl">
+        <div className="w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white sm:h-3/4 rounded-3xl">
           <p>{scores}</p>
         </div>
       </div>
