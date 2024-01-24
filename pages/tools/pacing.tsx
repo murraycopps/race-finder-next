@@ -143,7 +143,7 @@ export default function Home() {
               <input
                 type="number"
                 placeholder="Custom Distance"
-                className="p-4 text-3xl text-black bg-white rounded-full grow"
+                className="p-4 text-2xl text-black bg-white rounded-full sm:text-3xl grow"
                 onChange={(e) => setCustom(parseFloat(e.target.value))}
               />
               <Image
