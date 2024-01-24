@@ -62,7 +62,7 @@ export default function Scoring() {
                     <input
                       type="number"
                       placeholder="Custom Distance"
-                      className="p-4 text-3xl text-black bg-white rounded-full grow"
+                      className="p-4 text-2xl text-black bg-white rounded-full sm:text-3xl grow"
                       onChange={(e) =>
                         setNumEvents(
                           parseFloat(e.target.value ? e.target.value : "0")
@@ -76,6 +76,8 @@ export default function Scoring() {
                       }}
                       className="w-16 h-16 pr-2 cursor-pointer"
                       alt=""
+                      width="8"
+                height="8"
                     />
                   </div>
               ) : (
