@@ -43,6 +43,7 @@ const nextConfig = {
 
     return config;
   },
+  publicDir: 'public',
 
   ...withPWA({
     pwa: {
