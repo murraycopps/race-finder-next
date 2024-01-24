@@ -155,6 +155,8 @@ export default function Home() {
                 }}
                 className="w-16 h-16 pr-2 cursor-pointer"
                 alt=""
+                width="8"
+                height="8"
               />
             </div>
           ) : (
