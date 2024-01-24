@@ -3,9 +3,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon.png"></link>
-        <meta name="theme-color" content="#fff" />
+        <link rel="manifest" href="/manifest/manifest.webmanifest"></link>
+        <link rel="apple-touch-icon" href="/manifest/icon-192x192.png"></link>
+        <meta name="theme-color" content="#0c0521" />
       </Head>
       <body>
         <Main />
