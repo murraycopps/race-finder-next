@@ -79,7 +79,7 @@ export default function Dropdown({
       >
         <>
           {displayedValue(value)}
-          <span className="absolute right-0 h-full p-2 overflow-hidden rounded-full -translate-y-1/2 top-1/2 aspect-square">
+          <span className="absolute right-0 h-full p-2 overflow-hidden -translate-y-1/2 rounded-full top-1/2 aspect-square">
             <svg
               className={`w-full h-full transition-all-300 ${
                 open ? "rotate-180" : "transition-delayed"
@@ -100,7 +100,7 @@ export default function Dropdown({
         </>
       </button>
       <div
-        className={`absolute z-50 border-gray-500 text-white bg-gray-500 flex text-3xl flex-col max-h-96 overflow-y-auto items-center transition-all-300 ${
+        className={`absolute z-50 border-gray-500 text-white bg-gray-500 flex text-3xl flex-col sm:max-h-96 overflow-y-auto items-center transition-all-300 ${
           open ? "rect-clip-visible" : "rect-clip-hidden-top"
         } w-full px-4  top-full rounded-b-2xl pb-2 scrollbar-gray-800 border-2 scrollbar-m-b-2`}
       >
