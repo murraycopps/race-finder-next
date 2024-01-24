@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest/manifest.webmanifest" />
           <link rel="apple-touch-icon" href="/manifest/icon-192x192.png" />
           <link rel="icon" href="/manifest/icon-192x192.png" />
-          <link rel="icon" href="/manifest/clock-icon.ico" />
+          <link rel="icon" href="/favicon.ico" />
           <meta name="theme-color" content="#0c0521" />
         </Head>
         <body>
