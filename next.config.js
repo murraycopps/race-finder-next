@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  withPWA: {
+    pwa: {
+      dest: "public",
+      register: true,
+          disable: process.env.NODE_ENV ===      'development',
+      skipWaiting: true,
+    },
+  },
   images: {
     remotePatterns: [
       {
