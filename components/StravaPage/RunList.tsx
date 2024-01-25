@@ -1,25 +1,26 @@
 import { Run } from "@/scripts/stravaTypes";
 
 import { useEffect, useState } from "react";
-import StreamCard from "./SingleRun/StreamCard";
 import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 import SingleRideCard from "./SingleRideCard";
+import SingleRunCardMobile from "./SingleRunCardMobile";
 
 export default function RunList({ activities }: { activities: Run[] }) {
   const [runId, setRunId] = useState(0);
   const [activity, setActivity] = useState<Run | null>(null);
+  const size = useWindowSize();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-            setRunId(0);
-        }
-    }
+      if (event.key === "Escape") {
+        setRunId(0);
+      }
+    };
     document.addEventListener("keydown", handleKeyDown);
     return () => {
-        document.removeEventListener("keydown", handleKeyDown);
-    }
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -32,7 +33,6 @@ export default function RunList({ activities }: { activities: Run[] }) {
   }, [runId]);
   return (
     <div className="flex flex-col items-center justify-start w-full gap-8 p-4 text-center">
-
       {activities.map((activity: Run, i: number) => (
         <RunCard
           activity={activity}
@@ -47,10 +47,52 @@ export default function RunList({ activities }: { activities: Run[] }) {
             className="fixed inset-0 z-50 bg-black opacity-70"
             onClick={() => setRunId(0)}
           ></div>
-          {activity.type === "Run" && (<SingleRunCard activity={activity} close={() => setRunId(0)} />)}
-          {activity.type === "Ride" && (<SingleRideCard activity={activity} close={() => setRunId(0)} />)}
+          {activity.type === "Run" &&
+            (size.width > 640 ? (
+              <SingleRunCard activity={activity} close={() => setRunId(0)} />
+            ) : (
+              <SingleRunCardMobile
+                activity={activity}
+                close={() => setRunId(0)}
+              />
+            ))}
+          {activity.type === "Ride" && (
+            <SingleRideCard activity={activity} close={() => setRunId(0)} />
+          )}
         </>
       )}
     </div>
   );
+}
+// Hook
+
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
 }

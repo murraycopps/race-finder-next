@@ -16,7 +16,7 @@ export default function ProfileCard({
 }) {
 
   return (
-    <div className="z-10 flex flex-col w-full grid-cols-2 gap-8 p-8 lg:gap-0 lg:grid place-items-center bg-faded-base-500">
+    <div className="z-10 flex flex-col w-full grid-cols-2 gap-8 p-8 pt-16 sm:pt-8 lg:gap-0 lg:grid place-items-center bg-faded-base-500">
       <div className="flex flex-row items-center justify-center gap-8">
         <Image
           src={data.profile}

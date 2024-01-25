@@ -1,15 +1,15 @@
 const CACHE_NAME = 'my-cache';
 const urlsToCache = [
-    '/',
-    '/home',
-    '/tools',
-    '/tools/convert',
-    '/tools/hill',
-    '/tools/pacing',
-    '/tools/relay',
-    '/tools/scoring',
-    '/tools/unusual',
-    '/tools/vdot',
+    // '/',
+    // '/home',
+    // '/tools',
+    // '/tools/convert',
+    // '/tools/hill',
+    // '/tools/pacing',
+    // '/tools/relay',
+    // '/tools/scoring',
+    // '/tools/unusual',
+    // '/tools/vdot',
 
 ];
 

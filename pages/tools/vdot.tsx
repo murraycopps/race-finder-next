@@ -132,13 +132,13 @@ export default function VDOT() {
             }}
           />
         </div>
-        <div className="relative flex flex-col flex-wrap items-start justify-start w-full p-4 text-4xl text-left text-black whitespace-pre-wrap bg-white h-96 sm:h-3/4 min-h-fit rounded-3xl">
+        <div className="relative flex flex-wrap items-start justify-start w-full p-4 text-3xl text-left text-black whitespace-pre-wrap bg-white -row sm:flex-col sm:text-4xl min-h-96 sm:h-3/4 rounded-3xl">
           {vdot.precise !== 0 && vdot.precise < 100 && vdot.precise > 10 && (
             <p className="text-5xl">
               Vdot: {vdot.precise.toFixed(2)}
             </p>
           )}
-          <p className="output-text vdot-output">{output.join("\n")}</p>
+          <p className="">{output.join("\n")}</p>
 
         </div>
       </div>

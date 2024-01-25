@@ -22,8 +22,8 @@ export default function TimeInput({
     setSec(Math.round(time % 60 * 10000) / 10000);
   }, [time]);
   return (
-    <div className="text-3xl text-black grid grid-cols-3">
-      <div className="relative w-full h-full">
+    <div className="grid grid-cols-3 text-3xl text-black">
+      <div className="relative w-full">
         <input
           type="number"
           placeholder="Hour"
@@ -39,7 +39,7 @@ export default function TimeInput({
         />
         <span className="absolute right-0 z-10 text-4xl translate-x-1/2 bottom-4">:</span>
       </div>
-      <div className="relative w-full h-full">
+      <div className="relative w-full">
         <input
           type="number"
           placeholder="Min"

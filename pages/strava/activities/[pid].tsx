@@ -121,7 +121,7 @@ export default function ActivityPage() {
   return (
     <PageWrapper
       page={activity?.name || "Activity"}
-      className="flex flex-col items-center justify-start h-screen gap-16 p-8 overflow-y-auto text-center sm:p-16"
+      className="flex flex-col items-center justify-start h-screen gap-16 p-8 pt-16 overflow-y-auto text-center sm:pt-8 sm:p-16"
     >
       <div className="flex items-center w-full justify-evenly">
         <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{activity?.name}</h1>
