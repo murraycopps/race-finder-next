@@ -1,19 +1,18 @@
 import { useRouter } from "next/router";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { User } from "@/scripts/types";
 import PageWrapper from "@/components/PageWrapper";
 import LoginData from "@/scripts/LoginData";
 
 const generateRoute = (route: string | string[] | undefined) => {
-  if(typeof route === "string"){
-
-  //   check if route is a valid route
-    if(route.charAt(0) === "/") return route
+  if (typeof route === "string") {
+    //   check if route is a valid route
+    if (route.charAt(0) === "/") return route;
   }
-  return "/home"
-}
+  return "/home";
+};
 
 export default function LoginPage({
   clientId,
@@ -31,8 +30,8 @@ export default function LoginPage({
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [popup, setPopup] = useState(false);
-  const [insertedId, setInsertedId] = useState("")
-
+  const [insertedId, setInsertedId] = useState("");
+  const [stayLoggedIn, setStayLoggedIn] = useState(false);
 
   async function handleClick() {
     // check if username is used and if it is a new user
@@ -59,18 +58,20 @@ export default function LoginPage({
         username: username,
         password: password,
         goals: [],
-        linked: false
+        linked: false,
       })
       .then((response) => {
-          setPopup(true)
-        setInsertedId(response.data.data.insertedId)
+        setPopup(true);
+        setInsertedId(response.data.data.insertedId);
         LoginData.Login(
-            "",
-            username,
-             [],
-            response.data.data.insertedId,
-            0,
-             "");
+          "",
+          username,
+          [],
+          response.data.data.insertedId,
+          0,
+          "",
+          stayLoggedIn
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -104,6 +105,13 @@ export default function LoginPage({
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <button
+          className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"
+          type="button"
+          onClick={() => setStayLoggedIn(!stayLoggedIn)}
+        >
+          Click to {stayLoggedIn ? "Don't Stay Logged In" : "Stay Logged In"}
+        </button>
         {errorMessage && <p className="text-red-500 ">{errorMessage}</p>}
         <button
           className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"
@@ -113,12 +121,11 @@ export default function LoginPage({
           Create Account
         </button>
       </form>
-      {
-        popup && (
-            <>
-              <div className="fixed inset-0 opacity-50 bg-base" />
-              <div className="fixed flex flex-col items-center gap-4 p-4 w-128 h-128 bg-faded-base-300 rounded-3xl justify-evenly">
-                {/*  if(linkToStrava)
+      {popup && (
+        <>
+          <div className="fixed inset-0 opacity-50 bg-base" />
+          <div className="fixed flex flex-col items-center gap-4 p-4 w-128 h-128 bg-faded-base-300 rounded-3xl justify-evenly">
+            {/*  if(linkToStrava)
           router.push(
             `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/strava/data?_id=${response.data.data.insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`
         );
@@ -129,23 +136,30 @@ export default function LoginPage({
           else
             router.push('/home')
         }*/}
-                <h3 className="text-4xl">Account Created</h3>
-                <div className="grid w-full grid-cols-2 gap-4 px-6 text-2xl text-center">
-                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/strava/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`} >
-                      Link to Strava
-                  </Link>
-                  <Link className="py-2 bg-ronchi-600 card-slant-sm"  href={generateRoute(router.query.route)}  >
-                    Continue
-                  </Link>
-                </div>
-              </div>
-            </>
-          )
-      }
+            <h3 className="text-4xl">Account Created</h3>
+            <div className="grid w-full grid-cols-2 gap-4 px-6 text-2xl text-center">
+              <Link
+                className="py-2 bg-ronchi-600 card-slant-sm"
+                href={`https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${url}/strava/data?_id=${insertedId}&approval_prompt=force&scope=activity:read_all,read,profile:read_all,read_all`}
+              >
+                Link to Strava
+              </Link>
+              <Link
+                className="py-2 bg-ronchi-600 card-slant-sm"
+                href={generateRoute(router.query.route)}
+              >
+                Continue
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
       <Link
         className="px-4 py-2 mt-4 font-bold text-center text-white rounded-md bg-faded-base-300 run-field-sizing hover:bg-faded-base-200 focus:outline-none focus:shadow-outline"
         type="button"
-        href={`/login${router.query.route ? `?route=${router.query.route}` : ""}`}
+        href={`/login${
+          router.query.route ? `?route=${router.query.route}` : ""
+        }`}
       >
         Already have an account? Click here to Login
       </Link>

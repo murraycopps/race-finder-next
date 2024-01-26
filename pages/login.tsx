@@ -22,6 +22,7 @@ export default function LoginPage({
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [stayLoggedIn, setStayLoggedIn] = useState(false);
 
   async function handleClick() {
     // check if username and password are valid
@@ -31,64 +32,58 @@ export default function LoginPage({
     );
 
     if (user) {
-     if(user.expiresAt && new Date(user.expiresAt * 1000) < new Date()){
+      if (user.expiresAt && new Date(user.expiresAt * 1000) < new Date()) {
+        const refreash = async () => {
+          const { access_token, refresh_token, expires_at } =
+            await refreshToken(user.refreshToken);
+          axios.put(`${url}/api/users`, {
+            _id: user._id,
+            accessToken: access_token,
+            refreshToken: refresh_token,
+            expiresAt: expires_at,
+          });
 
-         const refreash = async () => {
-           const {access_token, refresh_token, expires_at} = await refreshToken(
-               user.refreshToken
-           );
-           axios.put(`${url}/api/users`, {
-             _id: user._id,
-             accessToken: access_token,
-             refreshToken: refresh_token,
-             expiresAt: expires_at,
-           });
+          LoginData.Login(
+            access_token,
+            username,
+            user.goals || [],
+            user._id,
+            expires_at,
+            refresh_token,
+            stayLoggedIn
+          );
+          const generateRoute = (route: string | string[] | undefined) => {
+            if (typeof route === "string") {
+              //   check if route is a valid route
+              if (route.charAt(0) === "/") return route;
+            }
+            return "/home";
+          };
 
-           LoginData.Login(
-               access_token,
-               username,
-               user.goals || [],
-               user._id,
-               expires_at,
-               refresh_token
-           );
-           const generateRoute = (route: string | string[] | undefined) => {
-             if(typeof route === "string"){
+          router.push(generateRoute(router.query.route || "/home"));
+        };
+        refreash();
+      } else {
+        LoginData.Login(
+          user.accessToken || "",
+          username,
+          user.goals || [],
+          user._id,
+          user.expiresAt || 0,
+          user.refreshToken || "",
+          stayLoggedIn
+        );
 
-               //   check if route is a valid route
-               if(route.charAt(0) === "/") return route
-             }
-             return "/home"
-           }
+        const generateRoute = (route: string | string[] | undefined) => {
+          if (typeof route === "string") {
+            //   check if route is a valid route
+            if (route.charAt(0) === "/") return route;
+          }
+          return "/home";
+        };
 
-           router.push(generateRoute(router.query.route || "/home"));
-
-         }
-            refreash()
-
-
+        router.push(generateRoute(router.query.route || "/home"));
       }
-      else{
-       LoginData.Login(
-           user.accessToken || "",
-           username,
-           user.goals || [],
-           user._id,
-           user.expiresAt || 0,
-           user.refreshToken || ""
-       );
-
-       const generateRoute = (route: string | string[] | undefined) => {
-         if(typeof route === "string"){
-
-           //   check if route is a valid route
-           if(route.charAt(0) === "/") return route
-         }
-         return "/home"
-       }
-
-       router.push(generateRoute(router.query.route || "/home"));
-     }
     } else {
       setErrorMessage("Incorrect username or password");
     }
@@ -127,7 +122,14 @@ export default function LoginPage({
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
-        {errorMessage && <p className="text-red-500 ">{errorMessage}</p> }
+        <button
+          className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"
+          type="button"
+          onClick={() => setStayLoggedIn(!stayLoggedIn)}
+        >
+          Click to {stayLoggedIn ? "Don't Stay Logged In" : "Stay Logged In"}
+        </button>
+        {errorMessage && <p className="text-red-500 ">{errorMessage}</p>}
         <button
           className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 focus:outline-none focus:shadow-outline"
           type="button"
@@ -140,7 +142,9 @@ export default function LoginPage({
       <Link
         className="px-4 py-2 mt-4 font-bold text-center rounded-md bg-faded-base-300 run-field-sizing hover:bg-faded-base-200 focus:outline-none focus:shadow-outline"
         type="button"
-        href={`/create-account${router.query.route ? `?route=${router.query.route}` : ""}`}
+        href={`/create-account${
+          router.query.route ? `?route=${router.query.route}` : ""
+        }`}
       >
         Need an account? Click here to create one
       </Link>

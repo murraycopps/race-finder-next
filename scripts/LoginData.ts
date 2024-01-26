@@ -11,8 +11,9 @@ export default class LoginData {
     static goals: Goal[] = []
     static _id: string = ''
     static refreshToken = ''
+    static stayLoggedIn = false
 
-    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string) {
+    static Login(accessToken: string, username: string, goals: Goal[], id: string, expiresAt: number, refresh_token: string, stay_logged_in = false) {
         this.loggedIn = true
         this.accessToken = accessToken
         this.username = username
@@ -21,16 +22,30 @@ export default class LoginData {
         this.expiresAt = expiresAt
         this.refreshToken = refresh_token
         this.linked = this.accessToken !== ''
+        this.stayLoggedIn = stay_logged_in
 
         setToken(accessToken)
 
-        sessionStorage.setItem("accessToken", this.accessToken)
-        sessionStorage.setItem("username", this.username)
-        sessionStorage.setItem("goals", JSON.stringify(this.goals))
-        sessionStorage.setItem("id", this._id)
-        sessionStorage.setItem("expiresAt", this.expiresAt.toString())
-        sessionStorage.setItem("refreshToken", this.refreshToken)
-        sessionStorage.setItem("linked", this.linked.toString())
+
+        if (stay_logged_in) {
+            localStorage.setItem("accessToken", this.accessToken)
+            localStorage.setItem("username", this.username)
+            localStorage.setItem("goals", JSON.stringify(this.goals))
+            localStorage.setItem("id", this._id)
+            localStorage.setItem("expiresAt", this.expiresAt.toString())
+            localStorage.setItem("refreshToken", this.refreshToken)
+            localStorage.setItem("linked", this.linked.toString())
+            localStorage.setItem("stayLoggedIn", "true")
+        }
+        else {
+            sessionStorage.setItem("accessToken", this.accessToken)
+            sessionStorage.setItem("username", this.username)
+            sessionStorage.setItem("goals", JSON.stringify(this.goals))
+            sessionStorage.setItem("id", this._id)
+            sessionStorage.setItem("expiresAt", this.expiresAt.toString())
+            sessionStorage.setItem("refreshToken", this.refreshToken)
+            sessionStorage.setItem("linked", this.linked.toString())
+        }
     }
 
     static Logout() {
@@ -50,6 +65,14 @@ export default class LoginData {
         sessionStorage.removeItem("expiresAt")
         sessionStorage.removeItem("refreshToken")
         sessionStorage.removeItem("linked")
+
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("username")
+        localStorage.removeItem("goals")
+        localStorage.removeItem("id")
+        localStorage.removeItem("expiresAt")
+        localStorage.removeItem("refreshToken")
+        localStorage.removeItem("linked")
     }
 
     static isLoggedIn() {
@@ -66,13 +89,19 @@ export default class LoginData {
 
     static setAccessToken(token: string) {
         this.accessToken = token
-        sessionStorage.setItem("accessToken", LoginData.accessToken);
+        if (this.stayLoggedIn)
+            localStorage.setItem("accessToken", token)
+        else
+            sessionStorage.setItem("accessToken", token)
         setToken(token)
-    } 
-    
+    }
+
     static setRefreshToken(token: string) {
         this.refreshToken = token
-        sessionStorage.setItem("refreshToken", LoginData.refreshToken);
+        if (this.stayLoggedIn)
+            localStorage.setItem("refreshToken", token)
+        else
+            sessionStorage.setItem("refreshToken", token)
     }
 
     static getUsername() {
@@ -82,7 +111,7 @@ export default class LoginData {
     static getGoals() {
         return this.goals
     }
-    static getLinked () {
+    static getLinked() {
         return this.linked
     }
 
@@ -139,19 +168,24 @@ export default class LoginData {
         return this._id
     }
 
+   
+
     static async getStorage() {
         if (this.loggedIn) return
 
-        this.accessToken = sessionStorage.getItem("accessToken") || ''
-        this.username = sessionStorage.getItem("username") || ''
+        this.accessToken = localStorage.getItem("accessToken") || sessionStorage.getItem("accessToken") || ''
+        this.username = localStorage.getItem("username") || sessionStorage.getItem("username") || ''
         this.goals = JSON.parse(sessionStorage.getItem("goals") || '{}')
-        this._id = sessionStorage.getItem("id") || ''
-        this.expiresAt = Number(sessionStorage.getItem("expiresAt") || 0)
-        this.refreshToken = sessionStorage.getItem("refreshToken") || ''
-        this.linked = sessionStorage.getItem("linked") ===  "true"
+        this._id = localStorage.getItem("id") || sessionStorage.getItem("id") || ''
+        this.expiresAt = Number(localStorage.getItem("expiresAt") || sessionStorage.getItem("expiresAt") || '0')
+        this.refreshToken = localStorage.getItem("refreshToken") || sessionStorage.getItem("refreshToken") || ''
+        this.linked = localStorage.getItem("linked") === "true" || sessionStorage.getItem("linked") === "true"
+
+        this.stayLoggedIn = localStorage.getItem("stayLoggedIn") === "true"
+
         console.log(this.linked)
 
-        if(this.accessToken){
+        if (this.accessToken) {
             console.log("linked")
             this.linked = true
         }
@@ -162,9 +196,16 @@ export default class LoginData {
             this.accessToken = res.access_token
             this.expiresAt = res.expires_at
             this.refreshToken = res.refresh_token
-            sessionStorage.setItem("accessToken", this.accessToken)
-            sessionStorage.setItem("expiresAt", this.expiresAt.toString())
-            sessionStorage.setItem("refreshToken", this.refreshToken)
+            if (this.stayLoggedIn) {
+                localStorage.setItem("accessToken", this.accessToken)
+                localStorage.setItem("expiresAt", this.expiresAt.toString())
+                localStorage.setItem("refreshToken", this.refreshToken)
+            }
+            else {
+                sessionStorage.setItem("accessToken", this.accessToken)
+                sessionStorage.setItem("expiresAt", this.expiresAt.toString())
+                sessionStorage.setItem("refreshToken", this.refreshToken)
+            }
         }
 
 
