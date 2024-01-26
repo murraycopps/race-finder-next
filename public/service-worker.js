@@ -2,6 +2,9 @@ const CACHE_NAME = 'my-cache';
 const urlsToCache = [
     '/',
     '/home',
+    '/create-account',
+    '/login',
+    '/strava',
     '/tools',
     '/tools/convert',
     '/tools/hill',
