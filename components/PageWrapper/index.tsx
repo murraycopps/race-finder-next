@@ -44,56 +44,59 @@ export default function PageWrapper(props: PageWrapperProps) {
       </Head>
       <header>
         <Navbar />
-        {!route.includes("login") && !route.includes("create-account") ? (
-          <div className="relative">
-            {loggedIn ? (
-              <div className="absolute grid w-20 h-10 grid-cols-2 gap-4 text-white z-100 top-2 right-5 sm:hidden">
-                <button onClick={() => router.back()}>
-                  <svg
-                    className={`w-full h-full rotate-90`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 10L12 15L17 10"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button onClick={() => {
-                    window.history.forward()
-                }}>
-                  <svg
-                    className={`w-full h-full -rotate-90`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7 10L12 15L17 10"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            ) : (
-              !props?.loginPage && (
-                <Link
-                  href={`/login${route ? `?route=${route}` : ""}`}
-                  className="fixed grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
+
+        <div className="relative">
+          {loggedIn ||
+          (route.includes("login") && !route.includes("create-account")) ? (
+            <div className="absolute grid w-20 h-10 grid-cols-2 gap-4 text-white z-100 top-2 right-5 sm:hidden">
+              <button onClick={() => router.back()}>
+                <svg
+                  className={`w-full h-full rotate-90`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Login
-                </Link>
-              )
-            )}
-            {/* {!loggedIn && (
+                  <path
+                    d="M7 10L12 15L17 10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                onClick={() => {
+                  window.history.forward();
+                }}
+              >
+                <svg
+                  className={`w-full h-full -rotate-90`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 10L12 15L17 10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          ) : (
+            !props?.loginPage && (
+              <Link
+                href={`/login${route ? `?route=${route}` : ""}`}
+                className="fixed grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
+              >
+                Login
+              </Link>
+            )
+          )}
+          {/* {!loggedIn && (
               <Link
                 href={`/login${route ? `?route=${route}` : ""}`}
                 className="fixed grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
@@ -101,15 +104,7 @@ export default function PageWrapper(props: PageWrapperProps) {
                 Login
               </Link>
             )} */}
-          </div>
-        ) : (
-          <Link
-            href={generateRoute(router.query.route)}
-            className="absolute grid h-10 px-6 text-lg transform -translate-y-1/2 place-items-center right-4 rounded-xl hover:rounded-3xl transition-all-300 bg-rose-500 hover:bg-rose-600 z-100 top-10 "
-          >
-            Back
-          </Link>
-        )}
+        </div>
       </header>
       <main {...props} />
     </>
