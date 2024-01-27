@@ -5,8 +5,37 @@ import RunCard from "./RunCard";
 import SingleRunCard from "./SingleRunCard";
 import SingleRideCard from "./SingleRideCard";
 import SingleRunCardMobile from "./SingleRunCardMobile";
+import { getActivities } from "@/lib/strava";
 
-export default function RunList({ activities }: { activities: Run[] }) {
+// const addPage = async (numActivities: number) => {
+//   const nextPage = numActivities / 50 + 1;
+//   const activities: Run[] = [];
+//   for(let i = 0; i < nextPage; i++) {
+//     activities.push(...await getActivities(i))
+//   }
+//   return activities;
+// };
+const addPage = async (numActivities: number) => {
+  const nextPage = numActivities / 50 + 1;
+  const promises: Promise<Run[]>[] = [];
+
+  for (let i = 0; i < nextPage; i++) {
+    promises.push(getActivities(i + 1));
+  }
+
+  const activitiesArrays = await Promise.all(promises);
+  const activities = activitiesArrays.flat();
+
+  return activities;
+};
+
+export default function RunList({
+  activities,
+  setActivities,
+}: {
+  activities: Run[];
+  setActivities: (activities: Run[]) => void;
+}) {
   const [runId, setRunId] = useState(0);
   const [activity, setActivity] = useState<Run | null>(null);
   const size = useWindowSize();
@@ -37,10 +66,20 @@ export default function RunList({ activities }: { activities: Run[] }) {
         <RunCard
           activity={activity}
           key={i}
-          displayMap={i < 10}
+          // displayMap={i < 10}
+          displayMap={true}
           setRunId={setRunId}
         />
       ))}
+      <button
+        className="px-4 py-2 text-2xl font-bold text-white rounded-md bg-slate-400"
+        onClick={async () => {
+          const newActivities = await addPage(activities.length);
+          setActivities(newActivities);
+        }}
+      >
+        Load More
+      </button>
       {runId !== 0 && activity && (
         <>
           <div

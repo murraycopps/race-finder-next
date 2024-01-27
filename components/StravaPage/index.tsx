@@ -1,7 +1,7 @@
 import LoginData from "@/scripts/LoginData";
 import { Athlete, Run, Stats } from "@/scripts/stravaTypes";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import LeftSide from "./LeftSide";
 import ProfileCard from "./ProfileCard";
 import RightSide from "./RightSide";
@@ -19,6 +19,11 @@ export default function StravaPage() {
   const [activities, setActivities] = useState<Run[]>([]);
   const [stats, setStats] = useState<Stats>();
 
+
+  useEffect(() => {
+    console.log(activities.length);
+  }
+  ,[activities])
 
   useEffect(() => {
     const cachedData = localStorage.getItem("data");
@@ -84,7 +89,7 @@ export default function StravaPage() {
       <ProfileCard data={data} stats={stats} activities={activities} />
       <div className="relative flex flex-row w-full lg:px-64">
         <LeftSide stats={stats} />
-        <RunList activities={activities} />
+        <RunList activities={activities} setActivities={setActivities}/>
         <RightSide data={data} />
       </div>
     </div>
