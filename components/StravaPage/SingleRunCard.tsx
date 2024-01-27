@@ -1,13 +1,17 @@
 import { outTime } from "@/scripts";
+import useScrollPrevention from "@/scripts/preventScroll";
 import { Run } from "@/scripts/stravaTypes";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+
 
 const MapWithNoSSR = dynamic(() => import("./Map"), {
   ssr: false,
 });
 
-const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }) => (
+const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }) => {
+  useScrollPrevention()
+  return (
   <div className="fixed inset-0 z-50 flex flex-col items-center justify-start gap-6 p-6 overflow-y-auto text-center rounded-lg shadow-lg lg:inset-10 bg-faded-base-500">
     <button
       className="absolute flex flex-col justify-between w-12 h-10 px-1 py-2 text-white rounded-full right-4 nav-button open top-4 lg:left-4"
@@ -113,6 +117,6 @@ const SingleRunCard = ({ activity, close }: { activity: Run; close: () => void }
       </Link>
     </div>
   </div>
-);
+)}
 
 export default SingleRunCard;
