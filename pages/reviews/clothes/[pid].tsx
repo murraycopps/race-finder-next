@@ -30,15 +30,15 @@ export default function ShoesPage() {
     return (
         <PageWrapper
             page={article.name || "Shoe"}
-            className="flex flex-col w-screen h-screen p-4 sm:p-8 md:p-16 lg:px-32 gap-8 overflow-y-auto item-center"
+            className="flex flex-col w-screen min-h-screen gap-8 p-4 sm:p-8 md:p-16 lg:px-32 item-center"
         >
             <Overview item={article}/>
 
-            <h2 className="flex justify-center w-full p-4 text-3xl sm:text-4xl font-medium text-white slanted bg-ronchi-500">
+            <h2 className="flex justify-center w-full p-4 text-3xl font-medium text-white sm:text-4xl slanted bg-ronchi-500">
                 Specs/Review
             </h2>
-            <div className="flex flex-col px-8 lg:px-16 gap-8">
-                <div className="px-8 text-xl flex-wrap font-medium text-center text-white flex justify-evenly gap-8">
+            <div className="flex flex-col gap-8 px-8 lg:px-16">
+                <div className="flex flex-wrap gap-8 px-8 text-xl font-medium text-center text-white justify-evenly">
                     {/*<SpecsCard item={article}/>*/}
                     <SpecCard info={article.brand} title={"Brand"}/>
                     <SpecCard info={article.use} title={"Best Use"}/>
@@ -50,10 +50,10 @@ export default function ShoesPage() {
                 {/*<h1 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">*/}
                 {/*  Review*/}
                 {/*</h1>*/}
-                <p className="sm:text-2xl text-lg text-center whitespace-pre-wrap text-white">{article.review}</p>
+                <p className="text-lg text-center text-white whitespace-pre-wrap sm:text-2xl">{article.review}</p>
 
             </div>
-            <h2 className="flex justify-center w-full p-4 text-3xl sm:text-4xl font-medium text-white slanted bg-ronchi-500">
+            <h2 className="flex justify-center w-full p-4 text-3xl font-medium text-white sm:text-4xl slanted bg-ronchi-500">
                 User Reviews
             </h2>
             <div className="grid grid-cols-4 gap-4">

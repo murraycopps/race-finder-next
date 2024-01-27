@@ -52,7 +52,7 @@ export default function ShoesPage() {
   return (
     <PageWrapper
       page={shoe?.name || "Shoe"}
-      className="flex flex-col justify-center w-screen h-screen p-4 sm:p-8 md:p-16 lg:px-32 overflow-y-auto item-center"
+      className="flex flex-col justify-center w-screen min-h-screen p-4 sm:p-8 md:p-16 lg:px-32 item-center"
     >
       {shoe ? (
         <div className="w-full h-full p-4 rounded-lg ">
@@ -61,8 +61,8 @@ export default function ShoesPage() {
           <h2 className="flex justify-center w-full p-4 text-4xl font-medium text-white slanted bg-ronchi-500">
             Specs/Review
           </h2>
-          <div className="flex flex-col p-4 col-span-2 gap-4">
-            <div className="p-4 text-xl font-medium text-center text-white grid grid-cols-4 gap-12">
+          <div className="flex flex-col col-span-2 gap-4 p-4">
+            <div className="grid grid-cols-4 gap-12 p-4 text-xl font-medium text-center text-white">
               {/*<SpecsCard item={shoe}/>*/}
               <SpecCard info={shoe.brand} title={"Brand"}/>
               <SpecCard info={shoe.use} title={"Best Use"}/>
@@ -82,7 +82,7 @@ export default function ShoesPage() {
 
             </div>
 
-            <div className="flex flex-col h-full p-8 col-span-2 gap-8">
+            <div className="flex flex-col h-full col-span-2 gap-8 p-8">
 
               <p className="text-2xl text-center text-white whitespace-pre-wrap">{shoe.review}</p>
             </div>

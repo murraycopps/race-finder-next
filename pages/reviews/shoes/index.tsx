@@ -9,7 +9,7 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen h-screen gap-4 p-10 overflow-y-auto"
+      className="flex flex-col items-center justify-start w-screen min-h-screen gap-4 p-10 overflow-y-auto"
     >
       {/* <h1 className="w-full p-4 mt-8 text-4xl font-medium text-center text-white slanted bg-ronchi-600">
         Shoe Reviews
