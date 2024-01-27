@@ -110,7 +110,7 @@ export default function LoginPage({
           type="button"
           onClick={() => setStayLoggedIn(!stayLoggedIn)}
         >
-          Click to {stayLoggedIn ? "Don't Stay Logged In" : "Stay Logged In"}
+          Click to {stayLoggedIn ? "stay" : "not stay"} logged in
         </button>
         {errorMessage && <p className="text-red-500 ">{errorMessage}</p>}
         <button
