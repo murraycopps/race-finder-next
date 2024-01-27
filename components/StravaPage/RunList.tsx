@@ -16,7 +16,7 @@ import { getActivities } from "@/lib/strava";
 //   return activities;
 // };
 const addPage = async (numActivities: number) => {
-  const nextPage = numActivities / 50 + 1;
+  const nextPage = Math.floor(numActivities / 50) + 1;
   const promises: Promise<Run[]>[] = [];
 
   for (let i = 0; i < nextPage; i++) {
