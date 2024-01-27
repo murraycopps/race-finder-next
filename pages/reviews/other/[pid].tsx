@@ -27,7 +27,7 @@ export default function ShoesPage() {
   return (
     <PageWrapper
       page={item?.name || "Shoe"}
-      className="flex flex-col justify-center w-screen min-h-screen px-32 py-16 item-center"
+      className="flex flex-col justify-center w-screen min-h-screen px-32 py-16 overflow-x-hidden item-center"
     >
       {item ? (
         <div className="w-full h-full p-4 rounded-lg ">

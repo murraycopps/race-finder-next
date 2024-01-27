@@ -133,7 +133,7 @@ export default function Home() {
   return (
     <PageWrapper
       page="Pacing"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen gap-4 p-4 overflow-x-hidden text-center"
     >
       <h1 className="text-4xl">Calculate Paces</h1>
       <div className="grid sm:gap-4 sm:grid-cols-2 grow place-items-center">

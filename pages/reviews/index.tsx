@@ -40,7 +40,7 @@ export default function Reviews() {
   return (
     <PageWrapper
       page="Reviews"
-      className="flex flex-col items-center justify-start w-screen min-h-screen gap-8 p-8 sm:gap-16 sm:p-16"
+      className="flex flex-col items-center justify-start w-screen min-h-screen gap-8 p-8 overflow-x-hidden sm:gap-16 sm:p-16"
     >
       {/*<div className="relative">*/}
       {/*  <Image*/}

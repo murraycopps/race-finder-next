@@ -129,7 +129,7 @@ export default function Home() {
   return (
     <PageWrapper
       page="Convert"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen gap-4 p-4 overflow-x-hidden text-center"
     >
       <h1 className="text-4xl">Convert Time and Speed</h1>
       <div className="flex flex-col gap-4 pb-8 sm:grid sm:grid-cols-2 justify-evenly grow place-items-center">

@@ -104,7 +104,7 @@ export default function VDOT() {
   return (
     <PageWrapper
       page="Vdot"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen gap-4 p-4 overflow-x-hidden text-center"
     >
       <h1 className="text-4xl">Calculate Equivalent Times</h1>
       <div className="grid sm:grid-cols-2 sm:gap-4 grow place-items-center">

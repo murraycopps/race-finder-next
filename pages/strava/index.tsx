@@ -40,7 +40,7 @@ export default function Page({
 
 
     return (
-        <PageWrapper page="Strava" className="flex flex-col items-center min-h-screen gap-16 text-center">
+        <PageWrapper page="Strava" className="flex flex-col items-center min-h-screen gap-16 overflow-x-hidden text-center">
             {loggedIn ? (
                 linked ? (
                     <StravaPage/>

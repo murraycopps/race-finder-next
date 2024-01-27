@@ -44,10 +44,10 @@ export default function HomePage() {
   return (
     <PageWrapper
       page="Home"
-      className="flex flex-col items-center min-h-screen gap-16 p-8 text-center md:p-16 md:py-24"
+      className="flex flex-col items-center min-h-screen gap-16 p-8 overflow-x-hidden text-center md:p-16 md:py-24"
     >
       {/* <h1 className="text-4xl font-bold">Runner's Hub!</h1> */}
-      <div className="grid w-full gap-4 lg:gap-8 p-4 lg:p-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full gap-4 p-4 lg:gap-8 lg:p-8 sm:grid-cols-2 lg:grid-cols-3">
         <LinkCard
           title="Strava"
           description="Connect to Strava and view your stats"

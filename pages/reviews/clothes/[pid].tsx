@@ -30,7 +30,7 @@ export default function ShoesPage() {
     return (
         <PageWrapper
             page={article.name || "Shoe"}
-            className="flex flex-col w-screen min-h-screen gap-8 p-4 sm:p-8 md:p-16 lg:px-32 item-center"
+            className="flex flex-col w-screen min-h-screen gap-8 p-4 overflow-x-hidden sm:p-8 md:p-16 lg:px-32 item-center"
         >
             <Overview item={article}/>
 

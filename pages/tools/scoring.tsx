@@ -50,7 +50,7 @@ export default function Scoring() {
   return (
     <PageWrapper
       page="scoring"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen gap-4 p-4 overflow-x-hidden text-center"
     >
       <h1 className="text-4xl">Calculate {isTrack ? "Track" : "XC"} Scores</h1>
       <div className="flex flex-col gap-4 justify-evenly sm:grid sm:grid-cols-2 grow place-items-center">

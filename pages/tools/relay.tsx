@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <PageWrapper
       page="Relay"
-      className="flex flex-col min-h-screen gap-4 p-4 text-center"
+      className="flex flex-col min-h-screen gap-4 p-4 overflow-x-hidden text-center"
     >
       <h1 className="text-4xl">Add Times for Relay</h1>
       <div className="flex flex-col h-full gap-4 sm:grid sm:grid-cols-2 sm:h-auto grow place-items-center">

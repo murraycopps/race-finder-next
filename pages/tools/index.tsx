@@ -6,7 +6,7 @@ export default function Tools() {
   return (
     <PageWrapper
       page="Tools"
-      className="flex flex-col items-center min-h-screen gap-4 p-4 font-sans text-white sm:gap-8 justify-evenly"
+      className="flex flex-col items-center min-h-screen gap-4 p-4 overflow-x-hidden font-sans text-white sm:gap-8 justify-evenly"
     >
       <h1 className="w-full py-2 text-6xl text-center slanted bg-ronchi-600">
         Tools
