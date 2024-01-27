@@ -1,38 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Runners' Toolbox Website
 
-## Getting Started
+Welcome to the Runners' Toolbox website, a comprehensive platform designed for runners of all levels. This repository houses the source code for the website, providing various tools and features to enhance your running experience.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. [Tools for Runners](#tools-for-runners)
+   - [Pace Conversion Tool](#pace-conversion-tool)
+   - [Race Conversion Tool](#race-conversion-tool)
+   - [Relay Time Entry](#relay-time-entry)
+   - [Meet Scoring Tool](#meet-scoring-tool)
+   - [Unit Conversion](#unit-conversion)
+   - [Hill vs. Flat Time Comparison](#hill-vs-flat-time-comparison)
+2. [Strava Integration](#strava-integration)
+3. [Running Gear Reviews](#running-gear-reviews)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tools for Runners
 
-You can start editing the page by modifying `pages/Navbar.tsx`. The page auto-updates as you edit the file.
+### Pace Conversion Tool
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Easily convert your running pace between various distances and get splits.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Race Conversion Tool
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Planning your next race? Use this tool to convert your previous race times to estimate your performance in different race distances.
 
-## Learn More
+### Relay Time Entry
 
-To learn more about Next.js, take a look at the following resources:
+Coordinate with your relay team effortlessly. Enter individual leg times, and let the tool calculate your team's total time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Meet Scoring Tool
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Organize and score running meets efficiently. Input individual or team performances to get instant meet results and scores.
 
-## Deploy on Vercel
+### Unit Conversion
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Convert units related to running, including time, speed, and pace. Switch between different measurement systems with ease.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Hill vs. Flat Time Comparison
+
+Curious about how your running times compare on hills versus flat terrain? Use this tool to analyze and compare your performance.
+
+
+## Strava Integration
+
+Connect your Strava account to access advanced features. View your runs, detailed statistics, and gain insights into your training patterns through Strava API integration.
+
+
+## Running Gear Reviews
+
+Check out reviews for the latest and greatest running gear. Discover what other runners are saying about shoes, apparel, accessories, and more.
+
+Feel free to contribute your own reviews to help the running community make informed decisions about their gear.
