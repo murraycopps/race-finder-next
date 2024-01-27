@@ -26,6 +26,8 @@ const addPage = async (numActivities: number) => {
   const activitiesArrays = await Promise.all(promises);
   const activities = activitiesArrays.flat();
 
+  localStorage.setItem("activities", JSON.stringify(activities));
+
   return activities;
 };
 
