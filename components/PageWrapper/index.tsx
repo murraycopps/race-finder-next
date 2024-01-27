@@ -48,7 +48,7 @@ export default function PageWrapper(props: PageWrapperProps) {
         <div className="relative">
           {loggedIn ||
           (route.includes("login") && !route.includes("create-account")) ? (
-            <div className="absolute z-20 grid w-20 h-10 grid-cols-2 gap-4 text-white top-2 right-5 sm:hidden">
+            <div className="fixed z-20 grid w-20 h-10 grid-cols-2 gap-4 text-white top-2 right-5 sm:hidden">
               <button onClick={() => router.back()}>
                 <svg
                   className={`w-full h-full rotate-90`}
