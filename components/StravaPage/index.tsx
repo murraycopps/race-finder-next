@@ -52,17 +52,17 @@ export default function StravaPage() {
       const stats = await getStats(data.id);
 
       // if activities are in local storage find the last activity and get all activities after that
-      const cachedActivities = JSON.parse(localStorage.getItem("activities") || "");
-      if (cachedActivities && cachedActivities.length > 50) {
-        const lastActivity = activities[activities.length - 1]
-        // find the index of the last activity in the cached activities
-        const index = cachedActivities.findIndex((activity: Run) => activity.id === lastActivity.id);
-        if(index !== -1) {
-          const newActivities = cachedActivities.slice(index + 1);
-          activities.push(...newActivities);
+      // if the current date is greater then a day from the last activity
+      const cachedActivities = localStorage.getItem("activities") 
+      if (cachedActivities && expirationTime && Date.now() > +expirationTime + 86400000) {
+        const parsedActivities = JSON.parse(cachedActivities);
+        if(parsedActivities.length > 50) {
+          const lastActivity = activities[49];
+          const lastActivityIndex = parsedActivities.findIndex((activity: Run) => activity.id === lastActivity.id);
+          activities.push(...parsedActivities.slice(lastActivityIndex + 1));
+          
         }
       }
-
       setData(data);
       setActivities(activities);
       setStats(stats);

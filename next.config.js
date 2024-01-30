@@ -11,7 +11,6 @@ const nextConfig = {
         port: '',
         pathname: '/pictures/athletes/*/*/*/*',
       },
-      //                       src="https://media.licdn.com/dms/image/C4E0BAQHBmWI9w3tzog/company-logo_200_200/0/1544572615288?e=2147483647&v=beta&t=HhwAog-YBLZyc1ULuVv48MZefPUw3EHejmW25OtMwUQ"
       {
         protocol: 'https',
         hostname: 'media.licdn.com',
