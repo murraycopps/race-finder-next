@@ -26,7 +26,6 @@ export default function PageWrapper(props: PageWrapperProps) {
   const router = useRouter();
   const route = router.route.replace("[pid]", router.query.pid as string);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [forward, setForward] = useState("");
   useEffect(() => {
     const checkIfLoggedIn = async () => {
       await LoginData.getStorage();
@@ -35,7 +34,6 @@ export default function PageWrapper(props: PageWrapperProps) {
     checkIfLoggedIn();
   }, []);
 
-  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -51,7 +49,7 @@ export default function PageWrapper(props: PageWrapperProps) {
           {loggedIn ||
           (route.includes("login") && !route.includes("create-account")) ? (
             <div className="fixed z-20 grid w-20 h-10 grid-cols-2 gap-4 text-white top-2 right-5 ">
-              {/* <button onClick={() => router.back()}>
+               <button onClick={() => router.back()}>
                 <svg
                   className={`w-full h-full rotate-90`}
                   viewBox="0 0 24 24"
@@ -86,25 +84,8 @@ export default function PageWrapper(props: PageWrapperProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button> */}
-              {/* make a button that displays the username, boolean linked, accessToken, and refreshToken from LoginData*/}
-              <button
-                onClick={() => {
-                  setOpen(!open);
-                }}
-              >
-                Open
-              </button>
-              {open && <div className="fixed bottom-0 text-white bg-black z-100">
-                {LoginData.getUsername() || "No User"}
-                <br />
-                {LoginData.getLinked() || "Not Linked"}
-                <br />
-                {LoginData.getAccessToken() || "No Access Token"}
-                <br />
-                {LoginData.getRefreshToken() || "No Refresh Token"}
-
-              </div>}
+              </button> 
+             
             </div>
           ) : (
             !props?.loginPage && (
