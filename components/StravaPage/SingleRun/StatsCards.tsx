@@ -59,7 +59,7 @@ const StatsCards = ({
       <>
         <StatsCard
           name="Cadence (spm)"
-          des={activity.average_cadence || "--"}
+          des={activity.average_cadence * 2 || "--"}
         />
 
         <StatsCard
