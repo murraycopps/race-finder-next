@@ -105,13 +105,15 @@ export default function LoginPage({
           autoComplete="on"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button
-          className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"
-          type="button"
-          onClick={() => setStayLoggedIn(!stayLoggedIn)}
-        >
-          Click to {stayLoggedIn ? "stay" : "not stay"} logged in
-        </button>
+        <label className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            className="form-checkbox"
+            checked={stayLoggedIn}
+            onChange={() => setStayLoggedIn(!stayLoggedIn)}
+          />
+          <span className="ml-2 text-lg">Stay logged in</span>
+        </label>
         {errorMessage && <p className="text-red-500 ">{errorMessage}</p>}
         <button
           className="w-full px-4 py-2 font-bold text-white rounded-md bg-base-500 hover:bg-base-700 transition-all-150 focus:outline-none focus:shadow-outline"

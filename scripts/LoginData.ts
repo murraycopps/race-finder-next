@@ -182,7 +182,8 @@ export default class LoginData {
         this.linked = localStorage.getItem("linked") === "true" || sessionStorage.getItem("linked") === "true"
 
         this.stayLoggedIn = localStorage.getItem("stayLoggedIn") === "true"
-
+        
+        console.log(this.accessToken) 
         console.log(this.linked)
 
         if (this.accessToken) {
